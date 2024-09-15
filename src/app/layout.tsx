@@ -1,6 +1,15 @@
 import type { Metadata } from "next";
+import { Lato } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
+
+// Google Font
+const lato = Lato({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-lato",
+  display: "swap",
+});
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -13,10 +22,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className={lato.variable} suppressHydrationWarning>
       <body className={`antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          {children}
+          <h1 className="sr-only">Weather App</h1>
+          <div className="container">{children}</div>
         </ThemeProvider>
       </body>
     </html>
