@@ -1,5 +1,6 @@
+"use client";
 import {
-  Command,
+  CommandDialog,
   CommandEmpty,
   CommandGroup,
   CommandInput,
@@ -7,37 +8,34 @@ import {
   CommandList,
   CommandShortcut,
 } from "@/components/ui/command";
-import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog";
 import { Button } from "./ui/button";
+import useDialog from "@/hooks/useDialog";
+import suggestedCities from "@/utils/suggestedCities";
 
 export default function SearchDialog() {
+  const { open, setOpen } = useDialog();
   return (
-    <Dialog>
-      <DialogTrigger>
-        <Button
-          variant="outline"
-          className="w-80 justify-between rounded-lg border tracking-wide shadow-md"
-        >
-          Search for a city...
-          <CommandShortcut className="ml-4">⌘F</CommandShortcut>
-        </Button>
-      </DialogTrigger>
-      <DialogContent className="top-1/4 max-w-[350px] p-0">
-        <Command>
-          <CommandInput
-            className="tracking-wide"
-            placeholder="Search for a city..."
-          />
-          <CommandList>
-            <CommandEmpty>No results found.</CommandEmpty>
-            <CommandGroup heading="Suggestions:">
-              <CommandItem> San Francisco </CommandItem>
-              <CommandItem> Los Angeles </CommandItem>
-              <CommandItem> New York </CommandItem>
-            </CommandGroup>
-          </CommandList>
-        </Command>
-      </DialogContent>
-    </Dialog>
+    <>
+      <Button
+        variant="outline"
+        className="w-80 justify-between rounded-lg border p-3 tracking-wide text-muted-foreground shadow-sm"
+        size="lg"
+        onClick={() => setOpen(true)}
+      >
+        Search for a city...
+        <CommandShortcut>⌘F</CommandShortcut>
+      </Button>
+      <CommandDialog open={open} onOpenChange={setOpen}>
+        <CommandInput placeholder="Search for a city..." />
+        <CommandList>
+          <CommandEmpty>No results found.</CommandEmpty>
+          <CommandGroup heading="Suggestions">
+            {suggestedCities.map((city) => (
+              <CommandItem key={city.name}>{city.name}</CommandItem>
+            ))}
+          </CommandGroup>
+        </CommandList>
+      </CommandDialog>
+    </>
   );
 }

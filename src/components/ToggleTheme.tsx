@@ -22,18 +22,21 @@ export default function ToggleTheme() {
           <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end" className="space-y-1">
+      <DropdownMenuContent
+        align="start"
+        className="space-y-1 *:flex *:items-center *:gap-1 *:p-1"
+      >
         <DropdownMenuItem
           className={`${theme === "light" ? "bg-slate-100" : ""}`}
           onClick={() => setTheme("light")}
         >
-          Light
+          <SunIcon /> Light
         </DropdownMenuItem>
         <DropdownMenuItem
           className={`${theme === "dark" ? "bg-neutral-800" : ""}`}
           onClick={() => setTheme("dark")}
         >
-          Dark
+          <MoonIcon /> Dark
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

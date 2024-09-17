@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { Lato } from "next/font/google";
 import "./globals.css";
-import { ThemeProvider } from "@/components/ThemeProvider";
+
+import { ThemeProvider } from "@/providers/ThemeProvider";
+import { WeatherProvider } from "@/providers/WeatherProvider";
 
 // Google Font
 const lato = Lato({
@@ -26,7 +28,9 @@ export default function RootLayout({
       <body className={`antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <h1 className="sr-only">Weather App</h1>
-          <div className="container">{children}</div>
+          <div className="container">
+            <WeatherProvider>{children}</WeatherProvider>
+          </div>
         </ThemeProvider>
       </body>
     </html>
