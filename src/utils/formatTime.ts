@@ -1,9 +1,9 @@
-const formatTime = (date: Date) => {
-  return date.toLocaleTimeString("en-US", {
-    hour: "2-digit",
-    minute: "2-digit",
-    second: "2-digit",
-  });
+export const formatTimeForTimezone = (timezone: string): string => {
+  const now = new Date();
+  return new Intl.DateTimeFormat("en-US", {
+    hour: "numeric",
+    minute: "numeric",
+    second: "numeric",
+    timeZone: timezone,
+  }).format(now);
 };
-
-export default formatTime;

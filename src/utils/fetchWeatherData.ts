@@ -1,25 +1,4 @@
-type WeatherData = {
-  location: {
-    name: string;
-  };
-  current: {
-    temp_c: number;
-    condition: {
-      text: string;
-    };
-  };
-  forecast: {
-    forecastday: {
-      day: {
-        maxtemp_c: number;
-        mintemp_c: number;
-      };
-    }[];
-  };
-  alert: {
-    description: string;
-  }[];
-};
+import { WeatherData } from "@/types/weatherData";
 
 const fetchWeatherData = async (
   location: string = "cairo",
@@ -37,8 +16,8 @@ const fetchWeatherData = async (
     const timeoutId = setTimeout(() => controller.abort(), 10000);
 
     const res = await fetch(
-      `${baseUrl}/forecast.json?key=${apiKey}&q=${location}&aqi=no&days=3&alerts=yes`,
-      { signal },
+      `${baseUrl}/forecast.json?key=${apiKey}&q=${location}&aqi=no&days=6&alerts=yes`,
+      { signal, next: { revalidate: 3600 } },
     );
     clearTimeout(timeoutId);
 
@@ -47,6 +26,7 @@ const fetchWeatherData = async (
     }
 
     const data: WeatherData = await res.json();
+
     return data;
   } catch (error) {
     if (error instanceof Error) {

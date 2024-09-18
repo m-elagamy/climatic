@@ -1,5 +1,5 @@
-const getDayName = (date: Date) => {
-  return date.toLocaleDateString("en-US", { weekday: "long" });
+const getDayName = () => {
+  return new Date().toLocaleDateString("en-US", { weekday: "long" });
 };
 
 export default getDayName;

@@ -16,7 +16,7 @@ const CurrentWeather = async () => {
   return (
     <section className="space-y-2 rounded-xl border bg-white p-4 text-foreground shadow dark:bg-[#0A0A0A]">
       <h2 className="sr-only">Current Weather</h2>
-      <LiveDateTime />
+      <LiveDateTime timeZone={location.tz_id} />
       <h3 className="flex text-2xl">
         {location.name}
         <Navigation size={16} />

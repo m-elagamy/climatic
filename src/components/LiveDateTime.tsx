@@ -1,27 +1,18 @@
 "use client";
-import { useState, useEffect } from "react";
 import getDayName from "@/utils/getDayName";
-import formatTime from "@/utils/formatTime";
+import useLiveClock from "@/hooks/useLiveClock";
 
-const LiveDateTime = () => {
-  const [currentTime, setCurrentTime] = useState<Date | null>(null);
+const LiveDateTime = ({ timeZone }: { timeZone: string }) => {
+  const { time } = useLiveClock(timeZone);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentTime(new Date()); // Set the current time when the component mounts
-    }, 1000);
-
-    return () => clearInterval(interval); // Clean up the interval on unmount
-  }, []);
-
-  if (!currentTime) {
+  if (!time) {
     return <p>Loading...</p>; // render loading indicator until the component is mounted on the client-side
   }
 
   return (
     <div className="flex items-center justify-between">
-      <p>{getDayName(currentTime)}</p>
-      <p>{formatTime(currentTime)}</p>
+      <p>{getDayName()}</p>
+      <p>{time}</p>
     </div>
   );
 };
