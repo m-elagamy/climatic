@@ -16,19 +16,22 @@ const CurrentTemperature = async () => {
 
   return (
     <section className="section-style max-w-96 flex-grow">
-      <h2 className="sr-only">Current Weather</h2>
+      <h2 className="sr-only">Current Temperature</h2>
       <LiveDateTime timeZone={location.tz_id} />
       <h3 className="flex text-2xl">
         {location.name}
         <Navigation size={16} />
       </h3>
       <h4
-        className="text-center text-6xl font-bold md:text-8xl"
+        className="text-center text-5xl font-bold md:text-6xl"
         title="Current Temperature in Celsius"
       >
         {roundToNearestInteger(current.temp_c)}°
       </h4>
-      <WeatherIcon condition={current.condition.text} />
+      <WeatherIcon
+        condition={current.condition.text}
+        isDay={forecast.forecastday[0].hour[0].is_day}
+      />
       <h5>{current.condition.text}</h5>
       <div className="flex gap-1 text-sm font-semibold text-muted-foreground">
         <h6>

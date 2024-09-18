@@ -25,6 +25,17 @@ export type WeatherData = {
         maxtemp_c: number;
         mintemp_c: number;
       };
+      astro: {
+        sunrise: string;
+        sunset: string;
+        is_moon_up: boolean;
+        is_sun_up: boolean;
+      };
+      hour: {
+        time: string;
+        temp_c: number;
+        is_day: boolean;
+      }[];
     }[];
   };
 };

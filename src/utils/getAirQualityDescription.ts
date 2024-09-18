@@ -3,11 +3,12 @@ export default function getAirQualityDescription(
 ): string {
   // Define the ranges and their corresponding descriptions
   const airQualityDescriptions = {
-    0: "The air quality is excellent, enjoy your day outside!",
-    20: "The air is good, perfect for outdoor activities.",
-    40: "Air quality is moderate, sensitive groups should be cautious.",
-    60: "The air quality is poor, consider limiting your outdoor time.",
-    80: "Very poor air quality, it's best to stay indoors today.",
+    0: "The air is fresh and clean today! Enjoy your outdoor activities.",
+    20: "Air quality is acceptable, but if you're sensitive to pollution, consider limiting prolonged outdoor exertion.",
+    40: "Air quality is a bit concerning for those with respiratory issues. It's best to stay indoors if you're sensitive.",
+    60: "Today's air quality is poor. Everyone, especially those with health conditions, should avoid outdoor activities.",
+    80: "Air quality is very unhealthy. Limit outdoor exposure as much as possible for your safety.",
+    100: "The air quality is extremely dangerous today. Stay indoors and keep your windows closed.",
   };
 
   // Ensure airQualityIndex is within the valid range
@@ -30,6 +31,9 @@ export default function getAirQualityDescription(
     ];
   }
 
-  // Return the description corresponding to the found key
-  return airQualityDescriptions[key as keyof typeof airQualityDescriptions];
+  // Return the description corresponding to the found key or the default description
+  return (
+    airQualityDescriptions[key as keyof typeof airQualityDescriptions] ||
+    "Air quality data is not available at the moment. Stay safe and check again later."
+  );
 }

@@ -25,10 +25,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={lato.variable} suppressHydrationWarning>
-      <body className={`antialiased`}>
+      <body className={`tracking-wide antialiased`}>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <h1 className="sr-only">Weather App</h1>
-          <div className="container">
+          <div className="container py-4">
             <WeatherProvider>{children}</WeatherProvider>
           </div>
         </ThemeProvider>

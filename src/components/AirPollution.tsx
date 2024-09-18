@@ -23,13 +23,13 @@ const AirPollution = async () => {
   const airQualityDescription = getAirQualityDescription(airQualityIndex);
 
   return (
-    <section className="section-style flex-grow">
+    <section className="section-style max-w-96 flex-grow gap-4">
       <h2 className="title">
         <ThermometerSnowflake size={16} />
         Air Pollution
       </h2>
       <Progress value={airQualityIndex} max={100} className="progress-bar" />
-      <p>{airQualityDescription}</p>
+      <p className="text-sm md:text-base">{airQualityDescription}</p>
     </section>
   );
 };

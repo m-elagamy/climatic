@@ -6,15 +6,20 @@ import {
   CloudRain,
   CloudLightning,
   CloudSnow,
+  Moon,
+  CloudMoon,
 } from "lucide-react";
 
-export default function getIconBasedOnCondition(condition: string | undefined) {
+export default function getIconBasedOnCondition(
+  condition: string,
+  isDay?: boolean,
+) {
   switch (condition?.toLowerCase()) {
     case "sunny":
     case "clear":
-      return Sun;
+      return isDay ? Sun : Moon;
     case "partly cloudy":
-      return CloudSun;
+      return isDay ? CloudSun : CloudMoon;
     case "cloudy":
     case "overcast":
     case "mist":
@@ -39,6 +44,6 @@ export default function getIconBasedOnCondition(condition: string | undefined) {
     case "blizzard":
       return CloudSnow;
     default:
-      return Sun;
+      return isDay ? Sun : Moon;
   }
 }
