@@ -1,4 +1,5 @@
-const suggestedCities = [
+// SUGGESTED_CITIES is a list of cities that can be searched for.
+const SUGGESTED_CITIES = [
   {
     name: "London",
     lat: 51.5073509,
@@ -26,4 +27,4 @@ const suggestedCities = [
   },
 ];
 
-export default suggestedCities;
+export default SUGGESTED_CITIES;

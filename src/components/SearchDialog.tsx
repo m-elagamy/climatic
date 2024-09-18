@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/command";
 import { Button } from "./ui/button";
 import useDialog from "@/hooks/useDialog";
-import suggestedCities from "@/utils/suggestedCities";
+import SUGGESTED_CITIES from "@/utils/constants";
 
 export default function SearchDialog() {
   const { open, setOpen } = useDialog();
@@ -30,7 +30,7 @@ export default function SearchDialog() {
         <CommandList>
           <CommandEmpty>No results found.</CommandEmpty>
           <CommandGroup heading="Suggestions">
-            {suggestedCities.map((city) => (
+            {SUGGESTED_CITIES.map((city) => (
               <CommandItem key={city.name}>{city.name}</CommandItem>
             ))}
           </CommandGroup>

@@ -1,11 +1,12 @@
 import fetchWeatherData from "@/utils/fetchWeatherData";
-import LiveDateTime from "./LiveDateTime";
+import LiveDateTime from "../current-temperature/LiveDateTime";
 import roundToNearestInteger from "@/utils/roundToNearestInteger";
 import { Navigation } from "lucide-react";
-import WeatherIcon from "./WeatherIcon";
+import WeatherIcon from "../WeatherIcon";
+import type { WeatherData } from "@/types/weatherData";
 
-const CurrentWeather = async () => {
-  const weatherData = await fetchWeatherData();
+const CurrentTemperature = async () => {
+  const weatherData: WeatherData | null = await fetchWeatherData();
 
   if (!weatherData) {
     return;
@@ -14,7 +15,7 @@ const CurrentWeather = async () => {
   const { current, forecast, location } = weatherData;
 
   return (
-    <section className="space-y-2 rounded-xl border bg-white p-4 text-foreground shadow dark:bg-[#0A0A0A]">
+    <section className="section-style max-w-96 flex-grow">
       <h2 className="sr-only">Current Weather</h2>
       <LiveDateTime timeZone={location.tz_id} />
       <h3 className="flex text-2xl">
@@ -29,7 +30,7 @@ const CurrentWeather = async () => {
       </h4>
       <WeatherIcon condition={current.condition.text} />
       <h5>{current.condition.text}</h5>
-      <div className="flex gap-1 text-sm text-muted-foreground">
+      <div className="flex gap-1 text-sm font-semibold text-muted-foreground">
         <h6>
           H: {roundToNearestInteger(forecast.forecastday[0].day.maxtemp_c)}°
         </h6>
@@ -40,4 +41,4 @@ const CurrentWeather = async () => {
     </section>
   );
 };
-export default CurrentWeather;
+export default CurrentTemperature;

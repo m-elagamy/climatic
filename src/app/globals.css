@@ -66,3 +66,25 @@
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  .section-style {
+    @apply flex flex-col justify-between gap-2 rounded-xl border bg-white p-4 text-foreground shadow dark:bg-[#0A0A0A] md:gap-1;
+  }
+
+  .title {
+    @apply flex items-center gap-1 font-semibold text-muted-foreground;
+  }
+}
+
+.progress-bar {
+  background-image: linear-gradient(
+    to right,
+    rgba(58, 110, 180, 1) 0%,
+    rgba(126, 212, 87, 1) 20%,
+    rgba(248, 212, 73, 1) 40%,
+    rgba(235, 77, 96, 1) 60%,
+    rgba(180, 96, 231, 1) 80%,
+    rgba(178, 34, 34, 1) 100%
+  );
+}
