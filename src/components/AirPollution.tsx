@@ -29,7 +29,7 @@ const AirPollution = async () => {
         Air Pollution
       </h2>
       <Progress value={airQualityIndex} max={100} className="progress-bar" />
-      <p>Air Quality is {airQualityDescription}.</p>
+      <p>{airQualityDescription}</p>
     </section>
   );
 };

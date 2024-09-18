@@ -3,11 +3,11 @@ export default function getAirQualityDescription(
 ): string {
   // Define the ranges and their corresponding descriptions
   const airQualityDescriptions = {
-    0: "Excellent",
-    20: "Good",
-    40: "Moderate",
-    60: "Poor",
-    80: "Very Poor",
+    0: "The air quality is excellent, enjoy your day outside!",
+    20: "The air is good, perfect for outdoor activities.",
+    40: "Air quality is moderate, sensitive groups should be cautious.",
+    60: "The air quality is poor, consider limiting your outdoor time.",
+    80: "Very poor air quality, it's best to stay indoors today.",
   };
 
   // Ensure airQualityIndex is within the valid range

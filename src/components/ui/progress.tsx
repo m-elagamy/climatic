@@ -18,7 +18,7 @@ const Progress = React.forwardRef<
     {...props}
   >
     <ProgressPrimitive.Indicator
-      className="h-3 w-3 rounded-xl bg-primary shadow-lg shadow-white ring-2 transition-all"
+      className="h-3 w-3 rounded-xl bg-primary shadow-lg shadow-white ring-1 transition-all"
       style={{ marginLeft: `calc(${value}% - 0.8rem)` }}
     />
   </ProgressPrimitive.Root>
