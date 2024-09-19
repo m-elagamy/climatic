@@ -43,7 +43,7 @@ const WindCompass = async () => {
               transform: `translateX(-50%) translateY(-50%) rotate(${wind_degree}deg)`,
             }}
           />
-          <h3 className="absolute left-[51%] top-1/2 -translate-x-1/2 -translate-y-1/2 text-nowrap text-[12px] font-semibold">
+          <h3 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-nowrap text-[12px] font-semibold">
             {windSpeed} km/h
           </h3>
         </div>

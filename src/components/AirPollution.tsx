@@ -17,10 +17,10 @@ const AirPollution = async () => {
     current: { air_quality },
   } = weatherData;
 
-  // convert from 0-1 to 0-100.
-  const airQualityIndex = (air_quality.pm2_5 / 100) * 100;
+  // Get air quality index.
+  const airQualityIndex = air_quality.pm2_5;
 
-  // get air quality description.
+  // Get air quality description based on air quality index.
   const airQualityDescription = getAirQualityDescription(airQualityIndex);
 
   return (

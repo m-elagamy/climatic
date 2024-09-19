@@ -1,6 +1,13 @@
 import type { ElementType } from "react";
 
-const RenderSunEvent = (Icon: ElementType, time: string, label: string) => {
+const RenderSunEvent = (
+  Icon: ElementType,
+  label: string,
+  time: string,
+  SecondaryIcon: ElementType,
+  secondaryLabel: string,
+  secondaryTime: string,
+) => {
   return (
     <>
       <h2 className="title">
@@ -12,9 +19,9 @@ const RenderSunEvent = (Icon: ElementType, time: string, label: string) => {
 
       <p className="flex gap-1 text-sm">
         <span className="flex gap-1 font-semibold text-muted-foreground">
-          <Icon size={16} /> {label}
+          <SecondaryIcon size={16} /> {secondaryLabel}
         </span>
-        {time}
+        {secondaryTime}
       </p>
     </>
   );

@@ -13,12 +13,26 @@ const SunRiseSet = async () => {
   const { sunrise, sunset, is_sun_up: isSunUp } = astroData ?? {};
 
   // Render the sunrise and sunset times in the correct format.
-  const content = RenderSunEvent(Sunrise, sunrise ?? "", "Sunrise");
-  const content2 = RenderSunEvent(Sunset, sunset ?? "", "Sunset");
+  const content = RenderSunEvent(
+    Sunrise,
+    "Sunrise",
+    sunrise ?? "",
+    Sunset,
+    "Sunset",
+    sunset ?? "",
+  );
+  const content2 = RenderSunEvent(
+    Sunset,
+    "Sunset",
+    sunset ?? "",
+    Sunrise,
+    "Sunrise",
+    sunrise ?? "",
+  );
 
   return (
     <section className="section-style gap-3 self-start">
-      {astroData && <>{isSunUp ? content : content2}</>}
+      {astroData && <>{isSunUp ? content2 : content}</>}
       {!astroData && (
         <>
           <h2 className="title">Sunrise Sunset</h2>
