@@ -11,7 +11,7 @@ const LiveDateTime = ({ timeZone }: { timeZone: string }) => {
   }
 
   return (
-    <div className="flex items-center justify-between text-sm font-semibold text-muted-foreground">
+    <div className="mb-2 flex items-center justify-between text-sm font-semibold text-muted-foreground">
       <p>{getDayName()}</p>
       <p>{time}</p>
     </div>
