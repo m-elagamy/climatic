@@ -17,6 +17,9 @@ export type WeatherData = {
       pm2_5: number;
       pm10: number;
     };
+    wind_kph: number;
+    wind_degree: number;
+    wind_dir: string;
   };
 
   forecast: {

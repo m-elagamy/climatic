@@ -2,6 +2,7 @@ import AirPollution from "@/components/AirPollution";
 import CurrentTemperature from "@/components/current-temperature/CurrentTemperature";
 import Header from "@/components/Header";
 import SunRiseSet from "@/components/SunRiseSet";
+import WindCompass from "@/components/WindCompass";
 
 export default function Home() {
   return (
@@ -11,6 +12,7 @@ export default function Home() {
         <CurrentTemperature />
         <AirPollution />
         <SunRiseSet />
+        <WindCompass />
       </main>
     </>
   );

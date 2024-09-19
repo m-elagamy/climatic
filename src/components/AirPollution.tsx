@@ -7,6 +7,7 @@ import getAirQualityDescription from "@/utils/getAirQualityDescription";
 const AirPollution = async () => {
   const weatherData: WeatherData | null = await fetchWeatherData("madrid");
 
+  // TODO: Display a user-friendly error message if weatherData is null.
   if (!weatherData) {
     return;
   }

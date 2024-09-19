@@ -8,6 +8,7 @@ import type { WeatherData } from "@/types/weatherData";
 const CurrentTemperature = async () => {
   const weatherData: WeatherData | null = await fetchWeatherData();
 
+  //TODO: Display a user-friendly error message if weatherData is null.
   if (!weatherData) {
     return;
   }
