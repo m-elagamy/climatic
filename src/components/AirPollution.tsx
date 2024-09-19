@@ -5,7 +5,7 @@ import { Progress } from "./ui/progress";
 import getAirQualityDescription from "@/utils/getAirQualityDescription";
 
 const AirPollution = async () => {
-  const weatherData: WeatherData | null = await fetchWeatherData("madrid");
+  const weatherData: WeatherData | null = await fetchWeatherData();
 
   // TODO: Display a user-friendly error message if weatherData is null.
   if (!weatherData) {
@@ -24,7 +24,7 @@ const AirPollution = async () => {
   const airQualityDescription = getAirQualityDescription(airQualityIndex);
 
   return (
-    <section className="section-style max-w-96 flex-grow gap-4">
+    <section className="section-style max-w-[405px] flex-grow gap-4">
       <h2 className="title">
         <ThermometerSnowflake size={16} />
         Air Pollution

@@ -16,7 +16,7 @@ const CurrentTemperature = async () => {
   const { current, forecast, location } = weatherData;
 
   return (
-    <section className="section-style max-w-96 flex-grow">
+    <section className="section-style max-w-[405px] flex-grow">
       <h2 className="sr-only">Current Temperature</h2>
       <LiveDateTime timeZone={location.tz_id} />
       <h3 className="flex text-2xl">
