@@ -1,5 +1,10 @@
 "use client";
-import { DesktopIcon, MoonIcon, SunIcon } from "@radix-ui/react-icons";
+import {
+  DesktopIcon,
+  InfoCircledIcon,
+  MoonIcon,
+  SunIcon,
+} from "@radix-ui/react-icons";
 import { useTheme } from "next-themes";
 
 import { Button } from "@/components/ui/button";
@@ -16,7 +21,6 @@ import {
   TooltipContent,
   TooltipProvider,
 } from "@/components/ui/tooltip";
-import { Info } from "lucide-react";
 
 export default function ToggleTheme() {
   const { theme, setTheme, systemTheme } = useTheme();
@@ -57,7 +61,7 @@ export default function ToggleTheme() {
             >
               <DesktopIcon /> System
               <TooltipTrigger asChild>
-                <Info size={14} className="ml-auto" />
+                <InfoCircledIcon className="ml-auto hover:cursor-help" />
               </TooltipTrigger>
             </DropdownMenuItem>
             <TooltipContent>

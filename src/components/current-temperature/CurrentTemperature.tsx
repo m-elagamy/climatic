@@ -18,30 +18,34 @@ const CurrentTemperature = async () => {
   return (
     <section className="section-style">
       <h2 className="sr-only">Current Temperature</h2>
-      <LiveDateTime timeZone={location.tz_id} />
-      <h3 className="flex text-2xl">
-        {location.name}
-        <Navigation size={16} />
-      </h3>
+      <div>
+        <LiveDateTime timeZone={location.tz_id} />
+        <h3 className="flex text-2xl">
+          {location.name}
+          <Navigation size={16} />
+        </h3>
+      </div>
       <h4
         className="text-center text-5xl font-bold md:text-6xl"
         title="Current Temperature in Celsius"
       >
         {roundToNearestInteger(current.temp_c)}°
       </h4>
-      <WeatherIcon
-        condition={current.condition.text}
-        isDay={forecast.forecastday[0].hour[0].is_day}
-      />
-      <h5>{current.condition.text}</h5>
-      <div className="flex gap-1 text-sm font-semibold text-muted-foreground">
-        <h6>
-          H: {roundToNearestInteger(forecast.forecastday[0].day.maxtemp_c)}°
-        </h6>
-        |
-        <h6>
-          L: {roundToNearestInteger(forecast.forecastday[0].day.mintemp_c)}°
-        </h6>
+      <div className="space-y-2">
+        <WeatherIcon
+          condition={current.condition.text}
+          isDay={forecast.forecastday[0].hour[0].is_day}
+        />
+        <h5>{current.condition.text}</h5>
+        <div className="flex gap-1 text-sm font-semibold text-muted-foreground">
+          <h6>
+            H: {roundToNearestInteger(forecast.forecastday[0].day.maxtemp_c)}°
+          </h6>
+          |
+          <h6>
+            L: {roundToNearestInteger(forecast.forecastday[0].day.mintemp_c)}°
+          </h6>
+        </div>
       </div>
     </section>
   );

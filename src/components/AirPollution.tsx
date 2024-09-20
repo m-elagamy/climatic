@@ -3,6 +3,13 @@ import fetchWeatherData from "@/utils/fetchWeatherData";
 import { ThermometerSnowflake } from "lucide-react";
 import { Progress } from "./ui/progress";
 import getAirQualityDescription from "@/utils/getAirQualityDescription";
+import { InfoCircledIcon } from "@radix-ui/react-icons";
+import {
+  Tooltip,
+  TooltipTrigger,
+  TooltipContent,
+  TooltipProvider,
+} from "@/components/ui/tooltip";
 
 const AirPollution = async () => {
   const weatherData: WeatherData | null = await fetchWeatherData();
@@ -28,6 +35,17 @@ const AirPollution = async () => {
       <h2 className="title">
         <ThermometerSnowflake size={16} />
         Air Pollution
+        <TooltipProvider>
+          <Tooltip>
+            <TooltipTrigger asChild>
+              <InfoCircledIcon className="hover:cursor-help" />
+            </TooltipTrigger>
+            <TooltipContent>
+              This indicator shows the UV index: right is bad, left is good.
+              Protect yourself accordingly!
+            </TooltipContent>
+          </Tooltip>
+        </TooltipProvider>
       </h2>
       <Progress value={airQualityIndex} max={100} className="progress-bar" />
       <p className="text-sm md:text-base">{airQualityDescription}</p>
