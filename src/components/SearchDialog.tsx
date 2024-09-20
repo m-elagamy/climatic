@@ -9,11 +9,11 @@ import {
   CommandShortcut,
 } from "@/components/ui/command";
 import { Button } from "./ui/button";
-import useDialog from "@/hooks/useDialog";
+import useSearchDialog from "@/hooks/useSearchDialog";
 import SUGGESTED_CITIES from "@/utils/constants";
 
 export default function SearchDialog() {
-  const { open, setOpen } = useDialog();
+  const { open, setOpen } = useSearchDialog();
   return (
     <>
       <Button

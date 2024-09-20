@@ -16,6 +16,7 @@ import {
   TooltipContent,
   TooltipProvider,
 } from "@/components/ui/tooltip";
+import { Info } from "lucide-react";
 
 export default function ToggleTheme() {
   const { theme, setTheme, systemTheme } = useTheme();
@@ -49,17 +50,21 @@ export default function ToggleTheme() {
         </DropdownMenuItem>
         <TooltipProvider>
           <Tooltip>
-            <TooltipTrigger asChild>
-              <DropdownMenuItem
-                className={`${theme === "system" ? (systemTheme === "light" ? "bg-slate-100" : "bg-neutral-800") : ""}`}
-                onClick={() => setTheme("system")}
-                aria-label="System theme"
-              >
-                <DesktopIcon /> System
-              </DropdownMenuItem>
-            </TooltipTrigger>
+            <DropdownMenuItem
+              className={`${theme === "system" ? (systemTheme === "light" ? "bg-slate-100" : "bg-neutral-800") : ""}`}
+              onClick={() => setTheme("system")}
+              aria-label="System theme"
+            >
+              <DesktopIcon /> System
+              <TooltipTrigger asChild>
+                <Info size={14} className="ml-auto" />
+              </TooltipTrigger>
+            </DropdownMenuItem>
             <TooltipContent>
-              <p>Follows your system&#39;s light or dark mode settings.</p>
+              <p>
+                This option follows your system&#39;s light or dark mode
+                settings.
+              </p>
             </TooltipContent>
           </Tooltip>
         </TooltipProvider>

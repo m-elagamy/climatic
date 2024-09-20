@@ -1,6 +1,6 @@
 import type { ElementType } from "react";
 
-const RenderSunEvent = (
+const RenderSunriseSunset = (
   Icon: ElementType,
   label: string,
   time: string,
@@ -15,7 +15,7 @@ const RenderSunEvent = (
         {label}
       </h2>
 
-      <p className="flex-grow">{time}</p>
+      <p className="flex-grow text-lg">{time}</p>
 
       <p className="flex gap-1 text-sm">
         <span className="flex gap-1 font-semibold text-muted-foreground">
@@ -26,4 +26,4 @@ const RenderSunEvent = (
     </>
   );
 };
-export default RenderSunEvent;
+export default RenderSunriseSunset;

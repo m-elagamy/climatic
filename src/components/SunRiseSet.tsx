@@ -1,6 +1,6 @@
 import type { WeatherData } from "@/types/weatherData";
 import fetchWeatherData from "@/utils/fetchWeatherData";
-import RenderSunEvent from "@/utils/RenderSunEvent";
+import RenderSunriseSunset from "@/utils/RenderSunriseSunset";
 import { Sunrise, Sunset } from "lucide-react";
 
 const SunRiseSet = async () => {
@@ -13,7 +13,7 @@ const SunRiseSet = async () => {
   const { sunrise, sunset, is_sun_up: isSunUp } = astroData ?? {};
 
   // Render the sunrise and sunset times in the correct format.
-  const content = RenderSunEvent(
+  const content = RenderSunriseSunset(
     Sunrise,
     "Sunrise",
     sunrise ?? "",
@@ -21,7 +21,7 @@ const SunRiseSet = async () => {
     "Sunset",
     sunset ?? "",
   );
-  const content2 = RenderSunEvent(
+  const content2 = RenderSunriseSunset(
     Sunset,
     "Sunset",
     sunset ?? "",
@@ -31,7 +31,7 @@ const SunRiseSet = async () => {
   );
 
   return (
-    <section className="section-style gap-3 self-start">
+    <section className="section-style flex-grow gap-3">
       {astroData && <>{isSunUp ? content2 : content}</>}
       {!astroData && (
         <>

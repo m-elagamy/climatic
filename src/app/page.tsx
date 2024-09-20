@@ -9,14 +9,16 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="flex flex-wrap gap-4">
+      <main className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
         <CurrentTemperature />
         <div className="flex flex-col gap-4">
           <AirPollution />
           <Ultraviolet />
         </div>
-        <SunRiseSet />
-        <WindCompass />
+        <div className="flex w-fit flex-col gap-4">
+          <WindCompass />
+          <SunRiseSet />
+        </div>
       </main>
     </>
   );

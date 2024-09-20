@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-const useDialog = () => {
+const useSearchDialog = () => {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
@@ -16,4 +16,4 @@ const useDialog = () => {
   return { open, setOpen };
 };
 
-export default useDialog;
+export default useSearchDialog;

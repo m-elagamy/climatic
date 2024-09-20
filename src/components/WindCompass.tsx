@@ -13,7 +13,7 @@ const WindCompass = async () => {
   const { wind_kph: windSpeed, wind_degree } = current ?? {};
 
   return (
-    <section className="section-style self-start">
+    <section className="section-style">
       <h2 className="title mb-2">
         <Wind size={16} /> Wind
       </h2>
@@ -31,6 +31,7 @@ const WindCompass = async () => {
             width={118}
             height={119}
             priority
+            className="mx-auto"
           />
           <Image
             src="./../../images/compass_arrow.svg"

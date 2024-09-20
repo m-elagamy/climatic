@@ -1,4 +1,4 @@
-import getIconBasedOnCondition from "@/utils/getIconBasedOnCondition";
+import getWeatherIcon from "@/utils/getWeatherIcon";
 
 const WeatherIcon = ({
   condition,
@@ -7,7 +7,7 @@ const WeatherIcon = ({
   condition: string;
   isDay?: boolean;
 }) => {
-  const Icon = getIconBasedOnCondition(condition, isDay);
+  const Icon = getWeatherIcon(condition, isDay);
   return <Icon />;
 };
 export default WeatherIcon;
