@@ -1,3 +1,4 @@
+import { getCode as getCountryCode } from "country-list";
 import fetchWeatherData from "@/utils/fetchWeatherData";
 import LiveDateTime from "../current-temperature/LiveDateTime";
 import roundToNearestInteger from "@/utils/roundToNearestInteger";
@@ -21,9 +22,9 @@ const CurrentTemperature = async () => {
             <LiveDateTime timeZone={location?.tz_id} />
             <h3 className="flex items-center gap-1 text-2xl">
               {location?.name}
-
-              {/* TODO: Add country code */}
-              {/* {location.country} */}
+              <sub className="text-sm" title={location?.country}>
+                {getCountryCode(location?.country as string)}
+              </sub>
               <Navigation size={16} />
             </h3>
           </div>

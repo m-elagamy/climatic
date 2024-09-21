@@ -11,17 +11,17 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+      <main className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-4 lg:grid-cols-4">
         <CurrentTemperature />
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-8 md:gap-4">
           <FeelsLikeTemp />
           <Humidity />
         </div>
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-8 md:gap-4">
           <WindCompass />
           <SunRiseSet />
         </div>
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-8 md:gap-4">
           <AirPollution />
           <Ultraviolet />
         </div>
