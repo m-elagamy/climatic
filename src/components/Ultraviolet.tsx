@@ -23,7 +23,7 @@ const Ultraviolet = async () => {
   const shouldDisplayWarningIcon = uvAlongDay >= 7.0 && uvAlongDay > currentUv;
 
   return (
-    <section className="section-style flex-grow gap-2">
+    <article className="container-style flex-grow gap-2">
       <div className="flex items-center gap-1">
         <h2 className="title">
           <Sun size={16} /> UV Index
@@ -57,7 +57,7 @@ const Ultraviolet = async () => {
           <p>{description}</p>
         </>
       )}
-    </section>
+    </article>
   );
 };
 export default Ultraviolet;

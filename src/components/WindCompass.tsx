@@ -12,7 +12,7 @@ const WindCompass = async () => {
   const { wind_kph: windSpeed, wind_degree } = current ?? {};
 
   return (
-    <section className="section-style">
+    <article className="container-style">
       <h2 className="title mb-2">
         <Wind size={16} /> Wind
       </h2>
@@ -44,7 +44,7 @@ const WindCompass = async () => {
           </h3>
         </div>
       )}
-    </section>
+    </article>
   );
 };
 export default WindCompass;

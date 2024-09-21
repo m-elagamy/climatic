@@ -17,7 +17,7 @@ const AirPollution = async () => {
   const airQualityDescription = getAirQualityDescription(airQualityIndex);
 
   return (
-    <section className="section-style gap-4">
+    <article className="container-style gap-4">
       <div className="flex items-center gap-1">
         <h2 className="title">
           <ThermometerSnowflake size={16} />
@@ -43,7 +43,7 @@ const AirPollution = async () => {
           <p className="text-sm md:text-base">{airQualityDescription}</p>
         </>
       )}
-    </section>
+    </article>
   );
 };
 export default AirPollution;

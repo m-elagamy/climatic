@@ -14,7 +14,7 @@ const CurrentTemperature = async () => {
   const { current, forecast, location } = weatherData ?? {};
 
   return (
-    <section className="section-style h-full">
+    <section className="container-style h-full">
       <h2 className="sr-only">Current Temperature</h2>
       {!weatherData && <ErrorMessage error="Current temperature" />}
       {weatherData && (

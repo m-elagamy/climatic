@@ -18,7 +18,7 @@ const FeelsLikeTemp = async () => {
   const description = getFeelsLikeDescription(roundedFeelsLike);
 
   return (
-    <section className="section-style flex-grow">
+    <article className="container-style flex-grow">
       <h2 className="title">
         <ThermometerIcon size={16} /> Feels Like
       </h2>
@@ -29,7 +29,7 @@ const FeelsLikeTemp = async () => {
           <p>{description}</p>
         </>
       )}
-    </section>
+    </article>
   );
 };
 export default FeelsLikeTemp;

@@ -13,18 +13,18 @@ export default function Home() {
       <Header />
       <main className="grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-4 lg:grid-cols-4">
         <CurrentTemperature />
-        <div className="flex flex-col gap-8 md:gap-4">
+        <section className="flex flex-col gap-8 md:gap-4">
           <FeelsLikeTemp />
           <Humidity />
-        </div>
-        <div className="flex flex-col gap-8 md:gap-4">
+        </section>
+        <section className="flex flex-col gap-8 md:gap-4">
           <WindCompass />
           <SunRiseSet />
-        </div>
-        <div className="flex flex-col gap-8 md:gap-4">
+        </section>
+        <section className="flex flex-col gap-8 md:gap-4">
           <AirPollution />
           <Ultraviolet />
-        </div>
+        </section>
       </main>
     </>
   );

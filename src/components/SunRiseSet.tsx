@@ -27,7 +27,7 @@ const SunRiseSet = async () => {
     />
   );
   return (
-    <section className="section-style gap-3">
+    <article className="container-style gap-3">
       {!astroData && (
         <>
           <h2 className="title">Sunrise Sunset</h2>
@@ -36,7 +36,7 @@ const SunRiseSet = async () => {
       )}
 
       {astroData && content}
-    </section>
+    </article>
   );
 };
 export default SunRiseSet;
