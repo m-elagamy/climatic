@@ -1,6 +1,6 @@
 import type { WeatherData } from "@/types/weatherData";
 import fetchWeatherData from "@/utils/fetchWeatherData";
-import { getHumidityDescription } from "@/utils/getHumidityDescription";
+import { getHumidityDescriptionAndColor } from "@/utils/getHumidityDescriptionAndColor";
 import { Droplets, MessageCircleWarning, Percent } from "lucide-react";
 import ToolTip from "./ui/tooltip";
 import { InfoCircledIcon } from "@radix-ui/react-icons";
@@ -15,7 +15,7 @@ const Humidity = async () => {
 
   const avgHumidity = forecast?.forecastday[0]?.day?.avghumidity ?? 0;
 
-  const humidityDescription = getHumidityDescription(humidity);
+  const { color, description } = getHumidityDescriptionAndColor(humidity);
 
   // Show warning if average humidity differs by more than 10% from current humidity and is higher than the current humidity,
   // to avoid displaying a lower humidity in the tooltip than in the box.
@@ -50,11 +50,11 @@ const Humidity = async () => {
 
       {!!humidity && (
         <>
-          <p className="text-2xl">
+          <p className="text-2xl font-medium" style={{ color }}>
             {humidity}
             <Percent size={18} className="inline-block text-base" />
           </p>
-          <p>{humidityDescription}</p>
+          <p>{description}</p>
         </>
       )}
     </article>

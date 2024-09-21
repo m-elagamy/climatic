@@ -34,12 +34,12 @@ const CurrentTemperature = async () => {
                     href={`https://www.weatherapi.com/weather/q/${encodeURIComponent(location?.name as string)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block cursor-pointer transition-transform duration-300 hover:scale-90"
+                    className="inline-block cursor-pointer transition-transform duration-300 hover:scale-90 dark:text-blue-700"
                   >
                     <Navigation size={20} />
                   </a>
                 }
-                tooltipContent="Check weather conditions on WeatherAPI"
+                tooltipContent="Check weather conditions on WeatherAPI?"
               />
             </div>
           </div>
@@ -54,7 +54,7 @@ const CurrentTemperature = async () => {
               condition={current?.condition.text}
               isDay={forecast?.forecastday[0].hour[0].is_day}
             />
-            <h5>{current?.condition.text}</h5>
+            <h5 className="capitalize">{current?.condition.text}</h5>
             <div className="flex gap-1 text-sm font-semibold text-muted-foreground">
               <h6>
                 H:{" "}

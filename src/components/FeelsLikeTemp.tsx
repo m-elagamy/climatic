@@ -1,5 +1,5 @@
 import type { WeatherData } from "@/types/weatherData";
-import getFeelsLikeDescription from "@/utils/getFeelsLikeDescription";
+import getFeelsLikeDescriptionAndColor from "@/utils/getFeelsLikeDescriptionAndColor";
 import fetchWeatherData from "@/utils/fetchWeatherData";
 import getThermometerIcon from "@/utils/getThermometerIcon";
 import roundToNearestInteger from "@/utils/roundToNearestInteger";
@@ -15,7 +15,8 @@ const FeelsLikeTemp = async () => {
   const ThermometerIcon = getThermometerIcon(isDay);
 
   const roundedFeelsLike = roundToNearestInteger(feelsLike);
-  const description = getFeelsLikeDescription(roundedFeelsLike);
+  const { message: description, color } =
+    getFeelsLikeDescriptionAndColor(roundedFeelsLike);
 
   return (
     <article className="container-style flex-grow">
@@ -25,7 +26,9 @@ const FeelsLikeTemp = async () => {
       {!current && <ErrorMessage error="Feels like" />}
       {current && (
         <>
-          <h3 className="text-2xl">{roundedFeelsLike}°</h3>
+          <h3 className="text-2xl" style={{ color }}>
+            {roundedFeelsLike}°
+          </h3>
           <p>{description}</p>
         </>
       )}
