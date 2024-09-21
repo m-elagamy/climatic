@@ -1,34 +1,32 @@
-export default function getAirQualityDescription(airQualityIndex: number) {
+export default function getAirQualityDescription(airQualityIndex: number = 0) {
   const pm25Thresholds = [
     {
       max: 12,
-      description:
-        "The air is fresh and clean today! Enjoy your outdoor activities.",
+      description: "Air is fresh and clean. Enjoy outdoor activities.",
     },
     {
       max: 35.4,
       description:
-        "Air quality is acceptable, but if you're sensitive to pollution, consider limiting prolonged outdoor exertion.",
+        "Air quality is acceptable. Sensitive individuals should limit prolonged exertion.",
     },
     {
       max: 55.4,
       description:
-        "Air quality is a bit concerning for those with respiratory issues. It's best to stay indoors if you're sensitive.",
+        "Air quality is concerning for those with respiratory issues. Stay indoors if sensitive.",
     },
     {
       max: 150.4,
       description:
-        "Today's air quality is poor. Everyone, especially those with health conditions, should avoid outdoor activities.",
+        "Air quality is poor. Avoid outdoor activities, especially if you have health conditions.",
     },
     {
       max: 250.4,
-      description:
-        "Air quality is very unhealthy. Limit outdoor exposure as much as possible for your safety.",
+      description: "Air quality is very unhealthy. Limit outdoor exposure.",
     },
     {
       max: Infinity,
       description:
-        "The air quality is extremely dangerous today. Stay indoors and keep your windows closed.",
+        "Air quality is extremely dangerous. Stay indoors and keep windows closed.",
     },
   ];
 

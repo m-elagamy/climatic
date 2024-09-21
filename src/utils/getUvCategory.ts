@@ -3,31 +3,31 @@ const getUvCategory = (uv: number = 0) => {
     {
       max: 2,
       level: "Low",
-      color: "text-green-500",
+      color: "rgba(91, 168, 238, 1) ",
       description: "No protection needed.",
     },
     {
       max: 5,
       level: "Moderate",
-      color: "text-yellow-500",
+      color: "rgba(126, 212, 87, 1) ",
       description: "Use sunscreen, hats, and sunglasses.",
     },
     {
       max: 7,
       level: "High",
-      color: "text-orange-500",
+      color: "rgba(248, 212, 73, 1) ",
       description: "Protection needed. Stay in shade during midday hours.",
     },
     {
       max: 10,
       level: "Very High",
-      color: "text-red-500",
+      color: "rgba(235, 77, 96, 1)",
       description: "Extra protection needed. Avoid sun exposure.",
     },
     {
       max: Infinity,
       level: "Extreme",
-      color: "text-purple-600",
+      color: "rgba(178, 34, 34, 1)",
       description: "Avoid sun exposure. Seek shade.",
     },
   ];

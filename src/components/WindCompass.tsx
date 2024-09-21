@@ -2,14 +2,13 @@ import fetchWeatherData from "@/utils/fetchWeatherData";
 import Image from "next/image";
 import { Wind } from "lucide-react";
 import type { WeatherData } from "@/types/weatherData";
+import ErrorMessage from "./ui/error-message";
 
 const WindCompass = async () => {
   const weatherData: WeatherData | null = await fetchWeatherData();
 
-  // Accessing current data object from weather data object.
-  const current = weatherData?.current;
+  const { current } = weatherData ?? {};
 
-  // Destructuring current object properties.
   const { wind_kph: windSpeed, wind_degree } = current ?? {};
 
   return (
@@ -17,12 +16,8 @@ const WindCompass = async () => {
       <h2 className="title mb-2">
         <Wind size={16} /> Wind
       </h2>
-      {!current && (
-        <p className="text-sm text-muted-foreground">
-          Wind data is currently unavailable. Please check back later or refresh
-          the page.
-        </p>
-      )}
+      {!current && <ErrorMessage error="Wind" />}
+
       {current && (
         <div className="relative">
           <Image

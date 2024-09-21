@@ -19,7 +19,6 @@ export default function SearchDialog() {
       <Button
         variant="outline"
         className="w-80 justify-between rounded-lg border p-3 tracking-wide text-muted-foreground shadow-sm"
-        size="lg"
         onClick={() => setOpen(true)}
       >
         Search for a city...

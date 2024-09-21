@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { formatTimeForTimezone } from "../utils/formatTime";
 
-const useLiveClock = (timezone: string) => {
+const useLiveClock = (timezone: string | undefined) => {
   const [time, setTime] = useState<string>("");
 
   useEffect(() => {

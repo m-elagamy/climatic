@@ -1,6 +1,8 @@
 import AirPollution from "@/components/AirPollution";
 import CurrentTemperature from "@/components/current-temperature/CurrentTemperature";
+import FeelsLikeTemp from "@/components/FeelsLikeTemp";
 import Header from "@/components/Header";
+import Humidity from "@/components/Humidity";
 import SunRiseSet from "@/components/SunRiseSet";
 import Ultraviolet from "@/components/Ultraviolet";
 import WindCompass from "@/components/WindCompass";
@@ -12,12 +14,16 @@ export default function Home() {
       <main className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
         <CurrentTemperature />
         <div className="flex flex-col gap-4">
-          <AirPollution />
-          <Ultraviolet />
+          <FeelsLikeTemp />
+          <Humidity />
         </div>
-        <div className="flex w-fit flex-col gap-4">
+        <div className="flex flex-col gap-4">
           <WindCompass />
           <SunRiseSet />
+        </div>
+        <div className="flex flex-col gap-4">
+          <AirPollution />
+          <Ultraviolet />
         </div>
       </main>
     </>

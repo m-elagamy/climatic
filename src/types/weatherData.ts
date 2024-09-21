@@ -1,6 +1,7 @@
 export type WeatherData = {
   location: {
     name: string;
+    country: string;
     tz_id: string;
   };
 
@@ -20,6 +21,10 @@ export type WeatherData = {
     wind_kph: number;
     wind_degree: number;
     uv: number;
+    feelslike_c: number;
+    is_day: boolean;
+    precip_mm: number;
+    humidity: number;
   };
 
   forecast: {
@@ -27,6 +32,8 @@ export type WeatherData = {
       day: {
         maxtemp_c: number;
         mintemp_c: number;
+        uv: number;
+        avghumidity: number;
       };
       astro: {
         sunrise: string;

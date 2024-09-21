@@ -4,7 +4,7 @@ const WeatherIcon = ({
   condition,
   isDay,
 }: {
-  condition: string;
+  condition: string | undefined;
   isDay?: boolean;
 }) => {
   const Icon = getWeatherIcon(condition, isDay);

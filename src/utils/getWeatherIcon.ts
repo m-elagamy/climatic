@@ -10,7 +10,10 @@ import {
   CloudMoon,
 } from "lucide-react";
 
-export default function getWeatherIcon(condition: string, isDay?: boolean) {
+export default function getWeatherIcon(
+  condition: string | undefined,
+  isDay?: boolean,
+) {
   switch (condition?.toLowerCase()) {
     case "sunny":
     case "clear":

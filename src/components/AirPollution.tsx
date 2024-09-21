@@ -4,51 +4,45 @@ import { ThermometerSnowflake } from "lucide-react";
 import { Progress } from "./ui/progress";
 import getAirQualityDescription from "@/utils/getAirQualityDescription";
 import { InfoCircledIcon } from "@radix-ui/react-icons";
-import {
-  Tooltip,
-  TooltipTrigger,
-  TooltipContent,
-  TooltipProvider,
-} from "@/components/ui/tooltip";
+import ToolTip from "./ui/tooltip";
+import ErrorMessage from "./ui/error-message";
 
 const AirPollution = async () => {
   const weatherData: WeatherData | null = await fetchWeatherData();
 
-  // TODO: Display a user-friendly error message if weatherData is null.
-  if (!weatherData) {
-    return;
-  }
+  const { current } = weatherData ?? {};
 
-  // destructure data from weatherData object.
-  const {
-    current: { air_quality },
-  } = weatherData;
+  const airQualityIndex = current?.air_quality?.pm2_5;
 
-  // Get air quality index.
-  const airQualityIndex = air_quality.pm2_5;
-
-  // Get air quality description based on air quality index.
   const airQualityDescription = getAirQualityDescription(airQualityIndex);
 
   return (
     <section className="section-style gap-4">
-      <h2 className="title">
-        <ThermometerSnowflake size={16} />
-        Air Pollution
-        <TooltipProvider>
-          <Tooltip>
-            <TooltipTrigger asChild>
-              <InfoCircledIcon className="hover:cursor-help" />
-            </TooltipTrigger>
-            <TooltipContent>
-              This indicator shows the UV index: right is bad, left is good.
-              Protect yourself accordingly!
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
-      </h2>
-      <Progress value={airQualityIndex} max={100} className="progress-bar" />
-      <p className="text-sm md:text-base">{airQualityDescription}</p>
+      <div className="flex items-center gap-1">
+        <h2 className="title">
+          <ThermometerSnowflake size={16} />
+          Air Pollution
+        </h2>
+        {weatherData && (
+          <ToolTip
+            tooltipTrigger={<InfoCircledIcon width={16} height={16} />}
+            tooltipContent="This indicator represents the air quality index: right is bad, left is good. Stay safe and protect yourself accordingly!"
+          />
+        )}
+      </div>
+
+      {!weatherData && <ErrorMessage error="Air pollution" />}
+
+      {weatherData && (
+        <>
+          <Progress
+            value={airQualityIndex}
+            max={250.4}
+            className="progress-bar"
+          />
+          <p className="text-sm md:text-base">{airQualityDescription}</p>
+        </>
+      )}
     </section>
   );
 };

@@ -2,47 +2,40 @@ import type { WeatherData } from "@/types/weatherData";
 import fetchWeatherData from "@/utils/fetchWeatherData";
 import RenderSunriseSunset from "@/utils/RenderSunriseSunset";
 import { Sunrise, Sunset } from "lucide-react";
+import ErrorMessage from "./ui/error-message";
 
 const SunRiseSet = async () => {
   const weatherData: WeatherData | null = await fetchWeatherData();
 
-  // Accessing astro data from the forecast.
-  const astroData = weatherData?.forecast?.forecastday[0]?.astro;
+  const { forecast } = weatherData ?? {};
 
-  // Destructuring astro data.
+  const astroData = forecast?.forecastday[0]?.astro;
+
   const { sunrise, sunset, is_sun_up: isSunUp } = astroData ?? {};
 
-  // Render the sunrise and sunset times in the correct format.
-  const content = RenderSunriseSunset(
-    Sunrise,
-    "Sunrise",
-    sunrise ?? "",
-    Sunset,
-    "Sunset",
-    sunset ?? "",
+  // Render sunrise and sunset times based on whether the sun is currently up.
+  // If isSunUp is true, show sunset first; otherwise, show sunrise first.
+  const content = (
+    <RenderSunriseSunset
+      Icon1={Sunrise}
+      label1="Sunrise"
+      time1={sunrise ?? "N/A"}
+      Icon2={Sunset}
+      label2="Sunset"
+      time2={sunset ?? "N/A"}
+      isSunUp={isSunUp}
+    />
   );
-  const content2 = RenderSunriseSunset(
-    Sunset,
-    "Sunset",
-    sunset ?? "",
-    Sunrise,
-    "Sunrise",
-    sunrise ?? "",
-  );
-
   return (
-    <section className="section-style flex-grow gap-3">
-      {astroData && <>{isSunUp ? content2 : content}</>}
+    <section className="section-style gap-3">
       {!astroData && (
         <>
           <h2 className="title">Sunrise Sunset</h2>
-          <p className="text-sm text-muted-foreground">
-            Oops! We&apos;re having trouble fetching the latest sunrise and
-            sunset data. Please try again later or check your internet
-            connection.
-          </p>
+          <ErrorMessage customMessage />
         </>
       )}
+
+      {astroData && content}
     </section>
   );
 };

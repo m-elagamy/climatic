@@ -6,7 +6,6 @@ import {
   SunIcon,
 } from "@radix-ui/react-icons";
 import { useTheme } from "next-themes";
-
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -14,13 +13,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-
-import {
-  Tooltip,
-  TooltipTrigger,
-  TooltipContent,
-  TooltipProvider,
-} from "@/components/ui/tooltip";
+import ToolTip from "@/components/ui/tooltip";
 
 export default function ToggleTheme() {
   const { theme, setTheme, systemTheme } = useTheme();
@@ -36,7 +29,7 @@ export default function ToggleTheme() {
       </DropdownMenuTrigger>
       <DropdownMenuContent
         align="start"
-        className="space-y-1 *:flex *:items-center *:gap-1 *:p-1"
+        className="space-y-1 *:flex *:items-center *:gap-1"
       >
         <DropdownMenuItem
           className={`${theme === "light" ? "bg-slate-100" : ""}`}
@@ -52,26 +45,20 @@ export default function ToggleTheme() {
         >
           <MoonIcon /> Dark
         </DropdownMenuItem>
-        <TooltipProvider>
-          <Tooltip>
-            <DropdownMenuItem
-              className={`${theme === "system" ? (systemTheme === "light" ? "bg-slate-100" : "bg-neutral-800") : ""}`}
-              onClick={() => setTheme("system")}
-              aria-label="System theme"
-            >
-              <DesktopIcon /> System
-              <TooltipTrigger asChild>
-                <InfoCircledIcon className="ml-auto hover:cursor-help" />
-              </TooltipTrigger>
-            </DropdownMenuItem>
-            <TooltipContent>
-              <p>
-                This option follows your system&#39;s light or dark mode
-                settings.
-              </p>
-            </TooltipContent>
-          </Tooltip>
-        </TooltipProvider>
+        <ToolTip
+          tooltipTrigger={
+            <InfoCircledIcon className="absolute -translate-y-[27px] translate-x-[98px] text-blue-600 hover:cursor-help dark:text-blue-400" />
+          }
+          tooltipContent="This option follows your system's light or dark mode settings."
+        >
+          <DropdownMenuItem
+            className={`flex w-full items-center gap-1 ${theme === "system" ? (systemTheme === "light" ? "bg-slate-100" : "bg-neutral-800") : ""} `}
+            onClick={() => setTheme("system")}
+            aria-label="System theme"
+          >
+            <DesktopIcon /> System
+          </DropdownMenuItem>
+        </ToolTip>
       </DropdownMenuContent>
     </DropdownMenu>
   );
