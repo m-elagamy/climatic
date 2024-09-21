@@ -7,9 +7,7 @@ export default function getFeelsLikeDescription(feelsLikeTemp: number): string {
     { max: Infinity, message: "It's hot outside! Stay hydrated and cool." },
   ];
 
-  // Find the first range where the temperature is less than or equal to the max value
   const range = temperatureRanges.find(({ max }) => feelsLikeTemp <= max);
 
-  // Return the message if a range is found, or a fallback message
   return range?.message ?? "Feels like a perfect day.";
 }

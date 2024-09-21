@@ -1,4 +1,3 @@
-// SUGGESTED_CITIES is a list of cities that can be searched for.
 const SUGGESTED_CITIES = [
   {
     name: "London",

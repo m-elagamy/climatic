@@ -23,15 +23,15 @@ const WindCompass = async () => {
           <Image
             src="./../../images/compass_body.svg"
             alt="Wind compass body"
-            width={118}
-            height={119}
+            width={100}
+            height={99}
             priority
             className="mx-auto"
           />
           <Image
             src="./../../images/compass_arrow.svg"
             alt="Wind compass arrow"
-            width={12}
+            width={10.5}
             height={135}
             priority
             className={`absolute left-1/2 top-1/2 transition-transform duration-500 ease-in-out will-change-transform dark:invert`}
@@ -39,7 +39,7 @@ const WindCompass = async () => {
               transform: `translateX(-50%) translateY(-50%) rotate(${wind_degree}deg)`,
             }}
           />
-          <h3 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-nowrap text-[12px] font-semibold">
+          <h3 className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-nowrap text-xs font-bold">
             {windSpeed} km/h
           </h3>
         </div>

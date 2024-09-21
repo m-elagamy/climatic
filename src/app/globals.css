@@ -69,7 +69,7 @@
 
 @layer components {
   .section-style {
-    @apply flex flex-col justify-between gap-2 rounded-xl border bg-white p-4 text-foreground shadow dark:bg-[#0A0A0A] md:gap-1;
+    @apply flex h-fit flex-col justify-between gap-2 rounded-xl border bg-white p-4 text-foreground shadow dark:bg-[#0A0A0A] md:h-[175px] md:gap-0;
   }
 
   .title {
