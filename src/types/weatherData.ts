@@ -20,6 +20,7 @@ export type WeatherData = {
     };
     wind_kph: number;
     wind_degree: number;
+    wind_dir: string;
     uv: number;
     feelslike_c: number;
     is_day: boolean;
