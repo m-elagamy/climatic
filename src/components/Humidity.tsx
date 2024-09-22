@@ -23,7 +23,7 @@ const Humidity = async () => {
     Math.abs(humidity - avgHumidity) > 10 && humidity < avgHumidity;
 
   return (
-    <article className="container-style flex-grow">
+    <article className="container-style">
       <div className="flex items-center gap-1">
         <h2 className="title">
           <Droplets size={16} />

@@ -39,7 +39,6 @@ export type WeatherData = {
       astro: {
         sunrise: string;
         sunset: string;
-        is_moon_up: boolean;
         is_sun_up: boolean;
       };
       hour: {

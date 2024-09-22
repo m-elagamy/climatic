@@ -27,7 +27,7 @@ const SunRiseSet = async () => {
     />
   );
   return (
-    <article className="container-style gap-3">
+    <article className="container-style">
       {!astroData && (
         <>
           <h2 className="title">Sunrise Sunset</h2>

@@ -1,6 +1,6 @@
 import fetchWeatherData from "@/utils/fetchWeatherData";
 import Image from "next/image";
-import { Wind } from "lucide-react";
+import { CircleGauge, Wind } from "lucide-react";
 import type { WeatherData } from "@/types/weatherData";
 import ErrorMessage from "./ui/error-message";
 import convertWindDirection from "@/utils/convertWindDirection";
@@ -24,7 +24,15 @@ const WindCompass = async () => {
         </h2>
         <ToolTip
           tooltipTrigger={<InfoCircledIcon />}
-          tooltipContent={`Wind speed: ${windSpeed} kph blowing from ${convertedWindDirection}`}
+          tooltipContent={
+            <>
+              <CircleGauge
+                size={16}
+                className="mr-1 inline-block text-[#3498db]"
+              />
+              Wind speed: {windSpeed} kph blowing from {convertedWindDirection}
+            </>
+          }
         />
       </div>
 

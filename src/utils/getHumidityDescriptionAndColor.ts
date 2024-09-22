@@ -8,7 +8,7 @@ export function getHumidityDescriptionAndColor(humidity: number = 0) {
     {
       max: 40,
       description: "The air is dry. Consider using a humidifier.",
-      color: "rgba(255, 160, 122, 1)",
+      color: "rgb(255 124 72)",
     },
     {
       max: 50,

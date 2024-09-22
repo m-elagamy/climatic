@@ -16,17 +16,19 @@ const CurrentTemperature = async () => {
   return (
     <section className="container-style h-full">
       <h2 className="sr-only">Current Temperature</h2>
+
       {!weatherData && <ErrorMessage error="Current temperature" />}
+
       {weatherData && (
         <>
           <div>
             <LiveDateTime timeZone={location?.tz_id} />
-            <div className="flex items-center gap-1">
+            <div className="flex items-center gap-2">
               <h3 className="flex items-center gap-1 text-2xl">
                 {location?.name}
-                <sub className="text-sm" title={location?.country}>
+                <sup className="text-sm" title={location?.country}>
                   {getCountryCode(location?.country as string)}
-                </sub>
+                </sup>
               </h3>
               <ToolTip
                 tooltipTrigger={
@@ -36,7 +38,7 @@ const CurrentTemperature = async () => {
                     rel="noopener noreferrer"
                     className="inline-block cursor-pointer transition-transform duration-300 hover:scale-90 dark:text-blue-700"
                   >
-                    <Navigation size={20} />
+                    <Navigation size={22} />
                     <span className="sr-only">
                       Check weather conditions on WeatherAPI?
                     </span>

@@ -6,8 +6,10 @@ const ToggleUnits = () => {
     <section>
       <h2 className="sr-only">Toggle Units</h2>
       <div className="flex items-center space-x-2">
+        <Label htmlFor="ToggleUnits" className="cursor-pointer">
+          Enable Imperial Units
+        </Label>
         <Switch id="ToggleUnits" title="Toggle Units" />
-        <Label htmlFor="ToggleUnits">Enable Imperial Units</Label>
       </div>
     </section>
   );

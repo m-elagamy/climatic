@@ -19,7 +19,7 @@ const FeelsLikeTemp = async () => {
     getFeelsLikeDescriptionAndColor(roundedFeelsLike);
 
   return (
-    <article className="container-style flex-grow">
+    <article className="container-style">
       <h2 className="title">
         <ThermometerIcon size={16} /> Feels Like
       </h2>
