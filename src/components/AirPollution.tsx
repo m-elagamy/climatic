@@ -39,6 +39,7 @@ const AirPollution = async () => {
             value={airQualityIndex}
             max={250.4}
             className="progress-bar"
+            title="Air Quality Index"
           />
           <p className="text-sm md:text-base">{airQualityDescription}</p>
         </>

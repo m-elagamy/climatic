@@ -37,6 +37,9 @@ const CurrentTemperature = async () => {
                     className="inline-block cursor-pointer transition-transform duration-300 hover:scale-90 dark:text-blue-700"
                   >
                     <Navigation size={20} />
+                    <span className="sr-only">
+                      Check weather conditions on WeatherAPI?
+                    </span>
                   </a>
                 }
                 tooltipContent="Check weather conditions on WeatherAPI?"

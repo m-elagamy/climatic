@@ -53,7 +53,12 @@ const Ultraviolet = async () => {
             {currentUv.toFixed(1)}
             <span className="ml-2">{level}</span>
           </p>
-          <Progress value={currentUv * 10} max={10} className="progress-bar" />
+          <Progress
+            value={currentUv * 10}
+            max={10}
+            className="progress-bar"
+            title="UV Index"
+          />
           <p>{description}</p>
         </>
       )}

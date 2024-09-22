@@ -8,7 +8,7 @@ import {
   CommandList,
   CommandShortcut,
 } from "@/components/ui/command";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import useSearchDialog from "@/hooks/useSearchDialog";
 import SUGGESTED_CITIES from "@/utils/constants";
 
@@ -18,7 +18,7 @@ export default function SearchDialog() {
     <>
       <Button
         variant="outline"
-        className="w-80 justify-between rounded-lg border p-3 tracking-wide text-muted-foreground shadow-sm"
+        className="w-72 justify-between rounded-lg border p-3 tracking-wide text-muted-foreground shadow-sm"
         onClick={() => setOpen(true)}
       >
         Search for a city...

@@ -7,7 +7,7 @@ const LiveDateTime = ({ timeZone }: { timeZone: string | undefined }) => {
   const { time } = useLiveClock(timeZone);
 
   return (
-    <div className="mb-2 flex items-center justify-between text-sm font-semibold text-muted-foreground">
+    <div className="mb-4 flex items-center justify-between text-sm font-semibold text-muted-foreground md:mb-6">
       {!time && <Skeleton className="h-5 w-full shadow" />}
       {time && (
         <>
