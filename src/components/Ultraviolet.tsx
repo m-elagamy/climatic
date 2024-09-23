@@ -23,7 +23,7 @@ const Ultraviolet = async () => {
   const shouldDisplayWarningIcon = uvAlongDay >= 7.0 && uvAlongDay > currentUv;
 
   return (
-    <article className="container-style">
+    <article className="container-style uv-index">
       <div className="flex items-center gap-1">
         <h2 className="title">
           <Sun size={16} /> UV Index

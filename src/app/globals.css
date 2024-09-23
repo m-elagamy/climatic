@@ -88,3 +88,9 @@
     rgba(178, 34, 34, 1) 100%
   );
 }
+
+/* Tooltip */
+:is(.humidity, .wind, .air-pollution, .uv-index)
+  div[data-radix-popper-content-wrapper] {
+  left: 15px !important;
+}

@@ -43,7 +43,7 @@ export default function ThemeOptions() {
           </DropdownMenuItem>
           <ToolTip
             tooltipTrigger={
-              <InfoCircledIcon className="absolute -translate-y-[27px] translate-x-[98px] text-blue-600 hover:cursor-help dark:text-blue-400" />
+              <InfoCircledIcon className="absolute -translate-y-[27px] translate-x-[98px] text-blue-600 hover:cursor-help dark:text-blue-700" />
             }
             tooltipContent="This option follows your system's light or dark mode settings."
           >

@@ -17,7 +17,7 @@ export default function Settings() {
           <SettingsIcon size={16} />
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className="space-y-1">
+      <DropdownMenuContent className="space-y-1" align="end">
         <DropdownMenuLabel>Settings:</DropdownMenuLabel>
         <ThemeOptions />
         <DropdownMenuLabel>

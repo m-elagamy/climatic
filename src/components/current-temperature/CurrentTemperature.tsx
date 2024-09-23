@@ -26,8 +26,9 @@ const CurrentTemperature = async () => {
             <div className="flex items-center gap-2">
               <h3 className="flex items-center gap-1 text-2xl">
                 {location?.name}
-                <sup className="text-sm" title={location?.country}>
-                  {getCountryCode(location?.country as string)}
+                <sup className="text-xs" title={location?.country}>
+                  {getCountryCode(location?.country as string) ??
+                    location?.country}
                 </sup>
               </h3>
               <ToolTip

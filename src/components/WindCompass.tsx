@@ -17,7 +17,7 @@ const WindCompass = async () => {
   const convertedWindDirection = convertWindDirection(wind_dir);
 
   return (
-    <article className="container-style">
+    <article className="container-style wind">
       <div className="flex items-center gap-1">
         <h2 className="title">
           <Wind size={16} /> Wind
