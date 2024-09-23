@@ -25,7 +25,9 @@ const AirPollution = async () => {
         </h2>
         {weatherData && (
           <ToolTip
-            tooltipTrigger={<InfoCircledIcon />}
+            tooltipTrigger={
+              <InfoCircledIcon className="size-[17px] dark:text-blue-700" />
+            }
             tooltipContent="This indicator represents the air quality index: right is bad, left is good. Stay safe and protect yourself accordingly!"
           />
         )}

@@ -37,13 +37,20 @@ const ToolTip = ({
   tooltipContent: string | ReactNode;
   children?: ReactNode;
 }) => {
+  const [isTooltipVisible, setTooltipVisible] = React.useState(false);
+
+  const handleClick = () => {
+    setTooltipVisible(true);
+  };
+
   return (
     <TooltipProvider>
-      <Tooltip>
+      <Tooltip open={isTooltipVisible} onOpenChange={setTooltipVisible}>
         {children}
         <TooltipTrigger
           asChild
           className="cursor-help text-blue-600 dark:text-blue-400"
+          onClick={handleClick}
         >
           {tooltipTrigger}
         </TooltipTrigger>

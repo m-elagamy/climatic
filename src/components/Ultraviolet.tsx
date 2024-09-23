@@ -30,7 +30,9 @@ const Ultraviolet = async () => {
         </h2>
         {shouldDisplayWarningIcon && (
           <ToolTip
-            tooltipTrigger={<InfoCircledIcon />}
+            tooltipTrigger={
+              <InfoCircledIcon className="size-[17px] dark:text-blue-700" />
+            }
             tooltipContent={
               <>
                 <MessageCircleWarning

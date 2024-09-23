@@ -31,7 +31,9 @@ const Humidity = async () => {
         </h2>
         {shouldDisplayWarningIcon && (
           <ToolTip
-            tooltipTrigger={<InfoCircledIcon width={16} height={16} />}
+            tooltipTrigger={
+              <InfoCircledIcon className="size-[17px] dark:text-blue-700" />
+            }
             tooltipContent={
               <>
                 <MessageCircleWarning

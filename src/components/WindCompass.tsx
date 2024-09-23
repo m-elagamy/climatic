@@ -23,7 +23,9 @@ const WindCompass = async () => {
           <Wind size={16} /> Wind
         </h2>
         <ToolTip
-          tooltipTrigger={<InfoCircledIcon />}
+          tooltipTrigger={
+            <InfoCircledIcon className="size-[17px] dark:text-blue-700" />
+          }
           tooltipContent={
             <>
               <CircleGauge
