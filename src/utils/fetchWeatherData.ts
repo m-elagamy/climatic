@@ -19,7 +19,7 @@ const fetchWeatherData = async (
 
     const res = await fetch(
       `${baseUrl}/forecast.json?key=${apiKey}&q=${cityLocation}&aqi=yes&days=3&alerts=yes`,
-      { signal, next: { revalidate: 3600 } },
+      { signal, next: { revalidate: 1800 } },
     );
     clearTimeout(timeoutId);
 

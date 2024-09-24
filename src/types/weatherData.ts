@@ -1,5 +1,5 @@
 export type WeatherData = {
-  location: {
+  location?: {
     name: string;
     country: string;
     tz_id: string;
@@ -7,6 +7,7 @@ export type WeatherData = {
 
   current: {
     temp_c: number;
+    temp_f: number;
     condition: {
       text: string;
     };
@@ -33,6 +34,8 @@ export type WeatherData = {
       day: {
         maxtemp_c: number;
         mintemp_c: number;
+        maxtemp_f: number;
+        mintemp_f: number;
         uv: number;
         avghumidity: number;
       };
@@ -44,6 +47,7 @@ export type WeatherData = {
       hour: {
         time: string;
         temp_c: number;
+        temp_f: number;
         is_day: boolean;
       }[];
     }[];
