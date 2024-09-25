@@ -1,10 +1,10 @@
-import type { WeatherData } from "@/types/weatherData";
+import type { WeatherData } from "@/types/WeatherData";
 import fetchWeatherData from "@/utils/fetchWeatherData";
-import { getHumidityDescriptionAndColor } from "@/utils/getHumidityDescriptionAndColor";
-import { Droplets, MessageCircleWarning, Percent } from "lucide-react";
-import ToolTip from "../ui/tooltip";
-import { InfoCircledIcon } from "@radix-ui/react-icons";
-import ErrorMessage from "../ui/error-message";
+import humidityLevels from "@/utils/levels/humidityLevels";
+import { Droplets, Percent } from "lucide-react";
+import ErrorMessage from "../../ui/error-message";
+import getCurrentLevel from "@/utils/getCurrentLevel";
+import WarningMessage from "./WarningMessage";
 
 const Humidity = async () => {
   const weatherData: WeatherData | null = await fetchWeatherData();
@@ -15,7 +15,7 @@ const Humidity = async () => {
 
   const avgHumidity = forecast?.forecastday[0]?.day?.avghumidity ?? 0;
 
-  const { color, description } = getHumidityDescriptionAndColor(humidity);
+  const { color, description } = getCurrentLevel(humidity, humidityLevels);
 
   // Show warning if average humidity differs by more than 10% from current humidity and is higher than the current humidity,
   // to avoid displaying a lower humidity in the tooltip than in the box.
@@ -29,22 +29,9 @@ const Humidity = async () => {
           <Droplets size={16} />
           Humidity
         </h2>
+
         {shouldDisplayWarningIcon && (
-          <ToolTip
-            tooltipTrigger={
-              <InfoCircledIcon className="size-[17px] dark:text-blue-700" />
-            }
-            tooltipContent={
-              <>
-                <MessageCircleWarning
-                  size={16}
-                  className="mr-1 inline-block text-orange-400 dark:text-orange-700"
-                />
-                Humidity levels may increase and reach {avgHumidity}%, which
-                could make the air feel more damp. Stay hydrated!
-              </>
-            }
-          />
+          <WarningMessage avgHumidity={avgHumidity} />
         )}
       </div>
 

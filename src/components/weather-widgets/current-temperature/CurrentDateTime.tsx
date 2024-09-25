@@ -2,6 +2,7 @@
 import getDayName from "@/utils/getDayName";
 import useLiveClock from "@/hooks/useLiveClock";
 import { Skeleton } from "../../ui/skeleton";
+import { Calendar, Clock } from "lucide-react";
 
 const CurrentDateTime = ({ timeZone }: { timeZone: string | undefined }) => {
   const { time } = useLiveClock(timeZone);
@@ -16,8 +17,14 @@ const CurrentDateTime = ({ timeZone }: { timeZone: string | undefined }) => {
       )}
       {time && (
         <>
-          <p>{getDayName()}</p>
-          <p>{time}</p>
+          <p>
+            <Calendar size={16} className="mr-1 inline-block" />
+            {getDayName()}
+          </p>
+          <p>
+            <Clock size={16} className="mr-1 inline-block" />
+            {time}
+          </p>
         </>
       )}
     </div>

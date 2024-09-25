@@ -9,7 +9,7 @@ type FeelsLikeDetailsProps = {
   feelsLikeC: number | undefined;
   feelsLikeF: number | undefined;
   description: string;
-  color: string;
+  color: string | undefined;
 };
 
 const FeelsLikeDetails = ({

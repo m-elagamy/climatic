@@ -1,9 +1,9 @@
 import "server-only";
 
-import { WeatherData } from "@/types/weatherData";
+import { WeatherData } from "@/types/WeatherData";
 
 const fetchWeatherData = async (
-  cityLocation: string = "london",
+  cityLocation: string = "cairo",
 ): Promise<WeatherData | null> => {
   const apiKey = process.env.WEATHER_API_KEY;
   const baseUrl = "https://api.weatherapi.com/v1";

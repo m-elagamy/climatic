@@ -1,11 +1,12 @@
-import type { WeatherData } from "@/types/weatherData";
+import type { WeatherData } from "@/types/WeatherData";
 import fetchWeatherData from "@/utils/fetchWeatherData";
-import { MessageCircleWarning, Sun } from "lucide-react";
-import { Progress } from "../ui/progress";
-import getUvCategory from "@/utils/getUvCategory";
-import { InfoCircledIcon } from "@radix-ui/react-icons";
-import ToolTip from "../ui/tooltip";
-import ErrorMessage from "../ui/error-message";
+import { Sun } from "lucide-react";
+import { Progress } from "../../ui/progress";
+import uvLevels from "@/utils/levels/uvLevels";
+import ErrorMessage from "../../ui/error-message";
+import getCurrentLevel from "@/utils/getCurrentLevel";
+import UvNightMessage from "./UvNightMessage";
+import UvWarningMessage from "./UvWarningMessage";
 
 const Ultraviolet = async () => {
   const weatherData: WeatherData | null = await fetchWeatherData();
@@ -14,9 +15,10 @@ const Ultraviolet = async () => {
 
   const currentUv = current?.uv ?? 0;
   const uvAlongDay = forecast?.forecastday[0]?.day?.uv ?? 0;
+  const isDayTime = current?.is_day;
 
   // Get UV category data to display a color-coded level and description based on current UV index.
-  const { level, color, description } = getUvCategory(currentUv);
+  const { level, color, description } = getCurrentLevel(currentUv, uvLevels);
 
   // Show warning if the forecasted UV level exceeds 7 and is higher than the current UV level,
   // to avoid displaying a lower UV level in the tooltip than in the box.
@@ -28,42 +30,33 @@ const Ultraviolet = async () => {
         <h2 className="title">
           <Sun size={16} /> UV Index
         </h2>
-        {shouldDisplayWarningIcon && (
-          <ToolTip
-            tooltipTrigger={
-              <InfoCircledIcon className="size-[17px] dark:text-blue-700" />
-            }
-            tooltipContent={
-              <>
-                <MessageCircleWarning
-                  size={16}
-                  className="mr-1 inline-block text-orange-400 dark:text-orange-700"
-                />
-                The UV level is expected to reach {uvAlongDay.toFixed(1)} today,
-                so don&apos;t forget to stay in shade.
-              </>
-            }
-          />
+
+        {shouldDisplayWarningIcon && !isDayTime && (
+          <UvWarningMessage uvAlongDay={uvAlongDay} />
         )}
       </div>
 
       {!currentUv && <ErrorMessage error="UV index" />}
 
-      {!!currentUv && (
+      {!!currentUv && !!isDayTime && (
         <>
           <p style={{ color: color }}>
             {currentUv.toFixed(1)}
             <span className="ml-2">{level}</span>
           </p>
           <Progress
-            value={currentUv * 10}
+            value={Math.min(currentUv * 10, 100)}
             max={10}
             className="progress-bar"
             title="UV Index"
+            aria-label={`UV progress bar, current index is ${currentUv.toFixed(1)}`}
+            aria-live="polite"
           />
           <p>{description}</p>
         </>
       )}
+
+      {!isDayTime && <UvNightMessage />}
     </article>
   );
 };

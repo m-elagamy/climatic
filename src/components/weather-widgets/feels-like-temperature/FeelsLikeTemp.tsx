@@ -1,10 +1,11 @@
-import type { WeatherData } from "@/types/weatherData";
-import getFeelsLikeDescriptionAndColor from "@/utils/getFeelsLikeDescriptionAndColor";
+import type { WeatherData } from "@/types/WeatherData";
+import temperatureLevels from "@/utils/levels/temperatureLevels";
 import fetchWeatherData from "@/utils/fetchWeatherData";
 import getThermometerIcon from "@/utils/getThermometerIcon";
 import ErrorMessage from "../../ui/error-message";
 import FeelsLikeDetails from "./FeelsLikeDetails";
 import roundToNearestInteger from "@/utils/roundToNearestInteger";
+import getCurrentLevel from "@/utils/getCurrentLevel";
 
 const FeelsLikeTemp = async () => {
   const weatherData: WeatherData | null = await fetchWeatherData();
@@ -21,8 +22,10 @@ const FeelsLikeTemp = async () => {
 
   // I have chosen to get the same description and color for all units based on feelsLikeC only.
   const roundedFeelsLikeTemp = roundToNearestInteger(feelsLikeC);
-  const { message: description, color } =
-    getFeelsLikeDescriptionAndColor(roundedFeelsLikeTemp);
+  const { description, color } = getCurrentLevel(
+    roundedFeelsLikeTemp,
+    temperatureLevels,
+  );
 
   return (
     <article className="container-style">

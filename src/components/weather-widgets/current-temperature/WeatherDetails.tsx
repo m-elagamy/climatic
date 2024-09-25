@@ -1,6 +1,6 @@
 "use client";
 
-import { WeatherData } from "@/types/weatherData";
+import { WeatherData } from "@/types/WeatherData";
 import CurrentWeatherIcon from "./CurrentWeatherIcon";
 import useUnitsContext from "@/hooks/useUnitsContext";
 import getPreferredUnits from "@/utils/getPreferredUnits";

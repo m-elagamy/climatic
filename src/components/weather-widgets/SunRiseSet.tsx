@@ -1,4 +1,4 @@
-import type { WeatherData } from "@/types/weatherData";
+import type { WeatherData } from "@/types/WeatherData";
 import fetchWeatherData from "@/utils/fetchWeatherData";
 import RenderSunriseSunset from "@/utils/RenderSunriseSunset";
 import { Sunrise, Sunset } from "lucide-react";

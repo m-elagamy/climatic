@@ -1,7 +1,7 @@
 import fetchWeatherData from "@/utils/fetchWeatherData";
 import Image from "next/image";
 import { Wind as WindIcon } from "lucide-react";
-import type { WeatherData } from "@/types/weatherData";
+import type { WeatherData } from "@/types/WeatherData";
 import ErrorMessage from "../../ui/error-message";
 import convertWindDirection from "@/utils/convertWindDirection";
 import WindSpeed from "./WindSpeed";
