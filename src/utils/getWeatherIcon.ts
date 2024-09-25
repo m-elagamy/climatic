@@ -27,6 +27,8 @@ export default function getWeatherIcon(
     case "patchy light drizzle":
     case "light drizzle":
       return CloudDrizzle;
+
+    case "patchy light rain":
     case "moderate rain":
     case "heavy rain":
     case "light rain":
