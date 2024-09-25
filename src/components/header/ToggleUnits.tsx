@@ -1,10 +1,10 @@
 "use client";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
-import useUnitPreference from "@/hooks/useUnitPreference";
+import useUnitsContext from "@/hooks/useUnitsContext";
 
 const ToggleUnits = () => {
-  const { isImperial, toggleUnitPreference, isLoading } = useUnitPreference();
+  const { isImperial, toggleUnitPreference, isLoading } = useUnitsContext();
 
   if (isLoading) return null;
 

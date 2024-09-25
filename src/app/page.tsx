@@ -1,11 +1,11 @@
-import AirPollution from "@/components/AirPollution";
-import CurrentTemperature from "@/components/current-temperature/CurrentTemperature";
-import FeelsLikeTemp from "@/components/FeelsLikeTemp";
+import AirPollution from "@/components/weather-widgets/AirPollution";
+import CurrentTemperature from "@/components/weather-widgets/current-temperature/CurrentTemperature";
+import FeelsLikeTemp from "@/components/weather-widgets/feels-like-temperature/FeelsLikeTemp";
 import Header from "@/components/header/Header";
-import Humidity from "@/components/Humidity";
-import SunRiseSet from "@/components/SunRiseSet";
-import Ultraviolet from "@/components/Ultraviolet";
-import WindCompass from "@/components/WindCompass";
+import Humidity from "@/components/weather-widgets/Humidity";
+import SunRiseSet from "@/components/weather-widgets/SunRiseSet";
+import Ultraviolet from "@/components/weather-widgets/Ultraviolet";
+import Wind from "@/components/weather-widgets/wind/Wind";
 
 export default function Home() {
   return (
@@ -18,7 +18,7 @@ export default function Home() {
           <Humidity />
         </section>
         <section className="flex flex-col gap-4">
-          <WindCompass />
+          <Wind />
           <SunRiseSet />
         </section>
         <section className="flex flex-col gap-4">

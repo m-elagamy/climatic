@@ -1,11 +1,11 @@
 import type { WeatherData } from "@/types/weatherData";
 import fetchWeatherData from "@/utils/fetchWeatherData";
 import { ThermometerSnowflake } from "lucide-react";
-import { Progress } from "./ui/progress";
+import { Progress } from "../ui/progress";
 import getAirQualityDescription from "@/utils/getAirQualityDescription";
 import { InfoCircledIcon } from "@radix-ui/react-icons";
-import ToolTip from "./ui/tooltip";
-import ErrorMessage from "./ui/error-message";
+import ToolTip from "../ui/tooltip";
+import ErrorMessage from "../ui/error-message";
 
 const AirPollution = async () => {
   const weatherData: WeatherData | null = await fetchWeatherData();

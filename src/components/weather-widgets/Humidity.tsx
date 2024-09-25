@@ -2,9 +2,9 @@ import type { WeatherData } from "@/types/weatherData";
 import fetchWeatherData from "@/utils/fetchWeatherData";
 import { getHumidityDescriptionAndColor } from "@/utils/getHumidityDescriptionAndColor";
 import { Droplets, MessageCircleWarning, Percent } from "lucide-react";
-import ToolTip from "./ui/tooltip";
+import ToolTip from "../ui/tooltip";
 import { InfoCircledIcon } from "@radix-ui/react-icons";
-import ErrorMessage from "./ui/error-message";
+import ErrorMessage from "../ui/error-message";
 
 const Humidity = async () => {
   const weatherData: WeatherData | null = await fetchWeatherData();

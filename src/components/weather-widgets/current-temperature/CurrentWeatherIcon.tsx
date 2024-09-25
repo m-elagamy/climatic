@@ -1,6 +1,6 @@
 import getWeatherIcon from "@/utils/getWeatherIcon";
 
-const WeatherIcon = ({
+const CurrentWeatherIcon = ({
   condition,
   isDay,
 }: {
@@ -10,4 +10,4 @@ const WeatherIcon = ({
   const Icon = getWeatherIcon(condition, isDay);
   return <Icon />;
 };
-export default WeatherIcon;
+export default CurrentWeatherIcon;

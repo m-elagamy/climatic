@@ -1,41 +1,39 @@
 import fetchWeatherData from "@/utils/fetchWeatherData";
 import Image from "next/image";
-import { CircleGauge, Wind } from "lucide-react";
+import { Wind as WindIcon } from "lucide-react";
 import type { WeatherData } from "@/types/weatherData";
-import ErrorMessage from "./ui/error-message";
+import ErrorMessage from "../../ui/error-message";
 import convertWindDirection from "@/utils/convertWindDirection";
-import ToolTip from "./ui/tooltip";
-import { InfoCircledIcon } from "@radix-ui/react-icons";
+import WindSpeed from "./WindSpeed";
 
-const WindCompass = async () => {
+const Wind = async () => {
   const weatherData: WeatherData | null = await fetchWeatherData();
 
   const { current } = weatherData ?? {};
 
-  const { wind_kph: windSpeed, wind_degree, wind_dir } = current ?? {};
+  const {
+    wind_kph: windSpeedKph,
+    wind_mph: windSpeedMph,
+    wind_degree,
+    wind_dir,
+  } = current ?? {};
 
   const convertedWindDirection = convertWindDirection(wind_dir);
 
   return (
     <article className="container-style wind">
-      <div className="flex items-center gap-1">
+      <div className="relative flex items-center">
         <h2 className="title">
-          <Wind size={16} /> Wind
+          <WindIcon size={16} /> Wind
         </h2>
-        <ToolTip
-          tooltipTrigger={
-            <InfoCircledIcon className="size-[17px] dark:text-blue-700" />
-          }
-          tooltipContent={
-            <>
-              <CircleGauge
-                size={16}
-                className="mr-1 inline-block text-[#3498db]"
-              />
-              Wind speed: {windSpeed} kph blowing from {convertedWindDirection}
-            </>
-          }
-        />
+
+        {current && (
+          <WindSpeed
+            windSpeedKph={windSpeedKph}
+            windSpeedMph={windSpeedMph}
+            convertedWindDirection={convertedWindDirection}
+          />
+        )}
       </div>
 
       {!current && <ErrorMessage error="Wind" />}
@@ -61,12 +59,15 @@ const WindCompass = async () => {
               transform: `translateX(-50%) translateY(-50%) rotate(${wind_degree}deg)`,
             }}
           />
-          <h3 className="absolute left-[51%] top-1/2 -translate-x-1/2 -translate-y-1/2 text-nowrap text-xs font-semibold">
-            {windSpeed} kp/h
-          </h3>
+          <WindSpeed
+            windSpeedKph={windSpeedKph}
+            windSpeedMph={windSpeedMph}
+            convertedWindDirection={convertedWindDirection}
+            speedOnCompass
+          />
         </div>
       )}
     </article>
   );
 };
-export default WindCompass;
+export default Wind;

@@ -1,10 +1,10 @@
 import { getCode as getCountryCode } from "country-list";
 import fetchWeatherData from "@/utils/fetchWeatherData";
-import LiveDateTime from "../current-temperature/LiveDateTime";
+import CurrentDateTime from "./CurrentDateTime";
 import { Navigation } from "lucide-react";
 import type { WeatherData } from "@/types/weatherData";
-import ErrorMessage from "../ui/error-message";
-import ToolTip from "../ui/tooltip";
+import ErrorMessage from "../../ui/error-message";
+import ToolTip from "../../ui/tooltip";
 import WeatherDetails from "./WeatherDetails";
 
 const CurrentTemperature = async () => {
@@ -21,7 +21,7 @@ const CurrentTemperature = async () => {
       {weatherData && current && forecast && (
         <>
           <div>
-            <LiveDateTime timeZone={location?.tz_id} />
+            <CurrentDateTime timeZone={location?.tz_id} />
 
             <div className="flex items-center gap-2">
               <h3 className="flex items-center gap-1 text-2xl">

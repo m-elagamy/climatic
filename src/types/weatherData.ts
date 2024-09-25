@@ -20,10 +20,12 @@ export type WeatherData = {
       pm10: number;
     };
     wind_kph: number;
+    wind_mph: number;
     wind_degree: number;
     wind_dir: string;
     uv: number;
     feelslike_c: number;
+    feelslike_f: number;
     is_day: boolean;
     precip_mm: number;
     humidity: number;

@@ -2,8 +2,9 @@ import type { Metadata } from "next";
 import { Lato } from "next/font/google";
 import "./globals.css";
 
-import { ThemeProvider } from "@/providers/ThemeProvider";
 import { WeatherProvider } from "@/providers/WeatherProvider";
+import { ThemeProvider } from "@/providers/ThemeProvider";
+import { UnitsProvider } from "@/providers/UnitsProvider";
 
 // Google Font
 const lato = Lato({
@@ -26,12 +27,14 @@ export default function RootLayout({
   return (
     <html lang="en" className={lato.variable} suppressHydrationWarning>
       <body className={`tracking-wide antialiased`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-          <h1 className="sr-only">Weather App</h1>
-          <div className="container py-4">
-            <WeatherProvider>{children}</WeatherProvider>
-          </div>
-        </ThemeProvider>
+        <WeatherProvider>
+          <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            <UnitsProvider>
+              <h1 className="sr-only">Weather App</h1>
+              <div className="container py-4">{children}</div>
+            </UnitsProvider>
+          </ThemeProvider>
+        </WeatherProvider>
       </body>
     </html>
   );

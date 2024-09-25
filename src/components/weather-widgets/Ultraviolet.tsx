@@ -1,11 +1,11 @@
 import type { WeatherData } from "@/types/weatherData";
 import fetchWeatherData from "@/utils/fetchWeatherData";
 import { MessageCircleWarning, Sun } from "lucide-react";
-import { Progress } from "./ui/progress";
+import { Progress } from "../ui/progress";
 import getUvCategory from "@/utils/getUvCategory";
 import { InfoCircledIcon } from "@radix-ui/react-icons";
-import ToolTip from "./ui/tooltip";
-import ErrorMessage from "./ui/error-message";
+import ToolTip from "../ui/tooltip";
+import ErrorMessage from "../ui/error-message";
 
 const Ultraviolet = async () => {
   const weatherData: WeatherData | null = await fetchWeatherData();
