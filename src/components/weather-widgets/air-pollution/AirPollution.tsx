@@ -5,10 +5,10 @@ import airQualityLevels from "@/utils/levels/airQualityLevels";
 import ErrorMessage from "../../ui/error-message";
 import getCurrentLevel from "@/utils/getCurrentLevel";
 import GuidanceInfo from "./GuidanceInfo";
-import type { WeatherData } from "@/types/WeatherData";
+import { WeatherFlags } from "@/types/WeatherFlags";
 
 const AirPollution = async () => {
-  const weatherData: WeatherData | null = await fetchWeatherData();
+  const weatherData: WeatherFlags | null = await fetchWeatherData();
 
   const { current } = weatherData ?? {};
 

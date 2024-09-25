@@ -1,10 +1,10 @@
 import "server-only";
 
-import { WeatherData } from "@/types/WeatherData";
+import { WeatherFlags } from "@/types/WeatherFlags";
 
 const fetchWeatherData = async (
   cityLocation: string = "cairo",
-): Promise<WeatherData | null> => {
+): Promise<WeatherFlags | null> => {
   const apiKey = process.env.WEATHER_API_KEY;
   const baseUrl = "https://api.weatherapi.com/v1";
 
@@ -27,7 +27,7 @@ const fetchWeatherData = async (
       throw new Error("Failed to fetch data");
     }
 
-    const data: WeatherData = await res.json();
+    const data: WeatherFlags = await res.json();
 
     const { current, forecast, location } = data;
 

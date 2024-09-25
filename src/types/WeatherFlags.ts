@@ -8,7 +8,7 @@ export type HourData = {
   };
 };
 
-export type WeatherData = {
+export type WeatherFlags = {
   location?: {
     name: string;
     country: string;

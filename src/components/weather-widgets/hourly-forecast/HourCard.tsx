@@ -1,6 +1,6 @@
 import roundToNearestInteger from "@/utils/roundToNearestInteger";
 import CurrentWeatherIcon from "../current-temperature/CurrentWeatherIcon";
-import { HourData } from "@/types/WeatherData";
+import { HourData } from "@/types/WeatherFlags";
 
 const HourCard = ({ hour }: { hour: HourData }) => {
   return (

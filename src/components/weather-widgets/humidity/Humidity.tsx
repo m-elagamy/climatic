@@ -4,10 +4,10 @@ import { Droplets, Percent } from "lucide-react";
 import ErrorMessage from "../../ui/error-message";
 import getCurrentLevel from "@/utils/getCurrentLevel";
 import WarningMessage from "./WarningMessage";
-import type { WeatherData } from "@/types/WeatherData";
+import { WeatherFlags } from "@/types/WeatherFlags";
 
 const Humidity = async () => {
-  const weatherData: WeatherData | null = await fetchWeatherData();
+  const weatherData: WeatherFlags | null = await fetchWeatherData();
 
   const { current, forecast } = weatherData ?? {};
 

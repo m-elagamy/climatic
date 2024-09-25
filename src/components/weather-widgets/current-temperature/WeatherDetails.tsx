@@ -1,6 +1,6 @@
 "use client";
 
-import { WeatherData } from "@/types/WeatherData";
+import { WeatherFlags } from "@/types/WeatherFlags";
 import CurrentWeatherIcon from "./CurrentWeatherIcon";
 import useUnitsContext from "@/hooks/useUnitsContext";
 import getPreferredUnits from "@/utils/getPreferredUnits";
@@ -9,7 +9,7 @@ import LoadingIndicator from "../../ui/loading-indicator";
 export default function WeatherDetails({
   current,
   forecast,
-}: Readonly<WeatherData>) {
+}: Readonly<WeatherFlags>) {
   const { isImperial, isLoading } = useUnitsContext();
 
   const currentTemp = getPreferredUnits(

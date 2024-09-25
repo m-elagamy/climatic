@@ -5,10 +5,10 @@ import ErrorMessage from "../../ui/error-message";
 import FeelsLikeDetails from "./FeelsLikeDetails";
 import roundToNearestInteger from "@/utils/roundToNearestInteger";
 import getCurrentLevel from "@/utils/getCurrentLevel";
-import type { WeatherData } from "@/types/WeatherData";
+import { WeatherFlags } from "@/types/WeatherFlags";
 
 const FeelsLikeTemp = async () => {
-  const weatherData: WeatherData | null = await fetchWeatherData();
+  const weatherData: WeatherFlags | null = await fetchWeatherData();
 
   const { current } = weatherData ?? {};
   const {

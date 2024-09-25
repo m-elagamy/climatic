@@ -5,10 +5,10 @@ import { Navigation } from "lucide-react";
 import ErrorMessage from "../../ui/error-message";
 import ToolTip from "../../ui/tooltip";
 import WeatherDetails from "./WeatherDetails";
-import type { WeatherData } from "@/types/WeatherData";
+import { WeatherFlags } from "@/types/WeatherFlags";
 
 const CurrentTemperature = async () => {
-  const weatherData: WeatherData | null = await fetchWeatherData();
+  const weatherData: WeatherFlags | null = await fetchWeatherData();
 
   const { current, forecast, location } = weatherData ?? {};
 

@@ -6,10 +6,10 @@ import ErrorMessage from "../../ui/error-message";
 import getCurrentLevel from "@/utils/getCurrentLevel";
 import UvNightMessage from "./UvNightMessage";
 import UvWarningMessage from "./UvWarningMessage";
-import type { WeatherData } from "@/types/WeatherData";
+import { WeatherFlags } from "@/types/WeatherFlags";
 
 const Ultraviolet = async () => {
-  const weatherData: WeatherData | null = await fetchWeatherData();
+  const weatherData: WeatherFlags | null = await fetchWeatherData();
 
   const { current, forecast } = weatherData ?? {};
 

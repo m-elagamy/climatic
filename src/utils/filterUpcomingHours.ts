@@ -1,4 +1,4 @@
-import { HourData } from "@/types/WeatherData";
+import { HourData } from "@/types/WeatherFlags";
 
 const filterUpcomingHours = (
   hourlyData: HourData[] | undefined,

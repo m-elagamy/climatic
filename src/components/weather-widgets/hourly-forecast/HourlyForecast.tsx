@@ -4,10 +4,10 @@ import { HOURS_TO_SHOW } from "@/utils/constants";
 import { CalendarClock } from "lucide-react";
 import filterUpcomingHours from "@/utils/filterUpcomingHours";
 import HourCard from "./HourCard";
-import type { WeatherData } from "@/types/WeatherData";
+import { WeatherFlags } from "@/types/WeatherFlags";
 
 const HourlyForecast = async () => {
-  const weatherData: WeatherData | null = await fetchWeatherData();
+  const weatherData: WeatherFlags | null = await fetchWeatherData();
 
   const { forecast, location } = weatherData ?? {};
 
