@@ -29,7 +29,7 @@ export const UnitsProvider = ({ children }: { children: React.ReactNode }) => {
 
     const timer = setTimeout(() => {
       setIsLoading(false);
-    }, 100);
+    }, 500);
 
     return () => clearTimeout(timer);
   }, []);
