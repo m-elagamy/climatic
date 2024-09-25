@@ -3,7 +3,7 @@ import CurrentTemperature from "@/components/weather-widgets/current-temperature
 import FeelsLikeTemp from "@/components/weather-widgets/feels-like-temperature/FeelsLikeTemp";
 import Header from "@/components/header/Header";
 import Humidity from "@/components/weather-widgets/humidity/Humidity";
-import SunRiseSet from "@/components/weather-widgets/SunRiseSet";
+import SunRiseSet from "@/components/weather-widgets/sunrise-sunset/SunRiseSet";
 import Ultraviolet from "@/components/weather-widgets/uv-index/Ultraviolet";
 import Wind from "@/components/weather-widgets/wind/Wind";
 import HourlyForecast from "@/components/weather-widgets/hourly-forecast/HourlyForecast";

@@ -1,3 +1,13 @@
+export type HourData = {
+  time: string;
+  temp_c: number;
+  temp_f: number;
+  is_day: boolean;
+  condition: {
+    text: string;
+  };
+};
+
 export type WeatherData = {
   location?: {
     name: string;
@@ -47,15 +57,7 @@ export type WeatherData = {
         sunset: string;
         is_sun_up: boolean;
       };
-      hour: {
-        time: string;
-        temp_c: number;
-        temp_f: number;
-        is_day: boolean;
-        condition: {
-          text: string;
-        };
-      }[];
+      hour: HourData[];
     }[];
   };
 };

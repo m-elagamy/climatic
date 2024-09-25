@@ -1,7 +1,7 @@
-import { WeatherData } from "@/types/WeatherData";
+import { HourData } from "@/types/WeatherData";
 
 const filterUpcomingHours = (
-  hourlyData: WeatherData["forecast"]["forecastday"][0]["hour"] | undefined,
+  hourlyData: HourData[] | undefined,
   localTime: string,
 ) => {
   return hourlyData?.filter((hour) => {
