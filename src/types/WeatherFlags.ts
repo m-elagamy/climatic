@@ -8,6 +8,15 @@ export type HourData = {
   };
 };
 
+export type DayData = {
+  maxtemp_c: number;
+  mintemp_c: number;
+  maxtemp_f: number;
+  mintemp_f: number;
+  uv: number;
+  avghumidity: number;
+};
+
 export type WeatherFlags = {
   location?: {
     name: string;
@@ -44,14 +53,7 @@ export type WeatherFlags = {
 
   forecast: {
     forecastday: {
-      day: {
-        maxtemp_c: number;
-        mintemp_c: number;
-        maxtemp_f: number;
-        mintemp_f: number;
-        uv: number;
-        avghumidity: number;
-      };
+      day: DayData;
       astro: {
         sunrise: string;
         sunset: string;

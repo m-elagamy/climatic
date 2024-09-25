@@ -18,14 +18,18 @@ export default function getWeatherIcon(
     case "sunny":
     case "clear":
       return isDay ? Sun : Moon;
+
     case "partly cloudy":
       return isDay ? CloudSun : CloudMoon;
+
     case "cloudy":
     case "overcast":
     case "mist":
       return Cloud;
+
     case "patchy light drizzle":
     case "light drizzle":
+    case "patchy rain nearby":
       return CloudDrizzle;
 
     case "patchy light rain":
@@ -35,16 +39,19 @@ export default function getWeatherIcon(
     case "patchy rain possible":
     case "shower in vicinity":
       return CloudRain;
+
     case "thundery outbreaks possible":
     case "thunderstorm":
     case "moderate or heavy rain with thunder":
       return CloudLightning;
+
     case "snow":
     case "patchy snow possible":
     case "light snow":
     case "heavy snow":
     case "blizzard":
       return CloudSnow;
+
     default:
       return isDay ? Sun : Moon;
   }

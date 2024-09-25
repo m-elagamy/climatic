@@ -24,15 +24,15 @@ const HourlyForecast = async () => {
   ));
 
   return (
-    <section className="container-style -order-1 h-fit max-h-[366px] md:-order-none">
-      <h2 className="title mb-2">
+    <section className="container-style -order-1 h-fit max-h-[255px] md:-order-none md:col-span-3 md:col-start-2">
+      <h2 className="title md:mb-8">
         <CalendarClock size={16} /> Hourly Forecast
       </h2>
 
       {!hourlyData && <ErrorMessage error="Hourly forecast" />}
 
       {hourlyData && (
-        <ul className="flex flex-col divide-y overflow-y-auto">
+        <ul className="flex flex-col items-center justify-around overflow-x-auto md:flex-row">
           {hoursCard?.length ? (
             hoursCard
           ) : (
