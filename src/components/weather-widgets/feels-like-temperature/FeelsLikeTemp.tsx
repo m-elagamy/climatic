@@ -1,4 +1,4 @@
-import type { WeatherData } from "@/types/WeatherData";
+import { WeatherData } from "@/types/WeatherData";
 import temperatureLevels from "@/utils/levels/temperatureLevels";
 import fetchWeatherData from "@/utils/fetchWeatherData";
 import getThermometerIcon from "@/utils/getThermometerIcon";

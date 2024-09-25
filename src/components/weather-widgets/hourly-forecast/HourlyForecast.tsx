@@ -1,5 +1,5 @@
 import ErrorMessage from "@/components/ui/error-message";
-import type { WeatherData } from "@/types/WeatherData";
+import { WeatherData } from "@/types/WeatherData";
 import fetchWeatherData from "@/utils/fetchWeatherData";
 import { HOURS_TO_SHOW } from "@/utils/constants";
 import roundToNearestInteger from "@/utils/roundToNearestInteger";

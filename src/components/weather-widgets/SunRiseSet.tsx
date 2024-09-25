@@ -1,4 +1,4 @@
-import type { WeatherData } from "@/types/WeatherData";
+import { WeatherData } from "@/types/WeatherData";
 import fetchWeatherData from "@/utils/fetchWeatherData";
 import RenderSunriseSunset from "@/utils/RenderSunriseSunset";
 import { Sunrise, Sunset } from "lucide-react";
@@ -14,7 +14,7 @@ const SunRiseSet = async () => {
   const { sunrise, sunset, is_sun_up: isSunUp } = astroData ?? {};
 
   // Render sunrise and sunset times based on whether the sun is currently up.
-  // If isSunUp is true, show sunset first; otherwise, show sunrise first.
+  // If sun is currently up, show sunset first; otherwise, show sunrise first.
   const content = (
     <RenderSunriseSunset
       Icon1={Sunrise}

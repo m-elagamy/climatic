@@ -1,4 +1,4 @@
-import type { WeatherData } from "@/types/WeatherData";
+import { WeatherData } from "@/types/WeatherData";
 import fetchWeatherData from "@/utils/fetchWeatherData";
 import { Sun } from "lucide-react";
 import { Progress } from "../../ui/progress";
