@@ -26,4 +26,6 @@ const SUGGESTED_CITIES = [
   },
 ];
 
-export default SUGGESTED_CITIES;
+const HOURS_TO_SHOW = 6;
+
+export { SUGGESTED_CITIES, HOURS_TO_SHOW };

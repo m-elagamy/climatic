@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/command";
 import { Button } from "../ui/button";
 import useSearchDialog from "@/hooks/useSearchDialog";
-import SUGGESTED_CITIES from "@/utils/constants";
+import { SUGGESTED_CITIES } from "@/utils/constants";
 
 export default function SearchDialog() {
   const { open, setOpen } = useSearchDialog();

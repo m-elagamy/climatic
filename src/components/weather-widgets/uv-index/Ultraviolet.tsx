@@ -31,7 +31,7 @@ const Ultraviolet = async () => {
           <Sun size={16} /> UV Index
         </h2>
 
-        {shouldDisplayWarningIcon && !isDayTime && (
+        {shouldDisplayWarningIcon && !!isDayTime && (
           <UvWarningMessage uvAlongDay={uvAlongDay} />
         )}
       </div>

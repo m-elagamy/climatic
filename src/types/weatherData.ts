@@ -3,6 +3,7 @@ export type WeatherData = {
     name: string;
     country: string;
     tz_id: string;
+    localtime: string;
   };
 
   current: {
@@ -51,6 +52,9 @@ export type WeatherData = {
         temp_c: number;
         temp_f: number;
         is_day: boolean;
+        condition: {
+          text: string;
+        };
       }[];
     }[];
   };

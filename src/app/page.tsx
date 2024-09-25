@@ -6,6 +6,7 @@ import Humidity from "@/components/weather-widgets/humidity/Humidity";
 import SunRiseSet from "@/components/weather-widgets/SunRiseSet";
 import Ultraviolet from "@/components/weather-widgets/uv-index/Ultraviolet";
 import Wind from "@/components/weather-widgets/wind/Wind";
+import HourlyForecast from "@/components/weather-widgets/hourly-forecast/HourlyForecast";
 
 export default function Home() {
   return (
@@ -15,16 +16,17 @@ export default function Home() {
         <CurrentTemperature />
         <section className="flex flex-col gap-4">
           <FeelsLikeTemp />
-          <Humidity />
-        </section>
-        <section className="flex flex-col gap-4">
-          <Wind />
           <SunRiseSet />
         </section>
         <section className="flex flex-col gap-4">
-          <AirPollution />
+          <Humidity />
           <Ultraviolet />
         </section>
+        <section className="flex flex-col gap-4">
+          <Wind />
+          <AirPollution />
+        </section>
+        <HourlyForecast />
       </main>
     </>
   );
