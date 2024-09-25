@@ -1,4 +1,3 @@
-import { WeatherData } from "@/types/WeatherData";
 import temperatureLevels from "@/utils/levels/temperatureLevels";
 import fetchWeatherData from "@/utils/fetchWeatherData";
 import getThermometerIcon from "@/utils/getThermometerIcon";
@@ -6,6 +5,7 @@ import ErrorMessage from "../../ui/error-message";
 import FeelsLikeDetails from "./FeelsLikeDetails";
 import roundToNearestInteger from "@/utils/roundToNearestInteger";
 import getCurrentLevel from "@/utils/getCurrentLevel";
+import type { WeatherData } from "@/types/WeatherData";
 
 const FeelsLikeTemp = async () => {
   const weatherData: WeatherData | null = await fetchWeatherData();

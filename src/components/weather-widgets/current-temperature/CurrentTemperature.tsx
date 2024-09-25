@@ -2,10 +2,10 @@ import { getCode as getCountryCode } from "country-list";
 import fetchWeatherData from "@/utils/fetchWeatherData";
 import CurrentDateTime from "./CurrentDateTime";
 import { Navigation } from "lucide-react";
-import { WeatherData } from "@/types/WeatherData";
 import ErrorMessage from "../../ui/error-message";
 import ToolTip from "../../ui/tooltip";
 import WeatherDetails from "./WeatherDetails";
+import type { WeatherData } from "@/types/WeatherData";
 
 const CurrentTemperature = async () => {
   const weatherData: WeatherData | null = await fetchWeatherData();

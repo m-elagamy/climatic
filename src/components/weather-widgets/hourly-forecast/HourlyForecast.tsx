@@ -1,10 +1,10 @@
 import ErrorMessage from "@/components/ui/error-message";
-import { WeatherData } from "@/types/WeatherData";
 import fetchWeatherData from "@/utils/fetchWeatherData";
 import { HOURS_TO_SHOW } from "@/utils/constants";
 import { CalendarClock } from "lucide-react";
 import filterUpcomingHours from "@/utils/filterUpcomingHours";
 import HourCard from "./HourCard";
+import type { WeatherData } from "@/types/WeatherData";
 
 const HourlyForecast = async () => {
   const weatherData: WeatherData | null = await fetchWeatherData();

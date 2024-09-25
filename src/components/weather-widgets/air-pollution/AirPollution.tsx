@@ -1,4 +1,3 @@
-import { WeatherData } from "@/types/WeatherData";
 import fetchWeatherData from "@/utils/fetchWeatherData";
 import { ThermometerSnowflake } from "lucide-react";
 import { Progress } from "../../ui/progress";
@@ -6,6 +5,7 @@ import airQualityLevels from "@/utils/levels/airQualityLevels";
 import ErrorMessage from "../../ui/error-message";
 import getCurrentLevel from "@/utils/getCurrentLevel";
 import GuidanceInfo from "./GuidanceInfo";
+import type { WeatherData } from "@/types/WeatherData";
 
 const AirPollution = async () => {
   const weatherData: WeatherData | null = await fetchWeatherData();

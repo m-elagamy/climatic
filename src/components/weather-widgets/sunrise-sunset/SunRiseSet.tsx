@@ -1,8 +1,8 @@
-import { WeatherData } from "@/types/WeatherData";
 import fetchWeatherData from "@/utils/fetchWeatherData";
 import RenderSunriseSunset from "@/components/weather-widgets/sunrise-sunset/RenderSunriseSunset";
 import { Sunrise, Sunset } from "lucide-react";
 import ErrorMessage from "../../ui/error-message";
+import type { WeatherData } from "@/types/WeatherData";
 
 const SunRiseSet = async () => {
   const weatherData: WeatherData | null = await fetchWeatherData();

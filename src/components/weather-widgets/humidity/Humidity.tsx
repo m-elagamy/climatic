@@ -1,10 +1,10 @@
-import { WeatherData } from "@/types/WeatherData";
 import fetchWeatherData from "@/utils/fetchWeatherData";
 import humidityLevels from "@/utils/levels/humidityLevels";
 import { Droplets, Percent } from "lucide-react";
 import ErrorMessage from "../../ui/error-message";
 import getCurrentLevel from "@/utils/getCurrentLevel";
 import WarningMessage from "./WarningMessage";
+import type { WeatherData } from "@/types/WeatherData";
 
 const Humidity = async () => {
   const weatherData: WeatherData | null = await fetchWeatherData();

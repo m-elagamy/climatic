@@ -1,4 +1,3 @@
-import { WeatherData } from "@/types/WeatherData";
 import fetchWeatherData from "@/utils/fetchWeatherData";
 import { Sun } from "lucide-react";
 import { Progress } from "../../ui/progress";
@@ -7,6 +6,7 @@ import ErrorMessage from "../../ui/error-message";
 import getCurrentLevel from "@/utils/getCurrentLevel";
 import UvNightMessage from "./UvNightMessage";
 import UvWarningMessage from "./UvWarningMessage";
+import type { WeatherData } from "@/types/WeatherData";
 
 const Ultraviolet = async () => {
   const weatherData: WeatherData | null = await fetchWeatherData();
