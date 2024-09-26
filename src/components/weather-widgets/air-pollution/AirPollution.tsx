@@ -4,7 +4,6 @@ import { Progress } from "../../ui/progress";
 import airQualityLevels from "@/utils/levels/airQualityLevels";
 import ErrorMessage from "../../ui/error-message";
 import getCurrentLevel from "@/utils/getCurrentLevel";
-import GuidanceInfo from "./GuidanceInfo";
 import { WeatherFlags } from "@/types/WeatherFlags";
 
 const AirPollution = async () => {
@@ -14,7 +13,10 @@ const AirPollution = async () => {
 
   const airQualityIndex = current?.air_quality?.pm2_5 ?? 0;
 
-  const { description } = getCurrentLevel(airQualityIndex, airQualityLevels);
+  const { description, color, level } = getCurrentLevel(
+    airQualityIndex,
+    airQualityLevels,
+  );
 
   return (
     <article className="container-style air-pollution">
@@ -23,14 +25,13 @@ const AirPollution = async () => {
           <ThermometerSnowflake size={16} />
           Air Pollution
         </h2>
-
-        {weatherData && <GuidanceInfo />}
       </div>
 
       {!weatherData && <ErrorMessage error="Air pollution" />}
 
       {weatherData && (
         <>
+          <h3 style={{ color: color }}>{level}</h3>
           <Progress
             value={airQualityIndex}
             max={250.4}

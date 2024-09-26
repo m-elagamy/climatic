@@ -1,7 +1,7 @@
 const UVNightMessage = () => {
   return (
     <div className="flex items-center gap-1">
-      <div className="group relative size-16">
+      <div className="group relative size-12 md:size-14">
         <svg
           className="transform transition-transform duration-500 group-hover:rotate-12"
           width="100%"
@@ -97,7 +97,9 @@ const UVNightMessage = () => {
         </div>
       </div>
 
-      <p>The UV index is not measured at night since the sun is absent.</p>
+      <p className="text-sm">
+        The UV index is not measured at night since the sun is absent.
+      </p>
     </div>
   );
 };
