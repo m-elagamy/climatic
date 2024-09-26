@@ -8,7 +8,7 @@ const HourCard = ({ hour }: { hour: HourData }) => {
 
   return (
     <li className="flex flex-col items-center gap-4 text-lg">
-      <h3 className="text-sm uppercase">
+      <h3 className="text-xs uppercase">
         <ClockIcon currentHour={currentHour} />
         {new Date(hour.time).toLocaleTimeString([], {
           hour: "numeric",
@@ -20,7 +20,7 @@ const HourCard = ({ hour }: { hour: HourData }) => {
         <CurrentWeatherIcon
           condition={hour.condition.text}
           isDay={hour.is_day}
-          size={24}
+          size={22}
         />
       </h4>
       <h5 className="flex items-center gap-1">

@@ -26,7 +26,7 @@ const HourlyForecast = async () => {
   return (
     <section className="container-style -order-1 h-fit max-h-[255px] md:-order-none md:col-span-3 md:col-start-2">
       <h2 className="title md:mb-8">
-        <CalendarClock size={16} /> Hourly Forecast
+        <CalendarClock size={16} /> Hourly Forecast:
       </h2>
 
       {!hourlyData && <ErrorMessage error="Hourly forecast" />}
