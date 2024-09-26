@@ -3,7 +3,7 @@ import "server-only";
 import { WeatherFlags } from "@/types/WeatherFlags";
 
 const fetchWeatherData = async (
-  cityLocation: string = "cairo",
+  cityLocation: string = "sydney",
 ): Promise<WeatherFlags | null> => {
   const apiKey = process.env.WEATHER_API_KEY;
   const baseUrl = "https://api.weatherapi.com/v1";

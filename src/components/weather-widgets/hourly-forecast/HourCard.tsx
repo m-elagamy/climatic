@@ -7,7 +7,7 @@ const HourCard = ({ hour }: { hour: HourData }) => {
   const currentHour = new Date(hour.time).getHours() % 12 || 12;
 
   return (
-    <li className="flex flex-col items-center gap-4 text-lg">
+    <li className="flex w-full flex-col items-center gap-4">
       <h3 className="text-xs uppercase">
         <ClockIcon currentHour={currentHour} />
         {new Date(hour.time).toLocaleTimeString([], {
@@ -16,17 +16,19 @@ const HourCard = ({ hour }: { hour: HourData }) => {
           hour12: true,
         })}
       </h3>
-      <h4>
-        <CurrentWeatherIcon
-          condition={hour.condition.text}
-          isDay={hour.is_day}
-          size={22}
-        />
-      </h4>
-      <h5 className="flex items-center gap-1">
-        {roundToNearestInteger(hour.temp_c)}&deg;C
-      </h5>
-      <h6 className="text-sm capitalize">{hour.condition.text}</h6>
+      <div className="space-y-1">
+        <h4 className="mt-1 flex justify-center">
+          <CurrentWeatherIcon
+            condition={hour.condition.text}
+            isDay={hour.is_day}
+            size={22}
+          />
+        </h4>
+        <h5 className="flex items-center gap-1">
+          {roundToNearestInteger(hour.temp_c)}&deg;C
+        </h5>
+      </div>
+      <h6 className="text-xs capitalize">{hour.condition.text}</h6>
     </li>
   );
 };

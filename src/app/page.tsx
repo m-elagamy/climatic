@@ -26,6 +26,9 @@ export default function Home() {
           <Wind />
           <AirPollution />
         </section>
+        <section className="container-style">
+          <h2 className="title">Presuure</h2>
+        </section>
         <HourlyForecast />
       </main>
     </>

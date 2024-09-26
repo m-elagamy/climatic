@@ -8,6 +8,7 @@ import {
   CloudSnow,
   Moon,
   CloudMoon,
+  CloudSunRain,
 } from "lucide-react";
 
 export default function getWeatherIcon(
@@ -25,11 +26,19 @@ export default function getWeatherIcon(
     case "cloudy":
     case "overcast":
     case "mist":
+    case "fog":
+    case "haze":
+    case "smoke":
+    case "sand":
+    case "dust":
+    case "ash":
       return Cloud;
 
     case "patchy light drizzle":
     case "light drizzle":
     case "patchy rain nearby":
+    case "light rain shower":
+    case "sleet":
       return CloudDrizzle;
 
     case "patchy light rain":
@@ -38,11 +47,14 @@ export default function getWeatherIcon(
     case "light rain":
     case "patchy rain possible":
     case "shower in vicinity":
-      return CloudRain;
+    case "moderate or heavy rain shower":
+      return isDay ? CloudSunRain : CloudRain;
 
     case "thundery outbreaks possible":
     case "thunderstorm":
     case "moderate or heavy rain with thunder":
+    case "tornado":
+    case "hurricane":
       return CloudLightning;
 
     case "snow":
@@ -50,6 +62,7 @@ export default function getWeatherIcon(
     case "light snow":
     case "heavy snow":
     case "blizzard":
+    case "icy":
       return CloudSnow;
 
     default:
