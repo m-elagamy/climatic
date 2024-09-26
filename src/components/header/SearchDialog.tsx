@@ -18,9 +18,9 @@ export default function SearchDialog() {
     <>
       <Button
         variant="outline"
-        size="lg"
         className="w-72 justify-between rounded-lg border p-3 tracking-wide text-muted-foreground shadow-sm"
         onClick={() => setOpen(true)}
+        aria-label="Search for a city"
       >
         Search for a city...
         <CommandShortcut>⌘F</CommandShortcut>

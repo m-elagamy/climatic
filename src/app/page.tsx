@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+      <main className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <CurrentTemperature />
         <section className="flex flex-col gap-4">
           <FeelsLikeTemp />
@@ -25,9 +25,6 @@ export default function Home() {
         <section className="flex flex-col gap-4">
           <Wind />
           <AirPollution />
-        </section>
-        <section className="container-style">
-          <h2 className="title">Presuure</h2>
         </section>
         <HourlyForecast />
       </main>

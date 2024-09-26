@@ -12,10 +12,16 @@ const HourlyForecast = async () => {
   const { forecast, location } = weatherData ?? {};
 
   const hourlyData = forecast?.forecastday[0]?.hour;
+  const nextDayHourlyData = forecast?.forecastday[1]?.hour;
 
   const localTime = location?.localtime.split(" ")[1] ?? "";
 
-  const upComingHours = filterUpcomingHours(hourlyData, localTime);
+  const upComingHours = filterUpcomingHours(
+    hourlyData,
+    nextDayHourlyData,
+    localTime,
+    HOURS_TO_SHOW,
+  );
 
   const hoursToDisplay = upComingHours?.slice(0, HOURS_TO_SHOW);
 
@@ -24,15 +30,17 @@ const HourlyForecast = async () => {
   ));
 
   return (
-    <section className="container-style h-fit max-h-[255px] md:col-span-3">
-      <h2 className="title md:mb-8">
+    <section
+      className={`container-style relative md:col-span-2 md:h-[208px] ${hoursToDisplay.length > 6 ? "lg:col-span-4" : "lg:col-span-2"}`}
+    >
+      <h2 className="title mb-4">
         <CalendarClock size={16} /> Hourly Forecast:
       </h2>
 
       {!hourlyData && <ErrorMessage error="Hourly forecast" />}
 
       {hourlyData && (
-        <ul className="flex items-center justify-around overflow-x-auto md:flex-row">
+        <ul className="flex items-center justify-evenly overflow-x-auto">
           {hoursCard?.length ? (
             hoursCard
           ) : (

@@ -1,6 +1,5 @@
 import {
   Sun,
-  Cloud,
   CloudSun,
   CloudDrizzle,
   CloudRain,
@@ -21,10 +20,8 @@ export default function getWeatherIcon(
       return isDay ? Sun : Moon;
 
     case "partly cloudy":
-      return isDay ? CloudSun : CloudMoon;
-
-    case "cloudy":
     case "overcast":
+    case "cloudy":
     case "mist":
     case "fog":
     case "haze":
@@ -32,7 +29,7 @@ export default function getWeatherIcon(
     case "sand":
     case "dust":
     case "ash":
-      return Cloud;
+      return isDay ? CloudSun : CloudMoon;
 
     case "patchy light drizzle":
     case "light drizzle":
