@@ -7,26 +7,36 @@ import SunRiseSet from "@/components/weather-widgets/sunrise-sunset/SunRiseSet";
 import Ultraviolet from "@/components/weather-widgets/uv-index/Ultraviolet";
 import Wind from "@/components/weather-widgets/wind/Wind";
 import HourlyForecast from "@/components/weather-widgets/hourly-forecast/HourlyForecast";
+import Pressure from "@/components/weather-widgets/pressure/Pressure";
+import Visibility from "@/components/weather-widgets/visibility/Visibility";
+import DaysForecast from "@/components/weather-widgets/DaysForecast";
 
 export default function Home() {
   return (
     <>
       <Header />
-      <main className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      <main className="grid gap-4 rounded-xl border p-4 shadow-main md:grid-cols-2 lg:grid-cols-4">
         <CurrentTemperature />
-        <section className="flex flex-col gap-4">
+        <section className="space-y-4 lg:col-span-3">
+          <HourlyForecast />
+          <DaysForecast />
+        </section>
+        <section className="space-y-4">
           <FeelsLikeTemp />
-          <SunRiseSet />
-        </section>
-        <section className="flex flex-col gap-4">
           <Humidity />
-          <Ultraviolet />
         </section>
-        <section className="flex flex-col gap-4">
-          <Wind />
+        <section className="space-y-4">
+          <Ultraviolet />
           <AirPollution />
         </section>
-        <HourlyForecast />
+        <section className="space-y-4">
+          <Visibility />
+          <Pressure />
+        </section>
+        <section className="space-y-4">
+          <Wind />
+          <SunRiseSet />
+        </section>
       </main>
     </>
   );

@@ -97,7 +97,7 @@ const UVNightMessage = () => {
         </div>
       </div>
 
-      <p className="text-sm">
+      <p className="text-sm text-muted-foreground">
         The UV index is not measured at night since the sun is absent.
       </p>
     </div>

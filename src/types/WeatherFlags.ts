@@ -49,6 +49,10 @@ export type WeatherFlags = {
     is_day: boolean;
     precip_mm: number;
     humidity: number;
+    pressure_mb: number;
+    pressure_in: number;
+    vis_km: number;
+    vis_miles: number;
   };
 
   forecast: {

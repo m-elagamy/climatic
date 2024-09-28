@@ -64,7 +64,7 @@ const HourCard = ({ hour }: { hour: HourData }) => {
                 size={24}
               />
             </h4>
-            <h5 className="flex items-center gap-1">
+            <h5 className="flex items-center gap-1 text-xl">
               {roundToNearestInteger(temp)}&deg;
             </h5>
           </div>

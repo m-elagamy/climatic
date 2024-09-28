@@ -5,6 +5,9 @@ import { Skeleton } from "../../ui/loading-indicators/skeleton";
 import { Calendar } from "lucide-react";
 import { motion } from "framer-motion";
 import ClockIcon from "../../icons/ClockIcon";
+import motionVariants from "@/utils/motionVariants";
+
+const dateTimeVariants = motionVariants();
 
 const CurrentDateTime = ({ timeZone }: { timeZone: string | undefined }) => {
   const { time } = useLiveClock(timeZone);
@@ -21,17 +24,17 @@ const CurrentDateTime = ({ timeZone }: { timeZone: string | undefined }) => {
       {time && (
         <>
           <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, ease: "easeInOut" }}
+            variants={dateTimeVariants}
+            initial="hidden"
+            animate="visible"
           >
             <Calendar size={16} className="mr-1 inline-block" />
             {getDayName()}
           </motion.p>
           <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6, ease: "easeInOut" }}
+            variants={dateTimeVariants}
+            initial="hidden"
+            animate="visible"
           >
             <ClockIcon currentHour={+time.split(":")[0]} />
             {time}

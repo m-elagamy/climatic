@@ -26,7 +26,7 @@ const HourlyForecast = async () => {
   const hoursToDisplay = filteredUpcomingHours?.slice(0, HOURS_TO_SHOW);
 
   return (
-    <section className={`container-style relative h-auto md:col-span-2`}>
+    <section className={`container-style relative md:col-span-2`}>
       <h2 className="title mb-4 md:mb-0">
         <CalendarClock size={16} /> Hourly Forecast:
       </h2>

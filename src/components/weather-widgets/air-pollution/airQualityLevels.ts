@@ -2,7 +2,7 @@ const airQualityLevels = [
   {
     max: 12,
     level: "Good",
-    description: "Good air quality.",
+    description: "Air quality is good.",
     color: "#22c55e",
   },
   {
@@ -13,26 +13,26 @@ const airQualityLevels = [
   },
   {
     max: 55.4,
-    level: "Unhealthy for sensitive groups",
-    description: "Sensitive groups should limit outdoor time.",
+    level: "Sensitive",
+    description: "Limit outdoor time.",
     color: "#f97316",
   },
   {
     max: 150.4,
     level: "Unhealthy",
-    description: "Poor air quality. Limit outdoor activity.",
+    description: "Limit outdoor activity.",
     color: "#ef4444",
   },
   {
     max: 250.4,
-    level: "Very unhealthy",
-    description: "Very unhealthy. Stay indoors.",
+    level: "Very Unhealthy",
+    description: "Stay indoors.",
     color: "#a855f7",
   },
   {
     max: Infinity,
     level: "Hazardous",
-    description: "Hazardous. Avoid going outside.",
+    description: "Avoid going outside.",
     color: "#9333ea",
   },
 ];
