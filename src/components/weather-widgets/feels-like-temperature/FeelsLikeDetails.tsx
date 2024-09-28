@@ -1,8 +1,10 @@
 "use client";
 
-import LoadingIndicator from "@/components/ui/loading-indicator";
+import LoadingIndicator from "@/components/ui/loading-indicators/LoadingWeather";
 import useUnitsContext from "@/hooks/useUnitsContext";
 import getPreferredUnits from "@/utils/getPreferredUnits";
+import motionVariants from "@/utils/motionVariants";
+import { motion } from "framer-motion";
 
 // Types
 type FeelsLikeDetailsProps = {
@@ -11,6 +13,8 @@ type FeelsLikeDetailsProps = {
   description: string;
   color: string | undefined;
 };
+
+const feelsLikeTempVariants = motionVariants();
 
 const FeelsLikeDetails = ({
   feelsLikeC,
@@ -28,10 +32,22 @@ const FeelsLikeDetails = ({
 
       {!isLoading && (
         <>
-          <h3 className="text-2xl" style={{ color }}>
+          <motion.h3
+            className="text-2xl"
+            style={{ color }}
+            variants={feelsLikeTempVariants}
+            initial="hidden"
+            animate="visible"
+          >
             {feelsLikeTemp}°
-          </h3>
-          <p>{description}</p>
+          </motion.h3>
+          <motion.p
+            variants={feelsLikeTempVariants}
+            initial="hidden"
+            animate="visible"
+          >
+            {description}
+          </motion.p>
         </>
       )}
     </>

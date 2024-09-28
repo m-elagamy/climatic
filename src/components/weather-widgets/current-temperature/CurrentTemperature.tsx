@@ -24,7 +24,7 @@ const CurrentTemperature = async () => {
             <CurrentDateTime timeZone={location?.tz_id} />
 
             <div className="flex items-center gap-2">
-              <h3 className="flex items-center gap-1 text-2xl">
+              <h3 className="flex items-center gap-1 text-xl">
                 {location?.name}
                 <sup className="text-xs" title={location?.country}>
                   {getCountryCode(location?.country as string) ??
@@ -37,9 +37,9 @@ const CurrentTemperature = async () => {
                     href={`https://www.weatherapi.com/weather/q/${encodeURIComponent(location?.name as string)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block cursor-pointer transition-transform duration-300 hover:scale-90 dark:text-blue-700"
+                    className="inline-block cursor-pointer text-muted-foreground transition duration-300 hover:scale-90 hover:text-primary dark:text-muted-foreground hover:dark:text-primary"
                   >
-                    <Navigation size={22} />
+                    <Navigation size={18} />
                     <span className="sr-only">
                       Check weather conditions on WeatherAPI?
                     </span>

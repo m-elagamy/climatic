@@ -3,7 +3,7 @@
 import { InfoCircledIcon } from "@radix-ui/react-icons";
 import { CircleGauge } from "lucide-react";
 import useUnitsContext from "@/hooks/useUnitsContext";
-import DotLoader from "@/components/ui/dot-loader";
+import DotLoader from "@/components/ui/loading-indicators/DotLoader";
 import ToolTip from "@/components/ui/tooltip";
 import getPreferredUnits from "@/utils/getPreferredUnits";
 

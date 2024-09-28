@@ -1,6 +1,6 @@
 import { HourData } from "@/types/WeatherFlags";
 
-const filterUpcomingHours = (
+const filterUpcomingHourlyForecast = (
   hourlyData: HourData[] | undefined,
   nextDayHourlyData: HourData[] | undefined,
   localTime: string,
@@ -22,4 +22,4 @@ const filterUpcomingHours = (
   return upcomingHours.slice(0, hoursToShow);
 };
 
-export default filterUpcomingHours;
+export default filterUpcomingHourlyForecast;
