@@ -1,7 +1,7 @@
 import fetchWeatherData from "@/utils/fetchWeatherData";
 import { ThermometerSnowflake } from "lucide-react";
 import { Progress } from "../../ui/progress";
-import airQualityLevels from "@/utils/levels/airQualityLevels";
+import airQualityLevels from "@/components/weather-widgets/air-pollution/airQualityLevels";
 import ErrorMessage from "../../ui/error-message";
 import getCurrentLevel from "@/utils/getCurrentLevel";
 import { WeatherFlags } from "@/types/WeatherFlags";

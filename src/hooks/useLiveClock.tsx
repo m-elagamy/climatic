@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { formatTimeForTimezone } from "../utils/formatTime";
+import { formatTimeForTimezone } from "../components/weather-widgets/current-temperature/utils/formatTime";
 
 const useLiveClock = (timezone: string | undefined) => {
   const [time, setTime] = useState<string>("");

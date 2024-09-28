@@ -1,4 +1,4 @@
-const LoadingIndicator = ({
+const CloudLoading = ({
   smSize,
   xsSize,
 }: {
@@ -21,4 +21,4 @@ const LoadingIndicator = ({
     </section>
   );
 };
-export default LoadingIndicator;
+export default CloudLoading;

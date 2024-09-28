@@ -1,6 +1,6 @@
 "use client";
 
-import LoadingIndicator from "@/components/ui/loading-indicators/LoadingWeather";
+import CloudLoading from "@/components/ui/loading-indicators/CloudLoading";
 import useUnitsContext from "@/hooks/useUnitsContext";
 import getPreferredUnits from "@/utils/getPreferredUnits";
 import motionVariants from "@/utils/motionVariants";
@@ -28,7 +28,7 @@ const FeelsLikeDetails = ({
 
   return (
     <>
-      {isLoading && <LoadingIndicator smSize />}
+      {isLoading && <CloudLoading smSize />}
 
       {!isLoading && (
         <>

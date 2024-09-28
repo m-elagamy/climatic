@@ -1,10 +1,10 @@
 "use client";
 
 import { WeatherFlags } from "@/types/WeatherFlags";
-import CurrentWeatherIcon from "./CurrentWeatherIcon";
+import WeatherIcon from "../../icons/WeatherIcon";
 import useUnitsContext from "@/hooks/useUnitsContext";
 import getPreferredUnits from "@/utils/getPreferredUnits";
-import LoadingIndicator from "../../ui/loading-indicators/LoadingWeather";
+import CloudLoading from "../../ui/loading-indicators/CloudLoading";
 import { motion } from "framer-motion";
 import motionVariants from "@/utils/motionVariants";
 
@@ -36,7 +36,7 @@ export default function WeatherDetails({
 
   return (
     <>
-      {isLoading && <LoadingIndicator />}
+      {isLoading && <CloudLoading />}
 
       {!isLoading && (
         <>
@@ -55,7 +55,7 @@ export default function WeatherDetails({
             initial="hidden"
             animate="visible"
           >
-            <CurrentWeatherIcon
+            <WeatherIcon
               condition={current?.condition.text.toLowerCase()}
               isDay={forecast?.forecastday[0].hour[0].is_day}
             />

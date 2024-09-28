@@ -1,7 +1,7 @@
 import fetchWeatherData from "@/utils/fetchWeatherData";
 import { Sun } from "lucide-react";
 import { Progress } from "../../ui/progress";
-import uvLevels from "@/utils/levels/uvLevels";
+import uvLevels from "@/components/weather-widgets/uv-index/uvLevels";
 import ErrorMessage from "../../ui/error-message";
 import getCurrentLevel from "@/utils/getCurrentLevel";
 import UvNightMessage from "./UvNightMessage";

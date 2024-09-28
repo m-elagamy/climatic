@@ -1,9 +1,9 @@
 "use client";
 
 import roundToNearestInteger from "@/utils/roundToNearestInteger";
-import CurrentWeatherIcon from "../current-temperature/CurrentWeatherIcon";
+import WeatherIcon from "../../icons/WeatherIcon";
 import { HourData } from "@/types/WeatherFlags";
-import ClockIcon from "./ClockIcon";
+import ClockIcon from "../../icons/ClockIcon";
 import useUnitsContext from "@/hooks/useUnitsContext";
 import getPreferredUnits from "@/utils/getPreferredUnits";
 import { useEffect, useState } from "react";
@@ -30,7 +30,7 @@ const HourCard = ({ hour }: { hour: HourData }) => {
   const temp = getPreferredUnits(isImperial, hour.temp_c, hour.temp_f);
 
   useEffect(() => {
-    setCurrentHour(new Date(hour.time).getHours() % 12 || 12);
+    setCurrentHour(new Date(hour.time).getHours() % 12);
 
     setUpComingHours(
       new Date(hour.time).toLocaleTimeString([], {
@@ -58,7 +58,7 @@ const HourCard = ({ hour }: { hour: HourData }) => {
           </h3>
           <div className="space-y-1" title={hour.condition.text}>
             <h4 className="mt-1 flex justify-center">
-              <CurrentWeatherIcon
+              <WeatherIcon
                 condition={hour.condition.text}
                 isDay={hour.is_day}
                 size={24}

@@ -2,7 +2,7 @@ import ErrorMessage from "@/components/ui/error-message";
 import fetchWeatherData from "@/utils/fetchWeatherData";
 import { HOURS_TO_SHOW } from "@/utils/constants";
 import { CalendarClock } from "lucide-react";
-import filterUpcomingHourlyForecast from "@/utils/filterUpcomingHours";
+import filterUpcomingHourlyForecast from "@/components/weather-widgets/hourly-forecast/filterUpcomingHours";
 import HourCard from "./HourCard";
 import { WeatherFlags } from "@/types/WeatherFlags";
 

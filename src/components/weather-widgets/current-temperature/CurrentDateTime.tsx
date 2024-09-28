@@ -1,9 +1,10 @@
 "use client";
-import getDayName from "@/utils/getDayName";
+import getDayName from "@/components/weather-widgets/current-temperature/utils/getDayName";
 import useLiveClock from "@/hooks/useLiveClock";
 import { Skeleton } from "../../ui/loading-indicators/skeleton";
-import { Calendar, Clock } from "lucide-react";
+import { Calendar } from "lucide-react";
 import { motion } from "framer-motion";
+import ClockIcon from "../../icons/ClockIcon";
 
 const CurrentDateTime = ({ timeZone }: { timeZone: string | undefined }) => {
   const { time } = useLiveClock(timeZone);
@@ -32,7 +33,7 @@ const CurrentDateTime = ({ timeZone }: { timeZone: string | undefined }) => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, ease: "easeInOut" }}
           >
-            <Clock size={16} className="mr-1 inline-block" />
+            <ClockIcon currentHour={+time.split(":")[0]} />
             {time}
           </motion.p>
         </>
