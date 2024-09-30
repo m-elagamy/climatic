@@ -52,11 +52,14 @@ export type WeatherFlags = {
     feelslike_f: number;
     is_day: boolean;
     precip_mm: number;
+    precip_in: number;
     humidity: number;
     pressure_mb: number;
     pressure_in: number;
     vis_km: number;
     vis_miles: number;
+    dewpoint_c: number;
+    dewpoint_f: number;
   };
 
   forecast: {

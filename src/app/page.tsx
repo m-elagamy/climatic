@@ -10,6 +10,8 @@ import HourlyForecast from "@/components/weather-widgets/hourly-forecast/HourlyF
 import Pressure from "@/components/weather-widgets/pressure/Pressure";
 import Visibility from "@/components/weather-widgets/visibility/Visibility";
 import DaysForecast from "@/components/weather-widgets/days-forecast/DaysForecast";
+import Precipitation from "@/components/weather-widgets/precipitation/Precipitation";
+import DewPoint from "@/components/weather-widgets/dew-point/DewPoint";
 
 export default function Home() {
   return (
@@ -20,7 +22,7 @@ export default function Home() {
           <CurrentTemperature />
           <DaysForecast />
         </section>
-        <section className="grid h-full grid-cols-2 gap-4 lg:grid-cols-3 xl:grid-cols-4">
+        <section className="grid h-full grid-cols-2 gap-4 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
           <HourlyForecast />
           <FeelsLikeTemp />
           <Humidity />
@@ -30,6 +32,8 @@ export default function Home() {
           <Visibility />
           <Pressure />
           <SunRiseSet />
+          <Precipitation />
+          <DewPoint />
         </section>
       </main>
     </>

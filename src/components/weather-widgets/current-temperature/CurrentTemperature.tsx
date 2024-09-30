@@ -1,5 +1,5 @@
 import { getCode as getCountryCode } from "country-list";
-import { Navigation } from "lucide-react";
+import { MapPin, Navigation } from "lucide-react";
 
 import { WeatherFlags } from "@/types/WeatherFlags";
 import WeatherDetails from "./WeatherDetails";
@@ -29,6 +29,7 @@ const CurrentTemperature = async () => {
 
             <div className="flex items-center gap-2">
               <h3 className="flex items-center gap-1 text-xl">
+                <MapPin size={18} />
                 {location?.name}
                 <sup className="text-xs" title={location?.country}>
                   {getCountryCode(location?.country as string) ??
