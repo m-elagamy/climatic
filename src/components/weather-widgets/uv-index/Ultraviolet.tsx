@@ -1,12 +1,12 @@
-import fetchWeatherData from "@/utils/fetchWeatherData";
 import { Sun } from "lucide-react";
-import { Progress } from "../../ui/progress";
-import uvLevels from "@/components/weather-widgets/uv-index/uvLevels";
-import ErrorMessage from "../../ui/error-message";
-import getCurrentLevel from "@/utils/getCurrentLevel";
-import UvNightMessage from "./UvNightMessage";
-import UvWarningMessage from "./UvWarningMessage";
+
 import { WeatherFlags } from "@/types/WeatherFlags";
+import uvLevels from "@/components/weather-widgets/uv-index/uvLevels";
+import UvWarningMessage from "./UvWarningMessage";
+import { Progress } from "../../ui/progress";
+import ErrorMessage from "../../ui/error-message";
+import fetchWeatherData from "@/utils/fetchWeatherData";
+import getCurrentLevel from "@/utils/getCurrentLevel";
 
 const Ultraviolet = async () => {
   const weatherData: WeatherFlags | null = await fetchWeatherData();
@@ -25,7 +25,7 @@ const Ultraviolet = async () => {
   const shouldDisplayWarningIcon = uvAlongDay >= 7.0 && uvAlongDay > currentUv;
 
   return (
-    <article className="container-style uv-index">
+    <article className="container-style uv-index col-span-2">
       <div className="flex items-center gap-1">
         <h2 className="title">
           <Sun size={16} /> UV Index
@@ -38,7 +38,7 @@ const Ultraviolet = async () => {
 
       {!currentUv && <ErrorMessage error="UV index" />}
 
-      {!!currentUv && !!isDayTime && (
+      {!!currentUv && (
         <>
           <p style={{ color: color }}>
             {currentUv.toFixed(1)}
@@ -55,8 +55,6 @@ const Ultraviolet = async () => {
           <p>{description}</p>
         </>
       )}
-
-      {!isDayTime && <UvNightMessage />}
     </article>
   );
 };

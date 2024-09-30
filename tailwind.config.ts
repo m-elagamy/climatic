@@ -13,9 +13,6 @@ const config: Config = {
     container: {
       center: true,
       padding: "1rem",
-      screens: {
-        "2xl": "1200px",
-      },
     },
     extend: {
       fontFamily: {
@@ -67,9 +64,6 @@ const config: Config = {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
-      },
-      boxShadow: {
-        main: "0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)",
       },
     },
   },

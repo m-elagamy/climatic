@@ -31,7 +31,7 @@
     --radius: 0.5rem;
   }
   .dark {
-    --background: 0 0% 3%;
+    --background: 260 7.7% 7.6%;
     --foreground: 0 0% 98%;
     --card: 0 0% 5%;
     --card-foreground: 0 0% 98%;
@@ -69,7 +69,7 @@
 
 @layer components {
   .container-style {
-    @apply flex h-auto min-h-[160px] flex-col justify-between gap-2 overflow-hidden rounded-xl border bg-neutral-50 p-4 text-foreground shadow dark:bg-[#0b0b0b] md:h-[175px] md:gap-4;
+    @apply flex h-auto min-h-[160px] flex-col justify-between gap-2 overflow-hidden rounded-xl border bg-card p-4 text-foreground shadow md:h-[175px];
   }
 
   .title {
@@ -81,10 +81,10 @@
   background-image: linear-gradient(
     to right,
     rgba(58, 110, 180, 1) 0%,
-    rgba(91, 168, 238, 1) 20%,
-    rgba(126, 212, 87, 1) 40%,
-    rgba(248, 212, 73, 1) 60%,
-    rgba(235, 77, 96, 1) 80%,
+    #5ba8ee 20%,
+    #7ed457 40%,
+    #f8d449 60%,
+    #eb4d60 80%,
     rgba(178, 34, 34, 1) 100%
   );
 }

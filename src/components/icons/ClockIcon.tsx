@@ -44,6 +44,6 @@ const ClockIcon = ({ currentHour }: { currentHour: number | undefined }) => {
     }
   })();
 
-  return <Icon size={14} className="mr-1 inline-block" />;
+  return <Icon size={12} className="mr-1 inline-block" />;
 };
 export default ClockIcon;

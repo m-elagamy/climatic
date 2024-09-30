@@ -1,15 +1,17 @@
 "use client";
 
-import roundToNearestInteger from "@/utils/roundToNearestInteger";
-import WeatherIcon from "../../icons/WeatherIcon";
-import { HourData } from "@/types/WeatherFlags";
-import ClockIcon from "../../icons/ClockIcon";
-import useUnitsContext from "@/hooks/useUnitsContext";
-import getPreferredUnits from "@/utils/getPreferredUnits";
-import { useEffect, useState } from "react";
-import HourCardSkeleton from "@/components/ui/loading-indicators/HourCardSkeleton";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
+
+import useUnitsContext from "@/hooks/useUnitsContext";
+import { HourData } from "@/types/WeatherFlags";
+import HourCardSkeleton from "@/components/ui/loading-indicators/HourCardSkeleton";
+import roundToNearestInteger from "@/utils/roundToNearestInteger";
+import getPreferredUnits from "@/utils/getPreferredUnits";
 import motionVariants from "@/utils/motionVariants";
+import formatTime from "./utils/formatTime";
+import WeatherIcon from "../../icons/WeatherIcon";
+import ClockIcon from "../../icons/ClockIcon";
 
 const hourCardVariants = motionVariants(
   [0.68, -0.55, 0.27, 1.55],
@@ -27,22 +29,26 @@ const HourCard = ({ hour }: { hour: HourData }) => {
   const [currentHour, setCurrentHour] = useState(0);
   const [upComingHours, setUpComingHours] = useState("");
 
-  const temp = getPreferredUnits(isImperial, hour.temp_c, hour.temp_f);
+  const temp = useMemo(
+    () => getPreferredUnits(isImperial, hour.temp_c, hour.temp_f),
+    [isImperial, hour.temp_c, hour.temp_f],
+  );
+
+  const setCurrentHourCallback = useCallback((time: string) => {
+    setCurrentHour(new Date(time).getHours() % 12);
+  }, []);
+
+  const setUpComingHoursCallback = useCallback((time: string) => {
+    setUpComingHours(formatTime(time));
+  }, []);
 
   useEffect(() => {
-    setCurrentHour(new Date(hour.time).getHours() % 12);
-
-    setUpComingHours(
-      new Date(hour.time).toLocaleTimeString([], {
-        hour: "numeric",
-        minute: "numeric",
-        hour12: true,
-      }),
-    );
-  }, [hour.time]);
+    setCurrentHourCallback(hour.time);
+    setUpComingHoursCallback(hour.time);
+  }, [hour.time, setCurrentHourCallback, setUpComingHoursCallback]);
 
   return (
-    <li className="flex flex-col items-center gap-4">
+    <div className="flex flex-col items-center gap-4">
       {isLoading && <HourCardSkeleton />}
 
       {!isLoading && (
@@ -57,20 +63,20 @@ const HourCard = ({ hour }: { hour: HourData }) => {
             {upComingHours}
           </h3>
           <div className="space-y-1" title={hour.condition.text}>
-            <h4 className="mt-1 flex justify-center">
+            <h4 className="flex justify-center">
               <WeatherIcon
                 condition={hour.condition.text}
                 isDay={hour.is_day}
-                size={24}
+                size={20}
               />
             </h4>
-            <h5 className="flex items-center gap-1 text-xl">
+            <h5 className="flex items-center gap-1">
               {roundToNearestInteger(temp)}&deg;
             </h5>
           </div>
         </motion.div>
       )}
-    </li>
+    </div>
   );
 };
 export default HourCard;

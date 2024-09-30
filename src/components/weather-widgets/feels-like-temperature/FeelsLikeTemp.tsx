@@ -1,11 +1,11 @@
+import { WeatherFlags } from "@/types/WeatherFlags";
 import temperatureLevels from "@/components/weather-widgets/feels-like-temperature/utils/temperatureLevels";
-import fetchWeatherData from "@/utils/fetchWeatherData";
 import getThermometerIcon from "@/components/weather-widgets/feels-like-temperature/utils/getThermometerIcon";
 import ErrorMessage from "../../ui/error-message";
 import FeelsLikeDetails from "./FeelsLikeDetails";
+import fetchWeatherData from "@/utils/fetchWeatherData";
 import roundToNearestInteger from "@/utils/roundToNearestInteger";
 import getCurrentLevel from "@/utils/getCurrentLevel";
-import { WeatherFlags } from "@/types/WeatherFlags";
 
 const FeelsLikeTemp = async () => {
   const weatherData: WeatherFlags | null = await fetchWeatherData();

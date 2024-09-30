@@ -1,12 +1,12 @@
-import fetchWeatherData from "@/utils/fetchWeatherData";
 import { ThermometerSnowflake } from "lucide-react";
-import { Progress } from "../../ui/progress";
-import airQualityLevels from "@/components/weather-widgets/air-pollution/airQualityLevels";
-import ErrorMessage from "../../ui/error-message";
-import getCurrentLevel from "@/utils/getCurrentLevel";
 import { WeatherFlags } from "@/types/WeatherFlags";
+import airQualityLevels from "@/components/weather-widgets/air-quality/airQualityLevels";
+import { Progress } from "../../ui/progress";
+import ErrorMessage from "../../ui/error-message";
+import fetchWeatherData from "@/utils/fetchWeatherData";
+import getCurrentLevel from "@/utils/getCurrentLevel";
 
-const AirPollution = async () => {
+const AirQuality = async () => {
   const weatherData: WeatherFlags | null = await fetchWeatherData();
 
   const { current } = weatherData ?? {};
@@ -23,11 +23,11 @@ const AirPollution = async () => {
       <div className="flex items-center gap-1">
         <h2 className="title">
           <ThermometerSnowflake size={16} />
-          Air Pollution
+          Air Quality
         </h2>
       </div>
 
-      {!weatherData && <ErrorMessage error="Air pollution" />}
+      {!weatherData && <ErrorMessage error="Air quality" />}
 
       {weatherData && (
         <>
@@ -44,4 +44,4 @@ const AirPollution = async () => {
     </article>
   );
 };
-export default AirPollution;
+export default AirQuality;

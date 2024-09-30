@@ -1,10 +1,11 @@
-import fetchWeatherData from "@/utils/fetchWeatherData";
 import Image from "next/image";
 import { Wind as WindIcon } from "lucide-react";
+
+import { WeatherFlags } from "@/types/WeatherFlags";
 import ErrorMessage from "../../ui/error-message";
 import convertWindDirection from "@/components/weather-widgets/wind/convertWindDirection";
 import WindSpeed from "./WindSpeed";
-import { WeatherFlags } from "@/types/WeatherFlags";
+import fetchWeatherData from "@/utils/fetchWeatherData";
 
 const Wind = async () => {
   const weatherData: WeatherFlags | null = await fetchWeatherData();

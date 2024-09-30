@@ -1,10 +1,11 @@
-import fetchWeatherData from "@/utils/fetchWeatherData";
-import humidityLevels from "@/components/weather-widgets/humidity/humidityLevels";
 import { Droplets, Percent } from "lucide-react";
-import ErrorMessage from "../../ui/error-message";
-import getCurrentLevel from "@/utils/getCurrentLevel";
-import WarningMessage from "./WarningMessage";
+
 import { WeatherFlags } from "@/types/WeatherFlags";
+import humidityLevels from "@/components/weather-widgets/humidity/humidityLevels";
+import WarningMessage from "./WarningMessage";
+import ErrorMessage from "../../ui/error-message";
+import fetchWeatherData from "@/utils/fetchWeatherData";
+import getCurrentLevel from "@/utils/getCurrentLevel";
 
 const Humidity = async () => {
   const weatherData: WeatherFlags | null = await fetchWeatherData();

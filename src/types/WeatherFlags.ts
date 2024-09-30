@@ -2,7 +2,7 @@ export type HourData = {
   time: string;
   temp_c: number;
   temp_f: number;
-  is_day: boolean;
+  is_day: boolean | undefined;
   condition: {
     text: string;
   };
@@ -13,8 +13,11 @@ export type DayData = {
   mintemp_c: number;
   maxtemp_f: number;
   mintemp_f: number;
-  uv: number;
-  avghumidity: number;
+  uv?: number;
+  avghumidity?: number;
+  condition: {
+    text: string;
+  };
 };
 
 export type WeatherFlags = {
@@ -26,6 +29,7 @@ export type WeatherFlags = {
   };
 
   current: {
+    localtime: string;
     temp_c: number;
     temp_f: number;
     condition: {
@@ -57,8 +61,9 @@ export type WeatherFlags = {
 
   forecast: {
     forecastday: {
+      date: string;
       day: DayData;
-      astro: {
+      astro?: {
         sunrise: string;
         sunset: string;
         is_sun_up: boolean;

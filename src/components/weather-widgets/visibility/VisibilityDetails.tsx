@@ -1,10 +1,11 @@
 "use client";
 
-import CloudLoading from "@/components/ui/loading-indicators/CloudLoading";
+import { motion } from "framer-motion";
+
 import useUnitsContext from "@/hooks/useUnitsContext";
+import CloudLoading from "@/components/ui/loading-indicators/CloudLoading";
 import getPreferredUnits from "@/utils/getPreferredUnits";
 import motionVariants from "@/utils/motionVariants";
-import { motion } from "framer-motion";
 
 type VisibilityDetailsProps = {
   visKm: number;
@@ -39,7 +40,7 @@ const VisibilityDetails = ({
             }
           >
             {visibility}
-            <span className="ml-1 text-sm">{isImperial ? "MI" : "KM"}</span>
+            <span className="ml-1 text-xs">{isImperial ? "MI" : "KM"}</span>
           </motion.h3>
           <motion.p
             variants={visibilityVariants}

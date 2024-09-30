@@ -1,6 +1,7 @@
-import ToolTip from "@/components/ui/tooltip";
-import { InfoCircledIcon } from "@radix-ui/react-icons";
 import { MessageCircleWarning } from "lucide-react";
+import { InfoCircledIcon } from "@radix-ui/react-icons";
+
+import ToolTip from "@/components/ui/tooltip";
 
 const UvWarningMessage = ({ uvAlongDay }: { uvAlongDay: number }) => {
   return (

@@ -1,7 +1,8 @@
 "use client";
 
-import { InfoCircledIcon } from "@radix-ui/react-icons";
 import { CircleGauge } from "lucide-react";
+import { InfoCircledIcon } from "@radix-ui/react-icons";
+
 import useUnitsContext from "@/hooks/useUnitsContext";
 import DotLoader from "@/components/ui/loading-indicators/DotLoader";
 import ToolTip from "@/components/ui/tooltip";

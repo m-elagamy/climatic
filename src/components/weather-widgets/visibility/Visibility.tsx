@@ -1,10 +1,11 @@
-import ErrorMessage from "@/components/ui/error-message";
+import { Eye } from "lucide-react";
+
 import type { WeatherFlags } from "@/types/WeatherFlags";
+import ErrorMessage from "@/components/ui/error-message";
+import visibilityLevels from "@/components/weather-widgets/visibility/visibilityLevels";
+import VisibilityDetails from "./VisibilityDetails";
 import fetchWeatherData from "@/utils/fetchWeatherData";
 import getCurrentLevel from "@/utils/getCurrentLevel";
-import visibilityLevels from "@/utils/levels/visibilityLevels";
-import { Eye } from "lucide-react";
-import VisibilityDetails from "./VisibilityDetails";
 
 const Visibility = async () => {
   const weatherData: WeatherFlags | null = await fetchWeatherData();

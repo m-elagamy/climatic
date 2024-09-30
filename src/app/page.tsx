@@ -1,4 +1,4 @@
-import AirPollution from "@/components/weather-widgets/air-pollution/AirPollution";
+import AirPollution from "@/components/weather-widgets/air-quality/AirQuality";
 import CurrentTemperature from "@/components/weather-widgets/current-temperature/CurrentTemperature";
 import FeelsLikeTemp from "@/components/weather-widgets/feels-like-temperature/FeelsLikeTemp";
 import Header from "@/components/header/Header";
@@ -9,32 +9,27 @@ import Wind from "@/components/weather-widgets/wind/Wind";
 import HourlyForecast from "@/components/weather-widgets/hourly-forecast/HourlyForecast";
 import Pressure from "@/components/weather-widgets/pressure/Pressure";
 import Visibility from "@/components/weather-widgets/visibility/Visibility";
-import DaysForecast from "@/components/weather-widgets/DaysForecast";
+import DaysForecast from "@/components/weather-widgets/days-forecast/DaysForecast";
 
 export default function Home() {
   return (
     <>
       <Header />
-      <main className="grid gap-4 rounded-xl border p-4 shadow-main md:grid-cols-2 lg:grid-cols-4">
-        <CurrentTemperature />
-        <section className="space-y-4 lg:col-span-3">
-          <HourlyForecast />
+      <main className="flex flex-col gap-4 md:flex-row">
+        <section className="flex w-full min-w-[18rem] flex-col gap-4 md:w-[144px]">
+          <CurrentTemperature />
           <DaysForecast />
         </section>
-        <section className="space-y-4">
+
+        <section className="grid h-full grid-cols-2 gap-4 lg:grid-cols-3 xl:grid-cols-4">
+          <HourlyForecast />
           <FeelsLikeTemp />
           <Humidity />
-        </section>
-        <section className="space-y-4">
           <Ultraviolet />
           <AirPollution />
-        </section>
-        <section className="space-y-4">
+          <Wind />
           <Visibility />
           <Pressure />
-        </section>
-        <section className="space-y-4">
-          <Wind />
           <SunRiseSet />
         </section>
       </main>

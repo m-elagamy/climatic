@@ -1,12 +1,13 @@
 "use client";
 
-import { WeatherFlags } from "@/types/WeatherFlags";
-import WeatherIcon from "../../icons/WeatherIcon";
-import useUnitsContext from "@/hooks/useUnitsContext";
-import getPreferredUnits from "@/utils/getPreferredUnits";
-import CloudLoading from "../../ui/loading-indicators/CloudLoading";
 import { motion } from "framer-motion";
+
+import { WeatherFlags } from "@/types/WeatherFlags";
+import useUnitsContext from "@/hooks/useUnitsContext";
+import CloudLoading from "../../ui/loading-indicators/CloudLoading";
+import getPreferredUnits from "@/utils/getPreferredUnits";
 import motionVariants from "@/utils/motionVariants";
+import WeatherIcon from "../../icons/WeatherIcon";
 
 const weatherDetailsVariants = motionVariants();
 
@@ -56,8 +57,9 @@ export default function WeatherDetails({
             animate="visible"
           >
             <WeatherIcon
-              condition={current?.condition.text.toLowerCase()}
+              condition={current?.condition.text}
               isDay={forecast?.forecastday[0].hour[0].is_day}
+              size={24}
             />
             <h5 className="capitalize">{current?.condition.text}</h5>
             <div className="flex gap-1 text-sm font-semibold text-muted-foreground">

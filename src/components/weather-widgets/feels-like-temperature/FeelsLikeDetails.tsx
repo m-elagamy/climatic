@@ -1,10 +1,11 @@
 "use client";
 
-import CloudLoading from "@/components/ui/loading-indicators/CloudLoading";
+import { motion } from "framer-motion";
+
 import useUnitsContext from "@/hooks/useUnitsContext";
+import CloudLoading from "@/components/ui/loading-indicators/CloudLoading";
 import getPreferredUnits from "@/utils/getPreferredUnits";
 import motionVariants from "@/utils/motionVariants";
-import { motion } from "framer-motion";
 
 // Types
 type FeelsLikeDetailsProps = {

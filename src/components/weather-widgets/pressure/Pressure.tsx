@@ -1,10 +1,11 @@
-import type { WeatherFlags } from "@/types/WeatherFlags";
-import fetchWeatherData from "@/utils/fetchWeatherData";
 import { Compass } from "lucide-react";
-import ErrorMessage from "../../ui/error-message";
-import getCurrentLevel from "@/utils/getCurrentLevel";
-import pressureLevels from "@/utils/levels/pressureLevels";
+
+import type { WeatherFlags } from "@/types/WeatherFlags";
+import pressureLevels from "@/components/weather-widgets/pressure/pressureLevels";
 import PressureDetails from "./PressureDetails";
+import ErrorMessage from "../../ui/error-message";
+import fetchWeatherData from "@/utils/fetchWeatherData";
+import getCurrentLevel from "@/utils/getCurrentLevel";
 
 const Pressure = async () => {
   const weatherData: WeatherFlags | null = await fetchWeatherData();

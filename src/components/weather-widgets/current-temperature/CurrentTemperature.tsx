@@ -1,11 +1,12 @@
 import { getCode as getCountryCode } from "country-list";
-import fetchWeatherData from "@/utils/fetchWeatherData";
-import CurrentDateTime from "./CurrentDateTime";
 import { Navigation } from "lucide-react";
+
+import { WeatherFlags } from "@/types/WeatherFlags";
+import WeatherDetails from "./WeatherDetails";
+import CurrentDateTime from "./CurrentDateTime";
 import ErrorMessage from "../../ui/error-message";
 import ToolTip from "../../ui/tooltip";
-import WeatherDetails from "./WeatherDetails";
-import { WeatherFlags } from "@/types/WeatherFlags";
+import fetchWeatherData from "@/utils/fetchWeatherData";
 
 const CurrentTemperature = async () => {
   const weatherData: WeatherFlags | null = await fetchWeatherData();
@@ -13,7 +14,7 @@ const CurrentTemperature = async () => {
   const { current, forecast, location } = weatherData ?? {};
 
   return (
-    <section className="container-style h-auto">
+    <article className="container-style h-72 md:h-[23rem]">
       <h2 className="sr-only">Current Temperature</h2>
 
       {!weatherData && <ErrorMessage error="Current temperature" />}
@@ -21,7 +22,10 @@ const CurrentTemperature = async () => {
       {weatherData && current && forecast && (
         <>
           <div>
-            <CurrentDateTime timeZone={location?.tz_id} />
+            <CurrentDateTime
+              timeZone={location?.tz_id}
+              date={location?.localtime.split(" ")[0]}
+            />
 
             <div className="flex items-center gap-2">
               <h3 className="flex items-center gap-1 text-xl">
@@ -52,7 +56,7 @@ const CurrentTemperature = async () => {
           <WeatherDetails current={current} forecast={forecast} />
         </>
       )}
-    </section>
+    </article>
   );
 };
 export default CurrentTemperature;
