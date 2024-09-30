@@ -49,7 +49,7 @@ const DayCard = ({
       {!isLoading && (
         <>
           <motion.h3
-            className="text-sm"
+            className="text-xs"
             variants={dayCardVariants}
             initial="hidden"
             animate="visible"

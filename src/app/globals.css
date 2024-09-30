@@ -94,16 +94,3 @@
   div[data-radix-popper-content-wrapper] {
   left: 15px !important;
 }
-
-.fade-enter {
-  opacity: 0;
-  transform: translateY(10px);
-  transition:
-    opacity 0.3s ease,
-    transform 0.3s ease;
-}
-
-.fade-enter-active {
-  opacity: 1;
-  transform: translateY(0);
-}

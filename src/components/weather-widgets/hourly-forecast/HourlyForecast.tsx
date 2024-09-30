@@ -11,8 +11,6 @@ import {
   Carousel,
   CarouselContent,
   CarouselItem,
-  CarouselPrevious,
-  CarouselNext,
 } from "@/components/ui/carousel";
 
 const HourlyForecast = async () => {
@@ -44,7 +42,7 @@ const HourlyForecast = async () => {
 
       {hourlyData && (
         <Carousel
-          className="min-h-[96px] cursor-grab"
+          className="min-h-[96px] cursor-grab active:cursor-grabbing"
           opts={{ align: "start" }}
         >
           <CarouselContent>
@@ -54,9 +52,6 @@ const HourlyForecast = async () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-
-          <CarouselPrevious className="-left-2 top-[30%] hidden transition active:scale-90 lg:flex" />
-          <CarouselNext className="-right-2 top-[30%] hidden transition active:scale-90 lg:flex" />
         </Carousel>
       )}
     </article>

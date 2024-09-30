@@ -41,7 +41,7 @@ const RenderSunriseSunset = ({
       </p>
 
       <p
-        className="flex items-center gap-1"
+        className="flex flex-wrap items-center gap-1"
         aria-label={`${secondLabel}: ${secondTime}`}
       >
         <span className="flex items-center gap-1 font-semibold text-muted-foreground">

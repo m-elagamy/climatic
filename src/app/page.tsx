@@ -20,7 +20,6 @@ export default function Home() {
           <CurrentTemperature />
           <DaysForecast />
         </section>
-
         <section className="grid h-full grid-cols-2 gap-4 lg:grid-cols-3 xl:grid-cols-4">
           <HourlyForecast />
           <FeelsLikeTemp />
