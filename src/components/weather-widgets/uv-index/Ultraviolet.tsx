@@ -42,7 +42,7 @@ const Ultraviolet = async () => {
         <>
           <p style={{ color: color }}>
             {currentUv.toFixed(1)}
-            <span className="ml-2">{level}</span>
+            <span className="ml-2 font-semibold">{level}</span>
           </p>
           <Progress
             value={Math.min(currentUv * 10, 100)}
@@ -52,7 +52,7 @@ const Ultraviolet = async () => {
             aria-label={`UV progress bar, current index is ${currentUv.toFixed(1)}`}
             aria-live="polite"
           />
-          <p>{description}</p>
+          <p className="text-sm">{description}</p>
         </>
       )}
     </article>

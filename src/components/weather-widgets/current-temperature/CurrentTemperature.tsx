@@ -28,7 +28,7 @@ const CurrentTemperature = async () => {
             />
 
             <div className="flex items-center gap-2">
-              <h3 className="flex items-center gap-1 text-xl">
+              <h3 className="flex items-center gap-1 text-xl font-semibold">
                 <MapPin size={18} />
                 {location?.name}
                 <sup className="text-xs" title={location?.country}>

@@ -44,6 +44,7 @@ const PressureDetails = ({
             variants={pressureVariants}
             initial="hidden"
             animate="visible"
+            className="text-sm"
           >
             {description}
           </motion.p>

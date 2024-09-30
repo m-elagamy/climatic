@@ -34,18 +34,20 @@ const FeelsLikeDetails = ({
       {!isLoading && (
         <>
           <motion.h3
-            className="text-2xl"
+            className="text-2xl font-semibold"
             style={{ color }}
             variants={feelsLikeTempVariants}
             initial="hidden"
             animate="visible"
           >
-            {feelsLikeTemp}°
+            {feelsLikeTemp}°{" "}
+            <span className="text-sm">{isImperial ? "F" : "C"}</span>
           </motion.h3>
           <motion.p
             variants={feelsLikeTempVariants}
             initial="hidden"
             animate="visible"
+            className="text-sm"
           >
             {description}
           </motion.p>

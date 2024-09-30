@@ -1,12 +1,23 @@
 import { Umbrella } from "lucide-react";
 
 import type { WeatherFlags } from "@/types/WeatherFlags";
-import fetchWeatherData from "@/utils/fetchWeatherData";
 import ErrorMessage from "@/components/ui/error-message";
+import fetchWeatherData from "@/utils/fetchWeatherData";
+import getCurrentLevel from "@/utils/getCurrentLevel";
+import getPrecipitationPercentage from "./utils/getPrecipitationPercentage";
+import precipitationLevels from "./utils/precipitationLevels";
 
 const Precipitation = async () => {
   const weatherData: WeatherFlags | null = await fetchWeatherData();
   const { current } = weatherData ?? {};
+
+  const { level, color, description } = getCurrentLevel(
+    current?.precip_mm,
+    precipitationLevels,
+  );
+  const precipitationPercentage = getPrecipitationPercentage(
+    current?.precip_mm ?? 0,
+  );
 
   return (
     <section className="container-style">
@@ -16,7 +27,15 @@ const Precipitation = async () => {
 
       {!current && <ErrorMessage error="Precipitation" />}
 
-      {/* {current && <PrecipitationDetails />} */}
+      {current && (
+        <>
+          <h3>Chance: {precipitationPercentage} %</h3>
+          <p className="text-sm font-semibold" style={{ color }}>
+            {level}
+          </p>
+          <p className="text-sm">{description}</p>
+        </>
+      )}
     </section>
   );
 };

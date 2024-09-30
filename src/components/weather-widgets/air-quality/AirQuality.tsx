@@ -31,14 +31,16 @@ const AirQuality = async () => {
 
       {weatherData && (
         <>
-          <h3 style={{ color: color }}>{level}</h3>
+          <h3 className="font-semibold" style={{ color: color }}>
+            {level}
+          </h3>
           <Progress
             value={airQualityIndex}
             max={250.4}
             className="progress-bar"
             title="Air Quality Index"
           />
-          <p className="text-sm md:text-base">{description}</p>
+          <p className="text-sm">{description}</p>
         </>
       )}
     </article>

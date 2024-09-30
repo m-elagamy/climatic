@@ -17,6 +17,8 @@ export default function WeatherDetails({
 }: Readonly<WeatherFlags>) {
   const { isImperial, isLoading } = useUnitsContext();
 
+  console.log(current.is_day);
+
   const currentTemp = getPreferredUnits(
     isImperial,
     current?.temp_c,
@@ -58,7 +60,7 @@ export default function WeatherDetails({
           >
             <WeatherIcon
               condition={current?.condition.text}
-              isDay={forecast?.forecastday[0].hour[0].is_day}
+              isDay={current?.is_day}
               size={24}
             />
             <h5 className="capitalize">{current?.condition.text}</h5>

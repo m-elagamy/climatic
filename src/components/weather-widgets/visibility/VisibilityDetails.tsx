@@ -46,6 +46,7 @@ const VisibilityDetails = ({
             variants={visibilityVariants}
             initial="hidden"
             animate="visible"
+            className="text-sm"
           >
             {description}
           </motion.p>

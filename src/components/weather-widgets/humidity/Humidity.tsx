@@ -40,11 +40,11 @@ const Humidity = async () => {
 
       {!!humidity && (
         <>
-          <p className="text-2xl font-medium" style={{ color }}>
+          <p className="text-2xl font-semibold" style={{ color }}>
             {humidity}
             <Percent size={18} className="inline-block text-base" />
           </p>
-          <p>{description}</p>
+          <p className="text-sm">{description}</p>
         </>
       )}
     </article>
