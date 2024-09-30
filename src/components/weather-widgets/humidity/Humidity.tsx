@@ -16,7 +16,10 @@ const Humidity = async () => {
 
   const avgHumidity = forecast?.forecastday[0]?.day?.avghumidity ?? 0;
 
-  const { color, description } = getCurrentLevel(humidity, humidityLevels);
+  const { color, description, level } = getCurrentLevel(
+    humidity,
+    humidityLevels,
+  );
 
   // Show warning if average humidity differs by more than 10% from current humidity and is higher than the current humidity,
   // to avoid displaying a lower humidity in the tooltip than in the box.
@@ -40,9 +43,15 @@ const Humidity = async () => {
 
       {!!humidity && (
         <>
-          <p className="text-2xl font-semibold" style={{ color }}>
-            {humidity}
-            <Percent size={18} className="inline-block text-base" />
+          <p
+            className="flex items-center gap-1 font-semibold"
+            style={{ color }}
+          >
+            <span>
+              {humidity}
+              <Percent size={18} className="inline-block" />
+            </span>
+            {level}
           </p>
           <p className="text-sm">{description}</p>
         </>
