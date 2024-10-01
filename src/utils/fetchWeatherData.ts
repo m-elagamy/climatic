@@ -28,10 +28,7 @@ const fetchWeatherData = async (
     }
 
     const data: WeatherFlags = await res.json();
-
-    const { current, forecast, location } = data;
-
-    return { current, forecast, location };
+    return data;
   } catch (error) {
     if (error instanceof Error) {
       console.error(error.message);

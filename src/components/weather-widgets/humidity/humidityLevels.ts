@@ -1,45 +1,44 @@
 const humidityLevels = [
   {
     max: 30,
-    level: "Low",
-    description: "Dry air. Consider using a humidifier to maintain comfort.",
+    level: "Very Low",
+    description: "Dry air. Use a humidifier.",
     color: "#B8860B",
   },
   {
     max: 40,
-    level: "Moderate",
-    description:
-      "Slightly dry. Sensitive individuals may benefit from a humidifier.",
+    level: "Low",
+    description: "Slightly dry. A humidifier is recommended.",
     color: "#D2691E",
   },
   {
     max: 50,
     level: "Comfortable",
-    description: "Comfortable humidity for most people.",
+    description: "Ideal for most people.",
     color: "#32CD32",
   },
   {
     max: 60,
-    level: "Humid",
-    description: "Generally comfortable, though some may feel slight humidity.",
+    level: "Mildly Humid",
+    description: "Slightly humid but manageable.",
     color: "#4682B4",
   },
   {
     max: 70,
-    level: "Very Humid",
-    description: "Consider using a dehumidifier if it feels uncomfortable.",
+    level: "Humid",
+    description: "Feels humid. Consider a dehumidifier.",
     color: "#1E90FF",
   },
   {
     max: 80,
-    level: "Extremely Humid",
-    description: "A dehumidifier may help maintain indoor comfort.",
+    level: "Very Humid",
+    description: "High humidity. A dehumidifier is advised.",
     color: "#00BFFF",
   },
   {
     max: Infinity,
-    level: "Dangerously Humid",
-    description: "Staying indoors and keeping cool is advisable.",
+    level: "Severely Humid",
+    description: "Uncomfortable. Stay cool indoors.",
     color: "#1E3A8A",
   },
 ];
