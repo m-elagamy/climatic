@@ -8,8 +8,8 @@ import ErrorMessage from "../../ui/error-message";
 import ToolTip from "../../ui/tooltip";
 import fetchWeatherData from "@/utils/fetchWeatherData";
 
-const CurrentTemperature = async () => {
-  const weatherData: WeatherFlags | null = await fetchWeatherData();
+const CurrentTemperature = async ({ city }: { city: string }) => {
+  const weatherData: WeatherFlags | null = await fetchWeatherData(city);
 
   const { current, forecast, location } = weatherData ?? {};
 

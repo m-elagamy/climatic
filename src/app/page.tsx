@@ -13,27 +13,35 @@ import DaysForecast from "@/components/weather-widgets/days-forecast/DaysForecas
 import Precipitation from "@/components/weather-widgets/precipitation/Precipitation";
 import DewPoint from "@/components/weather-widgets/dew-point/DewPoint";
 
-export default function Home() {
+export default async function Home({
+  searchParams,
+}: {
+  searchParams: {
+    city: string;
+  };
+}) {
+  const { city } = searchParams;
+
   return (
     <>
       <Header />
       <main className="flex flex-col gap-4 md:flex-row">
         <section className="flex w-full min-w-[18rem] flex-col gap-4 md:w-[144px]">
-          <CurrentTemperature />
-          <DaysForecast />
+          <CurrentTemperature city={city} />
+          <DaysForecast city={city} />
         </section>
         <section className="grid h-full grid-cols-2 gap-4 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
-          <HourlyForecast />
-          <FeelsLikeTemp />
-          <Humidity />
-          <Ultraviolet />
-          <AirPollution />
-          <Wind />
-          <Visibility />
-          <Pressure />
-          <SunRiseSet />
-          <Precipitation />
-          <DewPoint />
+          <HourlyForecast city={city} />
+          <FeelsLikeTemp city={city} />
+          <Humidity city={city} />
+          <Ultraviolet city={city} />
+          <AirPollution city={city} />
+          <Wind city={city} />
+          <Visibility city={city} />
+          <Pressure city={city} />
+          <SunRiseSet city={city} />
+          <Precipitation city={city} />
+          <DewPoint city={city} />
         </section>
       </main>
     </>

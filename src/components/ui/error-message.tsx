@@ -8,7 +8,7 @@ const ErrorMessage = ({
   customMessage?: boolean;
 }) => {
   return (
-    <p className="text-sm text-orange-500">
+    <p className="text-center text-sm text-orange-500">
       <TriangleAlert size={16} className="mr-1 inline-block" />
       {customMessage &&
         "Oops! We're having trouble fetching the latest sunrise and sunset data. Please try again later or check your internet connection."}

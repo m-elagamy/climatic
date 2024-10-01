@@ -94,3 +94,7 @@
   div[data-radix-popper-content-wrapper] {
   left: 15px !important;
 }
+
+.city-option {
+  padding-block: 8px !important;
+}

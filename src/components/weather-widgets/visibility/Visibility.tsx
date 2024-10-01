@@ -7,8 +7,8 @@ import VisibilityDetails from "./VisibilityDetails";
 import fetchWeatherData from "@/utils/fetchWeatherData";
 import getCurrentLevel from "@/utils/getCurrentLevel";
 
-const Visibility = async () => {
-  const weatherData: WeatherFlags | null = await fetchWeatherData();
+const Visibility = async ({ city }: { city: string }) => {
+  const weatherData: WeatherFlags | null = await fetchWeatherData(city);
 
   const { current } = weatherData ?? {};
 

@@ -7,8 +7,8 @@ import convertWindDirection from "@/components/weather-widgets/wind/convertWindD
 import WindSpeed from "./WindSpeed";
 import fetchWeatherData from "@/utils/fetchWeatherData";
 
-const Wind = async () => {
-  const weatherData: WeatherFlags | null = await fetchWeatherData();
+const Wind = async ({ city }: { city: string }) => {
+  const weatherData: WeatherFlags | null = await fetchWeatherData(city);
 
   const { current } = weatherData ?? {};
 

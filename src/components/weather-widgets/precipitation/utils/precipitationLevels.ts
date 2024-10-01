@@ -9,7 +9,7 @@ const precipitationLevels = [
     max: 2.5,
     level: "Light",
     description: "Light rain or drizzle, minimal inconvenience.",
-    color: "#1e3a8a",
+    color: "rgb(17 98 255)",
   },
   {
     max: 7.6,

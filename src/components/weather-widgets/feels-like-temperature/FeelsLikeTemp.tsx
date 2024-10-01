@@ -7,8 +7,8 @@ import fetchWeatherData from "@/utils/fetchWeatherData";
 import roundToNearestInteger from "@/utils/roundToNearestInteger";
 import getCurrentLevel from "@/utils/getCurrentLevel";
 
-const FeelsLikeTemp = async () => {
-  const weatherData: WeatherFlags | null = await fetchWeatherData();
+const FeelsLikeTemp = async ({ city }: { city: string }) => {
+  const weatherData: WeatherFlags | null = await fetchWeatherData(city);
 
   const { current } = weatherData ?? {};
   const {
