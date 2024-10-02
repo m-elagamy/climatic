@@ -14,6 +14,15 @@ const SUGGESTED_CITIES = [
   {
     name: "Moscow",
   },
+  {
+    name: "Paris",
+  },
+  {
+    name: "Berlin",
+  },
+  {
+    name: "Cairo",
+  },
 ];
 
 const HOURS_TO_SHOW = 12;

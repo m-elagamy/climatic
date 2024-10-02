@@ -39,7 +39,7 @@ const humidityLevels = [
     max: Infinity,
     level: "Severely Humid",
     description: "Uncomfortable. Stay cool indoors.",
-    color: "#1E3A8A",
+    color: "rgb(40 92 243)",
   },
 ];
 

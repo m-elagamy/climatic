@@ -10,7 +10,7 @@ const CloudLoading = ({
       <h2 className="sr-only">Loading...</h2>
       <svg
         xmlns="http://www.w3.org/2000/svg"
-        className={`${smSize ? "size-12" : "size-14"} ${xsSize ? "size-10" : ""} text-blue-500`}
+        className={`${smSize ? "size-10" : "size-14"} ${xsSize ? "size-8" : ""} text-blue-500`}
         viewBox="0 0 64 64"
       >
         <g fill="currentColor">
