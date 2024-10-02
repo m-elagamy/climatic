@@ -21,6 +21,8 @@ export type DayData = {
 };
 
 export type Location = {
+  lat: number;
+  lon: number;
   id?: number;
   name: string;
   country?: string;

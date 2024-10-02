@@ -31,7 +31,6 @@ export default async function Home({
           <DaysForecast city={city} />
         </section>
         <section className="grid h-full grid-cols-2 gap-4 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
-          <HourlyForecast city={city} />
           <FeelsLikeTemp city={city} />
           <Humidity city={city} />
           <Ultraviolet city={city} />
@@ -42,6 +41,7 @@ export default async function Home({
           <SunRiseSet city={city} />
           <Precipitation city={city} />
           <DewPoint city={city} />
+          <HourlyForecast city={city} />
         </section>
       </main>
     </>

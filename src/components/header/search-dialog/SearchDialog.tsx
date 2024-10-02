@@ -1,10 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
-
-import useSearchDialog from "@/hooks/useSearchDialog";
-import { SUGGESTED_CITIES } from "@/utils/constants";
+import { useEffect, useState } from "react";
 import {
   CommandDialog,
   CommandEmpty,
@@ -12,35 +8,27 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
-import SearchButton from "./SearchButton";
+
+import useSearchDialog from "@/hooks/useSearchDialog";
 import useCitySearch from "@/hooks/useCitySearch";
 import useDebounce from "@/hooks/useDebounce";
-import type { Location } from "@/types/WeatherFlags";
-import { motion } from "framer-motion";
+import useCityChange from "@/hooks/useCityChange";
+import SearchButton from "./SearchButton";
 import CommandInput from "./CommandInput";
+import SuggestedCities from "./SuggestedCities";
+import ErrorMessage from "./ErrorMessage";
+import LoadingIndicator from "./LoadingIndicator";
+
+import type { Location } from "@/types/WeatherFlags";
 
 export default function SearchDialog() {
-  const router = useRouter();
   const { open, setOpen } = useSearchDialog();
 
   const [input, setInput] = useState("");
   const debouncedInput = useDebounce(input, 600);
   const { cities, isLoading, isError } = useCitySearch(debouncedInput);
 
-  const handleCityChange = useCallback(
-    (selectedCity: Location) => {
-      setOpen(false);
-      try {
-        router.push(`/?city=${encodeURIComponent(selectedCity.name) ?? ""}`);
-      } catch (error) {
-        console.error(
-          `Error navigating to ${encodeURIComponent(selectedCity.name)}:`,
-          error,
-        );
-      }
-    },
-    [router, setOpen],
-  );
+  const { handleCityChange } = useCityChange(setOpen);
 
   // Reset input when dialog is closed
   useEffect(() => {
@@ -56,16 +44,9 @@ export default function SearchDialog() {
         <CommandInput input={input} setInput={setInput} />
         <CommandList>
           <CommandGroup>
-            {isLoading && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.3 }}
-              >
-                Loading...
-              </motion.div>
-            )}
-            {isError && <div>Error fetching cities</div>}
+            {isLoading && <LoadingIndicator />}
+
+            {isError && <ErrorMessage />}
 
             {debouncedInput && cities.length === 0 && (
               <CommandEmpty>No results found.</CommandEmpty>
@@ -86,17 +67,7 @@ export default function SearchDialog() {
             )}
 
             {debouncedInput.length === 0 && (
-              <CommandGroup heading="Suggestions">
-                {SUGGESTED_CITIES.map((city) => (
-                  <CommandItem
-                    key={city.name}
-                    onSelect={() => handleCityChange(city)}
-                    className="city-option"
-                  >
-                    {city.name}
-                  </CommandItem>
-                ))}
-              </CommandGroup>
+              <SuggestedCities handleCityChange={handleCityChange} />
             )}
           </CommandGroup>
         </CommandList>
