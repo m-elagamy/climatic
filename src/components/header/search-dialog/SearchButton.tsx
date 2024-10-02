@@ -1,7 +1,7 @@
 import type { Dispatch, SetStateAction } from "react";
 
-import { Button } from "../ui/button";
-import { CommandShortcut } from "../ui/command";
+import { Button } from "@/components/ui/button";
+import { CommandShortcut } from "@/components/ui/command";
 
 export default function SearchButton({
   setOpen,

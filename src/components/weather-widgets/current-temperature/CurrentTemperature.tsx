@@ -19,27 +19,28 @@ const CurrentTemperature = async ({ city }: { city: string }) => {
 
       {!weatherData && <ErrorMessage error="Current temperature" />}
 
-      {weatherData && current && forecast && (
+      {location && current && forecast && (
         <>
           <div>
-            <CurrentDateTime
-              timeZone={location?.tz_id}
-              date={location?.localtime.split(" ")[0]}
-            />
+            {location.localtime && (
+              <CurrentDateTime
+                timeZone={location.tz_id}
+                date={location.localtime.split(" ")[0]}
+              />
+            )}
 
             <div className="flex items-center gap-2">
               <h3 className="flex items-center gap-1 text-xl font-semibold">
                 <MapPin size={18} />
-                {location?.name}
-                <sup className="text-xs" title={location?.country}>
-                  {getCountryCode(location?.country as string) ??
-                    location?.country}
+                {location.name}
+                <sup className="text-xs" title={location.country}>
+                  {getCountryCode(location.country ?? "") ?? location.country}
                 </sup>
               </h3>
               <ToolTip
                 tooltipTrigger={
                   <a
-                    href={`https://www.weatherapi.com/weather/q/${encodeURIComponent(location?.name as string)}`}
+                    href={`https://www.weatherapi.com/weather/q/${encodeURIComponent(location.name)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block cursor-pointer text-muted-foreground transition duration-300 hover:scale-90 hover:text-primary dark:text-muted-foreground hover:dark:text-primary"

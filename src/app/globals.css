@@ -96,5 +96,9 @@
 }
 
 .city-option {
-  padding-block: 8px !important;
+  padding-block: 6px !important;
+}
+
+.command-group {
+  padding: 4px !important;
 }

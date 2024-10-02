@@ -3,9 +3,6 @@ const SUGGESTED_CITIES = [
     name: "London",
   },
   {
-    name: "New York",
-  },
-  {
     name: "Sydney",
   },
   {
@@ -15,13 +12,7 @@ const SUGGESTED_CITIES = [
     name: "Moscow",
   },
   {
-    name: "Paris",
-  },
-  {
     name: "Berlin",
-  },
-  {
-    name: "Cairo",
   },
 ];
 

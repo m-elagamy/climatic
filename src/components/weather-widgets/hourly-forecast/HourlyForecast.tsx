@@ -18,7 +18,7 @@ const HourlyForecast = async ({ city }: { city: string }) => {
 
   const { forecast, location } = weatherData ?? {};
 
-  const localTime = location?.localtime.split(" ")[1] ?? "";
+  const localTime = location?.localtime ? location.localtime.split(" ")[1] : "";
 
   const hourlyData = forecast?.forecastday[0]?.hour;
   const nextDayHourlyData = forecast?.forecastday[1]?.hour;

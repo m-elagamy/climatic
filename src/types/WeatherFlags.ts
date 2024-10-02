@@ -21,10 +21,11 @@ export type DayData = {
 };
 
 export type Location = {
+  id?: number;
   name: string;
-  country: string;
-  tz_id: string;
-  localtime: string;
+  country?: string;
+  tz_id?: string;
+  localtime?: string;
 };
 
 export type Current = {
@@ -62,7 +63,7 @@ export type Current = {
 };
 
 export type WeatherFlags = {
-  location?: Location;
+  location: Location;
 
   current: Current;
 

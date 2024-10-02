@@ -1,5 +1,5 @@
-import SearchDialog from "./SearchDialog";
-import Settings from "./Settings";
+import SearchDialog from "./search-dialog/SearchDialog";
+import Settings from "./settings/Settings";
 
 const Header = () => {
   return (

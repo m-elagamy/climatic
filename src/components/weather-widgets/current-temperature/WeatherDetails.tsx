@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 
-import { WeatherFlags } from "@/types/WeatherFlags";
+import { WeatherFlags, type Current } from "@/types/WeatherFlags";
 import useUnitsContext from "@/hooks/useUnitsContext";
 import CloudLoading from "../../ui/loading-indicators/CloudLoading";
 import getPreferredUnits from "@/utils/getPreferredUnits";
@@ -14,7 +14,10 @@ const weatherDetailsVariants = motionVariants();
 export default function WeatherDetails({
   current,
   forecast,
-}: Readonly<WeatherFlags>) {
+}: {
+  current: Current;
+  forecast: WeatherFlags["forecast"];
+}) {
   const { isImperial, isLoading } = useUnitsContext();
 
   const currentTemp = getPreferredUnits(
