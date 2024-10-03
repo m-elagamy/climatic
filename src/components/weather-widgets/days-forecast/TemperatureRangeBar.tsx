@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-import motionVariants from "@/utils/motionVariants";
+import {motionVariants} from "@/utils/motionVariants";
 
 const temperatureRangeBarVariants = motionVariants(
   [0.68, -0.55, 0.27, 1.55],

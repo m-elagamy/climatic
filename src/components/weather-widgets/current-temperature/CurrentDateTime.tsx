@@ -4,7 +4,7 @@ import { Calendar } from "lucide-react";
 
 import useLiveClock from "@/hooks/useLiveClock";
 import getDayName from "@/utils/getDayName";
-import motionVariants from "@/utils/motionVariants";
+import {motionVariants} from "@/utils/motionVariants";
 import { Skeleton } from "../../ui/loading-indicators/skeleton";
 import ClockIcon from "../../icons/ClockIcon";
 

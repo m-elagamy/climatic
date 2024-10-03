@@ -9,7 +9,7 @@ import WeatherIcon from "@/components/icons/WeatherIcon";
 import DayCardSkeleton from "@/components/ui/loading-indicators/DayCardSkeleton";
 import TemperatureRangeBar from "./TemperatureRangeBar";
 import getPreferredUnits from "@/utils/getPreferredUnits";
-import motionVariants from "@/utils/motionVariants";
+import {motionVariants} from "@/utils/motionVariants";
 import getDayName from "@/utils/getDayName";
 
 const dayCardVariants = motionVariants(

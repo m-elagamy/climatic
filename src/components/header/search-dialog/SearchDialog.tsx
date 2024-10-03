@@ -1,33 +1,33 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
+
 import {
   CommandDialog,
-  CommandEmpty,
   CommandGroup,
-  CommandItem,
   CommandList,
 } from "@/components/ui/command";
-
 import useSearchDialog from "@/hooks/useSearchDialog";
 import useCitySearch from "@/hooks/useCitySearch";
 import useDebounce from "@/hooks/useDebounce";
 import useCityChange from "@/hooks/useCityChange";
+import { listVariants } from "@/utils/motionVariants";
 import SearchButton from "./SearchButton";
 import CommandInput from "./CommandInput";
 import SuggestedCities from "./SuggestedCities";
 import ErrorMessage from "./ErrorMessage";
-import LoadingIndicator from "./LoadingIndicator";
+import DotLoader from "@/components/ui/loading-indicators/DotLoader";
+import CitySearchResults from "./CitySearchResults";
 
 import type { Location } from "@/types/WeatherFlags";
+import NoResultMessage from "./NoResultMessage";
 
 export default function SearchDialog() {
   const { open, setOpen } = useSearchDialog();
-
   const [input, setInput] = useState("");
-  const debouncedInput = useDebounce(input, 600);
+  const debouncedInput = useDebounce(input);
   const { cities, isLoading, isError } = useCitySearch(debouncedInput);
-
   const { handleCityChange } = useCityChange(setOpen);
 
   // Reset input when dialog is closed
@@ -39,37 +39,32 @@ export default function SearchDialog() {
 
   return (
     <>
-      <SearchButton setOpen={setOpen}></SearchButton>
+      <SearchButton setOpen={setOpen} />
       <CommandDialog open={open} onOpenChange={setOpen}>
         <CommandInput input={input} setInput={setInput} />
-        <CommandList>
-          <CommandGroup>
-            {isLoading && <LoadingIndicator />}
+        <CommandList className="relative min-h-[68px]">
+          {isLoading && <DotLoader />}
+          {isError && <ErrorMessage />}
 
-            {isError && <ErrorMessage />}
+          {cities.length === 0 && !isLoading && <NoResultMessage />}
 
-            {debouncedInput && cities.length === 0 && (
-              <CommandEmpty>No matching cities found.</CommandEmpty>
+          <motion.ul variants={listVariants} initial="hidden" animate="visible">
+            {debouncedInput === "" && (
+              <SuggestedCities handleCityChange={handleCityChange} />
             )}
 
             {cities.length > 0 && (
-              <CommandGroup heading="Suggestions">
+              <CommandGroup heading="Suggestions:">
                 {cities.map((city: Location) => (
-                  <CommandItem
+                  <CitySearchResults
                     key={city.id}
-                    onSelect={() => handleCityChange(city)}
-                    className="city-option cursor-pointer"
-                  >
-                    {city.name}, {city.country}
-                  </CommandItem>
+                    handleCityChange={handleCityChange}
+                    city={city}
+                  />
                 ))}
               </CommandGroup>
             )}
-
-            {debouncedInput.length === 0 && (
-              <SuggestedCities handleCityChange={handleCityChange} />
-            )}
-          </CommandGroup>
+          </motion.ul>
         </CommandList>
       </CommandDialog>
     </>

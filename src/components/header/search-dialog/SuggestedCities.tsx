@@ -1,6 +1,10 @@
+import { motion } from "framer-motion";
+
 import { CommandGroup, CommandItem } from "@/components/ui/command";
-import type { Location } from "@/types/WeatherFlags";
 import { SUGGESTED_CITIES } from "@/utils/constants";
+
+import type { Location } from "@/types/WeatherFlags";
+import { itemVariants } from "@/utils/motionVariants";
 
 // Types
 type SuggestedCitiesProps = {
@@ -9,15 +13,16 @@ type SuggestedCitiesProps = {
 
 function SuggestedCities({ handleCityChange }: SuggestedCitiesProps) {
   return (
-    <CommandGroup heading="Suggestions">
+    <CommandGroup heading="Suggestions:">
       {SUGGESTED_CITIES.map((city) => (
-        <CommandItem
-          key={city.name}
-          onSelect={() => handleCityChange(city)}
-          className="city-option"
-        >
-          {city.name}
-        </CommandItem>
+        <motion.li key={city.id} variants={itemVariants}>
+          <CommandItem
+            onSelect={() => handleCityChange(city)}
+            className="city-option"
+          >
+            {city.name}
+          </CommandItem>
+        </motion.li>
       ))}
     </CommandGroup>
   );

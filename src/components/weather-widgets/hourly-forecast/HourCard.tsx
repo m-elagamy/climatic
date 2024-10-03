@@ -8,7 +8,7 @@ import { HourData } from "@/types/WeatherFlags";
 import HourCardSkeleton from "@/components/ui/loading-indicators/HourCardSkeleton";
 import roundToNearestInteger from "@/utils/roundToNearestInteger";
 import getPreferredUnits from "@/utils/getPreferredUnits";
-import motionVariants from "@/utils/motionVariants";
+import {motionVariants} from "@/utils/motionVariants";
 import formatTime from "./utils/formatTime";
 import WeatherIcon from "../../icons/WeatherIcon";
 import ClockIcon from "../../icons/ClockIcon";

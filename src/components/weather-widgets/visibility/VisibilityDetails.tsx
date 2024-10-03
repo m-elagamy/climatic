@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import useUnitsContext from "@/hooks/useUnitsContext";
 import CloudLoading from "@/components/ui/loading-indicators/CloudLoading";
 import getPreferredUnits from "@/utils/getPreferredUnits";
-import motionVariants from "@/utils/motionVariants";
+import {motionVariants} from "@/utils/motionVariants";
 
 type VisibilityDetailsProps = {
   visKm: number;

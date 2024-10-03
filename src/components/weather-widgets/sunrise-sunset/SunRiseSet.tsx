@@ -40,4 +40,5 @@ const SunRiseSet = async ({ city }: { city: string }) => {
     </article>
   );
 };
+
 export default SunRiseSet;

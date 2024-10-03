@@ -31,7 +31,10 @@ const RenderSunriseSunset = ({
   return (
     <>
       <h2 className="title" aria-label={`${firstLabel}: ${firstTime}`}>
-        <FirstIcon size={16} />
+        <FirstIcon
+          size={16}
+          className={`${isSunUp ? "text-orange-500" : "text-yellow-500"}`}
+        />
         {firstLabel}
       </h2>
 
@@ -45,7 +48,11 @@ const RenderSunriseSunset = ({
         aria-label={`${secondLabel}: ${secondTime}`}
       >
         <span className="flex items-center gap-1 font-semibold text-muted-foreground">
-          <SecondIcon size={16} /> {secondLabel}:
+          <SecondIcon
+            size={16}
+            className={`${isSunUp ? "text-yellow-500" : "text-orange-500"}`}
+          />{" "}
+          {secondLabel}:
         </span>
         {secondTime.split(" ")[0]}{" "}
         <sub className="text-xs">{secondTime.split(" ")[1]}</sub>
