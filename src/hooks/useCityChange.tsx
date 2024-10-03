@@ -13,7 +13,7 @@ const useCityChange = (setOpen: Dispatch<SetStateAction<boolean>>) => {
         const cityName = selectedCity.name ?? "";
 
         router.push(
-          `/?city=${encodeURIComponent(cityName)}&id=${selectedCity.id}`,
+          `/?city=${encodeURIComponent(cityName)}&lat=${selectedCity.lat}&lon=${selectedCity.lon}`,
         );
       } catch (error) {
         console.error(

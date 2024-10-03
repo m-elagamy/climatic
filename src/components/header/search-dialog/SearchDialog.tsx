@@ -49,7 +49,7 @@ export default function SearchDialog() {
             {isError && <ErrorMessage />}
 
             {debouncedInput && cities.length === 0 && (
-              <CommandEmpty>No results found.</CommandEmpty>
+              <CommandEmpty>No matching cities found.</CommandEmpty>
             )}
 
             {cities.length > 0 && (

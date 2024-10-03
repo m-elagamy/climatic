@@ -18,7 +18,7 @@ const fetchWeatherData = async (
     const timeoutId = setTimeout(() => controller.abort(), 10000);
 
     const res = await fetch(
-      `${baseUrl}/forecast.json?key=${apiKey}&q=${cityLocation}&aqi=yes&days=6&alerts=yes`,
+      `${baseUrl}/forecast.json?key=${apiKey}&q=${cityLocation}&aqi=yes&days=7&alerts=yes`,
       { signal, next: { revalidate: 1800 } },
     );
     clearTimeout(timeoutId);
