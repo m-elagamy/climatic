@@ -55,6 +55,7 @@ export default function getWeatherIcon(
     case "moderate or heavy rain with thunder":
     case "tornado":
     case "hurricane":
+    case "patchy light rain with thunder":
       return CloudLightning;
 
     case "snow":
@@ -67,6 +68,8 @@ export default function getWeatherIcon(
     case "blizzard":
     case "freezing fog":
     case "icy":
+    case "patchy light snow with thunder":
+    case "moderate or heavy snow with thunder":
       return CloudSnow;
 
     case "light freezing rain":
@@ -81,9 +84,9 @@ export default function getWeatherIcon(
     case "light rain and snow":
     case "moderate rain and snow":
     case "heavy rain and snow":
+    case "ice pellets":
       return CloudHail;
 
-    // Default to clear or sunny
     default:
       return isDay ? Sun : Moon;
   }

@@ -66,7 +66,7 @@ const config: Config = {
         sm: "calc(var(--radius) - 4px)",
       },
       animation: {
-        "spin-slow": "spin 9s linear infinite",
+        "spin-slow": "spin 12s linear infinite",
         drop: "drop 350ms infinite",
         float: "float 3s ease-in-out  infinite",
       },

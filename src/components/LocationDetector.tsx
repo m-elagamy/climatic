@@ -14,7 +14,7 @@ const LocationDetector = () => {
   const handleSuccess = useCallback(
     async (position: GeolocationPosition) => {
       const { latitude, longitude } = position.coords;
-      await delay(1500);
+      await delay(2000);
       router.replace(`/?lat=${latitude}&lon=${longitude}`);
     },
     [router],
@@ -23,7 +23,7 @@ const LocationDetector = () => {
   const handleError = useCallback(
     async (error: GeolocationPositionError) => {
       if (error.code === error.PERMISSION_DENIED) {
-        await delay(1500);
+        await delay(2000);
         toast({
           title: "Location Access Denied",
           description:
@@ -36,7 +36,7 @@ const LocationDetector = () => {
   );
 
   const handleSupportError = useCallback(async () => {
-    await delay(1500);
+    await delay(2000);
     toast({
       title: "Geolocation is not supported",
       description:

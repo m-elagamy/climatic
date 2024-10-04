@@ -1,6 +1,6 @@
 const Preloader = () => {
   return (
-    <div className="preloader absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 opacity-100">
+    <div className="preloader absolute left-1/2 top-1/2 grid w-80 -translate-x-1/2 -translate-y-1/2 place-items-center opacity-100">
       <svg
         version="1.1"
         id="sun"
@@ -9,7 +9,7 @@ const Preloader = () => {
         width="10px"
         height="10px"
         viewBox="0 0 10 10"
-        className="opacity-1 absolute left-[40px] top-[15px] z-[1] size-[60px] animate-spin-slow"
+        className="opacity-1 absolute right-[110px] top-[15px] z-[1] size-14 animate-spin-slow"
       >
         <g className="dark:*:fill-[#ffcc00]">
           <path
@@ -75,7 +75,7 @@ const Preloader = () => {
         width="10px"
         height="10px"
         viewBox="0 0 10 10"
-        className="animate-float relative z-[2] size-[110px]"
+        className="relative z-[2] size-[110px] animate-float"
       >
         <path
           fill="none"
@@ -84,7 +84,7 @@ const Preloader = () => {
         ></path>
       </svg>
 
-      <div className="rain absolute ml-[19px] mt-[-32px] h-[70px] w-[70px] *:float-left *:ml-[4px] *:block *:h-[10px] *:w-[3px] *:animate-drop *:rounded-b-[6px] *:bg-[#89CFF0] *:opacity-100 dark:*:bg-[#74B3CE]">
+      <div className="rain absolute mt-[85px] h-[80px] *:float-left *:ml-[4px] *:block *:h-[10px] *:w-[3px] *:animate-drop *:rounded-b-[6px] *:bg-[#89CFF0] *:opacity-100 dark:*:bg-[#74B3CE]">
         <span className="drop"></span>
         <span className="drop"></span>
         <span className="drop"></span>
@@ -97,8 +97,8 @@ const Preloader = () => {
         <span className="drop"></span>
       </div>
 
-      <div className="text ml-[-43px] mt-[20px] w-[200px] text-center text-sm font-bold uppercase tracking-wide text-[#a0a0a0]">
-        loading weather data...
+      <div className="mt-2 text-center text-sm font-bold uppercase tracking-wider text-muted-foreground">
+        loading weather information<span className="animate-pulse">...</span>
       </div>
     </div>
   );

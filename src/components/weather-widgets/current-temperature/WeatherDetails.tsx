@@ -6,7 +6,7 @@ import { WeatherFlags, type Current } from "@/types/WeatherFlags";
 import useUnitsContext from "@/hooks/useUnitsContext";
 import CloudLoading from "../../ui/loading-indicators/CloudLoading";
 import getPreferredUnits from "@/utils/getPreferredUnits";
-import {motionVariants} from "@/utils/motionVariants";
+import { motionVariants } from "@/utils/motionVariants";
 import WeatherIcon from "../../icons/WeatherIcon";
 
 const weatherDetailsVariants = motionVariants();
@@ -51,7 +51,7 @@ export default function WeatherDetails({
             className="mx-auto text-4xl font-bold tracking-wider md:text-5xl"
             title={`Current Temperature in ${isImperial ? "Fahrenheit" : "Celsius"}`}
           >
-            {currentTemp}°
+            {currentTemp}&deg;
           </motion.h4>
           <motion.div
             className="space-y-2"

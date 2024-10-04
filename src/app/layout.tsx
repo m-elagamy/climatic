@@ -31,7 +31,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={lato.variable} suppressHydrationWarning>
-      <body className={`min-h-screen tracking-wide antialiased`}>
+      <body className={`min-h-dvh tracking-wide antialiased`}>
         <WeatherProvider>
           <ThemeProvider
             attribute="class"
