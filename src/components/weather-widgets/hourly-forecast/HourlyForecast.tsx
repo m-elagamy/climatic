@@ -47,7 +47,7 @@ const HourlyForecast = async ({
   return (
     <article className={`container-style col-span-2`}>
       <h2 className="title mb-4 md:mb-0">
-        <CalendarClock size={16} /> Hourly Forecast:
+        <CalendarClock size={16} /> 12 Hourly Forecast:
       </h2>
 
       {!hourlyData && <ErrorMessage error="Hourly forecast" />}

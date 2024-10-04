@@ -45,8 +45,7 @@ const DaysForecast = async ({
   return (
     <article className="container-style h-auto">
       <h2 className="title mb-2">
-        <CalendarDays size={16} />
-        Days Forecast:
+        <CalendarDays size={16} /> 3 Days Forecast:
       </h2>
 
       {!daysForecast && <ErrorMessage error="Days forecast" />}
