@@ -8,20 +8,22 @@ const LocationDetector = () => {
   const router = useRouter();
   const { toast } = useToast();
 
+  const delay = (ms: number) =>
+    new Promise((resolve) => setTimeout(resolve, ms));
+
   const handleSuccess = useCallback(
-    (position: GeolocationPosition) => {
+    async (position: GeolocationPosition) => {
       const { latitude, longitude } = position.coords;
+      await delay(1500);
       router.replace(`/?lat=${latitude}&lon=${longitude}`);
     },
     [router],
   );
 
   const handleError = useCallback(
-    (error: GeolocationPositionError) => {
+    async (error: GeolocationPositionError) => {
       if (error.code === error.PERMISSION_DENIED) {
-        console.log(
-          "User denied the request for Geolocation and will be redirected to Cairo city by default.",
-        );
+        await delay(1500);
         toast({
           title: "Location Access Denied",
           description:
@@ -33,8 +35,8 @@ const LocationDetector = () => {
     [router, toast],
   );
 
-  const handleSupportError = useCallback(() => {
-    console.log("Geolocation is not supported by this browser.");
+  const handleSupportError = useCallback(async () => {
+    await delay(1500);
     toast({
       title: "Geolocation is not supported",
       description:

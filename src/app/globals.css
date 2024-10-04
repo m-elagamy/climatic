@@ -110,7 +110,8 @@
 }
 
 #sun path {
-  stroke-width: 0.18;
+  stroke: #ffd700;
+  fill: #fffacd;
 }
 
 .drop:nth-child(1) {

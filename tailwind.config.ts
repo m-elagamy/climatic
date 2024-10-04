@@ -66,18 +66,24 @@ const config: Config = {
         sm: "calc(var(--radius) - 4px)",
       },
       animation: {
-        "spin-slow": "rotate 16s linear infinite",
+        "spin-slow": "spin 9s linear infinite",
         drop: "drop 350ms infinite",
+        float: "float 3s ease-in-out  infinite",
       },
       keyframes: {
-        rotate: {
-          "0%": { transform: "rotateZ(0deg)" },
-          "100%": { transform: "rotateZ(360deg)" },
+        spin: {
+          "0%": { transform: "rotate(0deg)" },
+          "100%": { transform: "rotate(360deg)" },
         },
         drop: {
           "50%": { height: "45px", opacity: "0" },
           "51%": { opacity: "0" },
           "100%": { height: "1px", opacity: "0" },
+        },
+        float: {
+          "0%": { transform: "translateY(0px)" },
+          "50%": { transform: "translateY(-5px)" },
+          "100%": { transform: "translateY(0px)" },
         },
       },
     },
