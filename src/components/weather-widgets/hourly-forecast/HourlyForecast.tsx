@@ -13,8 +13,20 @@ import {
   CarouselItem,
 } from "@/components/ui/carousel";
 
-const HourlyForecast = async ({ city }: { city: string }) => {
-  const weatherData: WeatherFlags | null = await fetchWeatherData(city);
+const HourlyForecast = async ({
+  city,
+  lat,
+  lon,
+}: {
+  city: string;
+  lat: string;
+  lon: string;
+}) => {
+  const weatherData: WeatherFlags | null = await fetchWeatherData(
+    city,
+    lat,
+    lon,
+  );
 
   const { forecast, location } = weatherData ?? {};
 

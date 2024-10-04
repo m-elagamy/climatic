@@ -2,9 +2,9 @@ import { motion } from "framer-motion";
 
 import { CommandGroup, CommandItem } from "@/components/ui/command";
 import { SUGGESTED_CITIES } from "@/utils/constants";
+import { itemVariants } from "@/utils/motionVariants";
 
 import type { Location } from "@/types/WeatherFlags";
-import { itemVariants } from "@/utils/motionVariants";
 
 // Types
 type SuggestedCitiesProps = {

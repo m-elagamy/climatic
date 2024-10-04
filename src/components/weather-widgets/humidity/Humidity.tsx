@@ -7,8 +7,20 @@ import ErrorMessage from "../../ui/error-message";
 import fetchWeatherData from "@/utils/fetchWeatherData";
 import getCurrentLevel from "@/utils/getCurrentLevel";
 
-const Humidity = async ({ city }: { city: string }) => {
-  const weatherData: WeatherFlags | null = await fetchWeatherData(city);
+const Humidity = async ({
+  city,
+  lat,
+  lon,
+}: {
+  city: string;
+  lat: string;
+  lon: string;
+}) => {
+  const weatherData: WeatherFlags | null = await fetchWeatherData(
+    city,
+    lat,
+    lon,
+  );
 
   const { current, forecast } = weatherData ?? {};
 

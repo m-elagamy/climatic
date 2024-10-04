@@ -5,8 +5,20 @@ import dewPointLevels from "./dewPointLevels";
 import getCurrentLevel from "@/utils/getCurrentLevel";
 import ErrorMessage from "@/components/ui/error-message";
 
-const DewPoint = async ({ city }: { city: string }) => {
-  const weatherData: WeatherFlags | null = await fetchWeatherData(city);
+const DewPoint = async ({
+  city,
+  lat,
+  lon,
+}: {
+  city: string;
+  lat: string;
+  lon: string;
+}) => {
+  const weatherData: WeatherFlags | null = await fetchWeatherData(
+    city,
+    lat,
+    lon,
+  );
 
   const { current } = weatherData ?? {};
 

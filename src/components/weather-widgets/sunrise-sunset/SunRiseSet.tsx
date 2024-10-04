@@ -5,8 +5,20 @@ import RenderSunriseSunset from "@/components/weather-widgets/sunrise-sunset/Ren
 import ErrorMessage from "../../ui/error-message";
 import fetchWeatherData from "@/utils/fetchWeatherData";
 
-const SunRiseSet = async ({ city }: { city: string }) => {
-  const weatherData: WeatherFlags | null = await fetchWeatherData(city);
+const SunRiseSet = async ({
+  city,
+  lat,
+  lon,
+}: {
+  city: string;
+  lat: string;
+  lon: string;
+}) => {
+  const weatherData: WeatherFlags | null = await fetchWeatherData(
+    city,
+    lat,
+    lon,
+  );
 
   const { forecast } = weatherData ?? {};
 

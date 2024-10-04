@@ -7,8 +7,20 @@ import getCurrentLevel from "@/utils/getCurrentLevel";
 import getPrecipitationPercentage from "./utils/getPrecipitationPercentage";
 import precipitationLevels from "./utils/precipitationLevels";
 
-const Precipitation = async ({ city }: { city: string }) => {
-  const weatherData: WeatherFlags | null = await fetchWeatherData(city);
+const Precipitation = async ({
+  city,
+  lat,
+  lon,
+}: {
+  city: string;
+  lat: string;
+  lon: string;
+}) => {
+  const weatherData: WeatherFlags | null = await fetchWeatherData(
+    city,
+    lat,
+    lon,
+  );
   const { current } = weatherData ?? {};
 
   const { level, color, description } = getCurrentLevel(

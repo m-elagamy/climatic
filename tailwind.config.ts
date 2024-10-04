@@ -65,6 +65,21 @@ const config: Config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      animation: {
+        "spin-slow": "rotate 16s linear infinite",
+        drop: "drop 350ms infinite",
+      },
+      keyframes: {
+        rotate: {
+          "0%": { transform: "rotateZ(0deg)" },
+          "100%": { transform: "rotateZ(360deg)" },
+        },
+        drop: {
+          "50%": { height: "45px", opacity: "0" },
+          "51%": { opacity: "0" },
+          "100%": { height: "1px", opacity: "0" },
+        },
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

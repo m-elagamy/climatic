@@ -7,8 +7,8 @@ import ErrorMessage from "../../ui/error-message";
 import fetchWeatherData from "@/utils/fetchWeatherData";
 import getCurrentLevel from "@/utils/getCurrentLevel";
 
-const Pressure = async ({ city }: { city: string }) => {
-  const weatherData: WeatherFlags | null = await fetchWeatherData(city);
+const Pressure = async ({ city, lat, lon }: { city: string, lat:string, lon:string }) => {
+  const weatherData: WeatherFlags | null = await fetchWeatherData(city, lat, lon);
 
   const { current } = weatherData ?? {};
 

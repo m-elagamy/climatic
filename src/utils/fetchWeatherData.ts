@@ -3,7 +3,9 @@ import "server-only";
 import { WeatherFlags } from "@/types/WeatherFlags";
 
 const fetchWeatherData = async (
-  cityLocation: string = "cairo",
+  cityLocation?: string,
+  lat?: string,
+  lon?: string,
 ): Promise<WeatherFlags | null> => {
   const apiKey = process.env.NEXT_PUBLIC_WEATHER_API_KEY;
   const baseUrl = "https://api.weatherapi.com/v1";
@@ -12,13 +14,15 @@ const fetchWeatherData = async (
     throw new Error("API key or base URL is missing");
   }
 
+  const query = lat && lon ? `${lat},${lon}` : cityLocation || "Cairo";
+
   try {
     const controller = new AbortController();
     const signal = controller.signal;
     const timeoutId = setTimeout(() => controller.abort(), 10000);
 
     const res = await fetch(
-      `${baseUrl}/forecast.json?key=${apiKey}&q=${cityLocation}&aqi=yes&days=7&alerts=yes`,
+      `${baseUrl}/forecast.json?key=${apiKey}&q=${query}&aqi=yes&days=7&alerts=yes`,
       { signal, next: { revalidate: 1800 } },
     );
     clearTimeout(timeoutId);

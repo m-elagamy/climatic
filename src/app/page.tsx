@@ -12,38 +12,52 @@ import Visibility from "@/components/weather-widgets/visibility/Visibility";
 import DaysForecast from "@/components/weather-widgets/days-forecast/DaysForecast";
 import Precipitation from "@/components/weather-widgets/precipitation/Precipitation";
 import DewPoint from "@/components/weather-widgets/dew-point/DewPoint";
+import LocationDetector from "@/components/LocationDetector";
+import Preloader from "@/components/ui/loading-indicators/Preloader";
 
 export default async function Home({
   searchParams,
-}: {
+}: Readonly<{
   searchParams: {
     city: string;
+    lat: string;
+    lon: string;
   };
-}) {
-  const { city } = searchParams;
+}>) {
+  const city = searchParams.city;
+  const lat = searchParams.lat;
+  const lon = searchParams.lon;
 
   return (
     <>
-      <Header />
-      <main className="flex flex-col gap-4 md:flex-row">
-        <section className="flex w-full min-w-[18rem] flex-col gap-4 md:w-[144px]">
-          <CurrentTemperature city={city} />
-          <DaysForecast city={city} />
-        </section>
-        <section className="grid h-full grid-cols-2 gap-4 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
-          <FeelsLikeTemp city={city} />
-          <Humidity city={city} />
-          <Ultraviolet city={city} />
-          <AirPollution city={city} />
-          <Wind city={city} />
-          <Visibility city={city} />
-          <Pressure city={city} />
-          <SunRiseSet city={city} />
-          <Precipitation city={city} />
-          <DewPoint city={city} />
-          <HourlyForecast city={city} />
-        </section>
-      </main>
+      {!lat && !lon && <LocationDetector />}
+
+      {lat || lon || city ? (
+        <>
+          <Header />
+          <main className="flex flex-col gap-4 md:flex-row">
+            <section className="flex w-full min-w-[18rem] flex-col gap-4 md:w-[144px]">
+              <CurrentTemperature city={city} lat={lat} lon={lon} />
+              <DaysForecast city={city} lat={lat} lon={lon} />
+            </section>
+            <section className="grid h-full grid-cols-2 gap-4 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
+              <FeelsLikeTemp city={city} lat={lat} lon={lon} />
+              <Humidity city={city} lat={lat} lon={lon} />
+              <Ultraviolet city={city} lat={lat} lon={lon} />
+              <AirPollution city={city} lat={lat} lon={lon} />
+              <Wind city={city} lat={lat} lon={lon} />
+              <Visibility city={city} lat={lat} lon={lon} />
+              <Pressure city={city} lat={lat} lon={lon} />
+              <SunRiseSet city={city} lat={lat} lon={lon} />
+              <Precipitation city={city} lat={lat} lon={lon} />
+              <DewPoint city={city} lat={lat} lon={lon} />
+              <HourlyForecast city={city} lat={lat} lon={lon} />
+            </section>
+          </main>
+        </>
+      ) : (
+        <Preloader />
+      )}
     </>
   );
 }
