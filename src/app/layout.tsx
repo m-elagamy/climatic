@@ -5,6 +5,7 @@ import "./globals.css";
 import { WeatherProvider } from "@/providers/WeatherProvider";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import { UnitsProvider } from "@/providers/UnitsProvider";
+import { Toaster } from "@/components/ui/toaster";
 
 // Google Font
 const lato = Lato({
@@ -37,6 +38,7 @@ export default function RootLayout({
             <UnitsProvider>
               <h1 className="sr-only">Weather App</h1>
               <div className="container py-4">{children}</div>
+              <Toaster />
             </UnitsProvider>
           </ThemeProvider>
         </WeatherProvider>

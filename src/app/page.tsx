@@ -30,31 +30,32 @@ export default async function Home({
 
   return (
     <>
+      <div
+        className={`${!lat && !lon && !city ? "pointer-events-none" : "cursor-auto"}`}
+      >
+        <Header />
+      </div>
       {!lat && !lon && <LocationDetector />}
-
       {lat || lon || city ? (
-        <>
-          <Header />
-          <main className="flex flex-col gap-4 md:flex-row">
-            <section className="flex w-full min-w-[18rem] flex-col gap-4 md:w-[144px]">
-              <CurrentTemperature city={city} lat={lat} lon={lon} />
-              <DaysForecast city={city} lat={lat} lon={lon} />
-            </section>
-            <section className="grid h-full grid-cols-2 gap-4 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
-              <FeelsLikeTemp city={city} lat={lat} lon={lon} />
-              <Humidity city={city} lat={lat} lon={lon} />
-              <Ultraviolet city={city} lat={lat} lon={lon} />
-              <AirPollution city={city} lat={lat} lon={lon} />
-              <Wind city={city} lat={lat} lon={lon} />
-              <Visibility city={city} lat={lat} lon={lon} />
-              <Pressure city={city} lat={lat} lon={lon} />
-              <SunRiseSet city={city} lat={lat} lon={lon} />
-              <Precipitation city={city} lat={lat} lon={lon} />
-              <DewPoint city={city} lat={lat} lon={lon} />
-              <HourlyForecast city={city} lat={lat} lon={lon} />
-            </section>
-          </main>
-        </>
+        <main className="flex flex-col gap-4 md:flex-row">
+          <section className="flex w-full min-w-[18rem] flex-col gap-4 md:w-[144px]">
+            <CurrentTemperature city={city} lat={lat} lon={lon} />
+            <DaysForecast city={city} lat={lat} lon={lon} />
+          </section>
+          <section className="grid h-full grid-cols-2 gap-4 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
+            <FeelsLikeTemp city={city} lat={lat} lon={lon} />
+            <Humidity city={city} lat={lat} lon={lon} />
+            <Ultraviolet city={city} lat={lat} lon={lon} />
+            <AirPollution city={city} lat={lat} lon={lon} />
+            <Wind city={city} lat={lat} lon={lon} />
+            <Visibility city={city} lat={lat} lon={lon} />
+            <Pressure city={city} lat={lat} lon={lon} />
+            <SunRiseSet city={city} lat={lat} lon={lon} />
+            <Precipitation city={city} lat={lat} lon={lon} />
+            <DewPoint city={city} lat={lat} lon={lon} />
+            <HourlyForecast city={city} lat={lat} lon={lon} />
+          </section>
+        </main>
       ) : (
         <Preloader />
       )}
