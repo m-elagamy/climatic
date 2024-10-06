@@ -6,7 +6,6 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { SettingsIcon } from "lucide-react";
-// import ThemeOptions from "./ThemeOptions";
 import ToggleUnits from "./ToggleUnits";
 
 export default function Settings() {
@@ -27,7 +26,6 @@ export default function Settings() {
         align="end"
       >
         <DropdownMenuLabel>Settings:</DropdownMenuLabel>
-        {/* <ThemeOptions /> */}
         <DropdownMenuLabel>
           <ToggleUnits />
         </DropdownMenuLabel>
