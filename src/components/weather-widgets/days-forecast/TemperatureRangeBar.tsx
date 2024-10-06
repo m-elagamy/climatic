@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-import {motionVariants} from "@/utils/motionVariants";
+import { motionVariants } from "@/utils/motionVariants";
 
 const temperatureRangeBarVariants = motionVariants(
   [0.68, -0.55, 0.27, 1.55],
@@ -30,7 +30,7 @@ const TemperatureRangeBar = ({
 
   return (
     <motion.div
-      className="relative h-[6px] w-1/2 rounded-md bg-slate-200 dark:bg-slate-800"
+      className="relative h-[6px] w-1/2 rounded-md bg-slate-300"
       variants={temperatureRangeBarVariants}
       initial="hidden"
       animate="visible"

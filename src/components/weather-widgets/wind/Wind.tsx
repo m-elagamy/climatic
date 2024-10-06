@@ -67,7 +67,7 @@ const Wind = async ({
             width={10.2}
             height={135}
             priority
-            className={`absolute left-1/2 top-1/2 transition-transform duration-500 ease-in-out will-change-transform dark:invert`}
+            className={`absolute left-1/2 top-1/2 invert transition-transform duration-500 ease-in-out will-change-transform`}
             style={{
               transform: `translateX(-50%) translateY(-50%) rotate(${wind_degree}deg)`,
             }}

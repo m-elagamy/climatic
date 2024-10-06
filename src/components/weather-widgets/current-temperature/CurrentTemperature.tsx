@@ -55,9 +55,12 @@ const CurrentTemperature = async ({
                     href={`https://www.weatherapi.com/weather/q/${encodeURIComponent(location.name)}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block cursor-pointer text-muted-foreground transition duration-300 hover:scale-90 hover:text-primary dark:text-muted-foreground hover:dark:text-primary"
+                    className="inline-block cursor-pointer transition duration-300 hover:scale-90"
                   >
-                    <Navigation size={20} />
+                    <Navigation
+                      size={20}
+                      className="text-muted-foreground transition-colors duration-300 hover:text-primary"
+                    />
                     <span className="sr-only">
                       Check weather conditions on WeatherAPI?
                     </span>

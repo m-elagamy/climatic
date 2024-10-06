@@ -46,7 +46,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${lato.variable} dark`}>
+    <html lang="en" className={`${lato.variable}`}>
       <body className={`relative min-h-dvh tracking-wide antialiased`}>
         <UnitsProvider>
           <SearchDialogProvider>

@@ -32,7 +32,7 @@ function WindSpeed({
         <div className="absolute left-16">
           <ToolTip
             tooltipTrigger={
-              <InfoCircledIcon className="size-[17px] dark:text-blue-700" />
+              <InfoCircledIcon className="size-[17px] text-blue-700" />
             }
             tooltipContent={
               <>

@@ -49,7 +49,7 @@ const ToolTip = ({
         {children}
         <TooltipTrigger
           asChild
-          className="cursor-help text-blue-600 dark:text-blue-400"
+          className="cursor-help text-blue-700"
           onClick={handleClick}
         >
           {tooltipTrigger}
