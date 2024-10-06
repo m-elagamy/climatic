@@ -9,7 +9,7 @@ import WeatherIcon from "@/components/icons/WeatherIcon";
 import DayCardSkeleton from "@/components/ui/loading-indicators/DayCardSkeleton";
 import TemperatureRangeBar from "./TemperatureRangeBar";
 import getPreferredUnits from "@/utils/getPreferredUnits";
-import {motionVariants} from "@/utils/motionVariants";
+import { motionVariants } from "@/utils/motionVariants";
 import getDayName from "@/utils/getDayName";
 
 const dayCardVariants = motionVariants(
@@ -43,7 +43,7 @@ const DayCard = ({
   );
 
   return (
-    <div className="flex items-center justify-between rounded-md border p-3 shadow-sm">
+    <div className="flex items-center justify-between rounded-md border border-gray-500/5 p-3 shadow-sm">
       {isLoading && <DayCardSkeleton />}
 
       {!isLoading && (

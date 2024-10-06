@@ -43,7 +43,7 @@
 
 @layer components {
   .container-style {
-    @apply bg-gradient flex h-auto min-h-[160px] flex-col justify-between gap-2 rounded-xl border border-gray-500/5 p-4 text-foreground shadow-sm md:h-[175px];
+    @apply bg-gradient flex h-auto min-h-[160px] flex-col justify-between gap-2 rounded-xl border border-gray-500/5 p-4 text-foreground shadow-sm backdrop-blur-[1px] md:h-[175px];
   }
 
   .title {

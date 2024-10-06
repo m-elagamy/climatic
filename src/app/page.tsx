@@ -14,6 +14,7 @@ import Precipitation from "@/components/weather-widgets/precipitation/Precipitat
 import DewPoint from "@/components/weather-widgets/dew-point/DewPoint";
 import LocationDetector from "@/components/LocationDetector";
 import Preloader from "@/components/ui/loading-indicators/Preloader";
+import WeatherBackground from "@/components/WeatherBackground";
 
 export default async function Home({
   searchParams,
@@ -31,13 +32,14 @@ export default async function Home({
   return (
     <>
       <div
-        className={`${!lat && !lon && !city ? "pointer-events-none opacity-50" : "cursor-auto opacity-100"}`}
+        className={`${!lat && !lon && !city ? "pointer-events-none" : "cursor-auto"}`}
       >
         <Header />
       </div>
       {!lat && !lon && <LocationDetector />}
       {lat || lon || city ? (
         <main className="flex flex-col gap-4 md:flex-row">
+          <WeatherBackground city={city} lat={lat} lon={lon} />
           <section className="flex w-full min-w-[18rem] flex-col gap-4 md:w-[144px]">
             <CurrentTemperature city={city} lat={lat} lon={lon} />
             <DaysForecast city={city} lat={lat} lon={lon} />

@@ -7,7 +7,6 @@ import CurrentDateTime from "./CurrentDateTime";
 import ErrorMessage from "../../ui/error-message";
 import ToolTip from "../../ui/tooltip";
 import fetchWeatherData from "@/utils/fetchWeatherData";
-import WeatherBackground from "@/components/WeatherBackground";
 
 const CurrentTemperature = async ({
   city,
@@ -27,11 +26,7 @@ const CurrentTemperature = async ({
   const { current, forecast, location } = weatherData ?? {};
 
   return (
-    <article className="container-style h-72 backdrop-filter-none md:h-[23rem]">
-      <WeatherBackground
-        condition={current?.condition.text ?? "clear"}
-        isDay={current?.is_day ?? false}
-      />
+    <article className="container-style h-72 md:h-[23rem]">
       <h2 className="sr-only">Current Temperature</h2>
 
       {!weatherData && <ErrorMessage error="Current temperature" />}

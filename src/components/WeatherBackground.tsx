@@ -1,13 +1,32 @@
 import Image from "next/image";
+
+import fetchWeatherData from "@/utils/fetchWeatherData";
 import getWeatherImage from "@/utils/getWeatherImage";
 
-const WeatherBackground = ({
-  condition,
-  isDay,
-}: {
-  condition: string;
-  isDay: boolean;
-}) => {
+import type { WeatherFlags } from "@/types/WeatherFlags";
+
+type WeatherBackgroundProps = {
+  city: string;
+  lat: string;
+  lon: string;
+};
+
+const WeatherBackground = async ({
+  city,
+  lat,
+  lon,
+}: WeatherBackgroundProps) => {
+  const weatherData: WeatherFlags | null = await fetchWeatherData(
+    city,
+    lat,
+    lon,
+  );
+
+  const { current } = weatherData ?? {};
+
+  const condition = current?.condition.text ?? "clear";
+  const isDay = current?.is_day ?? false;
+
   const weatherImage = getWeatherImage(condition, isDay);
 
   return (
@@ -18,6 +37,7 @@ const WeatherBackground = ({
         alt="Weather Background"
         fill
         priority
+        sizes="100vw"
         className="object-cover"
       />
     </section>
