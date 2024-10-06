@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Lato } from "next/font/google";
 
 import { WeatherProvider } from "@/providers/WeatherProvider";
-import { ThemeProvider } from "@/providers/ThemeProvider";
 import { UnitsProvider } from "@/providers/UnitsProvider";
 import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
@@ -47,21 +46,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={lato.variable} suppressHydrationWarning>
+    <html lang="en" className={`${lato.variable} dark`}>
       <body className={`relative min-h-dvh tracking-wide antialiased`}>
         <WeatherProvider>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            <UnitsProvider>
-              <h1 className="sr-only">Weather App</h1>
-              <div className="container py-4">{children}</div>
-              <Toaster />
-            </UnitsProvider>
-          </ThemeProvider>
+          <UnitsProvider>
+            <h1 className="sr-only">Weather App</h1>
+            <div className="container py-4">{children}</div>
+            <Toaster />
+          </UnitsProvider>
         </WeatherProvider>
       </body>
     </html>
