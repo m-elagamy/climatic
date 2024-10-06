@@ -1,13 +1,12 @@
-import type { Dispatch, SetStateAction } from "react";
+"use client";
 
+import useSearchDialogContext from "@/hooks/useSearchDialog";
 import { Button } from "@/components/ui/button";
 import { CommandShortcut } from "@/components/ui/command";
 
-export default function SearchButton({
-  setOpen,
-}: {
-  setOpen: Dispatch<SetStateAction<boolean>>;
-}) {
+export default function SearchButton() {
+  const { setOpen } = useSearchDialogContext();
+
   return (
     <Button
       variant="outline"

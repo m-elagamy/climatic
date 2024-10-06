@@ -1,19 +1,15 @@
-import { useState, useEffect } from "react";
+import { useContext } from "react";
+import SearchDialogContext from "@/providers/SearchDialogProvider";
 
-const useSearchDialog = () => {
-  const [open, setOpen] = useState(false);
+const useSearchDialogContext = () => {
+  const context = useContext(SearchDialogContext);
 
-  useEffect(() => {
-    const down = (e: KeyboardEvent) => {
-      if (e.key === "f" && (e.metaKey || e.ctrlKey)) {
-        e.preventDefault();
-        setOpen((open) => !open);
-      }
-    };
-    document.addEventListener("keydown", down);
-    return () => document.removeEventListener("keydown", down);
-  }, []);
-  return { open, setOpen };
+  if (!context) {
+    throw new Error(
+      "useWeatherContext must be used within a WeatherContextProvider",
+    );
+  }
+
+  return context;
 };
-
-export default useSearchDialog;
+export default useSearchDialogContext;

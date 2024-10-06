@@ -1,3 +1,6 @@
+import dynamic from "next/dynamic";
+import { SettingsIcon } from "lucide-react";
+
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
@@ -5,8 +8,8 @@ import {
   DropdownMenuLabel,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { SettingsIcon } from "lucide-react";
-import ToggleUnits from "./ToggleUnits";
+
+const ToggleUnits = dynamic(() => import("./ToggleUnits"), { ssr: false });
 
 export default function Settings() {
   return (
