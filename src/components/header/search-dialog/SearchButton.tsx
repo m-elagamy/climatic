@@ -1,5 +1,3 @@
-"use client";
-
 import useSearchDialogContext from "@/hooks/useSearchDialog";
 import { Button } from "@/components/ui/button";
 import { CommandShortcut } from "@/components/ui/command";
@@ -15,7 +13,7 @@ export default function SearchButton() {
       aria-label="Search for a city"
     >
       Search for a city...
-      <CommandShortcut>⌘F</CommandShortcut>
+      <CommandShortcut className="hidden lg:inline">⌘F</CommandShortcut>
     </Button>
   );
 }
