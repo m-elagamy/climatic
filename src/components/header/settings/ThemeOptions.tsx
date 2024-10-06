@@ -26,7 +26,7 @@ export default function ThemeOptions() {
         <Palette size={16} className="mr-1" /> Theme Options
       </DropdownMenuSubTrigger>
       <DropdownMenuPortal>
-        <DropdownMenuSubContent className="space-y-1 *:flex *:items-center *:gap-1">
+        <DropdownMenuSubContent className="bg-gradient space-y-1 backdrop-blur-[2px] *:flex *:items-center *:gap-1">
           <DropdownMenuItem
             className={`${theme === "light" ? "bg-slate-100" : ""}`}
             onClick={() => setTheme("light")}

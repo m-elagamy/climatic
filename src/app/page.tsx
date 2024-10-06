@@ -31,7 +31,7 @@ export default async function Home({
   return (
     <>
       <div
-        className={`${!lat && !lon && !city ? "pointer-events-none" : "cursor-auto"}`}
+        className={`${!lat && !lon && !city ? "pointer-events-none opacity-50" : "cursor-auto opacity-100"}`}
       >
         <Header />
       </div>

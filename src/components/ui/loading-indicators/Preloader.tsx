@@ -84,7 +84,7 @@ const Preloader = () => {
         ></path>
       </svg>
 
-      <div className="rain absolute mt-[85px] h-[80px] *:float-left *:ml-[4px] *:block *:h-[10px] *:w-[3px] *:animate-drop *:rounded-b-[6px] *:bg-[#89CFF0] *:opacity-100 dark:*:bg-[#74B3CE]">
+      <div className="absolute mt-[85px] h-[80px] *:float-left *:ml-[4px] *:h-[10px] *:w-[3px] *:animate-drop *:rounded-b-[6px] *:bg-[#89CFF0] *:opacity-100 dark:*:bg-[#74B3CE]">
         <span className="drop"></span>
         <span className="drop"></span>
         <span className="drop"></span>

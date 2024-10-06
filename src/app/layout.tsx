@@ -15,6 +15,7 @@ const lato = Lato({
   display: "swap",
 });
 
+// Metadata tags
 export const metadata: Metadata = {
   title: "Climatic",
   description:
@@ -22,6 +23,22 @@ export const metadata: Metadata = {
   keywords:
     "weather, live weather, real-time weather, forecast, city weather, air quality",
   authors: [{ name: "Mahmoud Elagamy", url: "https://agamy.netlify.app/" }],
+  creator: "Mahmoud Elagamy",
+  openGraph: {
+    title: "Climatic",
+    description:
+      "Get accurate and real-time weather updates for your city. Check the current temperature, forecasts, and more.",
+    url: "https://climatic-app.netlify.app/",
+    siteName: "Climatic",
+    images: [
+      {
+        url: "https://climatic.vercel.app/api/og",
+        width: 1200,
+        height: 630,
+      },
+    ],
+    type: "website",
+  },
 };
 
 export default function RootLayout({
@@ -31,7 +48,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={lato.variable} suppressHydrationWarning>
-      <body className={`min-h-dvh tracking-wide antialiased`}>
+      <body className={`relative min-h-dvh tracking-wide antialiased`}>
         <WeatherProvider>
           <ThemeProvider
             attribute="class"

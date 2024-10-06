@@ -63,17 +63,21 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background bg-gradient-to-br from-zinc-950/60 via-gray-950/50 to-slate-950/40 text-foreground;
   }
 }
 
 @layer components {
   .container-style {
-    @apply flex h-auto min-h-[160px] flex-col justify-between gap-2 rounded-xl border bg-card p-4 text-foreground shadow md:h-[175px];
+    @apply bg-gradient flex h-auto min-h-[160px] flex-col justify-between gap-2 rounded-xl border border-gray-500/5 p-4 text-foreground shadow-sm md:h-[175px];
   }
 
   .title {
     @apply flex items-center gap-1 font-semibold text-muted-foreground;
+  }
+
+  .bg-gradient {
+    @apply bg-gradient-to-br from-zinc-950/60 via-gray-950/50 to-slate-950/40;
   }
 }
 
@@ -87,6 +91,17 @@
     #eb4d60 80%,
     rgba(178, 34, 34, 1) 100%
   );
+}
+
+/* Dialog component */
+.dialog .bg-popover {
+  background-image: linear-gradient(
+    to bottom,
+    rgba(9 9 11 / 0.6),
+    rgba(3 7 18 / 0.5),
+    rgba(2 6 23 / 0.4)
+  );
+  background-color: transparent;
 }
 
 /* Tooltip component */
