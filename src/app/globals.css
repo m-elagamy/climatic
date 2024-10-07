@@ -37,13 +37,13 @@
     @apply border-border;
   }
   body {
-    @apply bg-background bg-gradient-to-br from-zinc-950/60 via-gray-950/50 to-slate-950/40 text-foreground;
+    @apply bg-background text-foreground;
   }
 }
 
 @layer components {
   .container-style {
-    @apply bg-gradient flex h-auto min-h-[160px] flex-col justify-between gap-2 rounded-xl border border-gray-500/5 p-4 text-foreground shadow-sm backdrop-blur-[1px] md:h-[175px];
+    @apply bg-gradient flex h-auto min-h-[160px] flex-col justify-between gap-2 rounded-xl border border-gray-500/5 p-4 shadow-sm backdrop-blur-[1px] md:h-[175px];
   }
 
   .title {
@@ -52,6 +52,10 @@
 
   .bg-gradient {
     @apply bg-gradient-to-br from-zinc-950/60 via-gray-950/50 to-slate-950/40;
+  }
+
+  .animate-gradient-blur {
+    background-size: 200% 200%;
   }
 }
 
@@ -100,7 +104,7 @@
 
 #sun path {
   stroke: #ffd700;
-  fill: #fffacd;
+  fill: #ffa500;
 }
 
 .drop:nth-child(1) {

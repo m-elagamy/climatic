@@ -69,6 +69,7 @@ const config: Config = {
         "spin-slow": "spin 12s linear infinite",
         drop: "drop 350ms infinite",
         float: "float 3s ease-in-out  infinite",
+        "gradient-blur": "gradient 4s ease infinite",
       },
       keyframes: {
         spin: {
@@ -84,6 +85,11 @@ const config: Config = {
           "0%": { transform: "translateY(0px)" },
           "50%": { transform: "translateY(-5px)" },
           "100%": { transform: "translateY(0px)" },
+        },
+        gradient: {
+          "0%": { "background-position": "0% 50%" },
+          "50%": { "background-position": "100% 50%" },
+          "100%": { "background-position": "0% 50%" },
         },
       },
     },
