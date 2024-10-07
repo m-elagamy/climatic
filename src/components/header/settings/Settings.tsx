@@ -17,13 +17,13 @@ export default function Settings() {
           variant="outline"
           size="icon"
           title="Settings"
-          className="bg-gradient border-gray-500/5 duration-300 hover:bg-accent/30"
+          className="bg-gradient border-gray-200/5 duration-300 hover:bg-accent/30"
         >
           <SettingsIcon size={16} />
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent
-        className="bg-gradient space-y-1 border-gray-500/5 backdrop-blur-[2px]"
+        className="bg-gradient space-y-1 border-gray-200/5 backdrop-blur-[2px]"
         align="end"
       >
         <DropdownMenuLabel>Settings:</DropdownMenuLabel>
