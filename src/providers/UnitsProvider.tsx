@@ -7,6 +7,7 @@ import {
   useMemo,
   useState,
 } from "react";
+import { useLocalStorage } from "@/hooks/useLocalStorage";
 
 // Types
 type WeatherContextType = {
@@ -20,9 +21,10 @@ const UnitsContext = createContext<WeatherContextType | null>(null);
 export const UnitsProvider = ({ children }: { children: React.ReactNode }) => {
   const [isImperial, setIsImperial] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [unit, setUnit] = useLocalStorage("unit", "metric");
 
   useEffect(() => {
-    const savedUnit = localStorage.getItem("unit");
+    const savedUnit = unit;
 
     if (savedUnit) {
       setIsImperial(savedUnit === "imperial");
@@ -33,13 +35,13 @@ export const UnitsProvider = ({ children }: { children: React.ReactNode }) => {
     }, 600);
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [unit]);
 
   const toggleUnitPreference = useCallback(() => {
     const newUnit = !isImperial ? "imperial" : "metric";
-    localStorage.setItem("unit", newUnit);
+    setUnit(newUnit);
     setIsImperial((prev) => !prev);
-  }, [isImperial]);
+  }, [isImperial, setUnit]);
 
   const value = useMemo(
     () => ({
