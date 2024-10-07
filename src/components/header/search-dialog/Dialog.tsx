@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 
 import useSearchDialogContext from "@/hooks/useSearchDialog";
@@ -6,6 +7,9 @@ import useCitySearch from "@/hooks/useCitySearch";
 import useDebounce from "@/hooks/useDebounce";
 import useCityChange from "@/hooks/useCityChange";
 import { listVariants } from "@/utils/motionVariants";
+const ErrorMessage = dynamic(() => import("./ErrorMessage"), {
+  ssr: false,
+});
 import {
   CommandDialog,
   CommandGroup,
@@ -13,7 +17,6 @@ import {
 } from "@/components/ui/command";
 import CommandInput from "./CommandInput";
 import DotLoader from "@/components/ui/loading-indicators/DotLoader";
-import ErrorMessage from "./ErrorMessage";
 import NoResultMessage from "./NoResultMessage";
 import CitySearchResults from "./CitySearchResults";
 import SuggestedCities from "./SuggestedCities";
