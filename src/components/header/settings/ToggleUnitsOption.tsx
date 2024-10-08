@@ -1,5 +1,6 @@
 "use client";
 
+import { DropdownMenuLabel } from "@/components/ui/dropdown-menu";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import useUnitsContext from "@/hooks/useUnitsContext";
@@ -10,8 +11,7 @@ const ToggleUnits = () => {
   if (isLoading) return null;
 
   return (
-    <section>
-      <h2 className="sr-only">Toggle Units</h2>
+    <DropdownMenuLabel className="rounded-sm hover:bg-accent/30">
       <div className="flex items-center space-x-2">
         <Label htmlFor="ToggleUnits" className="min-w-[144px] cursor-pointer">
           {isImperial ? "Disable" : "Enable"} Imperial Units
@@ -23,7 +23,7 @@ const ToggleUnits = () => {
           onCheckedChange={toggleUnitPreference}
         />
       </div>
-    </section>
+    </DropdownMenuLabel>
   );
 };
 export default ToggleUnits;

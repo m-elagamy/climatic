@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 
-export function useLocalStorage<T>(key: string, initialValue: T) {
-  const [storedValue, setStoredValue] = useState<T>(initialValue);
+export function useLocalStorage<T>(key: string, initialValue?: T) {
+  const [storedValue, setStoredValue] = useState<T | undefined>(initialValue);
 
   useEffect(() => {
     try {
@@ -16,7 +16,7 @@ export function useLocalStorage<T>(key: string, initialValue: T) {
     }
   }, [key]);
 
-  const setValue = (value: T | ((val: T) => T)) => {
+  const setValue = (value: T | ((val: T | undefined) => T)) => {
     try {
       const valueToStore =
         value instanceof Function ? value(storedValue) : value;

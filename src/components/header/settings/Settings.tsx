@@ -7,7 +7,8 @@ import {
   DropdownMenuLabel,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import ToggleUnits from "./ToggleUnits";
+import ToggleUnits from "./ToggleUnitsOption";
+import CurrentLocationOption from "./CurrentLocationOption";
 
 export default function Settings() {
   return (
@@ -27,9 +28,8 @@ export default function Settings() {
         align="end"
       >
         <DropdownMenuLabel>Settings:</DropdownMenuLabel>
-        <DropdownMenuLabel>
-          <ToggleUnits />
-        </DropdownMenuLabel>
+        <CurrentLocationOption />
+        <ToggleUnits />
       </DropdownMenuContent>
     </DropdownMenu>
   );
