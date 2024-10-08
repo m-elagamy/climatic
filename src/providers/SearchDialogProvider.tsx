@@ -11,20 +11,20 @@ import {
 } from "react";
 
 type SearchDialogContextType = {
-  open: boolean;
-  setOpen: Dispatch<SetStateAction<boolean>>;
+  isOpen: boolean;
+  setIsOpen: Dispatch<SetStateAction<boolean>>;
 };
 
 const SearchDialogContext = createContext<SearchDialogContextType | null>(null);
 
 export const SearchDialogProvider = ({ children }: { children: ReactNode }) => {
-  const [open, setOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     const down = (e: KeyboardEvent) => {
       if (e.key === "f" && (e.metaKey || e.ctrlKey)) {
         e.preventDefault();
-        setOpen((open) => !open);
+        setIsOpen((open) => !open);
       }
     };
     document.addEventListener("keydown", down);
@@ -33,10 +33,10 @@ export const SearchDialogProvider = ({ children }: { children: ReactNode }) => {
 
   const value = useMemo(
     () => ({
-      open,
-      setOpen,
+      isOpen: isOpen,
+      setIsOpen: setIsOpen,
     }),
-    [open],
+    [isOpen],
   );
 
   return (

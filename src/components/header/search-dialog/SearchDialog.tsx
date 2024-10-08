@@ -10,12 +10,12 @@ import SearchButton from "./SearchButton";
 import useSearchDialogContext from "@/hooks/useSearchDialog";
 
 export default function SearchDialog() {
-  const { open } = useSearchDialogContext();
+  const { isOpen } = useSearchDialogContext();
 
   return (
     <>
       <SearchButton />
-      {open && <Dialog />}
+      {isOpen && <Dialog />}
     </>
   );
 }

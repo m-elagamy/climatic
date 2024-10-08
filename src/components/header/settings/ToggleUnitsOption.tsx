@@ -5,7 +5,7 @@ import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import useUnitsContext from "@/hooks/useUnitsContext";
 
-const ToggleUnits = () => {
+const ToggleUnitsOption = () => {
   const { isImperial, toggleUnitPreference, isLoading } = useUnitsContext();
 
   if (isLoading) return null;
@@ -31,4 +31,4 @@ const ToggleUnits = () => {
     </DropdownMenuLabel>
   );
 };
-export default ToggleUnits;
+export default ToggleUnitsOption;

@@ -25,20 +25,20 @@ import type { Location } from "@/types/WeatherFlags";
 
 const Dialog = () => {
   const [input, setInput] = useState("");
-  const { open, setOpen } = useSearchDialogContext();
+  const { isOpen, setIsOpen } = useSearchDialogContext();
   const debouncedInput = useDebounce(input);
   const { cities, isLoading, isError } = useCitySearch(debouncedInput);
-  const { handleCityChange } = useCityChange(setOpen);
+  const { handleCityChange } = useCityChange(setIsOpen);
 
   // Reset input when dialog is closed
   useEffect(() => {
     if (!open) {
       setInput("");
     }
-  }, [open]);
+  }, [isOpen]);
 
   return (
-    <CommandDialog open={open} onOpenChange={setOpen}>
+    <CommandDialog open={isOpen} onOpenChange={setIsOpen}>
       <CommandInput input={input} setInput={setInput} />
       <CommandList className="relative min-h-[68px]">
         {isLoading && <DotLoader />}
