@@ -6,19 +6,20 @@ const useGeolocationPermissions = () => {
     "geolocation-permission-status",
   );
   const syncGeolocationPermissionsWithLocalStorage = useCallback(() => {
-    if (navigator.permissions) {
-      navigator.permissions.query({ name: "geolocation" }).then((result) => {
-        result.onchange = () => {
-          if (result.state === "denied") {
-            setIsGeolocationDenied(true);
-          } else {
-            setIsGeolocationDenied(false);
-          }
-        };
-      });
-    } else {
+    if (!navigator.permissions) {
       console.warn("Geolocation is not supported by this browser.");
+      return;
     }
+
+    navigator.permissions.query({ name: "geolocation" }).then((result) => {
+      result.onchange = () => {
+        if (result.state === "denied") {
+          setIsGeolocationDenied(true);
+        } else {
+          setIsGeolocationDenied(false);
+        }
+      };
+    });
   }, [setIsGeolocationDenied]);
 
   useEffect(() => {
