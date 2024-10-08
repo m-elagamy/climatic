@@ -24,7 +24,7 @@ export default function Settings() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent
-        className="bg-gradient space-y-1 border-gray-200/5 backdrop-blur-[2px]"
+        className="bg-gradient space-y-1 border-gray-200/5 backdrop-blur-[3px]"
         align="end"
       >
         <DropdownMenuLabel>Settings:</DropdownMenuLabel>

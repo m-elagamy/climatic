@@ -12,9 +12,14 @@ const ToggleUnits = () => {
 
   return (
     <DropdownMenuLabel className="rounded-sm hover:bg-accent/30">
-      <div className="flex items-center space-x-2">
-        <Label htmlFor="ToggleUnits" className="min-w-[144px] cursor-pointer">
-          {isImperial ? "Disable" : "Enable"} Imperial Units
+      <div className="flex items-center justify-between">
+        <Label
+          htmlFor="ToggleUnits"
+          className={`cursor-pointer ${
+            isImperial ? "text-accent-foreground" : "text-muted-foreground"
+          }`}
+        >
+          Enable Imperial Units
         </Label>
         <Switch
           id="ToggleUnits"
