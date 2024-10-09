@@ -20,7 +20,7 @@ const useCurrentLocation = () => {
       toast({
         title: "Location denied",
         description:
-          "Geolocation permissions were denied. Please enable them in your browser settings to use the location feature.",
+          "Location access has been denied. Please enable it in your browser settings to use the location feature.",
       });
     }
   }, [getGeolocation, locationCoords, router, isGeolocationDenied, toast]);
