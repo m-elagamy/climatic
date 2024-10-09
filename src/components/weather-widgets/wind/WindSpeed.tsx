@@ -31,9 +31,7 @@ function WindSpeed({
       {!speedOnCompass && (
         <div className="absolute left-16">
           <ToolTip
-            tooltipTrigger={
-              <InfoCircledIcon className="size-[17px] text-blue-700" />
-            }
+            tooltipTrigger={<InfoCircledIcon />}
             tooltipContent={
               <>
                 <CircleGauge

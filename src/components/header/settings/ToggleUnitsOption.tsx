@@ -11,23 +11,21 @@ const ToggleUnitsOption = () => {
   if (isLoading) return null;
 
   return (
-    <DropdownMenuLabel className="rounded-sm hover:bg-accent/30">
-      <div className="flex items-center justify-between">
-        <Label
-          htmlFor="ToggleUnits"
-          className={`cursor-pointer ${
-            isImperial ? "text-accent-foreground" : "text-muted-foreground"
-          }`}
-        >
-          Enable Imperial Units
-        </Label>
-        <Switch
-          id="ToggleUnits"
-          title="Toggle Units"
-          checked={isImperial}
-          onCheckedChange={toggleUnitPreference}
-        />
-      </div>
+    <DropdownMenuLabel className="flex items-center justify-between rounded-sm hover:bg-accent/30">
+      <Label
+        htmlFor="ToggleUnits"
+        className={`cursor-pointer ${
+          isImperial ? "text-accent-foreground" : "text-muted-foreground"
+        }`}
+      >
+        Enable Imperial Units
+      </Label>
+      <Switch
+        id="ToggleUnits"
+        title="Toggle Units"
+        checked={isImperial}
+        onCheckedChange={toggleUnitPreference}
+      />
     </DropdownMenuLabel>
   );
 };

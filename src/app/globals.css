@@ -43,7 +43,7 @@
 
 @layer components {
   .container-style {
-    @apply bg-gradient flex h-auto min-h-[160px] flex-col justify-between gap-2 rounded-xl border border-gray-200/5 p-4 shadow-sm backdrop-blur-[1px] md:h-[175px];
+    @apply bg-gradient shadow-widget flex h-auto min-h-[160px] flex-col justify-between gap-2 rounded-xl border border-gray-200/5 p-4 backdrop-blur-[1px] md:h-[175px];
   }
 
   .title {
@@ -51,7 +51,7 @@
   }
 
   .bg-gradient {
-    @apply bg-gradient-to-br from-zinc-950/60 via-gray-950/50 to-slate-950/40;
+    @apply bg-gradient-to-br from-zinc-950/50 via-gray-950/40 to-slate-950/30;
   }
 
   .animate-gradient-blur {
@@ -73,19 +73,12 @@
 
 /* Dialog component */
 .dialog .bg-popover {
-  background-image: linear-gradient(
-    to bottom,
-    rgba(9 9 11 / 0.6),
-    rgba(3 7 18 / 0.5),
-    rgba(2 6 23 / 0.4)
-  );
   background-color: transparent;
 }
 
 /* Tooltip component */
-:is(.humidity, .wind, .air-pollution, .uv-index)
-  div[data-radix-popper-content-wrapper] {
-  left: 15px !important;
+div[data-radix-popper-content-wrapper] {
+  z-index: 10 !important;
 }
 
 /* Command component */

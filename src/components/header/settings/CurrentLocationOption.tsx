@@ -11,11 +11,9 @@ const CurrentLocationOption = () => {
   const handleSelect = () => getCurrentLocation();
 
   return (
-    <DropdownMenuItem onClick={handleSelect} className="cursor-pointer">
-      <div className="flex items-center space-x-1">
-        <LocateIcon size={16} />
-        <span>Your Location</span>
-      </div>
+    <DropdownMenuItem onClick={handleSelect} className="gap-2">
+      <LocateIcon size={16} />
+      <span>Your Location</span>
     </DropdownMenuItem>
   );
 };

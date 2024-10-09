@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import CurrentLocationOption from "./CurrentLocationOption";
 import ToggleUnitsOption from "./ToggleUnitsOption";
+import DefaultLocationOption from "./DefaultLocationOption";
 
 const settingsOptionsVariants = {
   hidden: {
@@ -31,6 +32,7 @@ const SettingsOptions = ({
       onAnimationComplete={() => setHasAnimated(true)}
     >
       <CurrentLocationOption />
+      <DefaultLocationOption />
       <ToggleUnitsOption />
     </motion.div>
   );

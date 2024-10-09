@@ -65,11 +65,14 @@ const config: Config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      boxShadow: {
+        widget: "0 8px 32px 0 hsla(0, 0%, 0%, 0.1)",
+      },
       animation: {
         "spin-slow": "spin 12s linear infinite",
         drop: "drop 350ms infinite",
         float: "float 3s ease-in-out  infinite",
-        "gradient-blur": "gradient 4s ease infinite",
+        gradient: "gradient 6s ease infinite",
       },
       keyframes: {
         spin: {
@@ -82,14 +85,18 @@ const config: Config = {
           "100%": { height: "1px", opacity: "0" },
         },
         float: {
-          "0%": { transform: "translateY(0px)" },
+          "0%, 100%": { transform: "translateY(0px)" },
           "50%": { transform: "translateY(-5px)" },
-          "100%": { transform: "translateY(0px)" },
         },
         gradient: {
-          "0%": { "background-position": "0% 50%" },
-          "50%": { "background-position": "100% 50%" },
-          "100%": { "background-position": "0% 50%" },
+          "0%, 100%": {
+            "background-size": "200% 200%",
+            "background-position": "left center",
+          },
+          "50%": {
+            "background-size": "200% 200%",
+            "background-position": "right center",
+          },
         },
       },
     },
