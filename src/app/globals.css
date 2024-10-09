@@ -41,9 +41,16 @@
   }
 }
 
+body {
+  background-image: url("../../public/images/clear-day.webp");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
 @layer components {
   .container-style {
-    @apply bg-gradient shadow-widget flex h-auto min-h-[160px] flex-col justify-between gap-2 rounded-xl border border-gray-200/5 p-4 backdrop-blur-[1px] md:h-[175px];
+    @apply bg-gradient flex h-auto min-h-[160px] flex-col justify-between gap-2 rounded-xl border border-gray-200/5 p-4 shadow-widget backdrop-blur-[1px] md:h-[175px];
   }
 
   .title {
