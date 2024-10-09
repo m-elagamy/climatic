@@ -30,6 +30,7 @@ const SettingsOptions = ({
       initial={!hasAnimated ? "hidden" : false}
       animate={!hasAnimated ? "visible" : false}
       onAnimationComplete={() => setHasAnimated(true)}
+      className="space-y-1"
     >
       <CurrentLocationOption />
       <DefaultLocationOption />

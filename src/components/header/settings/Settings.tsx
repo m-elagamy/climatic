@@ -52,7 +52,7 @@ export default function Settings() {
       </DropdownMenuTrigger>
       {isOpen && (
         <DropdownMenuContent
-          className="bg-gradient relative z-10 space-y-1 border-gray-200/5 backdrop-blur-[3px]"
+          className="bg-gradient space-y-1 border-gray-200/5 backdrop-blur-[3px]"
           align="end"
         >
           <DropdownMenuLabel>Settings:</DropdownMenuLabel>
