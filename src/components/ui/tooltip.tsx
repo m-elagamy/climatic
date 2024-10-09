@@ -39,10 +39,15 @@ const ToolTip = ({
   children?: ReactNode;
 }) => {
   const [isTooltipVisible, setTooltipVisible] = React.useState(false);
+  const [isClientSide, setIsClientSide] = React.useState(false);
 
   const handleClick = () => {
     setTooltipVisible(true);
   };
+
+  React.useEffect(() => {
+    setIsClientSide(true);
+  }, []);
 
   return (
     <TooltipProvider>
@@ -50,15 +55,16 @@ const ToolTip = ({
         {children}
         <TooltipTrigger
           asChild
-          className="size-[17px] cursor-help text-sky-600 transition hover:text-sky-500"
+          className="size-[17px] cursor-help text-sky-500 transition hover:text-sky-400"
           onClick={handleClick}
         >
           {tooltipTrigger}
         </TooltipTrigger>
-        {createPortal(
-          <TooltipContent>{tooltipContent}</TooltipContent>,
-          document.body,
-        )}
+        {isClientSide &&
+          createPortal(
+            <TooltipContent>{tooltipContent}</TooltipContent>,
+            document.body,
+          )}
       </Tooltip>
     </TooltipProvider>
   );
