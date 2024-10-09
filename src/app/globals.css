@@ -41,12 +41,12 @@
   }
 }
 
-body {
+/* body {
   background-image: url("../../public/images/clear-day.webp");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
-}
+} */
 
 @layer components {
   .container-style {
