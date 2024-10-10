@@ -12,10 +12,10 @@ const useGeolocation = () => {
   const { toast } = useToast();
   const { isGeolocationDenied, setIsGeolocationDenied } =
     useGeolocationPermissions();
-  const [locationCoords, setLocationCoords] = useLocalStorage<{
+  const [userLocationCoords, setLocationCoords] = useLocalStorage<{
     lat: number;
     lon: number;
-  } | null>("location-coords", null);
+  } | null>("user-location-coords", null);
 
   const handleSuccess = useCallback(
     async (position: GeolocationPosition) => {
@@ -68,7 +68,7 @@ const useGeolocation = () => {
 
   return {
     getGeolocation,
-    locationCoords,
+    locationCoords: userLocationCoords,
     isGeolocationDenied,
   };
 };
