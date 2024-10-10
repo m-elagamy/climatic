@@ -1,4 +1,3 @@
-import { useSearchParams } from "next/navigation";
 import { Save, Star, Trash2, Loader2 } from "lucide-react";
 import { InfoCircledIcon } from "@radix-ui/react-icons";
 
@@ -7,63 +6,16 @@ import {
   DropdownMenuLabel,
 } from "@/components/ui/dropdown-menu";
 import ToolTip from "@/components/ui/tooltip";
-import { ToastAction } from "@/components/ui/toast";
-import { useLocalStorage } from "@/hooks/useLocalStorage";
-import { useToast } from "@/hooks/useToast";
-import { useState } from "react";
-import delay from "@/utils/delay";
+import useDefaultLocation from "@/hooks/useDefaultLocation";
 
 const DefaultLocationOption = () => {
-  const [isLoading, setIsLoading] = useState(false);
-  const searchParams = useSearchParams();
-  const city = searchParams.get("city");
-  const lat = searchParams.get("lat");
-  const lon = searchParams.get("lon");
-  const { toast } = useToast();
-  const [userDefaultLocation, setUserDefaultLocation] = useLocalStorage<{
-    city: string;
-    lat: string;
-    lon: string;
-  } | null>("user-default-location");
-
-  const handleSelect = async (shouldShowToast: boolean = true) => {
-    if (city && lat && lon) {
-      setUserDefaultLocation({ city, lat, lon });
-      await delay(500);
-      shouldShowToast &&
-        toast({
-          title: "Location saved",
-          description: (
-            <p>
-              You have saved <strong>{city}</strong> as your default location.
-            </p>
-          ),
-          duration: 2000,
-        });
-    }
-  };
-
-  const handleClick = async () => {
-    setIsLoading(true);
-    await delay(1000);
-    setUserDefaultLocation(null);
-    setIsLoading(false);
-    toast({
-      title: "Location removed",
-      description: "Your default location has been removed.",
-      duration: 2000,
-      action: (
-        <ToastAction altText="Undo" onClick={() => handleSelect(false)}>
-          Undo
-        </ToastAction>
-      ),
-    });
-  };
+  const { isLoading, saveLocation, removeLocation, userDefaultLocation } =
+    useDefaultLocation();
 
   return (
     <div className="relative">
       {!userDefaultLocation && (
-        <DropdownMenuItem className="gap-2" onSelect={() => handleSelect()}>
+        <DropdownMenuItem className="gap-2" onSelect={() => saveLocation()}>
           <Save size={16} /> Save Location
         </DropdownMenuItem>
       )}
@@ -90,7 +42,7 @@ const DefaultLocationOption = () => {
         {!!userDefaultLocation && (
           <button
             className="cursor-pointer"
-            onClick={handleClick}
+            onClick={removeLocation}
             title="Remove default location"
             disabled={isLoading}
           >
