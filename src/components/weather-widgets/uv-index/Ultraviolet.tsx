@@ -48,9 +48,9 @@ const Ultraviolet = async ({
         )}
       </div>
 
-      {!currentUv && <ErrorMessage error="UV index" />}
+      {!weatherData && <ErrorMessage error="UV index" />}
 
-      {!!currentUv && (
+      {!!weatherData && (
         <>
           <p style={{ color: color }}>
             {currentUv.toFixed(1)}
