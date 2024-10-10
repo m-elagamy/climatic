@@ -24,7 +24,7 @@ const useDefaultLocation = () => {
     if (city && lat && lon) {
       setUserDefaultLocation({ city, lat, lon });
       await delay(500);
-      shouldShowToast &&
+      if (shouldShowToast) {
         toast({
           title: "Location saved",
           description: (
@@ -32,8 +32,9 @@ const useDefaultLocation = () => {
               You have saved <strong>{city}</strong> as your default location.
             </p>
           ),
-          duration: 2000,
+          duration: 2500,
         });
+      }
     }
   };
 
@@ -45,7 +46,7 @@ const useDefaultLocation = () => {
     toast({
       title: "Location removed",
       description: "Your default location has been removed.",
-      duration: 2000,
+      duration: 2500,
       action: (
         <ToastAction altText="Undo" onClick={() => saveLocation(false)}>
           Undo
@@ -59,6 +60,7 @@ const useDefaultLocation = () => {
     isLoading,
     saveLocation,
     removeLocation,
+    city,
   };
 };
 

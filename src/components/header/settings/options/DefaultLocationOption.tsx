@@ -1,33 +1,42 @@
-import { Save, Star, Trash2, Loader2 } from "lucide-react";
-import { InfoCircledIcon } from "@radix-ui/react-icons";
+import { Save, Trash2, Loader2 } from "lucide-react";
+import { InfoCircledIcon, StarFilledIcon } from "@radix-ui/react-icons";
 
 import {
   DropdownMenuItem,
   DropdownMenuLabel,
 } from "@/components/ui/dropdown-menu";
 import ToolTip from "@/components/ui/tooltip";
+import { Label } from "@/components/ui/label";
+import { Checkbox } from "@/components/ui/checkbox";
 import useDefaultLocation from "@/hooks/useDefaultLocation";
 
 const DefaultLocationOption = () => {
-  const { isLoading, saveLocation, removeLocation, userDefaultLocation } =
+  const { isLoading, saveLocation, removeLocation, userDefaultLocation, city } =
     useDefaultLocation();
 
   return (
     <div className="relative">
       {!userDefaultLocation && (
-        <DropdownMenuItem className="gap-2" onSelect={() => saveLocation()}>
+        <DropdownMenuItem
+          className="gap-2"
+          onSelect={() => saveLocation()}
+          disabled={!city}
+        >
           <Save size={16} /> Save Location
         </DropdownMenuItem>
       )}
 
       {!!userDefaultLocation && (
-        <DropdownMenuLabel className="flex gap-2">
-          <Star size={16} />
-          {userDefaultLocation.city}
+        <DropdownMenuLabel className="rounded-sm py-2 font-normal hover:bg-accent/30">
+          <Label className="flex cursor-pointer items-center gap-2">
+            <StarFilledIcon />
+            {userDefaultLocation.city}
+            <Checkbox className="size-[14px]" />
+          </Label>
         </DropdownMenuLabel>
       )}
 
-      <div className="absolute right-2 top-2">
+      <div className="absolute right-2 top-[6px]">
         {!userDefaultLocation && (
           <ToolTip
             tooltipTrigger={<InfoCircledIcon className="size-4" />}
