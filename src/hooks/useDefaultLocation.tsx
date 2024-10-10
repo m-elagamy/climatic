@@ -43,6 +43,7 @@ const useDefaultLocation = () => {
   const removeLocation = async () => {
     setIsLoading(true);
     await delay(1000);
+    setIsDefaultLocationEnabled(false);
     setUserDefaultLocation(null);
     setIsLoading(false);
     toast({
@@ -63,6 +64,8 @@ const useDefaultLocation = () => {
     saveLocation,
     removeLocation,
     city,
+    lat,
+    lon,
     isDefaultLocationEnabled,
     setIsDefaultLocationEnabled,
   };

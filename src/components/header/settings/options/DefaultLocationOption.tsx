@@ -17,6 +17,8 @@ const DefaultLocationOption = () => {
     removeLocation,
     userDefaultLocation,
     city,
+    lat,
+    lon,
     isDefaultLocationEnabled,
     setIsDefaultLocationEnabled,
   } = useDefaultLocation();
@@ -27,7 +29,7 @@ const DefaultLocationOption = () => {
         <DropdownMenuItem
           className="gap-2"
           onSelect={() => saveLocation()}
-          disabled={!city}
+          disabled={!city || !lat || !lon}
         >
           <Save size={16} /> Save Location
         </DropdownMenuItem>
