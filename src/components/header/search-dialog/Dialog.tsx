@@ -17,6 +17,7 @@ import {
 } from "@/components/ui/command";
 import CommandInput from "./CommandInput";
 import DotLoader from "@/components/ui/loading-indicators/DotLoader";
+import { DialogDescription } from "@/components/ui/dialog";
 import NoResultMessage from "./NoResultMessage";
 import CitySearchResults from "./CitySearchResults";
 import SuggestedCities from "./SuggestedCities";
@@ -40,6 +41,9 @@ const Dialog = () => {
   return (
     <CommandDialog open={isOpen} onOpenChange={setIsOpen}>
       <CommandInput input={input} setInput={setInput} />
+      <DialogDescription className="sr-only">
+        Search for a city
+      </DialogDescription>
       <CommandList className="relative min-h-[68px]">
         {isLoading && <DotLoader />}
         {isError && <ErrorMessage />}
