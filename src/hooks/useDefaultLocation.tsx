@@ -15,6 +15,8 @@ const useDefaultLocation = () => {
     lat: string;
     lon: string;
   } | null>("user-default-location");
+  const [isDefaultLocationEnabled, setIsDefaultLocationEnabled] =
+    useLocalStorage("is-default-location-enabled", false);
 
   const city = searchParams.get("city");
   const lat = searchParams.get("lat");
@@ -61,6 +63,8 @@ const useDefaultLocation = () => {
     saveLocation,
     removeLocation,
     city,
+    isDefaultLocationEnabled,
+    setIsDefaultLocationEnabled,
   };
 };
 

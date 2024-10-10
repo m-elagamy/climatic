@@ -11,8 +11,15 @@ import { Checkbox } from "@/components/ui/checkbox";
 import useDefaultLocation from "@/hooks/useDefaultLocation";
 
 const DefaultLocationOption = () => {
-  const { isLoading, saveLocation, removeLocation, userDefaultLocation, city } =
-    useDefaultLocation();
+  const {
+    isLoading,
+    saveLocation,
+    removeLocation,
+    userDefaultLocation,
+    city,
+    isDefaultLocationEnabled,
+    setIsDefaultLocationEnabled,
+  } = useDefaultLocation();
 
   return (
     <div className="relative">
@@ -31,7 +38,13 @@ const DefaultLocationOption = () => {
           <Label className="flex cursor-pointer items-center gap-2">
             <StarFilledIcon />
             {userDefaultLocation.city}
-            <Checkbox className="size-[14px]" />
+            <Checkbox
+              className="size-[14px]"
+              checked={isDefaultLocationEnabled}
+              onCheckedChange={() =>
+                setIsDefaultLocationEnabled(!isDefaultLocationEnabled)
+              }
+            />
           </Label>
         </DropdownMenuLabel>
       )}
