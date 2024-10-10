@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
-import CurrentLocationOption from "./CurrentLocationOption";
-import ToggleUnitsOption from "./ToggleUnitsOption";
-import DefaultLocationOption from "./DefaultLocationOption";
+import CurrentLocationOption from "./options/CurrentLocationOption";
+import ToggleUnitsOption from "./options/ToggleUnitsOption";
+import DefaultLocationOption from "./options/DefaultLocationOption";
 
 const settingsOptionsVariants = {
   hidden: {

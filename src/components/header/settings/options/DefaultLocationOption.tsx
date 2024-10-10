@@ -26,23 +26,20 @@ const DefaultLocationOption = () => {
     lon: string;
   } | null>("user-default-location");
 
-  const handleSelect = async () => {
-    if (city?.trim && lat?.trim && lon?.trim) {
+  const handleSelect = async (shouldShowToast: boolean = true) => {
+    if (city && lat && lon) {
       setUserDefaultLocation({ city, lat, lon });
       await delay(500);
-      toast({
-        title: "Location saved",
-        description: (
-          <p>
-            You have saved <strong>{city}</strong> as your default location.
-          </p>
-        ),
-        action: (
-          <ToastAction altText="Undo" onClick={handleClick}>
-            Undo
-          </ToastAction>
-        ),
-      });
+      shouldShowToast &&
+        toast({
+          title: "Location saved",
+          description: (
+            <p>
+              You have saved <strong>{city}</strong> as your default location.
+            </p>
+          ),
+          duration: 2000,
+        });
     }
   };
 
@@ -54,13 +51,19 @@ const DefaultLocationOption = () => {
     toast({
       title: "Location removed",
       description: "Your default location has been removed.",
+      duration: 2000,
+      action: (
+        <ToastAction altText="Undo" onClick={() => handleSelect(false)}>
+          Undo
+        </ToastAction>
+      ),
     });
   };
 
   return (
     <div className="relative">
       {!userDefaultLocation && (
-        <DropdownMenuItem className="gap-2" onSelect={handleSelect}>
+        <DropdownMenuItem className="gap-2" onSelect={() => handleSelect()}>
           <Save size={16} /> Save Location
         </DropdownMenuItem>
       )}
