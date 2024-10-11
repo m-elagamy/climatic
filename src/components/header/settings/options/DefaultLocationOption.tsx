@@ -1,5 +1,5 @@
-import { Save, Trash2, Loader2 } from "lucide-react";
-import { InfoCircledIcon, StarFilledIcon } from "@radix-ui/react-icons";
+import { Save, Trash2, Loader2, Star } from "lucide-react";
+import { InfoCircledIcon } from "@radix-ui/react-icons";
 
 import {
   DropdownMenuItem,
@@ -38,7 +38,7 @@ const DefaultLocationOption = () => {
       {!!userDefaultLocation && (
         <DropdownMenuLabel className="rounded-sm py-2 font-normal hover:bg-accent/30">
           <Label className="flex cursor-pointer items-center gap-2">
-            <StarFilledIcon />
+            <Star size={16} />
             {userDefaultLocation.city}
             <Checkbox
               className="size-[14px]"
