@@ -40,4 +40,6 @@ const SUGGESTED_CITIES: Partial<Location>[] = [
 
 const HOURS_TO_SHOW = 12;
 
-export { SUGGESTED_CITIES, HOURS_TO_SHOW };
+const DEFAULT_CITY = "Cairo";
+
+export { SUGGESTED_CITIES, HOURS_TO_SHOW, DEFAULT_CITY };

@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import useGeolocation from "./useGeolocation";
 import { useCallback } from "react";
 import { useToast } from "./useToast";
+import buildLocationUrl from "@/utils/buildLocationUrl";
 
 const useCurrentLocation = () => {
   const router = useRouter();
@@ -15,7 +16,7 @@ const useCurrentLocation = () => {
     if (!locationCoords && !isGeolocationDenied) {
       getGeolocation();
     } else if (locationCoords && !isGeolocationDenied) {
-      router.push(`/?lat=${locationCoords.lat}&lon=${locationCoords.lon}`);
+      router.push(buildLocationUrl("", locationCoords.lat, locationCoords.lon));
     } else {
       toast({
         title: "Location denied",

@@ -1,68 +1,76 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import useGeolocation from "@/hooks/useGeolocation";
 import useDefaultLocation from "@/hooks/useDefaultLocation";
 import useGeolocationPermissions from "@/hooks/useGeolocationPermissions";
+import buildLocationUrl from "@/utils/buildLocationUrl";
 
 const LocationDetector = () => {
   const router = useRouter();
+  const [hasCheckedLocation, setHasCheckedLocation] = useState(false);
+
   const { getGeolocation, userLocationCoords, isLoading, error } =
     useGeolocation();
+
   const { userDefaultLocation, isDefaultLocationEnabled } =
     useDefaultLocation();
-  const [hasCheckedLocation, setHasCheckedLocation] = useState(false);
+
   const { isGeolocationDenied } = useGeolocationPermissions();
 
-  useEffect(() => {
-    const checkAndSetLocation = async () => {
-      if (userDefaultLocation && isDefaultLocationEnabled) {
-        router.replace(
-          `/?city=${encodeURIComponent(userDefaultLocation.city)}&lat=${userDefaultLocation.lat}&lon=${userDefaultLocation.lon}`,
-        );
-      } else if (
-        !hasCheckedLocation ||
-        (!isDefaultLocationEnabled && !isGeolocationDenied)
-      ) {
-        getGeolocation();
-      }
-      setHasCheckedLocation(true);
-    };
+  const shouldUseGeolocation =
+    (!isDefaultLocationEnabled && !isGeolocationDenied) || !hasCheckedLocation;
 
-    checkAndSetLocation();
+  const shouldUseDefaultLocation =
+    userDefaultLocation && isDefaultLocationEnabled;
 
-    return () => {
-      setHasCheckedLocation(false);
-    };
+  const checkAndSetLocation = useCallback(() => {
+    if (shouldUseDefaultLocation) {
+      router.replace(
+        buildLocationUrl(
+          userDefaultLocation.city,
+          userDefaultLocation.lat,
+          userDefaultLocation.lon,
+        ),
+      );
+    } else if (shouldUseGeolocation) {
+      getGeolocation();
+    }
+    setHasCheckedLocation(true);
   }, [
-    isDefaultLocationEnabled,
-    userDefaultLocation,
     router,
     getGeolocation,
-    hasCheckedLocation,
-    isGeolocationDenied,
+    shouldUseGeolocation,
+    shouldUseDefaultLocation,
+    userDefaultLocation,
   ]);
 
-  useEffect(() => {
-    if (hasCheckedLocation && !isLoading) {
-      if (userLocationCoords && !isDefaultLocationEnabled) {
-        router.replace(
-          `/?lat=${userLocationCoords.lat}&lon=${userLocationCoords.lon}`,
-        );
-      } else if ((isGeolocationDenied || error) && !isDefaultLocationEnabled) {
-        router.replace("/?city=Cairo");
-      }
+  const handleLocationUpdate = useCallback(() => {
+    if (userLocationCoords && !isDefaultLocationEnabled) {
+      router.replace(
+        buildLocationUrl("", userLocationCoords.lat, userLocationCoords.lon),
+      );
+    } else if ((isGeolocationDenied || error) && !isDefaultLocationEnabled) {
+      router.replace(buildLocationUrl());
     }
   }, [
-    isLoading,
     userLocationCoords,
     isDefaultLocationEnabled,
     router,
     error,
     isGeolocationDenied,
-    hasCheckedLocation,
   ]);
+
+  useEffect(() => {
+    checkAndSetLocation();
+  }, [checkAndSetLocation]);
+
+  useEffect(() => {
+    if (hasCheckedLocation && !isLoading) {
+      handleLocationUpdate();
+    }
+  }, [isLoading, hasCheckedLocation, handleLocationUpdate]);
 
   return null;
 };
