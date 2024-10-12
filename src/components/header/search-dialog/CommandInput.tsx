@@ -9,7 +9,7 @@ const CommandInput = ({
   setInput: Dispatch<SetStateAction<string>>;
 }) => {
   return (
-    <div className="flex items-center border-b  px-3">
+    <div className="flex items-center border-b px-3">
       <MagnifyingGlassIcon className="mr-2 h-4 w-4 shrink-0 opacity-50" />
       <label htmlFor="search" className="sr-only">
         Search
@@ -18,7 +18,7 @@ const CommandInput = ({
         id="search"
         type="text"
         className="flex h-10 w-full rounded-md bg-transparent py-3 text-sm outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50"
-        placeholder="Search for a city..."
+        placeholder="Which city are you looking for?"
         autoComplete="off"
         value={input}
         onChange={(e) => setInput(e.target.value)}

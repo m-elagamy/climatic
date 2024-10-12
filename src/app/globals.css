@@ -6,8 +6,6 @@
   :root {
     --background: 0 0% 5%;
     --foreground: 0 0% 98%;
-    --card: 260 7.7% 6%;
-    --card-foreground: 0 0% 98%;
     --popover: 0 0% 3.9%;
     --popover-foreground: 0 0% 98%;
     --primary: 0 0% 98%;
@@ -18,16 +16,9 @@
     --muted-foreground: 0 4.79% 80.75%;
     --accent: 0 0% 14.9%;
     --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
     --border: 0 0% 14.9%;
     --input: 0 0% 14.9%;
     --ring: 0 0% 83.1%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
     --radius: 0.5rem;
   }
 }
@@ -158,15 +149,15 @@ div[data-radix-popper-content-wrapper] {
 }
 
 .foggy-day {
-  background-image: linear-gradient(to top left, #a1c4dc, #647c8a);
+  background-image: linear-gradient(to top left, #86a7be, #4e626e);
 }
 
 .foggy-night {
-  background-image: linear-gradient(to top left, #1a1c1f, #4b4e54);
+  background-image: linear-gradient(to top left, #22262b, #555a63);
 }
 
 .light-rain {
-  background-image: linear-gradient(to top left, #a6c8e0, #74a5b2);
+  background-image: linear-gradient(to top left, #8badc4, #5a8a98);
 }
 
 .rainy {
@@ -182,7 +173,7 @@ div[data-radix-popper-content-wrapper] {
 }
 
 .snow-day {
-  background-image: linear-gradient(to top left, #e0f7fa, #b2ebf2);
+  background-image: linear-gradient(to top left, #3e4546, #8fd9e3);
 }
 
 .snow-night {
@@ -190,9 +181,9 @@ div[data-radix-popper-content-wrapper] {
 }
 
 .snow-rain {
-  background-image: linear-gradient(to top left, #aeeeee, #6ec6d0);
+  background-image: linear-gradient(to top left, #0d9488, #14b8a6);
 }
 
 .default-theme {
-  background-image: linear-gradient(to top left, #e8f1f2, #d1e8ea);
+  background-image: linear-gradient(to top left, #3730a3, #4338ca);
 }

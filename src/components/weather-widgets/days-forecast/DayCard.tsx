@@ -80,11 +80,6 @@ const DayCard = ({
               </span>
             )}
           </div>
-          {/* <TemperatureRangeBar
-            highTemp={maxTemp}
-            lowTemp={minTemp}
-            isImperial={isImperial}
-          /> */}
         </>
       )}
     </div>
