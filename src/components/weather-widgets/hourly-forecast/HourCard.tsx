@@ -74,7 +74,7 @@ const HourCard = ({ hour }: { hour: HourData }) => {
             <h5 className="flex items-center justify-center gap-1 font-semibold md:text-lg">
               {roundToNearestInteger(temp)}&deg;
             </h5>
-            <div className="flex items-center gap-1 text-xs text-muted-foreground">
+            <div className="flex items-center gap-1 text-sm text-muted-foreground">
               <Droplets size={14} />
               <span>{hour.humidity}%</span>
             </div>

@@ -1,6 +1,6 @@
 const Preloader = () => {
   return (
-    <section className="preloader animate-gradient fixed inset-0 flex items-center justify-center bg-gradient-to-br from-blue-600 via-blue-500 to-blue-400">
+    <section className="preloader fixed inset-0 flex animate-gradient items-center justify-center bg-gradient-to-tl from-[#1c2670] to-[#3a9ecc]">
       <h2 className="sr-only">Loading...</h2>
       <article className="relative">
         <svg

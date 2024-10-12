@@ -10,7 +10,7 @@ const DayCardSkeleton = () => {
         <Skeleton className="h-2 w-12" />
       </div>
 
-      <div className="relative -top-1 h-[6px] w-1/3 rounded-md bg-card">
+      <div className="relative -top-1 h-[6px] w-1/3 rounded-md">
         <Skeleton className="h-full w-full" />
 
         <div className="flex items-center justify-between pt-1 text-xs font-bold">

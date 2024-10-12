@@ -2,30 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 
-Weather conditions:
-sunny-day:  #4DC4FF #3A9ECC;
-clear-night: #1C2670 #3A9ECC
-
-partly-cloudy-day: #A1C4DC #647C8A;
-partly-cloudy-night: #1F2C3F  #4A647C 
-
-3: #A1C4DC #647C8A #1A1C1F #4B4E54
-
-4- #A6C8E0 #74A5B2
-
-5- #4A90E2 #2B8DA3
-
-6- #A0C1D6 #4C758E
-
-7- #2B3A6B #4A90E2
-
-8- #E0F7FA  #B2EBF2  #2E3A47  #A4B0B8
-
-9- #AEEEEE #6EC6D0
-
- */
-
 @layer base {
   :root {
     --background: 0 0% 5%;
@@ -39,7 +15,7 @@ partly-cloudy-night: #1F2C3F  #4A647C
     --secondary: 0 0% 14.9%;
     --secondary-foreground: 0 0% 98%;
     --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
+    --muted-foreground: 0 4.79% 80.75%;
     --accent: 0 0% 14.9%;
     --accent-foreground: 0 0% 98%;
     --destructive: 0 62.8% 30.6%;
@@ -61,7 +37,7 @@ partly-cloudy-night: #1F2C3F  #4A647C
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
   }
 }
 
@@ -162,4 +138,61 @@ div[data-radix-popper-content-wrapper] {
 
 .drop:nth-child(10) {
   animation-delay: -1300ms;
+}
+
+/* Utilities */
+.sunny-day {
+  background-image: linear-gradient(to top left, #4dc4ff, #3a9ecc);
+}
+
+.clear-night {
+  background-image: linear-gradient(to top left, #1c2670, #3a9ecc);
+}
+
+.cloudy-day {
+  background-image: linear-gradient(to top left, #76c1f3, #647c8a);
+}
+
+.cloudy-night {
+  background-image: linear-gradient(to top left, #1f2c3f, #4a647c);
+}
+
+.foggy-day {
+  background-image: linear-gradient(to top left, #a1c4dc, #647c8a);
+}
+
+.foggy-night {
+  background-image: linear-gradient(to top left, #1a1c1f, #4b4e54);
+}
+
+.light-rain {
+  background-image: linear-gradient(to top left, #a6c8e0, #74a5b2);
+}
+
+.rainy {
+  background-image: linear-gradient(to top left, #4a90e2, #2b8da3);
+}
+
+.sleet {
+  background-image: linear-gradient(to top left, #a0c1d6, #4c758e);
+}
+
+.thunder {
+  background-image: linear-gradient(to top left, #2b3a6b, #4a90e2);
+}
+
+.snow-day {
+  background-image: linear-gradient(to top left, #e0f7fa, #b2ebf2);
+}
+
+.snow-night {
+  background-image: linear-gradient(to top left, #2e3a47, #a4b0b8);
+}
+
+.snow-rain {
+  background-image: linear-gradient(to top left, #aeeeee, #6ec6d0);
+}
+
+.default-theme {
+  background-image: linear-gradient(to top left, #e8f1f2, #d1e8ea);
 }

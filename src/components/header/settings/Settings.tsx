@@ -44,7 +44,7 @@ export default function Settings() {
           variant="outline"
           size="icon"
           title="Settings"
-          className="bg-gradient duration-300 hover:bg-accent/30"
+          className="bg-gradient border-none duration-300 hover:bg-accent/30"
           onClick={handleOnOpenChange}
         >
           <SettingsIcon size={16} />
@@ -53,7 +53,7 @@ export default function Settings() {
       </DropdownMenuTrigger>
       {isOpen && (
         <DropdownMenuContent
-          className="bg-gradient space-y-1 backdrop-blur-[3px]"
+          className="bg-gradient space-y-1 border-none backdrop-blur-[3px]"
           align="end"
         >
           <DropdownMenuLabel>Settings:</DropdownMenuLabel>

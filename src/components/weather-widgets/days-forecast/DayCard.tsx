@@ -75,7 +75,7 @@ const DayCard = ({
               {maxTemp}° | {minTemp}°
             </span>
             {!!day.daily_chance_of_rain && day.daily_chance_of_rain > 0 && (
-              <span className="flex items-center justify-center gap-1 text-xs text-muted-foreground">
+              <span className="flex items-center justify-center gap-1 text-sm text-muted-foreground">
                 <Droplet size={16} /> {day.daily_chance_of_rain}%
               </span>
             )}
