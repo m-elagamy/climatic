@@ -4,6 +4,7 @@ import { useLocalStorage } from "./useLocalStorage";
 const useGeolocationPermissions = () => {
   const [isGeolocationDenied, setIsGeolocationDenied] = useLocalStorage(
     "is-geolocation-denied",
+    true,
   );
   const syncGeolocationPermissionsWithLocalStorage = useCallback(() => {
     if (!navigator.permissions) {
