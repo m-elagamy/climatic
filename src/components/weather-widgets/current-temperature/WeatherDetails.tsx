@@ -14,10 +14,10 @@ const weatherDetailsVariants = motionVariants();
 export default function WeatherDetails({
   current,
   forecast,
-}: {
+}: Readonly<{
   current: Current;
   forecast: WeatherFlags["forecast"];
-}) {
+}>) {
   const { isImperial, isLoading } = useUnitsContext();
 
   const currentTemp = getPreferredUnits(

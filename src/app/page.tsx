@@ -10,7 +10,6 @@ import HourlyForecast from "@/components/weather-widgets/hourly-forecast/HourlyF
 import Pressure from "@/components/weather-widgets/pressure/Pressure";
 import Visibility from "@/components/weather-widgets/visibility/Visibility";
 import DaysForecast from "@/components/weather-widgets/days-forecast/DaysForecast";
-import Precipitation from "@/components/weather-widgets/precipitation/Precipitation";
 import DewPoint from "@/components/weather-widgets/dew-point/DewPoint";
 import LocationDetector from "@/components/LocationDetector";
 import Preloader from "@/components/ui/loading-indicators/Preloader";
@@ -53,7 +52,6 @@ export default async function Home({
             <Visibility city={city} lat={lat} lon={lon} />
             <Pressure city={city} lat={lat} lon={lon} />
             <SunRiseSet city={city} lat={lat} lon={lon} />
-            <Precipitation city={city} lat={lat} lon={lon} />
             <DewPoint city={city} lat={lat} lon={lon} />
             <HourlyForecast city={city} lat={lat} lon={lon} />
           </section>
