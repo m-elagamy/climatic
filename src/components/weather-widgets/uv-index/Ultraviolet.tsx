@@ -3,7 +3,6 @@ import { Sun } from "lucide-react";
 import { WeatherFlags } from "@/types/WeatherFlags";
 import uvLevels from "@/components/weather-widgets/uv-index/uvLevels";
 import UvWarningMessage from "./UvWarningMessage";
-import { Progress } from "../../ui/progress";
 import ErrorMessage from "../../ui/error-message";
 import fetchWeatherData from "@/utils/fetchWeatherData";
 import getCurrentLevel from "@/utils/getCurrentLevel";
@@ -56,14 +55,6 @@ const Ultraviolet = async ({
             {currentUv.toFixed(1)}
             <span className="ml-2 font-semibold">{level}</span>
           </p>
-          <Progress
-            value={Math.min(currentUv * 10, 100)}
-            max={10}
-            className="progress-bar"
-            title="UV Index"
-            aria-label={`UV progress bar, current index is ${currentUv.toFixed(1)}`}
-            aria-live="polite"
-          />
           <p className="text-sm">{description}</p>
         </>
       )}

@@ -31,7 +31,7 @@ const AirQuality = async ({
   );
 
   return (
-    <article className="container-style air-pollution">
+    <article className="container-style air-pollution col-span-2 md:col-span-1">
       <div className="flex items-center gap-1">
         <h2 className="title">
           <ThermometerSnowflake size={16} />

@@ -43,7 +43,7 @@ const DayCard = ({
   );
 
   return (
-    <div className="flex min-h-[60px] items-center justify-between rounded-md border p-3 shadow-sm">
+    <div className="flex min-h-[60px] items-center justify-between p-3">
       {isLoading && <DayCardSkeleton />}
 
       {!isLoading && (

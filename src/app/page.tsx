@@ -44,10 +44,10 @@ export default async function Home({
             <DaysForecast city={city} lat={lat} lon={lon} />
           </section>
           <section className="grid h-full grid-cols-2 gap-2 md:gap-4 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
+            <AirPollution city={city} lat={lat} lon={lon} />
             <FeelsLikeTemp city={city} lat={lat} lon={lon} />
             <Humidity city={city} lat={lat} lon={lon} />
             <Ultraviolet city={city} lat={lat} lon={lon} />
-            <AirPollution city={city} lat={lat} lon={lon} />
             <Wind city={city} lat={lat} lon={lon} />
             <Visibility city={city} lat={lat} lon={lon} />
             <Pressure city={city} lat={lat} lon={lon} />
