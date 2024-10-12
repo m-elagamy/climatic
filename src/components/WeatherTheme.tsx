@@ -28,7 +28,7 @@ const WeatherTheme = async ({ city, lat, lon }: WeatherBackgroundProps) => {
   // const weatherTheme = getWeatherTheme(condition, isDay);
 
   return (
-    <section className="fixed inset-0 -z-[1] bg-gradient-to-tl from-[#A6C8E0] to-[#0f0f0f] transition-all duration-300 before:absolute before:inset-0 before:z-[1] before:bg-black/25">
+    <section className="absolute inset-0 -z-[1] bg-gradient-to-tl from-[#A6C8E0] to-[#0f0f0f] transition-all duration-300">
       <h2 className="sr-only">Weather Theme</h2>
     </section>
   );
