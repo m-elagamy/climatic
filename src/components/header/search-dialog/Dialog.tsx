@@ -41,10 +41,10 @@ const Dialog = () => {
 
   return (
     <CommandDialog open={isOpen} onOpenChange={setIsOpen}>
-      <CommandInput input={input} setInput={setInput} />
       <DialogDescription className="sr-only">
         Search for a city
       </DialogDescription>
+      <CommandInput input={input} setInput={setInput} />
       <CommandList className="relative min-h-[68px]">
         {isLoading && <DotLoader />}
         {isError && <ErrorMessage />}
