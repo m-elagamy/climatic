@@ -33,7 +33,7 @@ const RenderSunriseSunset = ({
       <h2 className="title" aria-label={`${firstLabel}: ${firstTime}`}>
         <FirstIcon
           size={16}
-          className={`${isSunUp ? "text-orange-500" : "text-yellow-500"}`}
+          className={`${isSunUp ? "text-orange-500" : "text-yellow-400"}`}
         />
         {firstLabel}
       </h2>

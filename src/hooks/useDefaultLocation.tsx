@@ -11,6 +11,7 @@ const useDefaultLocation = () => {
   const searchParams = useSearchParams();
   const { toast } = useToast();
   const [userDefaultLocation, setUserDefaultLocation] = useLocalStorage<{
+    name?: string;
     city: string;
     lat: string;
     lon: string;

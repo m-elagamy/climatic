@@ -21,6 +21,7 @@ import { DialogDescription } from "@/components/ui/dialog";
 import NoResultMessage from "./NoResultMessage";
 import CitySearchResults from "./CitySearchResults";
 import SuggestedCities from "./SuggestedCities";
+import GroupHeading from "./GroupHeading";
 
 import type { Location } from "@/types/WeatherFlags";
 
@@ -33,7 +34,7 @@ const Dialog = () => {
 
   // Reset input when dialog is closed
   useEffect(() => {
-    if (!open) {
+    if (!isOpen) {
       setInput("");
     }
   }, [isOpen]);
@@ -56,7 +57,7 @@ const Dialog = () => {
           )}
 
           {cities.length > 0 && (
-            <CommandGroup heading="Suggestions:">
+            <CommandGroup heading={<GroupHeading />}>
               {cities.map((city: Location) => (
                 <CitySearchResults
                   key={city.id}

@@ -38,7 +38,7 @@ const DefaultLocationOption = () => {
       {!!userDefaultLocation && (
         <DropdownMenuLabel className="rounded-sm py-2 font-normal hover:bg-accent/30">
           <Label className="flex cursor-pointer items-center gap-2">
-            <Star size={16} />
+            <Star size={16} className="text-yellow-400" />
             {userDefaultLocation.city}
             <Checkbox
               className="size-[14px]"

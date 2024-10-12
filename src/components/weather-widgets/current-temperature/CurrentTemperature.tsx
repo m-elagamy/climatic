@@ -52,7 +52,7 @@ const CurrentTemperature = async ({
               <ToolTip
                 tooltipTrigger={
                   <a
-                    href={`https://www.weatherapi.com/weather/q/${encodeURIComponent(location.name)}`}
+                    href={`https://www.weatherapi.com/weather/q/${encodeURIComponent(location.name as string)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block cursor-pointer transition duration-300 hover:scale-90"

@@ -22,10 +22,10 @@ export type DayData = {
 
 export type Location = {
   city?: string;
-  lat: number;
-  lon: number;
+  lat: number | string;
+  lon: number | string;
   id?: number;
-  name: string;
+  name?: string;
   country?: string;
   tz_id?: string;
   localtime?: string;
