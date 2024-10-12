@@ -13,7 +13,7 @@ import DaysForecast from "@/components/weather-widgets/days-forecast/DaysForecas
 import DewPoint from "@/components/weather-widgets/dew-point/DewPoint";
 import LocationDetector from "@/components/LocationDetector";
 import Preloader from "@/components/ui/loading-indicators/Preloader";
-import WeatherBackground from "@/components/WeatherBackground";
+import WeatherTheme from "@/components/WeatherTheme";
 
 export default async function Home({
   searchParams,
@@ -38,7 +38,7 @@ export default async function Home({
       {!lat && !lon && <LocationDetector />}
       {lat || lon || city ? (
         <main className="flex flex-col gap-2 md:flex-row md:gap-4">
-          <WeatherBackground city={city} lat={lat} lon={lon} />
+          <WeatherTheme city={city} lat={lat} lon={lon} />
           <section className="flex w-full min-w-[18rem] flex-col gap-2 md:w-[144px] md:gap-4">
             <CurrentTemperature city={city} lat={lat} lon={lon} />
             <DaysForecast city={city} lat={lat} lon={lon} />

@@ -2,6 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+/* 
+Weather conditions:
+sunny-day:  #4DC4FF #3A9ECC;
+clear-night: #1C2670 #3A9ECC
+
+partly-cloudy-day: #A1C4DC #647C8A;
+partly-cloudy-night: #1F2C3F  #4A647C 
+
+3: #A1C4DC #647C8A #1A1C1F #4B4E54
+
+4- #A6C8E0 #74A5B2
+
+5- #4A90E2 #2B8DA3
+
+6- #A0C1D6 #4C758E
+
+7- #2B3A6B #4A90E2
+
+8- #E0F7FA  #B2EBF2  #2E3A47  #A4B0B8
+
+9- #AEEEEE #6EC6D0
+
+ */
+
 @layer base {
   :root {
     --background: 0 0% 5%;
@@ -43,7 +67,7 @@
 
 @layer components {
   .container-style {
-    @apply bg-gradient flex h-auto min-h-[160px] flex-col justify-between gap-2 rounded-xl border border-gray-200/5 p-4 shadow-widget backdrop-blur-[1px] md:h-[175px];
+    @apply bg-gradient flex h-auto min-h-[160px] flex-col justify-between gap-2 rounded-xl border p-4 shadow-widget md:h-[175px];
   }
 
   .title {
