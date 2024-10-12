@@ -48,7 +48,7 @@ const DialogContent = React.forwardRef<
       <DialogPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent/25 data-[state=open]:text-muted-foreground">
         <Button
           variant="outline"
-          className="relative -top-[9px] h-6 p-1 hover:bg-accent/40"
+          className="relative -top-[9px] h-6 bg-transparent p-1 hover:bg-accent/30"
           size="sm"
           title="Escape"
         >
