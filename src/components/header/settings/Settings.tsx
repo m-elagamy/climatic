@@ -48,6 +48,7 @@ export default function Settings() {
           onClick={handleOnOpenChange}
         >
           <SettingsIcon size={16} />
+          <span className="sr-only">Settings</span>
         </Button>
       </DropdownMenuTrigger>
       {isOpen && (
