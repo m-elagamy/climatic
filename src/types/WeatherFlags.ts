@@ -6,6 +6,7 @@ export type HourData = {
   condition: {
     text: string;
   };
+  humidity: number;
 };
 
 export type DayData = {

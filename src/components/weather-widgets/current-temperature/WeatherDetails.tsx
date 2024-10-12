@@ -62,10 +62,10 @@ export default function WeatherDetails({
             <WeatherIcon
               condition={current?.condition.text}
               isDay={current?.is_day}
-              size={24}
+              size={28}
             />
             <h5 className="capitalize">{current?.condition.text}</h5>
-            <div className="flex gap-1 text-sm font-semibold text-muted-foreground">
+            <div className="flex gap-1 font-semibold text-muted-foreground">
               <h6>H: {maxTemp}°</h6>|<h6>L: {minTemp}°</h6>
             </div>
           </motion.div>
