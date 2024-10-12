@@ -37,6 +37,7 @@ const DaysForecast = async ({
         condition: {
           text: day.day.condition.text,
         },
+        daily_chance_of_rain: day.day.daily_chance_of_rain,
       },
       date: day.date,
     };

@@ -7,10 +7,10 @@ import type { DayData } from "@/types/WeatherFlags";
 import useUnitsContext from "@/hooks/useUnitsContext";
 import WeatherIcon from "@/components/icons/WeatherIcon";
 import DayCardSkeleton from "@/components/ui/loading-indicators/DayCardSkeleton";
-import TemperatureRangeBar from "./TemperatureRangeBar";
 import getPreferredUnits from "@/utils/getPreferredUnits";
 import { motionVariants } from "@/utils/motionVariants";
 import getDayName from "@/utils/getDayName";
+import { Droplet } from "lucide-react";
 
 const dayCardVariants = motionVariants(
   [0.68, -0.55, 0.27, 1.55],
@@ -49,7 +49,7 @@ const DayCard = ({
       {!isLoading && (
         <>
           <motion.h3
-            className="text-xs"
+            className="text-sm font-bold"
             variants={dayCardVariants}
             initial="hidden"
             animate="visible"
@@ -65,16 +65,26 @@ const DayCard = ({
             <WeatherIcon
               condition={day.condition?.text}
               key={date}
-              size={16}
+              size={20}
               isDay
             />
             <p>{day.condition?.text}</p>
           </motion.div>
-          <TemperatureRangeBar
+          <div className="space-y-2 font-bold">
+            <span>
+              {maxTemp}° | {minTemp}°
+            </span>
+            {day.daily_chance_of_rain && day.daily_chance_of_rain > 0 && (
+              <span className="flex items-center justify-center gap-1 text-xs text-muted-foreground">
+                <Droplet size={16} /> {day.daily_chance_of_rain}%
+              </span>
+            )}
+          </div>
+          {/* <TemperatureRangeBar
             highTemp={maxTemp}
             lowTemp={minTemp}
             isImperial={isImperial}
-          />
+          /> */}
         </>
       )}
     </div>

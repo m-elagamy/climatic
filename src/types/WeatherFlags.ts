@@ -19,6 +19,7 @@ export type DayData = {
   condition: {
     text: string;
   };
+  daily_chance_of_rain?: number;
 };
 
 export type Location = {
