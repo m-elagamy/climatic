@@ -2,7 +2,7 @@
 
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import { Droplets } from "lucide-react";
+import { Droplet, Umbrella } from "lucide-react";
 
 import useUnitsContext from "@/hooks/useUnitsContext";
 import { HourData } from "@/types/WeatherFlags";
@@ -74,9 +74,20 @@ const HourCard = ({ hour }: { hour: HourData }) => {
             <h5 className="flex items-center justify-center gap-1 font-semibold md:text-lg">
               {roundToNearestInteger(temp)}&deg;
             </h5>
-            <div className="flex items-center gap-1 text-sm text-muted-foreground">
-              <Droplets size={14} />
-              <span>{hour.humidity}%</span>
+            <div
+              className="flex cursor-help items-center justify-center gap-1"
+              title="Chance of rain"
+            >
+              <div className="relative">
+                <Umbrella size={16} />
+                <Droplet
+                  size={12}
+                  className="absolute -left-2 -top-2 text-sky-500"
+                />
+              </div>
+              <span className="text-sm text-muted-foreground">
+                {hour.chance_of_rain}%
+              </span>
             </div>
           </div>
         </motion.div>

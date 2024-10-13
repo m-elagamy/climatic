@@ -7,6 +7,7 @@ export type HourData = {
     text: string;
   };
   humidity: number;
+  chance_of_rain: number;
 };
 
 export type DayData = {

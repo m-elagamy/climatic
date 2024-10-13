@@ -10,7 +10,7 @@ import DayCardSkeleton from "@/components/ui/loading-indicators/DayCardSkeleton"
 import getPreferredUnits from "@/utils/getPreferredUnits";
 import { motionVariants } from "@/utils/motionVariants";
 import getDayName from "@/utils/getDayName";
-import { Droplet } from "lucide-react";
+import { Droplet, Umbrella } from "lucide-react";
 
 const dayCardVariants = motionVariants(
   [0.68, -0.55, 0.27, 1.55],
@@ -74,12 +74,22 @@ const DayCard = ({
             <span>
               {maxTemp}° | {minTemp}°
             </span>
-            <span
-              className="flex items-center justify-center gap-1 text-sm text-muted-foreground"
+
+            <div
+              className="flex cursor-help items-center justify-center gap-1"
               title="Chance of rain"
             >
-              <Droplet size={16} /> {day.daily_chance_of_rain}%
-            </span>
+              <div className="relative">
+                <Umbrella size={16} />
+                <Droplet
+                  size={12}
+                  className="absolute -left-2 -top-2 text-sky-500"
+                />
+              </div>
+              <span className="text-sm text-muted-foreground">
+                {day.daily_chance_of_rain}%
+              </span>
+            </div>
           </div>
         </>
       )}
