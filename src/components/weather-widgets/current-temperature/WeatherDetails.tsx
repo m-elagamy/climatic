@@ -6,7 +6,7 @@ import { WeatherFlags, type Current } from "@/types/WeatherFlags";
 import useUnitsContext from "@/hooks/useUnitsContext";
 import CloudLoading from "../../ui/loading-indicators/CloudLoading";
 import getPreferredUnits from "@/utils/getPreferredUnits";
-import { motionVariants } from "@/utils/motionVariants";
+import { motionVariants, iconVariants } from "@/utils/motionVariants";
 import WeatherIcon from "../../icons/WeatherIcon";
 
 const weatherDetailsVariants = motionVariants();
@@ -59,11 +59,18 @@ export default function WeatherDetails({
             initial="hidden"
             animate="visible"
           >
-            <WeatherIcon
-              condition={current?.condition.text}
-              isDay={current?.is_day}
-              size={28}
-            />
+            <motion.div
+              initial="initial"
+              animate="animate"
+              whileHover="hover"
+              variants={iconVariants}
+            >
+              <WeatherIcon
+                condition={current?.condition.text}
+                isDay={current?.is_day}
+                size={28}
+              />
+            </motion.div>
             <h5 className="capitalize">{current?.condition.text}</h5>
             <div className="flex gap-1 font-semibold text-muted-foreground">
               <h6>H: {maxTemp}°</h6>|<h6>L: {minTemp}°</h6>

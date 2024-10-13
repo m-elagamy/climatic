@@ -46,4 +46,25 @@ const itemVariants = {
   },
 };
 
-export { motionVariants, listVariants, itemVariants };
+const iconVariants = {
+  initial: { scale: 0, rotate: -180 },
+  animate: {
+    scale: 1,
+    rotate: 0,
+    transition: {
+      type: "spring",
+      stiffness: 260,
+      damping: 20,
+      delay: 0.2,
+    },
+  },
+  hover: {
+    scale: 1.1,
+    rotate: [0, 10, -10, 0],
+    transition: {
+      duration: 0.3,
+    },
+  },
+};
+
+export { motionVariants, listVariants, itemVariants, iconVariants };
