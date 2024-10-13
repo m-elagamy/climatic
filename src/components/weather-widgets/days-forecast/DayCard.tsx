@@ -43,7 +43,7 @@ const DayCard = ({
   );
 
   return (
-    <div className="flex min-h-[60px] items-center justify-between p-3">
+    <div className="flex min-h-[60px] items-center justify-between p-1">
       {isLoading && <DayCardSkeleton />}
 
       {!isLoading && (
@@ -57,7 +57,7 @@ const DayCard = ({
             {index === 0 ? "Today" : getDayName(date, "short")}
           </motion.h3>
           <motion.div
-            className="flex flex-col items-center justify-center gap-[2px] text-xs"
+            className="flex flex-col items-center justify-center gap-[2px] text-sm"
             variants={dayCardVariants}
             initial="hidden"
             animate="visible"
@@ -65,7 +65,7 @@ const DayCard = ({
             <WeatherIcon
               condition={day.condition?.text}
               key={date}
-              size={20}
+              size={22}
               isDay
             />
             <p>{day.condition?.text}</p>
@@ -75,7 +75,10 @@ const DayCard = ({
               {maxTemp}° | {minTemp}°
             </span>
             {!!day.daily_chance_of_rain && day.daily_chance_of_rain > 0 && (
-              <span className="flex items-center justify-center gap-1 text-sm text-muted-foreground">
+              <span
+                className="flex items-center justify-center gap-1 text-sm text-muted-foreground"
+                title="Chance of rain"
+              >
                 <Droplet size={16} /> {day.daily_chance_of_rain}%
               </span>
             )}

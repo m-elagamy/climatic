@@ -9,6 +9,7 @@ import {
   CloudMoon,
   CloudSunRain,
   CloudHail,
+  CloudFog,
 } from "lucide-react";
 
 export default function getWeatherIcon(
@@ -32,7 +33,7 @@ export default function getWeatherIcon(
     case "sand":
     case "dust":
     case "ash":
-      return isDay ? CloudSun : CloudMoon;
+      return CloudFog;
 
     case "patchy light drizzle":
     case "light drizzle":

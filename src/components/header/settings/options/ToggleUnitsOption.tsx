@@ -18,7 +18,7 @@ const ToggleUnitsOption = () => {
           isImperial ? "text-accent-foreground" : "text-muted-foreground"
         }`}
       >
-        F&#176;
+        &#176;F
       </Label>
       <Switch
         id="ToggleUnits"
