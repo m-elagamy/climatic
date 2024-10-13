@@ -25,7 +25,7 @@ const getWeatherTheme = (
     case "light drizzle":
     case "patchy rain nearby":
     case "light rain shower":
-      return "light-rain";
+      return isDay ? "light-rain-day" : "light-rain-night";
 
     case "patchy light rain":
     case "light rain":
@@ -34,7 +34,7 @@ const getWeatherTheme = (
     case "patchy rain possible":
     case "moderate or heavy rain shower":
     case "shower in vicinity":
-      return "rainy";
+      return isDay ? "rainy-day" : "rainy-night";
 
     case "sleet":
     case "moderate or heavy sleet":

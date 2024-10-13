@@ -42,13 +42,17 @@
   }
 
   .bg-gradient {
-    @apply bg-gradient-to-br from-zinc-950/50 via-gray-950/40 to-slate-950/30;
+    @apply bg-gradient-to-br from-zinc-950/30 via-gray-950/25 to-slate-950/20;
   }
 
   .animate-gradient-blur {
     background-size: 200% 200%;
   }
 }
+
+/* .container-style {
+  background-color: rgba(255, 255, 255, 0.1);
+} */
 
 .progress-bar {
   background-image: linear-gradient(
@@ -131,57 +135,43 @@ div[data-radix-popper-content-wrapper] {
   animation-delay: -1300ms;
 }
 
-/* Utilities */
-.sunny-day {
-  background-image: linear-gradient(to top left, #006bff, #0f67b1);
-}
-
-.clear-night {
-  background-image: linear-gradient(to top left, #060930, #035397);
-}
-
+/* Unified Color Themes */
+.sunny-day,
 .cloudy-day {
-  background-image: linear-gradient(to top left, #76c1f3, #647c8a);
+  background-image: linear-gradient(to top left, #1a73e8, #004e9a);
 }
 
+.clear-night,
 .cloudy-night {
-  background-image: linear-gradient(to top left, #1f2c3f, #4a647c);
+  background-image: linear-gradient(to top left, #051c72, #0c1445);
 }
 
 .foggy-day {
-  background-image: linear-gradient(to top left, #86a7be, #4e626e);
+  background-image: linear-gradient(to top left, #4b5359, #343a3f);
 }
 
 .foggy-night {
-  background-image: linear-gradient(to top left, #22262b, #555a63);
+  background-image: linear-gradient(to top left, #2f3a46, #2b404d);
 }
 
-.light-rain {
-  background-image: linear-gradient(to top left, #8badc4, #5a8a98);
+.rainy-day,
+.light-rain-day {
+  background-image: linear-gradient(to top left, #4c6f96, #2d506f);
 }
 
-.rainy {
-  background-image: linear-gradient(to top left, #4a90e2, #2b8da3);
+.light-rain-night,
+.rainy-night {
+  background-image: linear-gradient(to top left, #22364f, #16263b);
 }
 
-.sleet {
-  background-image: linear-gradient(to top left, #a0c1d6, #4c758e);
+.sleet,
+.snow-day,
+.snow-night {
+  background-image: linear-gradient(to top left, #72b2cc, #668a9b);
 }
 
 .thunder {
-  background-image: linear-gradient(to top left, #2b3a6b, #4a90e2);
-}
-
-.snow-day {
-  background-image: linear-gradient(to top left, #3e4546, #8fd9e3);
-}
-
-.snow-night {
-  background-image: linear-gradient(to top left, #2e3a47, #a4b0b8);
-}
-
-.snow-rain {
-  background-image: linear-gradient(to top left, #0d9488, #14b8a6);
+  background-image: linear-gradient(to top left, #4c5b6e, #697c8b);
 }
 
 .default-theme {

@@ -24,7 +24,7 @@ const WeatherTheme = async ({ city, lat, lon }: WeatherBackgroundProps) => {
   const weatherTheme = getWeatherTheme(condition, isDay);
 
   return (
-    <section className={`${weatherTheme} absolute inset-0 -z-[1]`}>
+    <section className={`${weatherTheme} snowy absolute inset-0 -z-[1]`}>
       <h2 className="sr-only">Weather Theme</h2>
     </section>
   );
