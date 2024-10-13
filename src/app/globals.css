@@ -143,7 +143,26 @@ div[data-radix-popper-content-wrapper] {
 
 .clear-night,
 .cloudy-night {
-  background-image: linear-gradient(to top left, #051c72, #0c1445);
+  background-image: linear-gradient(
+    135deg,
+    #0a2472 0%,
+    #051c72 50%,
+    #1e3799 100%
+  );
+}
+
+.night-overlay {
+  background: radial-gradient(
+    ellipse at top,
+    rgba(255, 255, 255, 0.1) 0%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
 }
 
 .foggy-day {
