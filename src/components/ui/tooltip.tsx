@@ -55,7 +55,7 @@ const ToolTip = ({
         {children}
         <TooltipTrigger
           asChild
-          className="size-[17px] cursor-help text-sky-500 transition hover:text-sky-400"
+          className="cursor-help text-sky-500 transition hover:text-sky-400"
           onClick={handleClick}
         >
           {tooltipTrigger}

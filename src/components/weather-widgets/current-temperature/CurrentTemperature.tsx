@@ -5,8 +5,8 @@ import { WeatherFlags } from "@/types/WeatherFlags";
 import WeatherDetails from "./WeatherDetails";
 import CurrentDateTime from "./CurrentDateTime";
 import ErrorMessage from "../../ui/error-message";
-import ToolTip from "../../ui/tooltip";
 import fetchWeatherData from "@/utils/fetchWeatherData";
+import AlertBanner from "./AlertBanner";
 
 const CurrentTemperature = async ({
   city,
@@ -23,15 +23,15 @@ const CurrentTemperature = async ({
     lon,
   );
 
-  const { current, forecast, location } = weatherData ?? {};
+  const { current, forecast, location, alerts } = weatherData ?? {};
 
   return (
-    <article className="container-style h-72 md:h-[23rem]">
+    <article className="container-style relative h-72 md:h-[23rem]">
       <h2 className="sr-only">Current Temperature</h2>
 
       {!weatherData && <ErrorMessage error="Current temperature" />}
 
-      {location && current && forecast && (
+      {location && current && forecast && alerts && (
         <>
           <div>
             {location.localtime && (
@@ -49,28 +49,24 @@ const CurrentTemperature = async ({
                   {getCountryCode(location.country ?? "") ?? location.country}
                 </sup>
               </h3>
-              <ToolTip
-                tooltipTrigger={
-                  <a
-                    href={`https://www.weatherapi.com/weather/q/${encodeURIComponent(location.name as string)}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-block cursor-pointer transition duration-300 hover:scale-90"
-                  >
-                    <Navigation
-                      size={20}
-                      className="text-muted-foreground transition-colors duration-300 hover:text-primary"
-                    />
-                    <span className="sr-only">
-                      Check weather conditions on WeatherAPI?
-                    </span>
-                  </a>
-                }
-                tooltipContent="Check weather conditions on WeatherAPI?"
-              />
+              <a
+                href={`https://www.weatherapi.com/weather/q/${encodeURIComponent(location.name as string)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-block cursor-pointer transition duration-300 hover:scale-90"
+              >
+                <Navigation
+                  size={20}
+                  className="text-muted-foreground transition-colors duration-300 hover:text-primary"
+                />
+                <span className="sr-only">
+                  Check weather conditions on WeatherAPI?
+                </span>
+              </a>
             </div>
           </div>
           <WeatherDetails current={current} forecast={forecast} />
+          {alerts?.length > 0 && <AlertBanner alerts={alerts} />}
         </>
       )}
     </article>

@@ -54,7 +54,7 @@ const DefaultLocationOption = () => {
       <div className="absolute right-2 top-[6px]">
         {!userDefaultLocation && (
           <ToolTip
-            tooltipTrigger={<InfoCircledIcon className="size-4" />}
+            tooltipTrigger={<InfoCircledIcon className="size-[17px]" />}
             tooltipContent={
               <p>
                 This option saves the currently selected city as your default

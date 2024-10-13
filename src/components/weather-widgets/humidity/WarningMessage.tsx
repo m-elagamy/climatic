@@ -6,7 +6,7 @@ import ToolTip from "@/components/ui/tooltip";
 const WarningMessage = ({ avgHumidity }: { avgHumidity: number }) => {
   return (
     <ToolTip
-      tooltipTrigger={<InfoCircledIcon  />}
+      tooltipTrigger={<InfoCircledIcon className="size-[17px]" />}
       tooltipContent={
         <>
           <MessageCircleWarning
