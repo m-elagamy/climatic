@@ -71,7 +71,7 @@ const DayCard = ({
             <p>{day.condition?.text}</p>
           </motion.div>
           <div className="space-y-3 font-bold">
-            <span>
+            <span className="text-lg">
               {maxTemp}° | {minTemp}°
             </span>
 
