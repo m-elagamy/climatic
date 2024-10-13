@@ -51,7 +51,7 @@ function WindSpeed({
           {isLoading && <DotLoader />}
 
           {!isLoading && (
-            <h3 className="absolute left-[51%] top-1/2 -translate-x-1/2 -translate-y-1/2 text-nowrap text-xs font-semibold">
+            <h3 className="absolute left-[51%] top-1/2 -translate-x-1/2 -translate-y-1/2 text-nowrap text-xs font-semibold text-muted">
               {windSpeed} {isImperial ? "mph" : "kph"}
             </h3>
           )}

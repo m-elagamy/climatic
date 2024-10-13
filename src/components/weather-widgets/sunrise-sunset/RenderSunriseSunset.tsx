@@ -34,12 +34,13 @@ const RenderSunriseSunset = ({
         <FirstIcon
           size={16}
           className={`${isSunUp ? "text-orange-500" : "text-yellow-400"}`}
+          fill="currentColor"
         />
         {firstLabel}
       </h2>
 
       <p className="text-2xl" aria-label={firstTime}>
-        {firstTime.split(" ")[0]}{" "}
+        {firstTime.split(" ")[0]}
         <sup className="text-xs">{firstTime.split(" ")[1]}</sup>
       </p>
 
@@ -51,10 +52,11 @@ const RenderSunriseSunset = ({
           <SecondIcon
             size={16}
             className={`${isSunUp ? "text-yellow-500" : "text-orange-500"}`}
-          />{" "}
+            fill="currentColor"
+          />
           {secondLabel}:
         </span>
-        {secondTime.split(" ")[0]}{" "}
+        {secondTime.split(" ")[0]}
         <sub className="text-xs">{secondTime.split(" ")[1]}</sub>
       </p>
     </>

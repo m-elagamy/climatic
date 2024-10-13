@@ -89,6 +89,6 @@ export default function getWeatherIcon(
       return CloudHail;
 
     default:
-      return isDay ? Sun : Moon;
+      return isDay ? CloudSun : CloudMoon;
   }
 }

@@ -79,10 +79,11 @@ const HourCard = ({ hour }: { hour: HourData }) => {
               title="Chance of rain"
             >
               <div className="relative">
-                <Umbrella size={16} />
+                <Umbrella size={16} fill="currentColor" />
                 <Droplet
                   size={12}
                   className="absolute -left-2 -top-2 text-sky-500"
+                  fill="currentColor"
                 />
               </div>
               <span className="text-sm text-muted-foreground">

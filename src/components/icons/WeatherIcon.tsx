@@ -13,6 +13,6 @@ const WeatherIcon = ({
 
   if (!Icon) return <span>Loading...</span>;
 
-  return <Icon size={size} />;
+  return <Icon size={size} className="fill-current" />;
 };
 export default WeatherIcon;

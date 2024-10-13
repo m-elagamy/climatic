@@ -70,7 +70,7 @@ const DayCard = ({
             />
             <p>{day.condition?.text}</p>
           </motion.div>
-          <div className="space-y-2 font-bold">
+          <div className="space-y-3 font-bold">
             <span>
               {maxTemp}° | {minTemp}°
             </span>
@@ -80,10 +80,11 @@ const DayCard = ({
               title="Chance of rain"
             >
               <div className="relative">
-                <Umbrella size={16} />
+                <Umbrella size={16} fill="currentColor" />
                 <Droplet
                   size={12}
                   className="absolute -left-2 -top-2 text-sky-500"
+                  fill="currentColor"
                 />
               </div>
               <span className="text-sm text-muted-foreground">
