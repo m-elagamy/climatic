@@ -1,5 +1,3 @@
-"use client";
-
 import { LocateIcon } from "lucide-react";
 
 import { DropdownMenuItem } from "@/components/ui/dropdown-menu";
