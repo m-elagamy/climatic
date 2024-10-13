@@ -4,7 +4,7 @@ import { Calendar } from "lucide-react";
 
 import useLiveClock from "@/hooks/useLiveClock";
 import getDayName from "@/utils/getDayName";
-import {motionVariants} from "@/utils/motionVariants";
+import { motionVariants } from "@/utils/motionVariants";
 import { Skeleton } from "../../ui/loading-indicators/skeleton";
 import ClockIcon from "../../icons/ClockIcon";
 
@@ -23,8 +23,8 @@ const CurrentDateTime = ({
     <div className="mb-4 flex items-center justify-between text-xs font-semibold text-muted-foreground md:mb-6">
       {!time && (
         <>
-          <Skeleton className="h-4 w-1/3 shadow" />
-          <Skeleton className="h-4 w-1/2 shadow" />
+          <Skeleton className="h-[16.97px] w-1/3 shadow" />
+          <Skeleton className="h-[16.97px] w-1/2 shadow" />
         </>
       )}
 

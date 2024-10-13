@@ -58,7 +58,7 @@ const DaysForecast = async ({
             align: "start",
           }}
         >
-          <CarouselContent className="-mt-1 h-[200px] gap-2 md:h-auto">
+          <CarouselContent className="-mt-1 gap-2">
             {daysForecast?.map((day, index) => (
               <CarouselItem key={day.date} className="basis-1/3 pt-1">
                 <DayCard day={day.day} date={day.date} index={index} />
