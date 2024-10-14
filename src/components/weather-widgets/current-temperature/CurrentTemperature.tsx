@@ -66,7 +66,7 @@ const CurrentTemperature = async ({
             </div>
           </div>
           <WeatherDetails current={current} forecast={forecast} />
-          {alerts?.length > 0 && <AlertBanner alerts={alerts} />}
+          {alerts.alert.length > 0 && <AlertBanner alerts={alerts} />}
         </>
       )}
     </article>
