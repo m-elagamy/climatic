@@ -136,10 +136,21 @@ div[data-radix-popper-content-wrapper] {
 }
 
 /* Unified Color Themes */
+
 .sunny-day,
 .cloudy-day {
   background-image: linear-gradient(to top left, #1a73e8, #004e9a);
 }
+
+/* .sunny-day,
+.cloudy-day {
+  background-image: linear-gradient(
+    135deg,
+    #4facfe 0%,
+    #00f2fe 50%,
+    #1a73e8 100%
+  );
+} */
 
 .clear-night,
 .cloudy-night {
@@ -149,23 +160,6 @@ div[data-radix-popper-content-wrapper] {
     #051c72 50%,
     #1e3799 100%
   );
-}
-
-.night-overlay {
-  background: radial-gradient(
-    ellipse at bottom left,
-    rgba(255, 255, 255, 0.05) 0%,
-    rgba(0, 0, 0, 0.3) 100%
-  );
-  position: absolute;
-  inset: 0;
-  @media screen and (max-width: 768px) {
-    background: radial-gradient(
-      ellipse at center,
-      rgba(255, 255, 255, 0.05) 0%,
-      rgba(0, 0, 0, 0.3) 100%
-    );
-  }
 }
 
 .foggy-day {
@@ -193,9 +187,46 @@ div[data-radix-popper-content-wrapper] {
 }
 
 .thunder {
-  background-image: linear-gradient(to top left, #4c5b6e, #697c8b);
+  background-image: linear-gradient(
+    135deg,
+    #34495e 0%,
+    #4a5c70 50%,
+    #5f7888 100%
+  );
 }
 
 .default-theme {
-  background-image: linear-gradient(to top left, #3730a3, #4338ca);
+  background-image: linear-gradient(
+    135deg,
+    #3730a3 0%,
+    #4338ca 50%,
+    #5145e4 100%
+  );
+}
+
+.day-overlay {
+  background: radial-gradient(
+    ellipse at top,
+    rgba(255, 255, 255, 0.2) 0%,
+    rgba(255, 255, 255, 0.1) 70%
+  );
+  position: absolute;
+  inset: 0;
+}
+
+.night-overlay {
+  background: radial-gradient(
+    ellipse at bottom left,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(0, 0, 0, 0.3) 100%
+  );
+  position: absolute;
+  inset: 0;
+  @media screen and (max-width: 768px) {
+    background: radial-gradient(
+      ellipse at center,
+      rgba(255, 255, 255, 0.05) 0%,
+      rgba(0, 0, 0, 0.3) 100%
+    );
+  }
 }
