@@ -1,3 +1,5 @@
+import delay from "./delay";
+
 const fetcher = async (url: string) => {
   try {
     const res = await fetch(url);
@@ -6,7 +8,7 @@ const fetcher = async (url: string) => {
       throw new Error(`Failed to fetch data: ${res.statusText}`);
     }
 
-    await new Promise((resolve) => setTimeout(resolve, 300));
+    await delay(200);
 
     return res.json();
   } catch (error) {
