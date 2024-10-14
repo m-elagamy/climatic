@@ -16,7 +16,7 @@ export default function getWeatherIcon(
   condition: string | undefined,
   isDay?: boolean,
 ) {
-  switch (condition?.toLowerCase()) {
+  switch (condition?.toLowerCase().trim()) {
     case "sunny":
     case "clear":
       return isDay ? Sun : Moon;
@@ -89,6 +89,6 @@ export default function getWeatherIcon(
       return CloudHail;
 
     default:
-      return isDay ? CloudSun : CloudMoon;
+      return isDay ? Sun : Moon;
   }
 }
