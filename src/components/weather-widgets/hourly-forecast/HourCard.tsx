@@ -13,6 +13,7 @@ import { motionVariants } from "@/utils/motionVariants";
 import formatTime from "./utils/formatTime";
 import WeatherIcon from "../../icons/WeatherIcon";
 import ClockIcon from "../../icons/ClockIcon";
+import ToolTip from "@/components/ui/tooltip";
 
 const hourCardVariants = motionVariants(
   [0.68, -0.55, 0.27, 1.55],
@@ -63,33 +64,40 @@ const HourCard = ({ hour }: { hour: HourData }) => {
             <ClockIcon currentHour={currentHour} />
             {upComingHours}
           </h3>
-          <div className="space-y-2" title={hour.condition.text}>
-            <h4 className="flex justify-center">
-              <WeatherIcon
-                condition={hour.condition.text}
-                isDay={hour.is_day}
-                size={24}
-              />
-            </h4>
+          <div className="space-y-2">
+            <ToolTip
+              tooltipTrigger={
+                <h4 className="flex justify-center">
+                  <WeatherIcon
+                    condition={hour.condition.text}
+                    isDay={hour.is_day}
+                    size={24}
+                  />
+                </h4>
+              }
+              tooltipContent={hour.condition.text}
+            />
             <h5 className="flex items-center justify-center gap-1 font-semibold md:text-lg">
               {roundToNearestInteger(temp)}&deg;
             </h5>
-            <div
-              className="flex cursor-help items-center justify-center gap-1"
-              title="Chance of rain"
-            >
-              <div className="relative">
-                <Umbrella size={16} fill="currentColor" />
-                <Droplet
-                  size={12}
-                  className="absolute -left-2 -top-2 text-sky-500"
-                  fill="currentColor"
-                />
-              </div>
-              <span className="text-sm text-muted-foreground">
-                {hour.chance_of_rain}%
-              </span>
-            </div>
+            <ToolTip
+              tooltipTrigger={
+                <div className="flex cursor-help items-center justify-center gap-1">
+                  <div className="relative">
+                    <Umbrella size={16} fill="currentColor" />
+                    <Droplet
+                      size={12}
+                      className="absolute -left-2 -top-2 text-sky-500"
+                      fill="currentColor"
+                    />
+                  </div>
+                  <span className="text-sm text-muted-foreground">
+                    {hour.chance_of_rain}%
+                  </span>
+                </div>
+              }
+              tooltipContent={`${hour.chance_of_rain}% Chance of rain`}
+            />
           </div>
         </motion.div>
       )}

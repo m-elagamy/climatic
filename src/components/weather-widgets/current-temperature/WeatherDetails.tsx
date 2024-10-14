@@ -71,7 +71,7 @@ export default function WeatherDetails({
                 size={28}
               />
             </motion.div>
-            <h5 className="capitalize">{current?.condition.text}</h5>
+            <h5>{current?.condition.text}</h5>
             <div className="flex gap-1 font-semibold text-muted-foreground">
               <h6>H: {maxTemp}°</h6>|<h6>L: {minTemp}°</h6>
             </div>

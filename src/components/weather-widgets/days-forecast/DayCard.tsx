@@ -11,6 +11,7 @@ import getPreferredUnits from "@/utils/getPreferredUnits";
 import { motionVariants } from "@/utils/motionVariants";
 import getDayName from "@/utils/getDayName";
 import { Droplet, Umbrella } from "lucide-react";
+import ToolTip from "@/components/ui/tooltip";
 
 const dayCardVariants = motionVariants(
   [0.68, -0.55, 0.27, 1.55],
@@ -49,7 +50,7 @@ const DayCard = ({
       {!isLoading && (
         <>
           <motion.h3
-            className="text-sm font-bold"
+            className="w-[56.3px] text-sm font-bold"
             variants={dayCardVariants}
             initial="hidden"
             animate="visible"
@@ -72,29 +73,50 @@ const DayCard = ({
               size={22}
               isDay
             />
-            <p>{day.condition?.text}</p>
+            <div className="max-w-[93px] text-muted-foreground">
+              {day.condition?.text.length > 13 ? (
+                <ToolTip
+                  tooltipTrigger={
+                    <p className="overflow-x-hidden text-ellipsis text-nowrap">
+                      {day.condition?.text}
+                    </p>
+                  }
+                  tooltipContent={day.condition?.text}
+                />
+              ) : (
+                <p
+                  className="cursor-help overflow-x-hidden text-ellipsis text-nowrap"
+                  title={day.condition?.text}
+                >
+                  {day.condition?.text}
+                </p>
+              )}
+            </div>
           </motion.div>
-          <div className="space-y-3 font-bold">
+          <div
+            className={`${isImperial ? "w-[72.03px]" : "w-auto"} space-y-3 font-bold`}
+          >
             <span className="text-lg">
               {maxTemp}° | {minTemp}°
             </span>
-
-            <div
-              className="flex cursor-help items-center justify-center gap-1"
-              title="Chance of rain"
-            >
-              <div className="relative">
-                <Umbrella size={16} fill="currentColor" />
-                <Droplet
-                  size={12}
-                  className="absolute -left-2 -top-2 text-sky-500"
-                  fill="currentColor"
-                />
-              </div>
-              <span className="text-sm text-muted-foreground">
-                {day.daily_chance_of_rain}%
-              </span>
-            </div>
+            <ToolTip
+              tooltipTrigger={
+                <div className="flex cursor-help items-center justify-center gap-1">
+                  <div className="relative">
+                    <Umbrella size={16} fill="currentColor" />
+                    <Droplet
+                      size={12}
+                      className="absolute -left-2 -top-2 text-sky-500"
+                      fill="currentColor"
+                    />
+                  </div>
+                  <span className="text-sm text-muted-foreground">
+                    {day.daily_chance_of_rain}%
+                  </span>
+                </div>
+              }
+              tooltipContent={`${day.daily_chance_of_rain}% Chance of rain`}
+            />
           </div>
         </>
       )}

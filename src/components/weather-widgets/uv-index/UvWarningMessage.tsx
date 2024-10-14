@@ -6,7 +6,9 @@ import ToolTip from "@/components/ui/tooltip";
 const UvWarningMessage = ({ uvAlongDay }: { uvAlongDay: number }) => {
   return (
     <ToolTip
-      tooltipTrigger={<InfoCircledIcon  />}
+      tooltipTrigger={
+        <InfoCircledIcon className="size-[17px] text-sky-500 hover:text-sky-600" />
+      }
       tooltipContent={
         <>
           <MessageCircleWarning
