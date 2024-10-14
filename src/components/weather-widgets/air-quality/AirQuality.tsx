@@ -3,8 +3,8 @@ import { WeatherFlags } from "@/types/WeatherFlags";
 import airQualityLevels from "@/components/weather-widgets/air-quality/airQualityLevels";
 import { Progress } from "../../ui/progress";
 import ErrorMessage from "../../ui/error-message";
-import fetchWeatherData from "@/utils/fetchWeatherData";
 import getCurrentLevel from "@/utils/getCurrentLevel";
+import getForecastWeather from "@/utils/getForecastWeather";
 
 const AirQuality = async ({
   city,
@@ -15,7 +15,7 @@ const AirQuality = async ({
   lat: string;
   lon: string;
 }) => {
-  const weatherData: WeatherFlags | null = await fetchWeatherData(
+  const weatherData: WeatherFlags | null = await getForecastWeather(
     city,
     lat,
     lon,

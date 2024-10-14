@@ -4,7 +4,6 @@ import { WeatherFlags } from "@/types/WeatherFlags";
 import ErrorMessage from "@/components/ui/error-message";
 import filterUpcomingHourlyForecast from "@/components/weather-widgets/hourly-forecast/utils/filterUpcomingHours";
 import HourCard from "./HourCard";
-import fetchWeatherData from "@/utils/fetchWeatherData";
 import { HOURS_TO_SHOW } from "@/utils/constants";
 
 import {
@@ -12,6 +11,7 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
+import getForecastWeather from "@/utils/getForecastWeather";
 
 const HourlyForecast = async ({
   city,
@@ -22,7 +22,7 @@ const HourlyForecast = async ({
   lat: string;
   lon: string;
 }) => {
-  const weatherData: WeatherFlags | null = await fetchWeatherData(
+  const weatherData: WeatherFlags | null = await getForecastWeather(
     city,
     lat,
     lon,

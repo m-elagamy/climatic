@@ -1,9 +1,9 @@
 import type { WeatherFlags } from "@/types/WeatherFlags";
-import fetchWeatherData from "@/utils/fetchWeatherData";
 import { Droplet } from "lucide-react";
 import dewPointLevels from "./dewPointLevels";
 import getCurrentLevel from "@/utils/getCurrentLevel";
 import ErrorMessage from "@/components/ui/error-message";
+import getForecastWeather from "@/utils/getForecastWeather";
 
 const DewPoint = async ({
   city,
@@ -14,7 +14,7 @@ const DewPoint = async ({
   lat: string;
   lon: string;
 }) => {
-  const weatherData: WeatherFlags | null = await fetchWeatherData(
+  const weatherData: WeatherFlags | null = await getForecastWeather(
     city,
     lat,
     lon,

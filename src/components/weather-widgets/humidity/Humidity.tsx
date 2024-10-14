@@ -4,8 +4,8 @@ import { WeatherFlags } from "@/types/WeatherFlags";
 import humidityLevels from "@/components/weather-widgets/humidity/humidityLevels";
 import WarningMessage from "./WarningMessage";
 import ErrorMessage from "../../ui/error-message";
-import fetchWeatherData from "@/utils/fetchWeatherData";
 import getCurrentLevel from "@/utils/getCurrentLevel";
+import getForecastWeather from "@/utils/getForecastWeather";
 
 const Humidity = async ({
   city,
@@ -16,7 +16,7 @@ const Humidity = async ({
   lat: string;
   lon: string;
 }) => {
-  const weatherData: WeatherFlags | null = await fetchWeatherData(
+  const weatherData: WeatherFlags | null = await getForecastWeather(
     city,
     lat,
     lon,

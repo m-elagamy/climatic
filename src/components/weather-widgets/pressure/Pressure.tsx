@@ -4,11 +4,23 @@ import type { WeatherFlags } from "@/types/WeatherFlags";
 import pressureLevels from "@/components/weather-widgets/pressure/pressureLevels";
 import PressureDetails from "./PressureDetails";
 import ErrorMessage from "../../ui/error-message";
-import fetchWeatherData from "@/utils/fetchWeatherData";
 import getCurrentLevel from "@/utils/getCurrentLevel";
+import getForecastWeather from "@/utils/getForecastWeather";
 
-const Pressure = async ({ city, lat, lon }: { city: string, lat:string, lon:string }) => {
-  const weatherData: WeatherFlags | null = await fetchWeatherData(city, lat, lon);
+const Pressure = async ({
+  city,
+  lat,
+  lon,
+}: {
+  city: string;
+  lat: string;
+  lon: string;
+}) => {
+  const weatherData: WeatherFlags | null = await getForecastWeather(
+    city,
+    lat,
+    lon,
+  );
 
   const { current } = weatherData ?? {};
 

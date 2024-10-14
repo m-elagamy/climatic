@@ -1,7 +1,7 @@
-import fetchWeatherData from "@/utils/fetchWeatherData";
 import getWeatherTheme from "@/utils/getWeatherTheme";
 
 import type { WeatherFlags } from "@/types/WeatherFlags";
+import getForecastWeather from "@/utils/getForecastWeather";
 
 type WeatherBackgroundProps = {
   city: string;
@@ -10,7 +10,7 @@ type WeatherBackgroundProps = {
 };
 
 const WeatherTheme = async ({ city, lat, lon }: WeatherBackgroundProps) => {
-  const weatherData: WeatherFlags | null = await fetchWeatherData(
+  const weatherData: WeatherFlags | null = await getForecastWeather(
     city,
     lat,
     lon,

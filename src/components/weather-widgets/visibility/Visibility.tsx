@@ -4,8 +4,8 @@ import type { WeatherFlags } from "@/types/WeatherFlags";
 import ErrorMessage from "@/components/ui/error-message";
 import visibilityLevels from "@/components/weather-widgets/visibility/visibilityLevels";
 import VisibilityDetails from "./VisibilityDetails";
-import fetchWeatherData from "@/utils/fetchWeatherData";
 import getCurrentLevel from "@/utils/getCurrentLevel";
+import getForecastWeather from "@/utils/getForecastWeather";
 
 const Visibility = async ({
   city,
@@ -16,7 +16,7 @@ const Visibility = async ({
   lat: string;
   lon: string;
 }) => {
-  const weatherData: WeatherFlags | null = await fetchWeatherData(
+  const weatherData: WeatherFlags | null = await getForecastWeather(
     city,
     lat,
     lon,

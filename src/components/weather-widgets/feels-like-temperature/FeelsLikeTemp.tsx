@@ -3,9 +3,9 @@ import temperatureLevels from "@/components/weather-widgets/feels-like-temperatu
 import getThermometerIcon from "@/components/weather-widgets/feels-like-temperature/utils/getThermometerIcon";
 import ErrorMessage from "../../ui/error-message";
 import FeelsLikeDetails from "./FeelsLikeDetails";
-import fetchWeatherData from "@/utils/fetchWeatherData";
 import roundToNearestInteger from "@/utils/roundToNearestInteger";
 import getCurrentLevel from "@/utils/getCurrentLevel";
+import getForecastWeather from "@/utils/getForecastWeather";
 
 const FeelsLikeTemp = async ({
   city,
@@ -16,7 +16,7 @@ const FeelsLikeTemp = async ({
   lat: string;
   lon: string;
 }) => {
-  const weatherData: WeatherFlags | null = await fetchWeatherData(
+  const weatherData: WeatherFlags | null = await getForecastWeather(
     city,
     lat,
     lon,

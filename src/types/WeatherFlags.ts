@@ -68,23 +68,27 @@ export type Current = {
   dewpoint_f: number;
 };
 
-export type WeatherFlags = {
-  location: Location;
-
-  current: Current;
-
-  forecast: {
-    forecastday: {
-      date: string;
-      day: DayData;
-      astro?: {
-        sunrise: string;
-        sunset: string;
-        is_sun_up: boolean;
-      };
-      hour: HourData[];
-    }[];
+type ForecastDay = {
+  date: string;
+  day: DayData;
+  astro?: {
+    sunrise: string;
+    sunset: string;
+    is_sun_up: boolean;
   };
+  hour: HourData[];
+};
+
+export type WeatherFlags = {
+  location?: Location;
+
+  current?: Current;
+
+  forecast?: {
+    forecastday: ForecastDay[];
+  };
+
+  history?: ForecastDay[];
 
   alerts?: WeatherAlert[];
 };

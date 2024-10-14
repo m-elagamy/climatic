@@ -8,7 +8,8 @@ import {
   CarouselContent,
   CarouselItem,
 } from "@/components/ui/carousel";
-import fetchWeatherData from "@/utils/fetchWeatherData";
+import getForecastWeather from "@/utils/getForecastWeather";
+import getHistoricalWeather from "@/utils/getHistoricalWeather";
 
 const DaysForecast = async ({
   city,
@@ -19,39 +20,42 @@ const DaysForecast = async ({
   lat: string;
   lon: string;
 }) => {
-  const weatherData: WeatherFlags | null = await fetchWeatherData(
+  const weatherData: WeatherFlags | null = await getForecastWeather(
     city,
     lat,
     lon,
   );
 
-  const { forecast } = weatherData ?? {};
+  const { forecast, location } = weatherData ?? {};
 
-  const daysForecast = forecast?.forecastday.map((day) => {
-    return {
-      day: {
-        maxtemp_c: day.day.maxtemp_c,
-        mintemp_c: day.day.mintemp_c,
-        maxtemp_f: day.day.maxtemp_f,
-        mintemp_f: day.day.mintemp_f,
-        condition: {
-          text: day.day.condition.text,
-        },
-        daily_chance_of_rain: day.day.daily_chance_of_rain,
-      },
-      date: day.date,
-    };
-  });
+  const historicalWeatherData = await getHistoricalWeather(
+    city,
+    lat,
+    lon,
+    location?.tz_id,
+  );
+
+  const { forecast: historicalForecast } = historicalWeatherData ?? {};
+
+  const forecastDays = forecast?.forecastday ?? [];
+  const yesterdayData = historicalForecast?.forecastday[0].day;
+
+  const daysToDisplay = yesterdayData
+    ? [
+        { day: yesterdayData, date: "Yesterday" },
+        ...forecastDays.map((day) => ({ day: day.day, date: day.date })),
+      ]
+    : forecastDays.map((day) => ({ day: day.day, date: day.date }));
 
   return (
     <article className="container-style h-auto">
       <h2 className="title mb-2">
-        <CalendarDays size={16} /> 3 Days Forecast:
+        <CalendarDays size={16} /> Days Forecast:
       </h2>
 
-      {!daysForecast && <ErrorMessage error="Days forecast" />}
+      {!daysToDisplay && <ErrorMessage error="Days forecast" />}
 
-      {daysForecast && (
+      {daysToDisplay.length > 0 && (
         <Carousel
           orientation="vertical"
           opts={{
@@ -59,7 +63,7 @@ const DaysForecast = async ({
           }}
         >
           <CarouselContent className="-mt-1 gap-4">
-            {daysForecast?.map((day, index) => (
+            {daysToDisplay?.map((day, index) => (
               <CarouselItem key={day.date} className="basis-1/3 pt-1">
                 <DayCard day={day.day} date={day.date} index={index} />
               </CarouselItem>

@@ -1,44 +1,24 @@
-import "server-only";
-
-import { WeatherFlags } from "@/types/WeatherFlags";
+import type { WeatherFlags } from "@/types/WeatherFlags";
+import getForecastWeather from "./getForecastWeather";
+import getHistoricalWeather from "./getHistoricalWeather";
 
 const fetchWeatherData = async (
   cityLocation?: string,
   lat?: string,
   lon?: string,
 ): Promise<WeatherFlags | null> => {
-  const apiKey = process.env.NEXT_PUBLIC_WEATHER_API_KEY;
-  const baseUrl = "https://api.weatherapi.com/v1";
+  const forecastData = await getForecastWeather(cityLocation, lat, lon);
 
-  if (!apiKey || !baseUrl) {
-    throw new Error("API key or base URL is missing");
-  }
+  const timezone = forecastData?.location?.tz_id;
 
-  const query = lat && lon ? `${lat},${lon}` : cityLocation || "Cairo";
+  const historyData = timezone
+    ? await getHistoricalWeather(cityLocation, lat, lon, timezone)
+    : null;
 
-  try {
-    const controller = new AbortController();
-    const signal = controller.signal;
-    const timeoutId = setTimeout(() => controller.abort(), 10000);
-
-    const res = await fetch(
-      `${baseUrl}/forecast.json?key=${apiKey}&q=${query}&aqi=yes&days=3&alerts=yes`,
-      { signal, next: { revalidate: 1800 } },
-    );
-    clearTimeout(timeoutId);
-
-    if (!res.ok) {
-      throw new Error("Failed to fetch data");
-    }
-
-    const data: WeatherFlags = await res.json();
-    return data;
-  } catch (error) {
-    if (error instanceof Error) {
-      console.error(error.message);
-    }
-    return null;
-  }
+  return {
+    ...forecastData,
+    history: historyData?.forecast?.forecastday,
+  };
 };
 
 export default fetchWeatherData;

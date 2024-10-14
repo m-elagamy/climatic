@@ -54,7 +54,11 @@ const DayCard = ({
             initial="hidden"
             animate="visible"
           >
-            {index === 0 ? "Today" : getDayName(date, "short")}
+            {index === 0
+              ? "Yesterday"
+              : index === 1
+                ? "Today"
+                : getDayName(date)}
           </motion.h3>
           <motion.div
             className="flex flex-col items-center justify-center gap-[2px] text-sm"

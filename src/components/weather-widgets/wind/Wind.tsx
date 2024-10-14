@@ -5,7 +5,7 @@ import { WeatherFlags } from "@/types/WeatherFlags";
 import ErrorMessage from "../../ui/error-message";
 import convertWindDirection from "@/components/weather-widgets/wind/convertWindDirection";
 import WindSpeed from "./WindSpeed";
-import fetchWeatherData from "@/utils/fetchWeatherData";
+import getForecastWeather from "@/utils/getForecastWeather";
 
 const Wind = async ({
   city,
@@ -16,7 +16,7 @@ const Wind = async ({
   lat: string;
   lon: string;
 }) => {
-  const weatherData: WeatherFlags | null = await fetchWeatherData(
+  const weatherData: WeatherFlags | null = await getForecastWeather(
     city,
     lat,
     lon,

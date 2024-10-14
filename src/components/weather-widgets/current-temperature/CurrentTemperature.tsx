@@ -5,8 +5,8 @@ import { WeatherFlags } from "@/types/WeatherFlags";
 import WeatherDetails from "./WeatherDetails";
 import CurrentDateTime from "./CurrentDateTime";
 import ErrorMessage from "../../ui/error-message";
-import fetchWeatherData from "@/utils/fetchWeatherData";
 import AlertBanner from "./AlertBanner";
+import getForecastWeather from "@/utils/getForecastWeather";
 
 const CurrentTemperature = async ({
   city,
@@ -17,7 +17,7 @@ const CurrentTemperature = async ({
   lat: string;
   lon: string;
 }) => {
-  const weatherData: WeatherFlags | null = await fetchWeatherData(
+  const weatherData: WeatherFlags | null = await getForecastWeather(
     city,
     lat,
     lon,

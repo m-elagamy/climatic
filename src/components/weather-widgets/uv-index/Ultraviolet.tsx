@@ -4,8 +4,8 @@ import { WeatherFlags } from "@/types/WeatherFlags";
 import uvLevels from "@/components/weather-widgets/uv-index/uvLevels";
 import UvWarningMessage from "./UvWarningMessage";
 import ErrorMessage from "../../ui/error-message";
-import fetchWeatherData from "@/utils/fetchWeatherData";
 import getCurrentLevel from "@/utils/getCurrentLevel";
+import getForecastWeather from "@/utils/getForecastWeather";
 
 const Ultraviolet = async ({
   city,
@@ -16,7 +16,7 @@ const Ultraviolet = async ({
   lat: string;
   lon: string;
 }) => {
-  const weatherData: WeatherFlags | null = await fetchWeatherData(
+  const weatherData: WeatherFlags | null = await getForecastWeather(
     city,
     lat,
     lon,
