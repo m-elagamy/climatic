@@ -3,16 +3,15 @@ import { useRouter } from "next/navigation";
 import buildLocationUrl from "@/utils/buildLocationUrl";
 import type { Location } from "@/types/WeatherFlags";
 
-const useCityChange = (setOpen: Dispatch<SetStateAction<boolean>>) => {
+const useCitySelect = (setOpen: Dispatch<SetStateAction<boolean>>) => {
   const router = useRouter();
 
-  const handleCityChange = useCallback(
+  const handleCitySelect = useCallback(
     (selectedCity: Partial<Location>) => {
       setOpen(false);
 
       try {
         const cityName = selectedCity.name ?? "";
-
         router.push(
           buildLocationUrl(cityName, selectedCity.lat, selectedCity.lon),
         );
@@ -26,7 +25,7 @@ const useCityChange = (setOpen: Dispatch<SetStateAction<boolean>>) => {
     [router, setOpen],
   );
 
-  return { handleCityChange };
+  return { handleCitySelect };
 };
 
-export default useCityChange;
+export default useCitySelect;

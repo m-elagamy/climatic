@@ -12,10 +12,10 @@ import isDefaultCity from "./isDefaultCity";
 
 // Types
 type SuggestedCitiesProps = {
-  handleCityChange: (city: Partial<Location>) => void;
+  handleCitySelect: (city: Partial<Location>) => void;
 };
 
-const SuggestedCities = memo(({ handleCityChange }: SuggestedCitiesProps) => {
+const SuggestedCities = memo(({ handleCitySelect }: SuggestedCitiesProps) => {
   const { userDefaultLocation } = useDefaultLocation();
 
   return (
@@ -23,7 +23,7 @@ const SuggestedCities = memo(({ handleCityChange }: SuggestedCitiesProps) => {
       {SUGGESTED_CITIES.map((city) => (
         <motion.li key={city.id} variants={itemVariants}>
           <CommandItem
-            onSelect={() => handleCityChange(city)}
+            onSelect={() => handleCitySelect(city)}
             className="city-option"
           >
             {city.name}, {city.country}{" "}

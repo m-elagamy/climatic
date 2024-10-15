@@ -6,25 +6,62 @@ import useDefaultLocation from "@/hooks/useDefaultLocation";
 import { itemVariants } from "@/utils/motionVariants";
 import type { Location } from "@/types/WeatherFlags";
 import isDefaultCity from "./isDefaultCity";
+import { useLocalStorage } from "@/hooks/useLocalStorage";
+import { useCallback, useMemo } from "react";
 
 type CitySearchResultsProps = {
-  handleCityChange: (city: Partial<Location>) => void;
+  handleCitySelect: (city: Partial<Location>) => void;
   city: Partial<Location>;
 };
 
+const updateSearchHistory = (
+  cityData: Partial<Location>,
+  setSearchHistory: (
+    value:
+      | Partial<Location>[]
+      | ((val: Partial<Location>[] | undefined) => Partial<Location>[]),
+  ) => void,
+) => {
+  setSearchHistory((prev = []) => {
+    const newHistory = [...prev, cityData];
+    return newHistory.length > 5 ? newHistory.slice(-5) : newHistory;
+  });
+};
+
 const CitySearchResults = ({
-  handleCityChange,
+  handleCitySelect,
   city,
 }: CitySearchResultsProps) => {
   const { userDefaultLocation } = useDefaultLocation();
+  const [, setSearchHistory] = useLocalStorage<Partial<Location>[]>(
+    "search-history",
+    [],
+  );
 
-  const isDefault =
-    userDefaultLocation && isDefaultCity(userDefaultLocation, city);
+  const isDefault = useMemo(() => {
+    return userDefaultLocation && isDefaultCity(userDefaultLocation, city);
+  }, [userDefaultLocation, city]);
+
+  const handleOnSelect = useCallback(
+    (city: Partial<Location>) => {
+      handleCitySelect(city);
+
+      const cityData = {
+        name: city.name,
+        country: city.country,
+        lat: city.lat,
+        lon: city.lon,
+      };
+
+      updateSearchHistory(cityData, setSearchHistory);
+    },
+    [handleCitySelect, setSearchHistory],
+  );
 
   return (
     <motion.li variants={itemVariants}>
       <CommandItem
-        onSelect={() => handleCityChange(city)}
+        onSelect={() => handleOnSelect(city)}
         className="city-option"
       >
         <div className="flex items-center gap-1">
