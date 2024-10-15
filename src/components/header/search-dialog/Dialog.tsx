@@ -77,9 +77,10 @@ const Dialog = () => {
             animate="visible"
             exit="hidden"
           >
-            {debouncedInput === "" && searchHistoryResults?.length === 0 && (
-              <SuggestedCities handleCitySelect={handleCitySelect} />
-            )}
+            {debouncedInput === "" &&
+              (!searchHistoryResults || searchHistoryResults.length === 0) && (
+                <SuggestedCities handleCitySelect={handleCitySelect} />
+              )}
 
             {searchHistoryResults &&
               searchHistoryResults?.length > 0 &&
