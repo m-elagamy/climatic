@@ -1,23 +1,23 @@
 const pressureLevels = [
   {
     max: 980,
-    description: "Very low pressure. Possible storms or unsettled weather.",
+    description: "Very low. Storms likely.",
   },
   {
     max: 1000,
-    description: "Low pressure. Cloudy or rainy weather possible.",
+    description: "Low. Cloudy or rainy.",
   },
   {
     max: 1020,
-    description: "Normal pressure. Calm and pleasant weather.",
+    description: "Normal. Calm weather.",
   },
   {
     max: 1040,
-    description: "High pressure. Fair and stable weather.",
+    description: "High. Fair and stable.",
   },
   {
     max: Infinity,
-    description: "Very high pressure. Clear skies and calm weather.",
+    description: "Very high. Clear and calm.",
   },
 ];
 

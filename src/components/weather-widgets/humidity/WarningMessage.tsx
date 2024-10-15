@@ -13,7 +13,7 @@ const WarningMessage = ({ avgHumidity }: { avgHumidity: number }) => {
         <>
           <MessageCircleWarning
             size={16}
-            className="mr-1 inline-block text-orange-700"
+            className="mr-1 inline-block text-orange-500"
           />
           Humidity levels may increase and reach {avgHumidity}%, which could
           make the air feel more damp. Stay hydrated!

@@ -1,9 +1,11 @@
-import type { WeatherFlags } from "@/types/WeatherFlags";
 import { Droplet } from "lucide-react";
+
+import DewPointTemp from "./DewPointTemp";
+import ErrorMessage from "@/components/ui/error-message";
 import dewPointLevels from "./dewPointLevels";
 import getCurrentLevel from "@/utils/getCurrentLevel";
-import ErrorMessage from "@/components/ui/error-message";
 import getForecastWeather from "@/utils/getForecastWeather";
+import type { WeatherFlags } from "@/types/WeatherFlags";
 
 const DewPoint = async ({
   city,
@@ -22,7 +24,7 @@ const DewPoint = async ({
 
   const { current } = weatherData ?? {};
 
-  const { description, color, level } = getCurrentLevel(
+  const { description } = getCurrentLevel(
     current?.dewpoint_c ?? 0,
     dewPointLevels,
   );
@@ -35,14 +37,7 @@ const DewPoint = async ({
 
       {!current && <ErrorMessage error="Dew Point" />}
 
-      {current && (
-        <>
-          <h3 className="font-semibold" style={{ color: color }}>
-            {level}
-          </h3>
-          <p className="text-sm">{description}</p>
-        </>
-      )}
+      {current && <DewPointTemp current={current} description={description} />}
     </section>
   );
 };

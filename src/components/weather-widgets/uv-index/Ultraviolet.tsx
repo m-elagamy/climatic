@@ -51,9 +51,9 @@ const Ultraviolet = async ({
 
       {!!weatherData && (
         <>
-          <p style={{ color: color }}>
-            {currentUv.toFixed(1)}
-            <span className="ml-2 font-semibold">{level}</span>
+          <p className="text-2xl font-semibold" style={{ color: color }}>
+            {currentUv}
+            <span className="ml-2 text-lg">{level}</span>
           </p>
           <p className="text-sm">{description}</p>
         </>

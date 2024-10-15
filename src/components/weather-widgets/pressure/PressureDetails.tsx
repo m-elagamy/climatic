@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 import useUnitsContext from "@/hooks/useUnitsContext";
 import CloudLoading from "@/components/ui/loading-indicators/CloudLoading";
 import getPreferredUnits from "@/utils/getPreferredUnits";
-import {motionVariants} from "@/utils/motionVariants";
+import { motionVariants } from "@/utils/motionVariants";
 
 type PressureDetailsProps = {
   pressure_mb: number;
@@ -31,14 +31,14 @@ const PressureDetails = ({
       {!isLoading && (
         <>
           <motion.h3
-            className="text-2xl"
+            className="text-2xl font-semibold"
             variants={pressureVariants}
             initial="hidden"
             animate="visible"
             title={isImperial ? `${pressure} Inches` : `${pressure} Millibars `}
           >
             {pressure}
-            <span className="ml-1 text-xs">{isImperial ? `IN` : `MB`}</span>
+            <span className="ml-1 text-sm">{isImperial ? `IN` : `MB`}</span>
           </motion.h3>
           <motion.p
             variants={pressureVariants}

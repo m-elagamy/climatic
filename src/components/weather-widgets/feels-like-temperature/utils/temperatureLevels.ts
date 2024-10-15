@@ -1,12 +1,12 @@
 const temperatureLevels = [
   {
     max: -10,
-    description: "Dangerously cold. Stay indoors.",
-    color: "rgba(0, 0, 139, 1)",
+    description: "Extreme  cold. Stay indoors.",
+    color: "rgba(0, 10, 98, 1)",
   },
   {
     max: 0,
-    description: "Freezing. Wear heavy winter clothing.",
+    description: "Freezing. Bundle up.",
     color: "rgba(0, 191, 255, 1)",
   },
   {
@@ -17,12 +17,12 @@ const temperatureLevels = [
   {
     max: 10,
     description: "Chilly. Wear a warm jacket.",
-    color: "rgba(65, 105, 225, 1)",
+    color: "rgb(100 219 255)",
   },
   {
     max: 15,
-    description: "Cool. A light jacket or sweater recommended.",
-    color: "rgba(100, 149, 237, 1)",
+    description: "Cool. Light jacket recommended.",
+    color: "rgba(115, 161, 255, 1)",
   },
   {
     max: 20,
@@ -31,17 +31,17 @@ const temperatureLevels = [
   },
   {
     max: 22,
-    description: "Warm. Light clothing like short sleeves is ideal.",
+    description: "Pleasant. T-shirt ok.",
     color: "rgba(154, 205, 50, 1)",
   },
   {
     max: 25,
-    description: "Warm weather. Wear breathable clothing.",
+    description: "Warm. Wear breathable clothing.",
     color: "rgba(255, 215, 0, 1)",
   },
   {
     max: 30,
-    description: "Quite warm. Stay hydrated.",
+    description: "Quite. Stay hydrated.",
     color: "rgba(255, 165, 0, 1)",
   },
   {

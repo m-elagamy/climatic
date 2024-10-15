@@ -71,7 +71,7 @@ export default function getWeatherIcon(
     case "patchy rain possible":
       return {
         Icon: isDay ? CloudSunRain : CloudRain,
-        color: isDay ? "#5A9FD4 " : "#2C5364",
+        color: isDay ? "#6699CC " : "#274B63",
       };
 
     // Heavy and Torrential Rain conditions

@@ -1,63 +1,43 @@
 const dewPointLevels = [
   {
-    level: "Very Low",
     max: 10,
-    description: "Very dry conditions.",
-    color: "#61b0ed",
+    description: "Very dry.",
   },
   {
-    level: "Low",
     max: 20,
-    description: "Conditions are very comfortable and dry.",
-    color: "#6ab1e8",
+    description: "Very comfortable, dry.",
   },
   {
-    level: "Comfortable",
     max: 30,
-    description: "Comfortable and dry conditions.",
-    color: "#5D9BD6",
+    description: "Comfortable, dry.",
   },
   {
-    level: "Moderate",
     max: 40,
-    description: "Some may find it slightly humid.",
-    color: "#009688",
+    description: "Slightly humid.",
   },
   {
-    level: "Moderate to High",
     max: 50,
-    description: "Comfortable for most people.",
-    color: "#0099CC",
+    description: "Comfortable for most.",
   },
   {
-    level: "High",
     max: 60,
-    description: "Conditions may start to feel muggy.",
-    color: "#007B8D",
+    description: "Somewhat muggy.",
   },
   {
-    level: "Very High",
     max: 70,
-    description: "Noticeably uncomfortable for many.",
-    color: "#006B7A",
+    description: "Noticeably uncomfortable.",
   },
   {
-    level: "Extremely High",
     max: 80,
-    description: "Conditions feel very muggy.",
-    color: "#005B5D",
+    description: "Very muggy.",
   },
   {
-    level: "Oppressively High",
     max: 90,
-    description: "High discomfort and sweating.",
-    color: "#004B4E",
+    description: "High discomfort.",
   },
   {
-    level: "Extreme",
     max: Infinity,
-    description: "Risk of heat-related illnesses.",
-    color: "#00352D",
+    description: "Heat illness risk.",
   },
 ];
 

@@ -41,14 +41,14 @@ const RenderSunriseSunset = ({
 
       <p className="text-2xl" aria-label={firstTime}>
         {firstTime.split(" ")[0]}
-        <sup className="text-xs">{firstTime.split(" ")[1]}</sup>
+        <sub className="text-xs">{firstTime.split(" ")[1]}</sub>
       </p>
 
       <p
         className="flex flex-wrap items-center gap-1"
         aria-label={`${secondLabel}: ${secondTime}`}
       >
-        <span className="flex items-center gap-1 font-semibold text-muted-foreground">
+        <span className="flex items-center gap-1 text-muted-foreground">
           <SecondIcon
             size={16}
             className={`${isSunUp ? "text-yellow-500" : "text-orange-500"}`}
@@ -56,6 +56,7 @@ const RenderSunriseSunset = ({
           />
           {secondLabel}:
         </span>
+
         {secondTime.split(" ")[0]}
         <sub className="text-xs">{secondTime.split(" ")[1]}</sub>
       </p>

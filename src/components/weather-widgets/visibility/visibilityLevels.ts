@@ -1,24 +1,23 @@
 const visibilityLevels = [
   {
     max: 1,
-    description:
-      "Very poor visibility. Driving or outdoor activities should be avoided.",
+    description: "Avoid travel/outdoors.",
   },
   {
     max: 5,
-    description: "Poor visibility. Exercise caution if traveling.",
+    description: "Travel with caution.",
   },
   {
     max: 10,
-    description: "Moderate visibility. Some haze may be present.",
+    description: "Slight haze possible.",
   },
   {
     max: 20,
-    description: "Good visibility. Suitable for most outdoor activities.",
+    description: "Suitable for outdoors.",
   },
   {
     max: Infinity,
-    description: "Excellent visibility. Ideal for outdoor activities.",
+    description: "Ideal for outdoors.",
   },
 ];
 
