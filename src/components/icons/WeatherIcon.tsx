@@ -9,10 +9,10 @@ const WeatherIcon = ({
   isDay?: boolean;
   size?: number;
 }) => {
-  const Icon = getWeatherIcon(condition, isDay);
+  const { Icon, color } = getWeatherIcon(condition, isDay);
 
   if (!Icon) return <span>Loading...</span>;
 
-  return <Icon size={size} className="fill-current" />;
+  return <Icon size={size} className="fill-current" style={{ color: color }} />;
 };
 export default WeatherIcon;

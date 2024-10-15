@@ -65,11 +65,13 @@ export default function WeatherDetails({
               whileHover="hover"
               variants={iconVariants}
             >
-              <WeatherIcon
-                condition={current?.condition.text}
-                isDay={current?.is_day}
-                size={28}
-              />
+              <div className="animate-float">
+                <WeatherIcon
+                  condition={current?.condition.text}
+                  isDay={current?.is_day}
+                  size={32}
+                />
+              </div>
             </motion.div>
             <h5>{current?.condition.text}</h5>
             <div className="flex gap-1 font-semibold text-muted-foreground">

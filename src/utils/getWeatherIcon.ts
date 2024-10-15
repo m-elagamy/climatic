@@ -1,94 +1,133 @@
 import {
   Sun,
+  Moon,
   CloudSun,
   CloudDrizzle,
   CloudRain,
   CloudLightning,
   CloudSnow,
-  Moon,
   CloudMoon,
   CloudSunRain,
   CloudHail,
   CloudFog,
+  Cloud,
+  Wind,
+  type LucideIcon,
 } from "lucide-react";
+
+type WeatherIconResult = {
+  Icon: LucideIcon;
+  color: string;
+};
 
 export default function getWeatherIcon(
   condition: string | undefined,
   isDay?: boolean,
-) {
+): WeatherIconResult {
+  const defaultIcon = isDay ? Sun : Moon;
+  const defaultColor = isDay ? "#FFD700" : "#E6E6FA";
+
   switch (condition?.toLowerCase().trim()) {
+    // Sunny and Clear conditions
     case "sunny":
     case "clear":
-      return isDay ? Sun : Moon;
+      return { Icon: defaultIcon, color: defaultColor };
 
+    // Cloudy conditions
     case "partly cloudy":
+      return {
+        Icon: isDay ? CloudSun : CloudMoon,
+        color: isDay ? "#87CEEB" : "#4682B4",
+      };
     case "cloudy":
+      return { Icon: Cloud, color: "#A9A9A9" };
     case "overcast":
-      return isDay ? CloudSun : CloudMoon;
+      return { Icon: Cloud, color: "#708090" };
 
+    // Mist and Fog conditions
     case "mist":
     case "fog":
-    case "haze":
-    case "smoke":
-    case "sand":
-    case "dust":
-    case "ash":
-      return CloudFog;
+      return { Icon: CloudFog, color: isDay ? "#A9A9A9" : "#696969" };
+    case "freezing fog":
+      return { Icon: CloudFog, color: "#E0FFFF" };
 
+    // Drizzle and Light Rain conditions
     case "patchy light drizzle":
     case "light drizzle":
-    case "patchy rain nearby":
-    case "light rain shower":
-    case "sleet":
-      return CloudDrizzle;
-
     case "patchy light rain":
     case "light rain":
+    case "light rain shower":
+    case "patchy rain nearby":
+      return { Icon: CloudDrizzle, color: "#B0E0E6" };
+
+    // Freezing Drizzle conditions
+    case "patchy freezing drizzle possible":
+    case "freezing drizzle":
+    case "heavy freezing drizzle":
+      return { Icon: CloudHail, color: "#E0FFFF" };
+
+    // Moderate Rain conditions
     case "moderate rain":
-    case "heavy rain":
     case "patchy rain possible":
+      return {
+        Icon: isDay ? CloudSunRain : CloudRain,
+        color: isDay ? "#5A9FD4 " : "#2C5364",
+      };
+
+    // Heavy Rain conditions
+    case "heavy rain at times":
+    case "heavy rain":
     case "moderate or heavy rain shower":
-    case "shower in vicinity":
-      return isDay ? CloudSunRain : CloudRain;
+      return { Icon: CloudRain, color: "#4169E1" };
 
-    case "thundery outbreaks possible":
-    case "thunderstorm":
-    case "moderate or heavy rain with thunder":
-    case "tornado":
-    case "hurricane":
-    case "patchy light rain with thunder":
-      return CloudLightning;
+    // Torrential Rain condition
+    case "torrential rain shower":
+      return { Icon: CloudRain, color: "#000080" };
 
-    case "snow":
+    // Freezing Rain and Sleet conditions
+    case "light freezing rain":
+    case "moderate or heavy freezing rain":
+    case "light sleet":
+    case "moderate or heavy sleet":
+    case "light sleet showers":
+    case "moderate or heavy sleet showers":
+      return { Icon: CloudHail, color: "#B0E0E6" };
+
+    // Snow conditions
     case "patchy snow possible":
     case "patchy light snow":
     case "light snow":
+    case "light snow showers":
+      return { Icon: CloudSnow, color: "#E0FFFF" };
+    case "patchy moderate snow":
     case "moderate snow":
+      return { Icon: CloudSnow, color: "#E6E6FA" };
+    case "patchy heavy snow":
     case "heavy snow":
+    case "moderate or heavy snow showers":
+      return { Icon: CloudSnow, color: "#F0F8FF" };
     case "blowing snow":
+      return { Icon: Wind, color: "#F0F8FF" };
     case "blizzard":
-    case "freezing fog":
-    case "icy":
+      return { Icon: CloudSnow, color: "#F8F8FF" };
+
+    // Ice Pellets conditions
+    case "ice pellets":
+    case "light showers of ice pellets":
+    case "moderate or heavy showers of ice pellets":
+      return { Icon: CloudHail, color: "#E0FFFF" };
+
+    // Thunderstorm conditions
+    case "thundery outbreaks possible":
+      return { Icon: CloudLightning, color: "#6A5ACD" };
+    case "patchy light rain with thunder":
+    case "moderate or heavy rain with thunder":
+      return { Icon: CloudLightning, color: "#4169E1" };
     case "patchy light snow with thunder":
     case "moderate or heavy snow with thunder":
-      return CloudSnow;
-
-    case "light freezing rain":
-    case "patchy freezing drizzle possible":
-    case "patchy sleet":
-    case "light sleet showers":
-    case "freezing drizzle":
-    case "moderate or heavy sleet":
-      return CloudDrizzle;
-
-    case "rain and snow":
-    case "light rain and snow":
-    case "moderate rain and snow":
-    case "heavy rain and snow":
-    case "ice pellets":
-      return CloudHail;
+      return { Icon: CloudLightning, color: "#E6E6FA" };
 
     default:
-      return isDay ? Sun : Moon;
+      return { Icon: defaultIcon, color: defaultColor };
   }
 }

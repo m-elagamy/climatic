@@ -27,7 +27,7 @@ const WeatherTheme = async ({ city, lat, lon }: WeatherBackgroundProps) => {
     <section className={`${weatherTheme} absolute inset-0 -z-[1]`}>
       <h2 className="sr-only">Weather Theme</h2>
       {!isDay && <div className="night-overlay"></div>}
-      {isDay && <div className="day-overlay"></div>}
+      {!!isDay && <div className="day-overlay"></div>}
     </section>
   );
 };

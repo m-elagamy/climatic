@@ -176,6 +176,15 @@ div[data-radix-popper-content-wrapper] {
   background-image: linear-gradient(to top left, #72b2cc, #668a9b);
 }
 
+.snow-night {
+  background-image: linear-gradient(
+    135deg,
+    #4b6584 0%,
+    #5f7d9c 50%,
+    #7899b8 100%
+  );
+}
+
 .thunder {
   background-image: linear-gradient(
     135deg,

@@ -9,7 +9,7 @@ const CommandInput = ({
   setInput: Dispatch<SetStateAction<string>>;
 }) => {
   return (
-    <div className="flex items-center border-b border-gray-500/30 px-3">
+    <div className="flex items-center border-b border-gray-500/20 px-3">
       <MagnifyingGlassIcon className="mr-2 h-4 w-4 shrink-0 opacity-50" />
       <label htmlFor="search" className="sr-only">
         Search

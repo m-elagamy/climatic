@@ -70,7 +70,7 @@ const DayCard = ({
             <WeatherIcon
               condition={day.condition?.text}
               key={date}
-              size={22}
+              size={24}
               isDay
             />
             <div className="max-w-[93px] text-muted-foreground">
@@ -85,7 +85,7 @@ const DayCard = ({
                 />
               ) : (
                 <p
-                  className="cursor-help overflow-x-hidden text-ellipsis text-nowrap"
+                  className="overflow-x-hidden text-ellipsis text-nowrap"
                   title={day.condition?.text}
                 >
                   {day.condition?.text}
@@ -94,7 +94,7 @@ const DayCard = ({
             </div>
           </motion.div>
           <div
-            className={`${isImperial ? "w-[72.03px]" : "w-auto"} space-y-3 font-bold`}
+            className={`${isImperial ? "w-[72.03px]" : "w-auto"} space-y-4 font-bold md:space-y-3`}
           >
             <span className="text-lg">
               {maxTemp}° | {minTemp}°

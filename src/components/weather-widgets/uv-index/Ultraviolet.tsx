@@ -39,7 +39,7 @@ const Ultraviolet = async ({
     <article className="container-style uv-index">
       <div className="flex items-center gap-1">
         <h2 className="title">
-          <Sun size={16} /> UV Index
+          <Sun size={16} fill="currentColor" /> UV Index
         </h2>
 
         {shouldDisplayWarningIcon && !!isDayTime && (

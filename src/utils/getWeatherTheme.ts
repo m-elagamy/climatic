@@ -9,16 +9,11 @@ const getWeatherTheme = (
 
     case "partly cloudy":
     case "cloudy":
-    case "overcast":
       return isDay ? "cloudy-day" : "cloudy-night";
 
     case "mist":
     case "fog":
-    case "haze":
-    case "smoke":
-    case "sand":
-    case "dust":
-    case "ash":
+    case "overcast":
       return isDay ? "foggy-day" : "foggy-night";
 
     case "patchy light drizzle":
@@ -46,14 +41,10 @@ const getWeatherTheme = (
       return "sleet";
 
     case "thundery outbreaks possible":
-    case "thunderstorm":
     case "moderate or heavy rain with thunder":
-    case "tornado":
-    case "hurricane":
     case "patchy light rain with thunder":
       return "thunder";
 
-    case "snow":
     case "patchy snow possible":
     case "patchy light snow":
     case "light snow":
@@ -62,16 +53,11 @@ const getWeatherTheme = (
     case "blowing snow":
     case "blizzard":
     case "freezing fog":
-    case "icy":
     case "patchy light snow with thunder":
     case "moderate or heavy snow with thunder":
     case "freezing drizzle":
       return isDay ? "snow-day" : "snow-night";
 
-    case "rain and snow":
-    case "light rain and snow":
-    case "moderate rain and snow":
-    case "heavy rain and snow":
     case "ice pellets":
     case "sleet and snow":
     case "light sleet and snow":
