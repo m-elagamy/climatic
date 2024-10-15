@@ -13,6 +13,12 @@ const WeatherIcon = ({
 
   if (!Icon) return <span>Loading...</span>;
 
-  return <Icon size={size} className="fill-current" style={{ color: color }} />;
+  return (
+    <Icon
+      size={size}
+      className="relative z-10 fill-current"
+      style={{ color: color, filter: `drop-shadow(1px 1px 0px ${color}25)` }}
+    />
+  );
 };
 export default WeatherIcon;

@@ -37,7 +37,7 @@ export default function getWeatherIcon(
     case "partly cloudy":
       return {
         Icon: isDay ? CloudSun : CloudMoon,
-        color: isDay ? "#87CEEB" : "#4682B4",
+        color: isDay ? "#C0C0C0" : "#808080",
       };
     case "cloudy":
       return { Icon: Cloud, color: "#A9A9A9" };
@@ -74,15 +74,12 @@ export default function getWeatherIcon(
         color: isDay ? "#5A9FD4 " : "#2C5364",
       };
 
-    // Heavy Rain conditions
+    // Heavy and Torrential Rain conditions
     case "heavy rain at times":
     case "heavy rain":
     case "moderate or heavy rain shower":
-      return { Icon: CloudRain, color: "#4169E1" };
-
-    // Torrential Rain condition
     case "torrential rain shower":
-      return { Icon: CloudRain, color: "#000080" };
+      return { Icon: CloudRain, color: "#4169E1" };
 
     // Freezing Rain and Sleet conditions
     case "light freezing rain":
