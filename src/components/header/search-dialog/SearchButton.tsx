@@ -8,7 +8,7 @@ export default function SearchButton() {
   return (
     <Button
       variant="outline"
-      className="bg-gradient w-72 justify-between rounded-lg border-none p-3 tracking-wide text-muted-foreground shadow-sm duration-300 hover:bg-accent/30"
+      className="bg-gradient w-72 justify-between rounded-lg border-none p-3 tracking-wide text-muted-foreground shadow-lg backdrop-blur-sm duration-300 hover:bg-accent/30"
       onClick={() => setIsOpen(true)}
       aria-label="Search for a city"
     >

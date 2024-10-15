@@ -44,7 +44,7 @@ export default function Settings() {
           variant="outline"
           size="icon"
           title="Settings"
-          className="bg-gradient border-none duration-300 hover:bg-accent/30"
+          className="bg-gradient border-none shadow-lg duration-300 hover:bg-accent/30"
           onClick={handleOnOpenChange}
         >
           <SettingsIcon size={16} />
