@@ -76,11 +76,16 @@ const useGeolocation = () => {
 
   useEffect(() => {
     if (isGeolocationDenied && !isDefaultLocationEnabled && error) {
-      toast({
-        title: "Geolocation is denied",
-        description:
-          "Geolocation is denied by your browser, so we're showing you the weather for Cairo.",
-      });
+      const timeoutId = setTimeout(() => {
+        toast({
+          title: "Geolocation is denied",
+          description: `Geolocation is denied by your browser, so we're showing you the weather for ${DEFAULT_CITY}.`,
+        });
+      }, 1500);
+
+      return () => {
+        clearTimeout(timeoutId);
+      };
     }
   }, [isGeolocationDenied, isDefaultLocationEnabled, error, toast]);
 
