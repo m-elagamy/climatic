@@ -1,15 +1,10 @@
 import { CalendarDays } from "lucide-react";
 
-import type { WeatherFlags } from "@/types/WeatherFlags";
 import DayCard from "./DayCard";
 import ErrorMessage from "@/components/ui/error-message";
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-} from "@/components/ui/carousel";
 import getForecastWeather from "@/utils/getForecastWeather";
 import getHistoricalWeather from "@/utils/getHistoricalWeather";
+import type { WeatherFlags } from "@/types/WeatherFlags";
 
 const DaysForecast = async ({
   city,
@@ -56,20 +51,11 @@ const DaysForecast = async ({
       {!daysToDisplay && <ErrorMessage error="Days forecast" />}
 
       {daysToDisplay.length > 0 && (
-        <Carousel
-          orientation="vertical"
-          opts={{
-            align: "start",
-          }}
-        >
-          <CarouselContent className="-mt-1 gap-4">
-            {daysToDisplay?.map((day, index) => (
-              <CarouselItem key={day.date} className="basis-1/3 pt-1">
-                <DayCard day={day.day} date={day.date} index={index} />
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-        </Carousel>
+        <>
+          {daysToDisplay?.map((day, index) => (
+            <DayCard key={index} day={day.day} date={day.date} index={index} />
+          ))}
+        </>
       )}
     </article>
   );

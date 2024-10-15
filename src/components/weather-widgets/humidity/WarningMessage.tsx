@@ -1,4 +1,3 @@
-import { MessageCircleWarning } from "lucide-react";
 import { InfoCircledIcon } from "@radix-ui/react-icons";
 
 import ToolTip from "@/components/ui/tooltip";
@@ -10,14 +9,10 @@ const WarningMessage = ({ avgHumidity }: { avgHumidity: number }) => {
         <InfoCircledIcon className="size-[17px] text-sky-500 hover:text-sky-600" />
       }
       tooltipContent={
-        <>
-          <MessageCircleWarning
-            size={16}
-            className="mr-1 inline-block text-orange-500"
-          />
+        <p>
           Humidity levels may increase and reach {avgHumidity}%, which could
           make the air feel more damp. Stay hydrated!
-        </>
+        </p>
       }
     />
   );
