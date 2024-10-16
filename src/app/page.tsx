@@ -31,7 +31,7 @@ export default async function Home({
   return (
     <>
       <div
-        className={`${!lat && !lon && !city ? "pointer-events-none opacity-50" : ""}sticky top-4 z-[1]`}
+        className={`${!lat && !lon && !city ? "pointer-events-none opacity-50" : ""} relative z-[1]`}
       >
         <Header />
       </div>
