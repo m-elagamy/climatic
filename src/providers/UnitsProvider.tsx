@@ -30,11 +30,7 @@ export const UnitsProvider = ({ children }: { children: React.ReactNode }) => {
       setIsImperial(savedUnit === "imperial");
     }
 
-    const timer = setTimeout(() => {
-      setIsLoading(false);
-    }, 600);
-
-    return () => clearTimeout(timer);
+    setIsLoading(false);
   }, [unit]);
 
   const toggleUnitPreference = useCallback(() => {
