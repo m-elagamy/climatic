@@ -12,7 +12,7 @@ import {
 import dynamic from "next/dynamic";
 import { useEffect, useState } from "react";
 import DotLoader from "@/components/ui/loading-indicators/DotLoader";
-import { useLocalStorage } from "@/hooks/useLocalStorage";
+
 const SettingsOptions = dynamic(() => import("./SettingsOptions"), {
   ssr: false,
   loading: () => (
@@ -24,28 +24,20 @@ const SettingsOptions = dynamic(() => import("./SettingsOptions"), {
 
 export default function Settings() {
   const [isOpen, setIsOpen] = useState(false);
-  const [hasAnimated, setHasAnimated] = useLocalStorage(
-    "has-settings-animated",
-    false,
-  );
-
-  const handleOnOpenChange = () => {
-    setIsOpen((prev) => !prev);
-  };
+  const [hasAnimated, setHasAnimated] = useState(false);
 
   useEffect(() => {
     setHasAnimated(false);
   }, []);
 
   return (
-    <DropdownMenu open={isOpen} onOpenChange={handleOnOpenChange}>
+    <DropdownMenu open={isOpen} onOpenChange={setIsOpen}>
       <DropdownMenuTrigger asChild>
         <Button
           variant="outline"
           size="icon"
           title="Settings"
           className="bg-gradient border-none shadow-lg duration-300 hover:bg-accent/30"
-          onClick={handleOnOpenChange}
         >
           <SettingsIcon size={16} />
           <span className="sr-only">Settings</span>

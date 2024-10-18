@@ -6,13 +6,12 @@ import useCurrentLocation from "@/hooks/useCurrentLocation";
 const CurrentLocationOption = () => {
   const { getCurrentLocation } = useCurrentLocation();
 
-  const handleSelect = () => getCurrentLocation();
-
   return (
-    <DropdownMenuItem onSelect={handleSelect} className="gap-2">
+    <DropdownMenuItem onSelect={getCurrentLocation} className="gap-2">
       <LocateIcon size={16} />
       <span>Your Location</span>
     </DropdownMenuItem>
   );
 };
+
 export default CurrentLocationOption;

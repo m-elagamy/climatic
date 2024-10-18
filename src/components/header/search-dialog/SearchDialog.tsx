@@ -7,10 +7,10 @@ const Dialog = dynamic(() => import("./Dialog"), {
   loading: () => null,
 });
 import SearchButton from "./SearchButton";
-import useSearchDialogContext from "@/hooks/useSearchDialog";
+import useToggleStateContext from "@/hooks/useToggleStateContext";
 
 export default function SearchDialog() {
-  const { isOpen } = useSearchDialogContext();
+  const { isOpen } = useToggleStateContext();
 
   return (
     <>

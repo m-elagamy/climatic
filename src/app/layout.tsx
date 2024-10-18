@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Lato } from "next/font/google";
 
 import { UnitsProvider } from "@/providers/UnitsProvider";
-import { SearchDialogProvider } from "@/providers/SearchDialogProvider";
+import { ToggleStateProvider } from "@/providers/ToggleStateProvider";
 import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
 
@@ -49,11 +49,11 @@ export default function RootLayout({
     <html lang="en" className={`${lato.variable}`}>
       <body className={`relative min-h-dvh tracking-wide antialiased`}>
         <UnitsProvider>
-          <SearchDialogProvider>
+          <ToggleStateProvider>
             <h1 className="sr-only">Weather App</h1>
             <div className="container py-4">{children}</div>
             <Toaster />
-          </SearchDialogProvider>
+          </ToggleStateProvider>
         </UnitsProvider>
       </body>
     </html>

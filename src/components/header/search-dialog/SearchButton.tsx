@@ -1,9 +1,9 @@
-import useSearchDialogContext from "@/hooks/useSearchDialog";
+import useToggleStateContext from "@/hooks/useToggleStateContext";
 import { Button } from "@/components/ui/button";
 import { CommandShortcut } from "@/components/ui/command";
 
 export default function SearchButton() {
-  const { setIsOpen } = useSearchDialogContext();
+  const { setIsOpen } = useToggleStateContext();
 
   return (
     <Button

@@ -142,8 +142,7 @@ div[data-radix-popper-content-wrapper] {
   );
 }
 
-.clear-night,
-.cloudy-night {
+.clear-night {
   background-image: linear-gradient(
     135deg,
     #1a2d59 0%,
@@ -152,12 +151,21 @@ div[data-radix-popper-content-wrapper] {
   );
 }
 
+.cloudy-night {
+  background-image: linear-gradient(
+    135deg,
+    #1c334e 0%,
+    #0e263b 50%,
+    #1c334e 100%
+  );
+}
+
 .foggy-day {
   background-image: linear-gradient(to top left, #4b5359, #343a3f);
 }
 
 .foggy-night {
-  background-image: linear-gradient(to top left, #2f3a46, #2b404d);
+  background-image: linear-gradient(to top left, #3a4451, #333e48);
 }
 
 .rainy-day,
@@ -188,9 +196,9 @@ div[data-radix-popper-content-wrapper] {
 .thunder {
   background-image: linear-gradient(
     135deg,
-    #34495e 0%,
-    #4a5c70 50%,
-    #5f7888 100%
+    #2b3d4f 0%,
+    #3e5063 50%,
+    #516b7a 100%
   );
 }
 
@@ -206,8 +214,8 @@ div[data-radix-popper-content-wrapper] {
 .day-overlay {
   background: radial-gradient(
     ellipse at top,
-    rgba(255, 255, 255, 0.2) 0%,
-    rgba(255, 255, 255, 0.1) 70%
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(255, 255, 255, 0.05) 70%
   );
   position: absolute;
   inset: 0;
@@ -216,16 +224,16 @@ div[data-radix-popper-content-wrapper] {
 .night-overlay {
   background: radial-gradient(
     ellipse at top left,
-    rgba(255, 255, 255, 0.03) 0%,
-    rgba(0, 0, 0, 0.4) 100%
+    rgba(255, 255, 255, 0.02) 0%,
+    rgba(0, 0, 0, 0.35) 100%
   );
   position: absolute;
   inset: 0;
   @media screen and (max-width: 768px) {
     background: radial-gradient(
       ellipse at center,
-      rgba(255, 255, 255, 0.03) 0%,
-      rgba(0, 0, 0, 0.4) 100%
+      rgba(255, 255, 255, 0.02) 0%,
+      rgba(0, 0, 0, 0.35) 100%
     );
   }
 }

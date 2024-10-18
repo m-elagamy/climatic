@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 import { AnimatePresence, motion } from "framer-motion";
 
-import useSearchDialogContext from "@/hooks/useSearchDialog";
+import useToggleStateContext from "@/hooks/useToggleStateContext";
 import useCitySearch from "@/hooks/useCitySearch";
 import useDebounce from "@/hooks/useDebounce";
 import useCitySelect from "@/hooks/useCitySelect";
@@ -28,7 +28,7 @@ import type { Location } from "@/types/WeatherFlags";
 
 const Dialog = () => {
   const [input, setInput] = useState("");
-  const { isOpen, setIsOpen } = useSearchDialogContext();
+  const { isOpen, setIsOpen } = useToggleStateContext();
   const debouncedInput = useDebounce(input);
   const { cities, isLoading, isError } = useCitySearch(debouncedInput);
   const { handleCitySelect } = useCitySelect(setIsOpen);

@@ -7,22 +7,22 @@ const uvLevels = [
   {
     max: 5,
     level: "Moderate",
-    description: "Consider sunscreen.",
+    description: "Basic sun protection.",
   },
   {
     max: 7,
     level: "High",
-    description: "Use sunscreen and cover up.",
+    description: "Skin protection advised.",
   },
   {
     max: 10,
     level: "Very High",
-    description: "Avoid midday sun.",
+    description: "Extra precautions needed.",
   },
   {
     max: Infinity,
     level: "Extreme",
-    description: "Minimize sun exposure.",
+    description: "Best to shelter.",
   },
 ];
 

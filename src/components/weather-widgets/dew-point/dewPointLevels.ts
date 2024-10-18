@@ -1,43 +1,43 @@
 const dewPointLevels = [
   {
     max: 10,
-    description: "Very dry.",
+    description: "Very dry: Skin may crack.",
   },
   {
     max: 20,
-    description: "Very comfortable, dry.",
+    description: "Dry: Comfortable indoor conditions.",
   },
   {
     max: 30,
-    description: "Comfortable, dry.",
+    description: "Pleasant: Ideal outdoor comfort.",
   },
   {
     max: 40,
-    description: "Slightly humid.",
+    description: "Comfortable: Slight humidity noticeable.",
   },
   {
     max: 50,
-    description: "Comfortable for most.",
+    description: "Mild: Humidity becomes more apparent.",
   },
   {
     max: 60,
-    description: "Somewhat muggy.",
+    description: "Humid: Stickiness becomes noticeable.",
   },
   {
     max: 70,
-    description: "Noticeably uncomfortable.",
+    description: "Very humid: Uncomfortable, sweaty.",
   },
   {
     max: 80,
-    description: "Very muggy.",
+    description: "Oppressive: Extremely uncomfortable, sweaty.",
   },
   {
     max: 90,
-    description: "High discomfort.",
+    description: "Dangerous: Heat stress likely.",
   },
   {
     max: Infinity,
-    description: "Heat illness risk.",
+    description: "Extremely dangerous: Heat exhaustion.",
   },
 ];
 

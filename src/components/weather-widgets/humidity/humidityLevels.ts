@@ -1,31 +1,31 @@
 const humidityLevels = [
   {
     max: 30,
-    description: "Dry. Use humidifier.",
+    description: "Very dry: Skin, respiratory discomfort.",
   },
   {
     max: 40,
-    description: "Slightly dry. Humidifier optional.",
+    description: "Dry: Comfortable for most.",
   },
   {
     max: 50,
-    description: "Ideal.",
+    description: "Optimal: Ideal indoor conditions.",
   },
   {
     max: 60,
-    description: "Slightly humid.",
+    description: "Balanced: Comfortable outdoor humidity.",
   },
   {
     max: 70,
-    description: "Consider dehumidifier.",
+    description: "Humid: Noticeable moisture, sticky.",
   },
   {
     max: 80,
-    description: "Very humid. Use dehumidifier.",
+    description: "Very humid: Uncomfortable, muggy.",
   },
   {
     max: Infinity,
-    description: "Uncomfortable. Seek cool air.",
+    description: "Oppressive: Heat stress risk.",
   },
 ];
 

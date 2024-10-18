@@ -10,14 +10,14 @@ import {
   useMemo,
 } from "react";
 
-type SearchDialogContextType = {
+type ToggleStateContext = {
   isOpen: boolean;
   setIsOpen: Dispatch<SetStateAction<boolean>>;
 };
 
-const SearchDialogContext = createContext<SearchDialogContextType | null>(null);
+const ToggleStateContext = createContext<ToggleStateContext | null>(null);
 
-export const SearchDialogProvider = ({ children }: { children: ReactNode }) => {
+export const ToggleStateProvider = ({ children }: { children: ReactNode }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
@@ -40,9 +40,9 @@ export const SearchDialogProvider = ({ children }: { children: ReactNode }) => {
   );
 
   return (
-    <SearchDialogContext.Provider value={value}>
+    <ToggleStateContext.Provider value={value}>
       {children}
-    </SearchDialogContext.Provider>
+    </ToggleStateContext.Provider>
   );
 };
-export default SearchDialogContext;
+export default ToggleStateContext;

@@ -22,7 +22,9 @@ const useCurrentLocation = () => {
     } else if (!locationCoords) {
       getGeolocation();
     } else {
-      router.push(buildLocationUrl("", locationCoords.lat, locationCoords.lon));
+      router.push(
+        buildLocationUrl("", locationCoords?.lat, locationCoords?.lon),
+      );
     }
   }, [getGeolocation, locationCoords, router, isGeolocationDenied, toast]);
 
