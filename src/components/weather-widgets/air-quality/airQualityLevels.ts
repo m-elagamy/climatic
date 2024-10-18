@@ -14,7 +14,7 @@ const airQualityLevels = [
   {
     max: 55.4,
     level: "Sensitive",
-    description: "Limit outdoor time.",
+    description: "Some risk for vulnerable.",
     color: "#f97316",
   },
   {

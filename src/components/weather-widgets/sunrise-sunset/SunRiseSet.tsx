@@ -1,19 +1,11 @@
 import { Sunrise, Sunset } from "lucide-react";
 
-import { WeatherFlags } from "@/types/WeatherFlags";
+import { WeatherFlags, type Location } from "@/types/WeatherFlags";
 import RenderSunriseSunset from "@/components/weather-widgets/sunrise-sunset/RenderSunriseSunset";
 import ErrorMessage from "../../ui/error-message";
 import getForecastWeather from "@/utils/getForecastWeather";
 
-const SunRiseSet = async ({
-  city,
-  lat,
-  lon,
-}: {
-  city: string;
-  lat: string;
-  lon: string;
-}) => {
+const SunRiseSet = async ({ city, lat, lon }: Partial<Location>) => {
   const weatherData: WeatherFlags | null = await getForecastWeather(
     city,
     lat,

@@ -179,8 +179,7 @@ div[data-radix-popper-content-wrapper] {
 }
 
 .sleet,
-.snow-day,
-.snow-night {
+.snow-day {
   background-image: linear-gradient(to top left, #72b2cc, #668a9b);
 }
 

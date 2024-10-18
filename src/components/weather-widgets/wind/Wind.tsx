@@ -1,21 +1,13 @@
 import Image from "next/image";
 import { Wind as WindIcon } from "lucide-react";
 
-import { WeatherFlags } from "@/types/WeatherFlags";
+import { WeatherFlags, type Location } from "@/types/WeatherFlags";
 import ErrorMessage from "../../ui/error-message";
 import convertWindDirection from "@/components/weather-widgets/wind/convertWindDirection";
 import WindSpeed from "./WindSpeed";
 import getForecastWeather from "@/utils/getForecastWeather";
 
-const Wind = async ({
-  city,
-  lat,
-  lon,
-}: {
-  city: string;
-  lat: string;
-  lon: string;
-}) => {
+const Wind = async ({ city, lat, lon }: Partial<Location>) => {
   const weatherData: WeatherFlags | null = await getForecastWeather(
     city,
     lat,

@@ -1,4 +1,4 @@
-import { WeatherFlags } from "@/types/WeatherFlags";
+import { WeatherFlags, type Location } from "@/types/WeatherFlags";
 import temperatureLevels from "@/components/weather-widgets/feels-like-temperature/utils/temperatureLevels";
 import getThermometerIcon from "@/components/weather-widgets/feels-like-temperature/utils/getThermometerIcon";
 import ErrorMessage from "../../ui/error-message";
@@ -7,15 +7,7 @@ import roundToNearestInteger from "@/utils/roundToNearestInteger";
 import getCurrentLevel from "@/utils/getCurrentLevel";
 import getForecastWeather from "@/utils/getForecastWeather";
 
-const FeelsLikeTemp = async ({
-  city,
-  lat,
-  lon,
-}: {
-  city: string;
-  lat: string;
-  lon: string;
-}) => {
+const FeelsLikeTemp = async ({ city, lat, lon }: Partial<Location>) => {
   const weatherData: WeatherFlags | null = await getForecastWeather(
     city,
     lat,

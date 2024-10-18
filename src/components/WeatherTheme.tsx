@@ -1,15 +1,9 @@
 import getWeatherTheme from "@/utils/getWeatherTheme";
 
-import type { WeatherFlags } from "@/types/WeatherFlags";
+import type { Location, WeatherFlags } from "@/types/WeatherFlags";
 import getForecastWeather from "@/utils/getForecastWeather";
 
-type WeatherBackgroundProps = {
-  city: string;
-  lat: string;
-  lon: string;
-};
-
-const WeatherTheme = async ({ city, lat, lon }: WeatherBackgroundProps) => {
+const WeatherTheme = async ({ city, lat, lon }: Partial<Location>) => {
   const weatherData: WeatherFlags | null = await getForecastWeather(
     city,
     lat,

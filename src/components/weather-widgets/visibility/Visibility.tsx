@@ -1,21 +1,13 @@
 import { Eye } from "lucide-react";
 
-import type { WeatherFlags } from "@/types/WeatherFlags";
+import type { Location, WeatherFlags } from "@/types/WeatherFlags";
 import ErrorMessage from "@/components/ui/error-message";
 import visibilityLevels from "@/components/weather-widgets/visibility/visibilityLevels";
 import VisibilityDetails from "./VisibilityDetails";
 import getCurrentLevel from "@/utils/getCurrentLevel";
 import getForecastWeather from "@/utils/getForecastWeather";
 
-const Visibility = async ({
-  city,
-  lat,
-  lon,
-}: {
-  city: string;
-  lat: string;
-  lon: string;
-}) => {
+const Visibility = async ({ city, lat, lon }: Partial<Location>) => {
   const weatherData: WeatherFlags | null = await getForecastWeather(
     city,
     lat,

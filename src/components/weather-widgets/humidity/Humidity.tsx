@@ -1,21 +1,13 @@
 import { Droplets, Percent } from "lucide-react";
 
-import { WeatherFlags } from "@/types/WeatherFlags";
+import { WeatherFlags, type Location } from "@/types/WeatherFlags";
 import humidityLevels from "@/components/weather-widgets/humidity/humidityLevels";
 import WarningMessage from "./WarningMessage";
 import ErrorMessage from "../../ui/error-message";
 import getCurrentLevel from "@/utils/getCurrentLevel";
 import getForecastWeather from "@/utils/getForecastWeather";
 
-const Humidity = async ({
-  city,
-  lat,
-  lon,
-}: {
-  city: string;
-  lat: string;
-  lon: string;
-}) => {
+const Humidity = async ({ city, lat, lon }: Partial<Location>) => {
   const weatherData: WeatherFlags | null = await getForecastWeather(
     city,
     lat,

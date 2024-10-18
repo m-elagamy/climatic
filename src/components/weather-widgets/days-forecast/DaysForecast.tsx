@@ -4,17 +4,9 @@ import DayCard from "./DayCard";
 import ErrorMessage from "@/components/ui/error-message";
 import getForecastWeather from "@/utils/getForecastWeather";
 import getHistoricalWeather from "@/utils/getHistoricalWeather";
-import type { WeatherFlags } from "@/types/WeatherFlags";
+import type { Location, WeatherFlags } from "@/types/WeatherFlags";
 
-const DaysForecast = async ({
-  city,
-  lat,
-  lon,
-}: {
-  city: string;
-  lat: string;
-  lon: string;
-}) => {
+const DaysForecast = async ({ city, lat, lon }: Partial<Location>) => {
   const weatherData: WeatherFlags | null = await getForecastWeather(
     city,
     lat,

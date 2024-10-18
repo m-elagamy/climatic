@@ -1,21 +1,13 @@
 import { Sun } from "lucide-react";
 
-import { WeatherFlags } from "@/types/WeatherFlags";
+import { WeatherFlags, type Location } from "@/types/WeatherFlags";
 import uvLevels from "@/components/weather-widgets/uv-index/uvLevels";
 import UvWarningMessage from "./UvWarningMessage";
 import ErrorMessage from "../../ui/error-message";
 import getCurrentLevel from "@/utils/getCurrentLevel";
 import getForecastWeather from "@/utils/getForecastWeather";
 
-const Ultraviolet = async ({
-  city,
-  lat,
-  lon,
-}: {
-  city: string;
-  lat: string;
-  lon: string;
-}) => {
+const Ultraviolet = async ({ city, lat, lon }: Partial<Location>) => {
   const weatherData: WeatherFlags | null = await getForecastWeather(
     city,
     lat,

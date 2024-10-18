@@ -1,21 +1,13 @@
 import { Compass } from "lucide-react";
 
-import type { WeatherFlags } from "@/types/WeatherFlags";
+import type { Location, WeatherFlags } from "@/types/WeatherFlags";
 import pressureLevels from "@/components/weather-widgets/pressure/pressureLevels";
 import PressureDetails from "./PressureDetails";
 import ErrorMessage from "../../ui/error-message";
 import getCurrentLevel from "@/utils/getCurrentLevel";
 import getForecastWeather from "@/utils/getForecastWeather";
 
-const Pressure = async ({
-  city,
-  lat,
-  lon,
-}: {
-  city: string;
-  lat: string;
-  lon: string;
-}) => {
+const Pressure = async ({ city, lat, lon }: Partial<Location>) => {
   const weatherData: WeatherFlags | null = await getForecastWeather(
     city,
     lat,

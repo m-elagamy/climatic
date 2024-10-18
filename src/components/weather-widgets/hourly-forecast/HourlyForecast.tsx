@@ -1,6 +1,6 @@
 import { CalendarClock } from "lucide-react";
 
-import { WeatherFlags } from "@/types/WeatherFlags";
+import { WeatherFlags, type Location } from "@/types/WeatherFlags";
 import ErrorMessage from "@/components/ui/error-message";
 import filterUpcomingHourlyForecast from "@/components/weather-widgets/hourly-forecast/utils/filterUpcomingHours";
 import HourCard from "./HourCard";
@@ -13,15 +13,7 @@ import {
 } from "@/components/ui/carousel";
 import getForecastWeather from "@/utils/getForecastWeather";
 
-const HourlyForecast = async ({
-  city,
-  lat,
-  lon,
-}: {
-  city: string;
-  lat: string;
-  lon: string;
-}) => {
+const HourlyForecast = async ({ city, lat, lon }: Partial<Location>) => {
   const weatherData: WeatherFlags | null = await getForecastWeather(
     city,
     lat,

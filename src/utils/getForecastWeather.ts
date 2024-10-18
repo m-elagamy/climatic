@@ -3,8 +3,8 @@ import type { WeatherFlags } from "@/types/WeatherFlags";
 
 const getForecastWeather = async (
   cityLocation?: string,
-  lat?: string,
-  lon?: string,
+  lat?: string | number,
+  lon?: string | number,
 ): Promise<WeatherFlags | null> => {
   const query = lat && lon ? `${lat},${lon}` : cityLocation || "Cairo";
   const forecastData = await fetchWeatherDataByType(

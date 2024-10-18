@@ -1,22 +1,14 @@
 import { getCode as getCountryCode } from "country-list";
 import { MapPin, Navigation } from "lucide-react";
 
-import { WeatherFlags } from "@/types/WeatherFlags";
+import { WeatherFlags, type Location } from "@/types/WeatherFlags";
 import WeatherDetails from "./WeatherDetails";
 import CurrentDateTime from "./CurrentDateTime";
 import ErrorMessage from "../../ui/error-message";
 import AlertBanner from "./AlertBanner";
 import getForecastWeather from "@/utils/getForecastWeather";
 
-const CurrentTemperature = async ({
-  city,
-  lat,
-  lon,
-}: {
-  city: string;
-  lat: string;
-  lon: string;
-}) => {
+const CurrentTemperature = async ({ city, lat, lon }: Partial<Location>) => {
   const weatherData: WeatherFlags | null = await getForecastWeather(
     city,
     lat,

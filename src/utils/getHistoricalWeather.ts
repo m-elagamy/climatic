@@ -4,8 +4,8 @@ import type { WeatherFlags } from "@/types/WeatherFlags";
 
 const getHistoricalWeather = async (
   cityLocation: string | undefined,
-  lat?: string,
-  lon?: string,
+  lat?: string | number,
+  lon?: string | number,
   timezone?: string,
 ): Promise<WeatherFlags | null> => {
   const query = lat && lon ? `${lat},${lon}` : cityLocation || "Cairo";
