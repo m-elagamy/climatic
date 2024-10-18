@@ -33,7 +33,7 @@ const DaysForecast = async ({
   const { forecast: historicalForecast } = historicalWeatherData ?? {};
 
   const forecastDays = forecast?.forecastday ?? [];
-  const yesterdayData = historicalForecast?.forecastday[0].day;
+  const yesterdayData = historicalForecast?.forecastday[0]?.day;
 
   const daysToDisplay = yesterdayData
     ? [

@@ -28,6 +28,8 @@ export default async function Home({
   const lat = searchParams.lat;
   const lon = searchParams.lon;
 
+  const shouldDetectLocation = !city && !lat && !lon;
+
   return (
     <>
       <div
@@ -35,7 +37,7 @@ export default async function Home({
       >
         <Header />
       </div>
-      {!lat && !lon && <LocationDetector />}
+      {shouldDetectLocation && <LocationDetector />}
       {lat || lon || city ? (
         <main className="flex flex-col gap-2 md:flex-row md:gap-4">
           <WeatherTheme city={city} lat={lat} lon={lon} />

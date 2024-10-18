@@ -2,15 +2,13 @@ import roundToNearestInteger from "@/utils/roundToNearestInteger";
 import type { Location } from "@/types/WeatherFlags";
 
 const isDefaultCity = (
-  userDefaultLocation: Location | null,
+  userDefaultLocation: Partial<Location>,
   city: Partial<Location>,
 ): boolean => {
-  if (!userDefaultLocation) return false;
-
-  return (
-    roundToNearestInteger(+userDefaultLocation.lat) ===
-    roundToNearestInteger(city.lat as number)
-  );
+  return userDefaultLocation.lat
+    ? roundToNearestInteger(+userDefaultLocation.lat) ===
+        roundToNearestInteger(city.lat as number)
+    : false;
 };
 
 export default isDefaultCity;

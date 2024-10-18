@@ -9,7 +9,7 @@ const CurrentLocationOption = () => {
   const handleSelect = () => getCurrentLocation();
 
   return (
-    <DropdownMenuItem onClick={handleSelect} className="gap-2">
+    <DropdownMenuItem onSelect={handleSelect} className="gap-2">
       <LocateIcon size={16} />
       <span>Your Location</span>
     </DropdownMenuItem>

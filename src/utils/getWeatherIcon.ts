@@ -25,7 +25,7 @@ export default function getWeatherIcon(
   isDay?: boolean,
 ): WeatherIconResult {
   const defaultIcon = isDay ? Sun : Moon;
-  const defaultColor = isDay ? "#FFD700" : "#E6E6FA";
+  const defaultColor = isDay ? "#FFD700" : "#E2F1E7";
 
   switch (condition?.toLowerCase().trim()) {
     // Sunny and Clear conditions
@@ -37,12 +37,12 @@ export default function getWeatherIcon(
     case "partly cloudy":
       return {
         Icon: isDay ? CloudSun : CloudMoon,
-        color: isDay ? "#C0C0C0" : "#808080",
+        color: isDay ? "#C0C0C0" : "#b4b4b4",
       };
     case "cloudy":
-      return { Icon: Cloud, color: "#A9A9A9" };
+      return { Icon: Cloud, color: "#b4b4b4" };
     case "overcast":
-      return { Icon: Cloud, color: "#708090" };
+      return { Icon: Cloud, color: "#7c9ebc" };
 
     // Mist and Fog conditions
     case "mist":
@@ -79,7 +79,7 @@ export default function getWeatherIcon(
     case "heavy rain":
     case "moderate or heavy rain shower":
     case "torrential rain shower":
-      return { Icon: CloudRain, color: "#4169E1" };
+      return { Icon: CloudRain, color: "#4A90E2" };
 
     // Freezing Rain and Sleet conditions
     case "light freezing rain":

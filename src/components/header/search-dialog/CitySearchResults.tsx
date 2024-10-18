@@ -8,24 +8,11 @@ import type { Location } from "@/types/WeatherFlags";
 import isDefaultCity from "./isDefaultCity";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { useCallback, useMemo } from "react";
+import updateSearchHistory from "@/utils/updateSearchHistory";
 
 type CitySearchResultsProps = {
   handleCitySelect: (city: Partial<Location>) => void;
   city: Partial<Location>;
-};
-
-const updateSearchHistory = (
-  cityData: Partial<Location>,
-  setSearchHistory: (
-    value:
-      | Partial<Location>[]
-      | ((val: Partial<Location>[] | undefined) => Partial<Location>[]),
-  ) => void,
-) => {
-  setSearchHistory((prev = []) => {
-    const newHistory = [...prev, cityData];
-    return newHistory.length > 5 ? newHistory.slice(-5) : newHistory;
-  });
 };
 
 const CitySearchResults = ({

@@ -5,19 +5,15 @@ import { ToastAction } from "@/components/ui/toast";
 import { useLocalStorage } from "@/hooks/useLocalStorage";
 import { useToast } from "@/hooks/useToast";
 import delay from "@/utils/delay";
+import type { Location } from "@/types/WeatherFlags";
 
 const useDefaultLocation = () => {
   const [isLoading, setIsLoading] = useState(false);
   const searchParams = useSearchParams();
   const { toast } = useToast();
-  const [userDefaultLocation, setUserDefaultLocation] = useLocalStorage<{
-    name?: string;
-    city: string;
-    lat: string;
-    lon: string;
-  } | null>("user-default-location");
-  const [isDefaultLocationEnabled, setIsDefaultLocationEnabled] =
-    useLocalStorage("is-default-location-enabled", false);
+
+  const [userDefaultLocation, setUserDefaultLocation] =
+    useLocalStorage<Partial<Location> | null>("user-default-location");
 
   const city = searchParams.get("city");
   const lat = searchParams.get("lat");
@@ -26,8 +22,8 @@ const useDefaultLocation = () => {
   const saveLocation = async (shouldShowToast: boolean = true) => {
     if (city && lat && lon) {
       setUserDefaultLocation({ city, lat, lon });
-      await delay(500);
       if (shouldShowToast) {
+        await delay(500);
         toast({
           title: "Location saved",
           description: (
@@ -43,8 +39,7 @@ const useDefaultLocation = () => {
 
   const removeLocation = async () => {
     setIsLoading(true);
-    await delay(1000);
-    setIsDefaultLocationEnabled(false);
+    await delay(500);
     setUserDefaultLocation(null);
     setIsLoading(false);
     toast({
@@ -67,8 +62,6 @@ const useDefaultLocation = () => {
     city,
     lat,
     lon,
-    isDefaultLocationEnabled,
-    setIsDefaultLocationEnabled,
   };
 };
 

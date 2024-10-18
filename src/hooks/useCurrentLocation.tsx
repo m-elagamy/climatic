@@ -13,16 +13,16 @@ const useCurrentLocation = () => {
   const { toast } = useToast();
 
   const getCurrentLocation = useCallback(() => {
-    if (!locationCoords && !isGeolocationDenied) {
-      getGeolocation();
-    } else if (locationCoords && !isGeolocationDenied) {
-      router.push(buildLocationUrl("", locationCoords.lat, locationCoords.lon));
-    } else {
+    if (isGeolocationDenied) {
       toast({
         title: "Location denied",
         description:
           "Location access has been denied. Please enable it in your browser settings to use the location feature.",
       });
+    } else if (!locationCoords) {
+      getGeolocation();
+    } else {
+      router.push(buildLocationUrl("", locationCoords.lat, locationCoords.lon));
     }
   }, [getGeolocation, locationCoords, router, isGeolocationDenied, toast]);
 

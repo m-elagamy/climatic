@@ -1,16 +1,14 @@
+import { useRouter } from "next/navigation";
 import { Save, Trash2, Loader2, Star } from "lucide-react";
 import { InfoCircledIcon } from "@radix-ui/react-icons";
 
-import {
-  DropdownMenuItem,
-  DropdownMenuLabel,
-} from "@/components/ui/dropdown-menu";
+import { DropdownMenuItem } from "@/components/ui/dropdown-menu";
 import ToolTip from "@/components/ui/tooltip";
-import { Label } from "@/components/ui/label";
-import { Checkbox } from "@/components/ui/checkbox";
 import useDefaultLocation from "@/hooks/useDefaultLocation";
+import buildLocationUrl from "@/utils/buildLocationUrl";
 
-const DefaultLocationOption = () => {
+const FavLocationOption = () => {
+  const router = useRouter();
   const {
     isLoading,
     saveLocation,
@@ -19,9 +17,17 @@ const DefaultLocationOption = () => {
     city,
     lat,
     lon,
-    isDefaultLocationEnabled,
-    setIsDefaultLocationEnabled,
   } = useDefaultLocation();
+
+  const handleSelect = () => {
+    router.push(
+      buildLocationUrl(
+        userDefaultLocation?.city,
+        userDefaultLocation?.lat,
+        userDefaultLocation?.lon,
+      ),
+    );
+  };
 
   return (
     <div className="relative">
@@ -36,19 +42,10 @@ const DefaultLocationOption = () => {
       )}
 
       {!!userDefaultLocation && (
-        <DropdownMenuLabel className="rounded-sm py-2 font-normal hover:bg-accent/30">
-          <Label className="flex cursor-pointer items-center gap-2">
-            <Star size={16} className="text-yellow-400" />
-            {userDefaultLocation.city}
-            <Checkbox
-              className="size-[14px]"
-              checked={isDefaultLocationEnabled}
-              onCheckedChange={() =>
-                setIsDefaultLocationEnabled(!isDefaultLocationEnabled)
-              }
-            />
-          </Label>
-        </DropdownMenuLabel>
+        <DropdownMenuItem className="gap-2" onSelect={handleSelect}>
+          <Star size={16} className="text-yellow-400" />
+          {userDefaultLocation.city}
+        </DropdownMenuItem>
       )}
 
       <div className="absolute right-2 top-[6px]">
@@ -59,8 +56,8 @@ const DefaultLocationOption = () => {
             }
             tooltipContent={
               <p>
-                This option saves the currently selected city as your default
-                location.
+                This option saves the currently selected city so you can easily
+                access it later quickly.
               </p>
             }
           />
@@ -86,4 +83,4 @@ const DefaultLocationOption = () => {
     </div>
   );
 };
-export default DefaultLocationOption;
+export default FavLocationOption;

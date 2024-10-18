@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import CurrentLocationOption from "./options/CurrentLocationOption";
 import ToggleUnitsOption from "./options/ToggleUnitsOption";
-import DefaultLocationOption from "./options/DefaultLocationOption";
+import FavLocationOption from "./options/FavLocationOption";
 
 const settingsOptionsVariants = {
   hidden: {
@@ -33,7 +33,7 @@ const SettingsOptions = ({
       className="space-y-1"
     >
       <CurrentLocationOption />
-      <DefaultLocationOption />
+      <FavLocationOption />
       <ToggleUnitsOption />
     </motion.div>
   );
