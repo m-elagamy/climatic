@@ -1,6 +1,8 @@
+import { DROP_DELAYS } from "@/utils/constants";
+
 const Preloader = () => {
   return (
-    <section className="preloader fixed inset-0 -z-[1] flex animate-gradient items-center justify-center bg-gradient-to-tl from-[#1c2670] to-[#3a9ecc]">
+    <section className="preloader fixed inset-0 -z-[1] flex items-center justify-center bg-gradient-to-tl from-[#1c2670] to-[#3a9ecc]">
       <h2 className="sr-only">Loading...</h2>
       <article className="relative">
         <svg
@@ -85,16 +87,13 @@ const Preloader = () => {
           ></path>
         </svg>
         <div className="absolute bottom-6 left-1/2 -translate-x-1/2 *:float-left *:ml-[4px] *:h-[10px] *:w-[3px] *:animate-drop *:rounded-b-[6px] *:bg-[#36bfff]">
-          <span className="drop"></span>
-          <span className="drop"></span>
-          <span className="drop"></span>
-          <span className="drop"></span>
-          <span className="drop"></span>
-          <span className="drop"></span>
-          <span className="drop"></span>
-          <span className="drop"></span>
-          <span className="drop"></span>
-          <span className="drop"></span>
+          {DROP_DELAYS.map((delay, index) => (
+            <span
+              key={index}
+              className="drop"
+              style={{ animationDelay: `${delay}ms` }}
+            ></span>
+          ))}
         </div>
         <p className="pt-4 text-center text-sm font-semibold uppercase tracking-wider text-primary">
           loading weather information<span className="animate-pulse">...</span>

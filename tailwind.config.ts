@@ -55,7 +55,11 @@ const config: Config = {
         widget: "0 8px 32px 0 hsla(0, 0%, 0%, 0.1)",
       },
       backgroundImage: {
-        "starry-night": `
+        "starry-night-mobile": `
+          radial-gradient(1px 1px at 20px 30px, #ffffff, rgba(0,0,0,0.05)),
+          linear-gradient(135deg, #121A2E 0%, #1A2540 20%, #223050 40%, #2A3B60 60%, #324570 80%, #3A5080 100%)
+        `,
+        "starry-night-desktop": `
           radial-gradient(1px 1px at 20px 30px, #ffffff, rgba(0,0,0,0.05)),
           radial-gradient(1px 1px at 40px 70px, #ffffff, rgba(0,0,0,0.05)),
           radial-gradient(1px 1px at 50px 160px, #ffffff, rgba(0,0,0,0.05)),
@@ -66,8 +70,7 @@ const config: Config = {
         "spin-slow": "spin 12s linear infinite",
         drop: "drop 350ms infinite",
         float: "float 3s ease-in-out  infinite",
-        gradient: "gradient 10s ease infinite",
-        twinkle: "twinkle 10s ease-in-out infinite alternate",
+        "twinkle-mobile": "twinkle-mobile 8s ease-in-out infinite alternate",
       },
       keyframes: {
         spin: {
@@ -83,27 +86,12 @@ const config: Config = {
           "0%, 100%": { transform: "translateY(0px)" },
           "50%": { transform: "translateY(-5px)" },
         },
-        gradient: {
-          "0%, 100%": {
-            "background-size": "200% 200%",
-            "background-position": "left center",
-          },
-          "50%": {
-            "background-size": "200% 200%",
-            "background-position": "right center",
-          },
-        },
-        twinkle: {
+        "twinkle-mobile": {
           to: {
-            "background-position": "-50px -50px, -40px -60px, -30px -70px, 0 0",
+            "background-position": "-50px -50px, 0 0",
           },
         },
       },
-    },
-  },
-  variants: {
-    extend: {
-      animation: ["responsive", "motion-safe", "motion-reduce"],
     },
   },
   plugins: [require("tailwindcss-animate")],

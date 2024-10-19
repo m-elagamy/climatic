@@ -44,10 +44,6 @@
   .bg-gradient {
     @apply bg-gradient-to-b from-zinc-950/25 via-gray-950/20 to-slate-950/15;
   }
-
-  .animate-gradient-blur {
-    background-size: 200% 200%;
-  }
 }
 
 .progress-bar {
@@ -91,46 +87,6 @@ div[data-radix-popper-content-wrapper] {
   fill: #ffa500;
 }
 
-.drop:nth-child(1) {
-  animation-delay: -130ms;
-}
-
-.drop:nth-child(2) {
-  animation-delay: -240ms;
-}
-
-.drop:nth-child(3) {
-  animation-delay: -390ms;
-}
-
-.drop:nth-child(4) {
-  animation-delay: -525ms;
-}
-
-.drop:nth-child(5) {
-  animation-delay: -640ms;
-}
-
-.drop:nth-child(6) {
-  animation-delay: -790ms;
-}
-
-.drop:nth-child(7) {
-  animation-delay: -900ms;
-}
-
-.drop:nth-child(8) {
-  animation-delay: -1050ms;
-}
-
-.drop:nth-child(9) {
-  animation-delay: -1130ms;
-}
-
-.drop:nth-child(10) {
-  animation-delay: -1300ms;
-}
-
 /* Weather Themes */
 .sunny-day,
 .cloudy-day {
@@ -143,7 +99,11 @@ div[data-radix-popper-content-wrapper] {
 }
 
 .clear-night {
-  @apply bg-starry-night animate-twinkle bg-[length:200px_200px,200px_200px,200px_200px,100%_100%] will-change-[background-position];
+  @apply md:bg-starry-night-desktop bg-starry-night-mobile animate-twinkle-mobile bg-[length:200px_200px,100%_100%] will-change-[background-position] md:bg-[length:200px_200px,200px_200px,200px_200px,100%_100%];
+
+  @media (min-width: 768px) {
+    animation: twinkle-desktop 10s ease-in-out infinite alternate;
+  }
 }
 
 .cloudy-night {
@@ -229,5 +189,16 @@ div[data-radix-popper-content-wrapper] {
       rgba(255, 255, 255, 0.02) 0%,
       rgba(0, 0, 0, 0.35) 100%
     );
+  }
+}
+
+/* Animations */
+@keyframes twinkle-desktop {
+  to {
+    background-position:
+      -50px -50px,
+      -40px -60px,
+      -30px -70px,
+      0 0;
   }
 }
