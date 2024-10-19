@@ -54,11 +54,20 @@ const config: Config = {
       boxShadow: {
         widget: "0 8px 32px 0 hsla(0, 0%, 0%, 0.1)",
       },
+      backgroundImage: {
+        "starry-night": `
+          radial-gradient(1px 1px at 20px 30px, #ffffff, rgba(0,0,0,0.05)),
+          radial-gradient(1px 1px at 40px 70px, #ffffff, rgba(0,0,0,0.05)),
+          radial-gradient(1px 1px at 50px 160px, #ffffff, rgba(0,0,0,0.05)),
+          linear-gradient(135deg, #121A2E 0%, #1A2540 20%, #223050 40%, #2A3B60 60%, #324570 80%, #3A5080 100%)
+        `,
+      },
       animation: {
         "spin-slow": "spin 12s linear infinite",
         drop: "drop 350ms infinite",
         float: "float 3s ease-in-out  infinite",
         gradient: "gradient 10s ease infinite",
+        twinkle: "twinkle 10s ease-in-out infinite alternate",
       },
       keyframes: {
         spin: {
@@ -84,7 +93,17 @@ const config: Config = {
             "background-position": "right center",
           },
         },
+        twinkle: {
+          to: {
+            "background-position": "-50px -50px, -40px -60px, -30px -70px, 0 0",
+          },
+        },
       },
+    },
+  },
+  variants: {
+    extend: {
+      animation: ["responsive", "motion-safe", "motion-reduce"],
     },
   },
   plugins: [require("tailwindcss-animate")],

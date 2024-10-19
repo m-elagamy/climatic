@@ -31,12 +31,12 @@ const temperatureLevels = [
   },
   {
     max: 25,
-    description: "Warm: Enjoyable outdoor weather.",
+    description: "Cool: Enjoyable outdoor weather.",
     color: "rgb(199, 233, 192)",
   },
   {
     max: 30,
-    description: "Very warm: Seek shade.",
+    description: "Warm: Light clothing advised.",
     color: "rgb(161, 217, 155)",
   },
   {

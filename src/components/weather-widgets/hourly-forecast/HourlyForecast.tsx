@@ -4,7 +4,7 @@ import { WeatherFlags, type Location } from "@/types/WeatherFlags";
 import ErrorMessage from "@/components/ui/error-message";
 import filterUpcomingHourlyForecast from "@/components/weather-widgets/hourly-forecast/utils/filterUpcomingHours";
 import HourCard from "./HourCard";
-import { HOURS_TO_SHOW } from "@/utils/constants";
+import { TOTAL_HOURS } from "@/utils/constants";
 
 import {
   Carousel,
@@ -31,10 +31,10 @@ const HourlyForecast = async ({ city, lat, lon }: Partial<Location>) => {
     hourlyData,
     nextDayHourlyData,
     localTime,
-    HOURS_TO_SHOW,
+    TOTAL_HOURS,
   );
 
-  const hoursToDisplay = filteredUpcomingHours?.slice(0, HOURS_TO_SHOW);
+  const hoursToDisplay = filteredUpcomingHours?.slice(0, TOTAL_HOURS);
 
   return (
     <article className={`container-style col-span-2`}>

@@ -42,7 +42,7 @@
   }
 
   .bg-gradient {
-    @apply bg-gradient-to-br from-zinc-950/25 via-gray-950/20 to-slate-950/15;
+    @apply bg-gradient-to-b from-zinc-950/25 via-gray-950/20 to-slate-950/15;
   }
 
   .animate-gradient-blur {
@@ -143,12 +143,7 @@ div[data-radix-popper-content-wrapper] {
 }
 
 .clear-night {
-  background-image: linear-gradient(
-    135deg,
-    #1a2d59 0%,
-    #102040 50%,
-    #1a2d59 100%
-  );
+  @apply bg-starry-night animate-twinkle bg-[length:200px_200px,200px_200px,200px_200px,100%_100%] will-change-[background-position];
 }
 
 .cloudy-night {

@@ -35,7 +35,7 @@ const DaysForecast = async ({ city, lat, lon }: Partial<Location>) => {
     : forecastDays.map((day) => ({ day: day.day, date: day.date }));
 
   return (
-    <article className="container-style h-auto">
+    <article className="container-style min-h-[368px]">
       <h2 className="title mb-2">
         <CalendarDays size={16} /> 3 Days Forecast:
       </h2>

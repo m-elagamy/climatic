@@ -30,16 +30,16 @@ const SUGGESTED_CITIES: Partial<Location>[] = [
     lon: 37.6173,
   },
   {
-    name: "Berlin",
-    country: "Germany",
-    id: 568120,
-    lat: 52.52,
-    lon: 13.405,
+    name: "Kansas City",
+    country: "United States",
+    id: 4930956,
+    lat: 39.0997,
+    lon: -94.5786,
   },
 ];
 
-const HOURS_TO_SHOW = 12;
+const TOTAL_HOURS = 12;
 
 const DEFAULT_CITY = "Cairo";
 
-export { SUGGESTED_CITIES, HOURS_TO_SHOW, DEFAULT_CITY };
+export { SUGGESTED_CITIES, TOTAL_HOURS, DEFAULT_CITY };

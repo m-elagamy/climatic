@@ -94,7 +94,7 @@ const DayCard = ({
             </div>
           </motion.div>
           <div
-            className={`${isImperial ? "w-[72.03px]" : "w-auto"} space-y-4 font-bold md:space-y-3`}
+            className={`${isImperial ? "w-[72.03px]" : "w-auto"} space-y-3 font-bold`}
           >
             <span className="text-lg">
               {maxTemp}° | {minTemp}°

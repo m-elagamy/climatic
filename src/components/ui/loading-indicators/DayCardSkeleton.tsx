@@ -3,19 +3,20 @@ import { Skeleton } from "./skeleton";
 const DayCardSkeleton = () => {
   return (
     <>
-      <Skeleton className="h-2 w-8" />
+      <Skeleton className="h-3 w-[56.3px]" />
 
-      <div className="flex flex-col items-center justify-center gap-[2px] text-xs">
-        <Skeleton className="mb-1 h-4 w-4 rounded-full" />
-        <Skeleton className="h-2 w-12" />
+      {/* Skeleton for Weather Icon and Condition */}
+      <div className="flex flex-col items-center justify-center gap-[2px]">
+        <Skeleton className="mb-1 h-6 w-6 rounded-full" /> {/* Icon */}
+        <Skeleton className="h-3 w-[93px]" /> {/* Condition Text */}
       </div>
 
-      <div className="relative -top-1 h-[6px] w-1/3 rounded-md">
-        <Skeleton className="h-full w-full" />
-
-        <div className="flex items-center justify-between pt-1 text-xs font-bold">
-          <Skeleton className="h-2 w-4" />
-          <Skeleton className="h-2 w-4" />
+      {/* Skeleton for Max/Min Temperature and Rain Percentage */}
+      <div className="w-[72.03px] space-y-3">
+        <Skeleton className="h-3 w-16" /> {/* Max | Min Temperature */}
+        <div className="flex items-center justify-center gap-1">
+          <Skeleton className="h-4 w-4" /> {/* Umbrella Icon */}
+          <Skeleton className="h-3 w-8" /> {/* Rain percentage */}
         </div>
       </div>
     </>
