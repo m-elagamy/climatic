@@ -16,7 +16,7 @@ const ToggleUnitsOption = () => {
         htmlFor="ToggleUnits"
         className={`w-full cursor-pointer ${
           isImperial ? "text-accent-foreground" : "text-muted-foreground"
-        }`}
+        } font-bold`}
       >
         &#176;F
       </Label>
