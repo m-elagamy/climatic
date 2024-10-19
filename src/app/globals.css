@@ -99,10 +99,10 @@ div[data-radix-popper-content-wrapper] {
 }
 
 .clear-night {
-  @apply md:bg-starry-night-desktop bg-starry-night-mobile animate-twinkle-mobile bg-[length:200px_200px,100%_100%] will-change-[background-position] md:bg-[length:200px_200px,200px_200px,200px_200px,100%_100%];
+  @apply bg-starry-night-mobile animate-twinkle-mobile md:bg-starry-night-desktop bg-[length:200px_200px,100%_100%] will-change-auto md:bg-[length:200px_200px,200px_200px,200px_200px,100%_100%] md:will-change-[background-position];
 
   @media (min-width: 768px) {
-    animation: twinkle-desktop 10s ease-in-out infinite alternate;
+    animation: twinkle-desktop 12s ease-in-out infinite alternate;
   }
 }
 

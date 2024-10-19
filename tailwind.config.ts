@@ -70,7 +70,7 @@ const config: Config = {
         "spin-slow": "spin 12s linear infinite",
         drop: "drop 350ms infinite",
         float: "float 3s ease-in-out  infinite",
-        "twinkle-mobile": "twinkle-mobile 8s ease-in-out infinite alternate",
+        "twinkle-mobile": "twinkle-mobile 10s ease-in-out infinite alternate",
       },
       keyframes: {
         spin: {
