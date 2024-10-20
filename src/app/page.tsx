@@ -45,7 +45,7 @@ export default async function Home({
             <CurrentTemperature city={city} lat={lat} lon={lon} />
             <DaysForecast city={city} lat={lat} lon={lon} />
           </section>
-          <section className="grid h-full grid-cols-2 gap-2 md:gap-4 lg:grid-cols-3 xl:grid-cols-4">
+          <section className="grid h-full grid-cols-2 gap-2 md:gap-4 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
             <FeelsLikeTemp city={city} lat={lat} lon={lon} />
             <Humidity city={city} lat={lat} lon={lon} />
             <Wind city={city} lat={lat} lon={lon} />

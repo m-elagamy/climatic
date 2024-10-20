@@ -57,6 +57,7 @@ const config: Config = {
       backgroundImage: {
         "starry-night-mobile": `
           radial-gradient(1px 1px at 20px 30px, #ffffff, rgba(0,0,0,0.05)),
+          radial-gradient(1px 1px at 40px 70px, #ffffff, rgba(0,0,0,0.05)),
           linear-gradient(135deg, #121A2E 0%, #1A2540 20%, #223050 40%, #2A3B60 60%, #324570 80%, #3A5080 100%)
         `,
         "starry-night-desktop": `
@@ -70,7 +71,7 @@ const config: Config = {
         "spin-slow": "spin 12s linear infinite",
         drop: "drop 350ms infinite",
         float: "float 3s ease-in-out  infinite",
-        "twinkle-mobile": "twinkle-mobile 10s ease-in-out infinite alternate",
+        "twinkle-mobile": "twinkle-mobile 30s ease-in-out infinite alternate",
       },
       keyframes: {
         spin: {
@@ -88,7 +89,7 @@ const config: Config = {
         },
         "twinkle-mobile": {
           to: {
-            "background-position": "-50px -50px, 0 0",
+            "background-position": "-50px -50px, -50px -50px, 0 0",
           },
         },
       },

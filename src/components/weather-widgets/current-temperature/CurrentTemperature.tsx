@@ -18,7 +18,7 @@ const CurrentTemperature = async ({ city, lat, lon }: Partial<Location>) => {
   const { current, forecast, location, alerts } = weatherData ?? {};
 
   return (
-    <article className="container-style relative h-72 md:h-[23rem]">
+    <article className="container-style relative h-72 md:h-[21.3rem]">
       <h2 className="sr-only">Current Temperature</h2>
 
       {!weatherData && <ErrorMessage error="Current temperature" />}

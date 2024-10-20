@@ -34,7 +34,7 @@
 
 @layer components {
   .container-style {
-    @apply bg-gradient flex h-auto min-h-[160px] flex-col justify-between gap-2 rounded-2xl p-4 shadow-widget md:h-[175px];
+    @apply bg-gradient flex h-auto min-h-[160px] flex-col justify-between gap-2 rounded-2xl p-4 shadow-widget;
   }
 
   .title {
@@ -99,7 +99,7 @@ div[data-radix-popper-content-wrapper] {
 }
 
 .clear-night {
-  @apply bg-starry-night-mobile animate-twinkle-mobile md:bg-starry-night-desktop bg-[length:200px_200px,100%_100%] will-change-auto md:bg-[length:200px_200px,200px_200px,200px_200px,100%_100%] md:will-change-[background-position];
+  @apply animate-twinkle-mobile bg-starry-night-mobile bg-[length:200px_200px,200px_200px,100%_100%] will-change-auto md:bg-starry-night-desktop md:bg-[length:200px_200px,200px_200px,200px_200px,100%_100%] md:will-change-[background-position];
 
   @media (min-width: 768px) {
     animation: twinkle-desktop 25s ease-in-out infinite alternate;

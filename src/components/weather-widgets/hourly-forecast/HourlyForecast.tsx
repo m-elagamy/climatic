@@ -46,7 +46,7 @@ const HourlyForecast = async ({ city, lat, lon }: Partial<Location>) => {
 
       {hourlyData && (
         <Carousel
-          className="min-h-[96px] cursor-grab active:cursor-grabbing"
+          className="min-h-[112px] cursor-grab active:cursor-grabbing"
           opts={{ align: "start" }}
         >
           <CarouselContent>

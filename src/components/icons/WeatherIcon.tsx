@@ -1,4 +1,4 @@
-import getWeatherIcon from "@/utils/getWeatherIcon";
+import getWeatherVisuals from "@/utils/getWeatherVisuals";
 
 const WeatherIcon = ({
   condition,
@@ -9,7 +9,7 @@ const WeatherIcon = ({
   isDay?: boolean;
   size?: number;
 }) => {
-  const { Icon, color } = getWeatherIcon(condition, isDay);
+  const { Icon, color } = getWeatherVisuals(condition, isDay);
 
   if (!Icon) return <span>Loading...</span>;
 
