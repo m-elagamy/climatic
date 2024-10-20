@@ -11,7 +11,7 @@ const ToggleUnitsOption = () => {
   if (isLoading) return null;
 
   return (
-    <DropdownMenuLabel className="flex items-center justify-between rounded-sm hover:bg-accent/30">
+    <DropdownMenuLabel className="flex items-center justify-between rounded-sm hover:bg-accent/25">
       <Label
         htmlFor="ToggleUnits"
         className={`w-full cursor-pointer ${
