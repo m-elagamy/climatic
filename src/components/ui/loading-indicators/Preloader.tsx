@@ -1,8 +1,26 @@
 import { DROP_DELAYS } from "@/utils/constants";
+import getForecastWeather from "@/utils/getForecastWeather";
+import getWeatherVisuals from "@/utils/getWeatherVisuals";
+import type { WeatherFlags, Location } from "@/types/WeatherFlags";
 
-const Preloader = () => {
+const Preloader = async ({ city, lat, lon }: Partial<Location>) => {
+  const weatherData: WeatherFlags | null = await getForecastWeather(
+    city,
+    lat,
+    lon,
+  );
+
+  const { current } = weatherData ?? {};
+
+  const condition = current?.condition.text ?? "clear";
+  const isDay = current?.is_day ?? false;
+
+  const { theme } = getWeatherVisuals(condition, isDay);
+
   return (
-    <section className="preloader fixed inset-0 -z-[1] flex items-center justify-center bg-gradient-to-tl from-[#1c2670] to-[#3a9ecc]">
+    <section
+      className={`${theme} preloader fixed inset-0 -z-[1] flex items-center justify-center`}
+    >
       <h2 className="sr-only">Loading...</h2>
       <article className="relative">
         <svg
@@ -13,7 +31,7 @@ const Preloader = () => {
           width="10px"
           height="10px"
           viewBox="0 0 10 10"
-          className="absolute right-[80px] top-[15px] z-[-1] size-14 animate-spin-slow md:right-[100px]"
+          className="absolute right-[80px] top-[15px] z-[-1] size-14 animate-spin-slow md:right-[105px]"
         >
           <g>
             <path

@@ -59,7 +59,7 @@ export default async function Home({
           </section>
         </main>
       ) : (
-        <Preloader />
+        <Preloader city={city} lat={lat} lon={lon} />
       )}
     </>
   );

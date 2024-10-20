@@ -1,20 +1,13 @@
 import { ThermometerSnowflake } from "lucide-react";
-import { WeatherFlags } from "@/types/WeatherFlags";
+
 import airQualityLevels from "@/components/weather-widgets/air-quality/airQualityLevels";
 import { Progress } from "../../ui/progress";
 import ErrorMessage from "../../ui/error-message";
 import getCurrentLevel from "@/utils/getCurrentLevel";
 import getForecastWeather from "@/utils/getForecastWeather";
+import { WeatherFlags, type Location } from "@/types/WeatherFlags";
 
-const AirQuality = async ({
-  city,
-  lat,
-  lon,
-}: {
-  city: string;
-  lat: string;
-  lon: string;
-}) => {
+const AirQuality = async ({ city, lat, lon }: Partial<Location>) => {
   const weatherData: WeatherFlags | null = await getForecastWeather(
     city,
     lat,
