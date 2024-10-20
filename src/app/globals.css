@@ -44,37 +44,29 @@
   .bg-gradient {
     @apply bg-gradient-to-b from-zinc-950/25 via-gray-950/20 to-slate-950/15;
   }
-}
 
-.progress-bar {
-  background-image: linear-gradient(
-    to right,
-    rgba(58, 110, 180, 1) 0%,
-    #5ba8ee 20%,
-    #7ed457 40%,
-    #f8d449 60%,
-    #eb4d60 80%,
-    rgba(178, 34, 34, 1) 100%
-  );
+  .progress-bar {
+    @apply bg-progress-bar;
+  }
 }
 
 /* Dialog component */
 .dialog .bg-popover {
-  background-color: transparent;
+  @apply bg-transparent;
 }
 
 /* Tooltip component */
 div[data-radix-popper-content-wrapper] {
-  z-index: 10 !important;
+  @apply z-10 !important;
 }
 
 /* Command component */
 .city-option {
-  padding-block: 6px !important;
+  @apply py-[6px] !important;
 }
 
 .command-group {
-  padding: 4px !important;
+  @apply p-1 !important;
 }
 
 /* Preloader component */
@@ -90,106 +82,63 @@ div[data-radix-popper-content-wrapper] {
 /* Weather Themes */
 .sunny-day,
 .cloudy-day {
-  background-image: linear-gradient(
-    135deg,
-    #1a73e8 0%,
-    #051c72 50%,
-    #1a73e8 100%
-  );
+  @apply bg-sunny-cloudy-day;
 }
 
 .clear-night {
-  @apply animate-twinkle-mobile bg-starry-night-mobile bg-[length:200px_200px,200px_200px,100%_100%] will-change-auto md:bg-starry-night-desktop md:bg-[length:200px_200px,200px_200px,200px_200px,100%_100%] md:will-change-[background-position];
-
-  @media (min-width: 768px) {
-    animation: twinkle-desktop 25s ease-in-out infinite alternate;
-  }
+  @apply animate-starry-night md:animate-starry-night-desktop bg-starry-night-mobile bg-[length:200px_200px,200px_200px,100%_100%] md:bg-starry-night-desktop md:bg-[length:200px_200px,200px_200px,200px_200px,100%_100%];
 }
 
 .cloudy-night {
-  background-image: linear-gradient(
-    135deg,
-    #1c334e 0%,
-    #0e263b 50%,
-    #1c334e 100%
-  );
+  @apply bg-cloudy-night;
 }
 
 .foggy-day {
-  background-image: linear-gradient(to top left, #4b5359, #343a3f);
+  @apply bg-foggy-day;
 }
 
 .foggy-night {
-  background-image: linear-gradient(to top left, #3a4451, #333e48);
+  @apply bg-foggy-night;
 }
 
 .rainy-day,
 .light-rain-day {
-  background-image: linear-gradient(to top left, #4c6f96, #2d506f);
+  @apply bg-rainy-day;
 }
 
 .light-rain-night,
 .rainy-night {
-  background-image: linear-gradient(to top left, #22364f, #16263b);
+  @apply bg-rainy-night;
 }
 
 .sleet,
 .snow-day {
-  background-image: linear-gradient(to top left, #72b2cc, #668a9b);
+  @apply bg-snowy-day;
 }
 
 .snow-night {
-  background-image: linear-gradient(
-    135deg,
-    #4b6584 0%,
-    #5f7d9c 50%,
-    #7899b8 100%
-  );
+  @apply bg-snowy-night;
 }
 
 .thunder {
-  background-image: linear-gradient(
-    135deg,
-    #2b3d4f 0%,
-    #3e5063 50%,
-    #516b7a 100%
-  );
+  @apply bg-thunder;
 }
 
 .default-theme {
-  background-image: linear-gradient(
-    135deg,
-    #3730a3 0%,
-    #4338ca 50%,
-    #5145e4 100%
-  );
+  @apply bg-default-theme;
+}
+
+.day-overlay,
+.night-overlay {
+  @apply absolute inset-0;
 }
 
 .day-overlay {
-  background: radial-gradient(
-    ellipse at top,
-    rgba(255, 255, 255, 0.15) 0%,
-    rgba(255, 255, 255, 0.05) 70%
-  );
-  position: absolute;
-  inset: 0;
+  @apply bg-day-overlay;
 }
 
 .night-overlay {
-  background: radial-gradient(
-    ellipse at top left,
-    rgba(255, 255, 255, 0.02) 0%,
-    rgba(0, 0, 0, 0.35) 100%
-  );
-  position: absolute;
-  inset: 0;
-  @media screen and (max-width: 768px) {
-    background: radial-gradient(
-      ellipse at center,
-      rgba(255, 255, 255, 0.02) 0%,
-      rgba(0, 0, 0, 0.35) 100%
-    );
-  }
+  @apply bg-night-overlay;
 }
 
 /* Animations */
