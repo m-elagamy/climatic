@@ -52,7 +52,7 @@ const CarouselHours = ({ hoursToDisplay }: { hoursToDisplay: HourData[] }) => {
         </CarouselContent>
       </Carousel>
       <div
-        className="absolute -left-full bottom-0 h-[2px] w-full bg-gradient-to-r from-slate-200/20 to-slate-400/40 transition-all duration-300 ease-out"
+        className="absolute -left-full bottom-0 h-[2px] w-full bg-gradient-to-r from-slate-200/30 to-slate-400/50 transition-all duration-300 ease-out"
         style={{
           transform: `translate3d(${scrollProgress * 100}%,0,0)`,
         }}
