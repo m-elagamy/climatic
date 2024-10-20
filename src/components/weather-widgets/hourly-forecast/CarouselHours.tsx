@@ -10,11 +10,13 @@ import {
 } from "@/components/ui/carousel";
 import HourCard from "./HourCard";
 import type { HourData } from "@/types/WeatherFlags";
+import useDebounce from "@/hooks/useDebounce";
 
 const CarouselHours = ({ hoursToDisplay }: { hoursToDisplay: HourData[] }) => {
   const [api, setApi] = useState<CarouselApi | null>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
   const animationFrame = useRef<number | null>(null);
+  const debouncedScrollProgress = useDebounce(scrollProgress, 20);
 
   const handleScroll = useCallback(() => {
     if (!api) return;
@@ -54,7 +56,7 @@ const CarouselHours = ({ hoursToDisplay }: { hoursToDisplay: HourData[] }) => {
       <div
         className="absolute -left-full bottom-0 h-[2px] w-full bg-gradient-to-r from-slate-200/30 to-slate-400/50 transition-all duration-300 ease-out"
         style={{
-          transform: `translate3d(${scrollProgress * 100}%,0,0)`,
+          transform: `translate3d(${debouncedScrollProgress * 100}%,0,0)`,
         }}
       />
     </>
