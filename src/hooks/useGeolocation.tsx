@@ -23,7 +23,8 @@ const useGeolocation = () => {
   const handleSuccess = useCallback(
     async (position: GeolocationPosition) => {
       const { latitude, longitude } = position.coords;
-      setUserLocationCoords({ lat: latitude, lon: longitude });
+      const timestamp = Date.now();
+      setUserLocationCoords({ lat: latitude, lon: longitude, timestamp });
       router.push(buildLocationUrl("", latitude, longitude));
     },
     [setUserLocationCoords, router],
@@ -62,7 +63,6 @@ const useGeolocation = () => {
 
   return {
     getGeolocation,
-    locationCoords: userLocationCoords,
     isGeolocationDenied,
     userLocationCoords,
   };

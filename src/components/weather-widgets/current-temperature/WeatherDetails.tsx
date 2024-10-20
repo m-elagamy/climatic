@@ -8,6 +8,7 @@ import CloudLoading from "../../ui/loading-indicators/CloudLoading";
 import getPreferredUnits from "@/utils/getPreferredUnits";
 import { motionVariants, iconVariants } from "@/utils/motionVariants";
 import WeatherIcon from "../../icons/WeatherIcon";
+import { Thermometer, ThermometerSun } from "lucide-react";
 
 const weatherDetailsVariants = motionVariants();
 
@@ -74,8 +75,13 @@ export default function WeatherDetails({
               </div>
             </motion.div>
             <h5>{current?.condition.text}</h5>
-            <div className="flex gap-1 font-semibold text-muted-foreground">
-              <h6>H: {maxTemp}°</h6>|<h6>L: {minTemp}°</h6>
+            <div className="flex items-center gap-1 font-semibold text-primary">
+              {current?.is_day ? (
+                <ThermometerSun size={16} />
+              ) : (
+                <Thermometer size={16} />
+              )}
+              <h6>H: {maxTemp}°</h6>/<h6>L: {minTemp}°</h6>
             </div>
           </motion.div>
         </>

@@ -32,6 +32,7 @@ export type Location = {
   country?: string;
   tz_id?: string;
   localtime?: string;
+  timestamp?: number;
 };
 
 export type Current = {
