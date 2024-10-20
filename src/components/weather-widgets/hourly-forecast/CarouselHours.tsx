@@ -16,7 +16,7 @@ const CarouselHours = ({ hoursToDisplay }: { hoursToDisplay: HourData[] }) => {
   const [api, setApi] = useState<CarouselApi | null>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
   const animationFrame = useRef<number | null>(null);
-  const debouncedScrollProgress = useDebounce(scrollProgress, 20);
+  const debouncedScrollProgress = useDebounce(scrollProgress, 50);
 
   const handleScroll = useCallback(() => {
     if (!api) return;
