@@ -28,7 +28,7 @@ const useDefaultLocation = () => {
           title: "Location saved",
           description: (
             <p>
-              You have saved <strong>{city}</strong> as your default location.
+              You have saved <strong>{city}</strong>, now you can access it.
             </p>
           ),
           duration: 2500,
@@ -44,7 +44,7 @@ const useDefaultLocation = () => {
     setIsLoading(false);
     toast({
       title: "Location removed",
-      description: "Your default location has been removed.",
+      description: "Your saved location has been removed.",
       duration: 2500,
       action: (
         <ToastAction altText="Undo" onClick={() => saveLocation(false)}>

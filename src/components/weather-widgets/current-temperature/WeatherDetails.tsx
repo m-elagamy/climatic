@@ -2,13 +2,13 @@
 
 import { motion } from "framer-motion";
 
-import { WeatherFlags, type Current } from "@/types/WeatherFlags";
 import useUnitsContext from "@/hooks/useUnitsContext";
 import CloudLoading from "../../ui/loading-indicators/CloudLoading";
 import getPreferredUnits from "@/utils/getPreferredUnits";
 import { motionVariants, iconVariants } from "@/utils/motionVariants";
+import getThermometerIcon from "../feels-like-temperature/utils/getThermometerIcon";
 import WeatherIcon from "../../icons/WeatherIcon";
-import { Thermometer, ThermometerSun } from "lucide-react";
+import { WeatherFlags, type Current } from "@/types/WeatherFlags";
 
 const weatherDetailsVariants = motionVariants();
 
@@ -38,6 +38,8 @@ export default function WeatherDetails({
     forecast?.forecastday[0].day.mintemp_c,
     forecast?.forecastday[0].day.mintemp_f,
   );
+
+  const ThermometerIcon = getThermometerIcon(current?.is_day);
 
   return (
     <>
@@ -76,11 +78,7 @@ export default function WeatherDetails({
             </motion.div>
             <h5>{current?.condition.text}</h5>
             <div className="flex items-center gap-1 font-semibold text-primary">
-              {current?.is_day ? (
-                <ThermometerSun size={16} />
-              ) : (
-                <Thermometer size={16} />
-              )}
+              <ThermometerIcon />
               <h6>H: {maxTemp}°</h6>/<h6>L: {minTemp}°</h6>
             </div>
           </motion.div>
