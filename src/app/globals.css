@@ -42,7 +42,7 @@
   }
 
   .bg-gradient {
-    @apply bg-gradient-to-b from-zinc-950/25 via-gray-950/20 to-slate-950/15;
+    @apply bg-gradient-to-br from-zinc-950/25 via-gray-950/20 to-slate-950/15;
   }
 
   .progress-bar {
@@ -86,7 +86,7 @@ div[data-radix-popper-content-wrapper] {
 }
 
 .clear-night {
-  @apply animate-starry-night md:animate-starry-night-desktop bg-starry-night-mobile bg-[length:200px_200px,200px_200px,100%_100%] md:bg-starry-night-desktop md:bg-[length:200px_200px,200px_200px,200px_200px,100%_100%];
+  @apply animate-starry-night bg-starry-night-mobile bg-[length:200px_200px,200px_200px,100%_100%] md:animate-starry-night-desktop md:bg-starry-night-desktop md:bg-[length:200px_200px,200px_200px,200px_200px,100%_100%];
 }
 
 .cloudy-night {

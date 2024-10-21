@@ -67,9 +67,9 @@ const config: Config = {
 
         "sunny-cloudy-day": `linear-gradient(
             135deg,
-            #1a73e8 0%,
-            #1363DF   50%,
-            #1a73e8 100%
+            #1a73e8  0%,   
+            #1A5DA8 50%, 
+            #2B6FB5  100%  
           )
         `,
 

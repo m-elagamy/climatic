@@ -29,13 +29,6 @@ export const metadata: Metadata = {
       "Get accurate and real-time weather updates for your city. Check the current temperature, forecasts, and more.",
     url: "https://climatic-app.netlify.app/",
     siteName: "Climatic",
-    images: [
-      {
-        url: "https://climatic-app.netlify.app/sharing-preview.png",
-        width: 100,
-        height: 100,
-      },
-    ],
     type: "website",
   },
 };
