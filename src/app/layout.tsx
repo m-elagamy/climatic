@@ -31,9 +31,9 @@ export const metadata: Metadata = {
     siteName: "Climatic",
     images: [
       {
-        url: "https://climatic.vercel.app/api/og",
-        width: 1200,
-        height: 630,
+        url: "https://climatic-app.netlify.app/sharing-preview.png",
+        width: 100,
+        height: 100,
       },
     ],
     type: "website",
