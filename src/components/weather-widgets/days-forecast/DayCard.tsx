@@ -77,7 +77,7 @@ const DayCard = ({
               {day.condition?.text.length > 13 ? (
                 <ToolTip
                   tooltipTrigger={
-                    <p className="overflow-x-hidden text-ellipsis text-nowrap">
+                    <p className="overflow-x-hidden text-ellipsis whitespace-nowrap">
                       {day.condition?.text}
                     </p>
                   }
@@ -85,7 +85,7 @@ const DayCard = ({
                 />
               ) : (
                 <p
-                  className="overflow-x-hidden text-ellipsis text-nowrap"
+                  className="overflow-x-hidden text-ellipsis whitespace-nowrap"
                   title={day.condition?.text}
                 >
                   {day.condition?.text}
