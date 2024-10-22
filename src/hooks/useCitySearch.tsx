@@ -12,6 +12,10 @@ const useCitySearch = (query: string) => {
       ? `https://api.weatherapi.com/v1/search.json?key=${API_KEY}&q=${query}`
       : null,
     fetcher,
+    {
+      revalidateOnFocus: false,
+      dedupingInterval: 600000,
+    },
   );
 
   const uniqueCitiesMap = useMemo(() => {

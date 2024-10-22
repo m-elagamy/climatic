@@ -29,7 +29,7 @@ import type { Location } from "@/types/WeatherFlags";
 const Dialog = () => {
   const [input, setInput] = useState("");
   const { isOpen, setIsOpen } = useToggleStateContext();
-  const debouncedInput = useDebounce(input);
+  const debouncedInput = useDebounce(input, 600);
   const { cities, isLoading, isError } = useCitySearch(debouncedInput);
   const { handleCitySelect } = useCitySelect(setIsOpen);
   const [searchHistoryResults, setSearchHistoryResults] =

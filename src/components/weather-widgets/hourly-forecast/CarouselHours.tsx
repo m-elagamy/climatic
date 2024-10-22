@@ -16,7 +16,7 @@ const CarouselHours = ({ hoursToDisplay }: { hoursToDisplay: HourData[] }) => {
   const [api, setApi] = useState<CarouselApi | null>(null);
   const [scrollProgress, setScrollProgress] = useState(0);
   const animationFrame = useRef<number | null>(null);
-  const debouncedScrollProgress = useDebounce(scrollProgress, 25);
+  const debouncedScrollProgress = useDebounce(scrollProgress, 20);
 
   const handleScroll = useCallback(() => {
     if (!api) return;
@@ -54,7 +54,7 @@ const CarouselHours = ({ hoursToDisplay }: { hoursToDisplay: HourData[] }) => {
         </CarouselContent>
       </Carousel>
       <div
-        className="absolute -left-full bottom-0 h-[2px] w-full bg-gradient-to-r from-slate-200/30 to-slate-400/50 transition-all duration-300 ease-in-out"
+        className="absolute -left-full bottom-0 h-[2px] w-full bg-gradient-to-r from-slate-200/30 to-slate-400/50 transition-all duration-300 ease-out"
         style={{
           transform: `translate3d(${debouncedScrollProgress * 100}%,0,0)`,
         }}

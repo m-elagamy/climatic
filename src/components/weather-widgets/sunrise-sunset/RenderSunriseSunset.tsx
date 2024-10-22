@@ -36,12 +36,11 @@ const RenderSunriseSunset = ({
           className={`${isSunUp ? "text-orange-500" : "text-yellow-400"}`}
           fill="currentColor"
         />
-        {firstLabel}
+        {firstLabel}:
       </h2>
-
       <p className="text-2xl" aria-label={firstTime}>
         {firstTime.split(" ")[0]}
-        <sub className="text-xs">{firstTime.split(" ")[1]}</sub>
+        <span className="text-xs">{firstTime.split(" ")[1]}</span>
       </p>
 
       <p
@@ -56,9 +55,10 @@ const RenderSunriseSunset = ({
           />
           {secondLabel}:
         </span>
-
-        {secondTime.split(" ")[0]}
-        <sub className="text-xs">{secondTime.split(" ")[1]}</sub>
+        <span className="text-xl">
+          {secondTime.split(" ")[0]}
+          <span className="text-xs">{secondTime.split(" ")[1]}</span>
+        </span>
       </p>
     </>
   );
