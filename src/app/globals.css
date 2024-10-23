@@ -80,9 +80,12 @@ div[data-radix-popper-content-wrapper] {
 }
 
 /* Weather Themes */
-.sunny-day,
+.sunny-day {
+  @apply bg-sunny-day;
+}
+
 .cloudy-day {
-  @apply bg-sunny-cloudy-day;
+  @apply bg-cloudy-day;
 }
 
 .clear-night {

@@ -65,19 +65,27 @@ const config: Config = {
           rgba(178, 34, 34, 1) 100%
         )`,
 
-        "sunny-cloudy-day": `linear-gradient(
+        "sunny-day": `linear-gradient(
+          135deg,
+          #1a73e8  0%,   
+          #1A5DA8 50%, 
+          #2B6FB5  100%  
+        )
+      `,
+
+        "cloudy-day": `linear-gradient(
             135deg,
-            #1a73e8  0%,   
-            #1A5DA8 50%, 
-            #2B6FB5  100%  
+            #4a8cd9 0%,   
+            #3c78b8 50%,   
+            #32649a 100%   
           )
         `,
 
         "cloudy-night": `linear-gradient(
             135deg,
-            #1c334e 0%,
-            #0e263b 50%,
-            #1c334e 100%
+            #2c3e50 0%,   
+            #233140 50%,  
+            #1a2530 100% 
           )
         `,
 
