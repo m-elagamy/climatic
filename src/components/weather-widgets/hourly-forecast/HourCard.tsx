@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { memo, useCallback, useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
 import { Droplet, Umbrella } from "lucide-react";
 
@@ -25,7 +25,7 @@ const hourCardVariants = motionVariants(
   1,
 );
 
-const HourCard = ({ hour }: { hour: HourData }) => {
+const HourCard = memo(({ hour }: { hour: HourData }) => {
   const { isImperial, isLoading } = useUnitsContext();
 
   const [currentHour, setCurrentHour] = useState(0);
@@ -103,5 +103,6 @@ const HourCard = ({ hour }: { hour: HourData }) => {
       )}
     </div>
   );
-};
+});
+HourCard.displayName = "HourCard";
 export default HourCard;
