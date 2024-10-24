@@ -26,7 +26,7 @@ const SuggestedCities = memo(({ handleCitySelect }: SuggestedCitiesProps) => {
             onSelect={() => handleCitySelect(city)}
             className="city-option"
           >
-            {city.name}, {city.country}{" "}
+            {city.name}, {city.country}
             {userDefaultLocation &&
               isDefaultCity(userDefaultLocation, city) && (
                 <Star

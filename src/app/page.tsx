@@ -15,18 +15,18 @@ import LocationDetector from "@/components/LocationDetector";
 import Preloader from "@/components/ui/loading-indicators/Preloader";
 import WeatherTheme from "@/components/WeatherTheme";
 
+type SearchParams = Promise<{
+  city: string;
+  lat: string;
+  lon: string;
+}>;
+
 export default async function Home({
   searchParams,
 }: Readonly<{
-  searchParams: {
-    city: string;
-    lat: string;
-    lon: string;
-  };
+  searchParams: SearchParams;
 }>) {
-  const city = searchParams.city;
-  const lat = searchParams.lat;
-  const lon = searchParams.lon;
+  const { city, lat, lon } = await searchParams;
 
   const shouldDetectLocation = !city && !lat && !lon;
 

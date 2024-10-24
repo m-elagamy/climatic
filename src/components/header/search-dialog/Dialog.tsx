@@ -46,8 +46,6 @@ const Dialog = () => {
     (e: React.MouseEvent, cityToRemove: Partial<Location>) => {
       e.stopPropagation();
 
-      console.log("cityToRemove", cityToRemove);
-
       const newSearchHistory = searchHistoryResults?.filter(
         (result) =>
           result.lat !== cityToRemove.lat && result.lon !== cityToRemove.lon,

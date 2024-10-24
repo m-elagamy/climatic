@@ -24,15 +24,15 @@ export type DayData = {
 };
 
 export type Location = {
-  city?: string;
+  city: string;
   lat: number | string;
   lon: number | string;
-  id?: number;
-  name?: string;
-  country?: string;
-  tz_id?: string;
-  localtime?: string;
-  timestamp?: number;
+  id: number;
+  name: string;
+  country: string;
+  tz_id: string;
+  localtime: string;
+  timestamp: number;
 };
 
 export type Current = {
