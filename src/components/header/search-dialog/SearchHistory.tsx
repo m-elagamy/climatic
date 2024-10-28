@@ -33,7 +33,7 @@ const SearchHistory = ({
             History
           </p>
           {searchHistoryResults && searchHistoryResults?.length >= 2 && (
-            <button onClick={removeAllHistory}>Remove all</button>
+            <button onClick={removeAllHistory}>Clear history</button>
           )}
         </div>
       }
