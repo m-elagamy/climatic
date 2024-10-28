@@ -9,6 +9,7 @@ import type { Location } from "@/types/WeatherFlags";
 // Types
 type SearchHistoryProps = {
   searchHistoryResults: Partial<Location>[] | undefined;
+  setSearchHistoryResults: (searchHistoryResults: Partial<Location>[]) => void;
   handleCitySelect: (city: Partial<Location>) => void;
   handleRemoveCity: (e: React.MouseEvent, city: Partial<Location>) => void;
 };
@@ -17,16 +18,24 @@ const SearchHistory = ({
   handleCitySelect,
   handleRemoveCity,
   searchHistoryResults,
+  setSearchHistoryResults,
 }: SearchHistoryProps) => {
   const { userDefaultLocation } = useDefaultLocation();
+
+  const removeAllHistory = () => setSearchHistoryResults([]);
 
   return (
     <CommandGroup
       heading={
-        <>
-          <History className="mr-1 inline-block" size={16} />
-          History
-        </>
+        <div className="flex justify-between">
+          <p>
+            <History className="mr-1 inline-block" size={16} />
+            History
+          </p>
+          {searchHistoryResults && searchHistoryResults?.length >= 2 && (
+            <button onClick={removeAllHistory}>Remove all</button>
+          )}
+        </div>
       }
     >
       <AnimatePresence>

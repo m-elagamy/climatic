@@ -88,6 +88,7 @@ const Dialog = () => {
               debouncedInput === "" && (
                 <SearchHistory
                   searchHistoryResults={searchHistoryResults}
+                  setSearchHistoryResults={setSearchHistoryResults}
                   handleCitySelect={handleCitySelect}
                   handleRemoveCity={handleRemoveCity}
                 />
