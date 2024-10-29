@@ -22,7 +22,6 @@ const fetchWeatherDataByType = async (
     const url = `${baseUrl}/${type}.json?key=${apiKey}&q=${query}${additionalParams ? `&${additionalParams}` : ""}`;
 
     const RequestOptions: RequestInit = {
-      cache: "force-cache",
       signal,
     };
 
