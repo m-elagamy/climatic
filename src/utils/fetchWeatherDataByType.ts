@@ -20,7 +20,13 @@ const fetchWeatherDataByType = async (
     const timeoutId = setTimeout(() => controller.abort(), 10000);
 
     const url = `${baseUrl}/${type}.json?key=${apiKey}&q=${query}${additionalParams ? `&${additionalParams}` : ""}`;
-    const res = await fetch(url, { signal });
+
+    const RequestOptions: RequestInit = {
+      next: type === "forecast" ? { revalidate: 1800 } : {},
+      signal,
+    };
+
+    const res = await fetch(url, RequestOptions);
 
     clearTimeout(timeoutId);
 
