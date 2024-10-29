@@ -22,7 +22,7 @@ const fetchWeatherDataByType = async (
     const url = `${baseUrl}/${type}.json?key=${apiKey}&q=${query}${additionalParams ? `&${additionalParams}` : ""}`;
 
     const RequestOptions: RequestInit = {
-      next: type === "forecast" ? { revalidate: 1800 } : {},
+      cache: "force-cache",
       signal,
     };
 
