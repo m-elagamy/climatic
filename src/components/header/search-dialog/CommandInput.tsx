@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
 import { type Dispatch, type SetStateAction } from "react";
 
@@ -23,6 +24,17 @@ const CommandInput = ({
         value={input}
         onChange={(e) => setInput(e.target.value)}
       />
+      {input.length > 0 && (
+        <Button
+          variant="outline"
+          className="absolute right-12 top-[9px] h-6 bg-transparent p-2 hover:bg-accent/25"
+          onClick={() => setInput("")}
+          size="sm"
+          title="Clear search"
+        >
+          X
+        </Button>
+      )}
     </div>
   );
 };

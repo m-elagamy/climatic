@@ -67,9 +67,9 @@ const config: Config = {
 
         "sunny-day": `linear-gradient(
           135deg,
-          #1a73e8  0%,   
-          #1A5DA8 50%, 
-          #2B6FB5  100%  
+        rgba(26, 115, 232, 0.92) 0%,   
+        rgba(29, 78, 216, 0.95) 50%, 
+        rgba(37, 99, 235, 0.90) 100%
         )
       `,
 
@@ -90,7 +90,11 @@ const config: Config = {
         `,
 
         "foggy-day": `linear-gradient(
-          to top left, #4b5359, #343a3f
+          to top left,
+          #4b5359,
+          #547086,
+          #456f99,
+          #87ceeb
         )`,
 
         "foggy-night": `linear-gradient(
