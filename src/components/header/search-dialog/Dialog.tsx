@@ -28,16 +28,17 @@ import type { Location } from "@/types/WeatherFlags";
 
 const Dialog = () => {
   const [input, setInput] = useState("");
+  const [isDebounceSkipped, setIsDebounceSkipped] = useState(false);
   const { isOpen, setIsOpen } = useToggleStateContext();
-  const debouncedInput = useDebounce(input, 600);
+  const debouncedInput = useDebounce(input, isDebounceSkipped ? 0 : 600);
   const { cities, isLoading, isError } = useCitySearch(debouncedInput);
   const { handleCitySelect } = useCitySelect(setIsOpen);
   const [searchHistoryResults, setSearchHistoryResults] =
     useLocalStorage<Partial<Location>[]>("search-history");
 
-  // Reset input when dialog is closed
   useEffect(() => {
     if (!isOpen) {
+      setIsDebounceSkipped(false);
       setInput("");
     }
   }, [isOpen]);
@@ -61,7 +62,11 @@ const Dialog = () => {
       <DialogDescription className="sr-only">
         Search for a city
       </DialogDescription>
-      <CommandInput input={input} setInput={setInput} />
+      <CommandInput
+        input={input}
+        setInput={setInput}
+        setIsDebounceSkipped={setIsDebounceSkipped}
+      />
       <CommandList className="relative min-h-[68px]">
         {isLoading && <DotLoader />}
         {isError && <ErrorMessage />}

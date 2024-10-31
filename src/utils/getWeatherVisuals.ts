@@ -175,6 +175,7 @@ export default function getWeatherVisuals(
 
     // Thunderstorm conditions
     case "thundery outbreaks possible":
+    case "thundery outbreaks in nearby":
       return { Icon: CloudLightning, color: "#5A6A9C", theme: "thunder" };
     case "patchy light rain with thunder":
     case "moderate or heavy rain with thunder":

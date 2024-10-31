@@ -1,14 +1,29 @@
-import { Button } from "@/components/ui/button";
+import { type ChangeEvent, type Dispatch, type SetStateAction } from "react";
+import { X } from "lucide-react";
 import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
-import { type Dispatch, type SetStateAction } from "react";
+import { Button } from "@/components/ui/button";
+
+type CommandInputProps = {
+  input: string;
+  setInput: Dispatch<SetStateAction<string>>;
+  setIsDebounceSkipped: Dispatch<SetStateAction<boolean>>;
+};
 
 const CommandInput = ({
   input,
   setInput,
-}: {
-  input: string;
-  setInput: Dispatch<SetStateAction<string>>;
-}) => {
+  setIsDebounceSkipped,
+}: CommandInputProps) => {
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
+    setIsDebounceSkipped(false);
+    setInput(e.target.value);
+  };
+
+  const handleClearInput = () => {
+    setIsDebounceSkipped(true);
+    setInput("");
+  };
+
   return (
     <div className="flex items-center border-b border-gray-500/20 px-3">
       <MagnifyingGlassIcon className="mr-2 h-4 w-4 shrink-0 opacity-50" />
@@ -22,17 +37,16 @@ const CommandInput = ({
         placeholder="Which city are you looking for?"
         autoComplete="off"
         value={input}
-        onChange={(e) => setInput(e.target.value)}
+        onChange={handleInputChange}
       />
       {input.length > 0 && (
         <Button
           variant="outline"
-          className="absolute right-12 top-[9px] h-6 bg-transparent p-2 hover:bg-accent/25"
-          onClick={() => setInput("")}
-          size="sm"
+          className="p- absolute right-12 top-[9px] h-6 bg-transparent p-1 hover:bg-accent/25"
+          onClick={handleClearInput}
           title="Clear search"
         >
-          X
+          <X size={14} />
         </Button>
       )}
     </div>
