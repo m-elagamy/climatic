@@ -1,4 +1,9 @@
-import { type ChangeEvent, type Dispatch, type SetStateAction } from "react";
+import {
+  useRef,
+  type ChangeEvent,
+  type Dispatch,
+  type SetStateAction,
+} from "react";
 import { X } from "lucide-react";
 import { MagnifyingGlassIcon } from "@radix-ui/react-icons";
 import { Button } from "@/components/ui/button";
@@ -14,6 +19,8 @@ const CommandInput = ({
   setInput,
   setIsDebounceSkipped,
 }: CommandInputProps) => {
+  const commandInputRef = useRef<HTMLInputElement>(null);
+
   const handleInputChange = (e: ChangeEvent<HTMLInputElement>) => {
     setIsDebounceSkipped(false);
     setInput(e.target.value);
@@ -22,6 +29,7 @@ const CommandInput = ({
   const handleClearInput = () => {
     setIsDebounceSkipped(true);
     setInput("");
+    commandInputRef.current?.focus();
   };
 
   return (
@@ -31,6 +39,7 @@ const CommandInput = ({
         Search
       </label>
       <input
+        ref={commandInputRef}
         id="search"
         type="text"
         className="flex h-10 w-full rounded-md bg-transparent py-3 text-sm outline-none placeholder:text-muted-foreground disabled:cursor-not-allowed disabled:opacity-50"
