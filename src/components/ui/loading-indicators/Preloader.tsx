@@ -21,6 +21,8 @@ const Preloader = async ({ city, lat, lon }: Partial<Location>) => {
     <section
       className={`${theme} preloader fixed inset-0 -z-[1] flex items-center justify-center`}
     >
+      {!isDay && <div className="night-overlay"></div>}
+      {!!isDay && <div className="day-overlay"></div>}
       <h2 className="sr-only">Loading...</h2>
       <article className="relative">
         <svg
