@@ -51,7 +51,7 @@ const CommandInput = ({
       {input.length > 0 && (
         <Button
           variant="outline"
-          className="p- absolute right-12 top-[9px] h-6 bg-transparent p-1 hover:bg-accent/25"
+          className="p- absolute right-12 top-[8px] h-6 bg-transparent p-1 hover:bg-accent/25"
           onClick={handleClearInput}
           title="Clear search"
         >

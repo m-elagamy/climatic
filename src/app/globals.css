@@ -84,12 +84,12 @@ div[data-radix-popper-content-wrapper] {
   @apply bg-sunny-day;
 }
 
-.cloudy-day {
-  @apply bg-cloudy-day;
+.clear-night {
+  @apply bg-clear-night;
 }
 
-.clear-night {
-  @apply animate-starry-night bg-starry-night-mobile bg-[length:200px_200px,200px_200px,100%_100%] md:animate-starry-night-desktop md:bg-starry-night-desktop md:bg-[length:200px_200px,200px_200px,200px_200px,100%_100%];
+.cloudy-day {
+  @apply bg-cloudy-day;
 }
 
 .cloudy-night {
@@ -115,11 +115,11 @@ div[data-radix-popper-content-wrapper] {
 }
 
 .sleet,
-.snow-day {
+.snowy-day {
   @apply bg-snowy-day;
 }
 
-.snow-night {
+.snowy-night {
   @apply bg-snowy-night;
 }
 
@@ -141,16 +141,5 @@ div[data-radix-popper-content-wrapper] {
 }
 
 .night-overlay {
-  @apply bg-night-overlay;
-}
-
-/* Animations */
-@keyframes twinkle-desktop {
-  to {
-    background-position:
-      -50px -50px,
-      -40px -60px,
-      -30px -70px,
-      0 0;
-  }
+  @apply bg-night-overlay bg-[length:100%,200px_200px,100%_100%];
 }

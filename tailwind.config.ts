@@ -73,6 +73,13 @@ const config: Config = {
         )
       `,
 
+        "clear-night": `
+          radial-gradient(1px 1px at 20px 30px, #ffffff, rgba(0,0,0,0.05)),
+          radial-gradient(1px 1px at 40px 70px, #ffffff, rgba(0,0,0,0.05)),
+          radial-gradient(1px 1px at 50px 160px, #ffffff, rgba(0,0,0,0.05)),
+          linear-gradient(135deg, #121A2E 0%, #1A2540 20%, #223050 40%, #2A3B60 60%, #324570 80%, #3A5080 100%)
+      `,
+
         "cloudy-day": `linear-gradient(
             135deg,
             #4a8cd9 0%,   
@@ -81,12 +88,8 @@ const config: Config = {
           )
         `,
 
-        "cloudy-night": `linear-gradient(
-            135deg,
-            #2c3e50 0%,   
-            #233140 50%,  
-            #1a2530 100% 
-          )
+        "cloudy-night": `
+          linear-gradient(135deg, #1b2b3a 0%, #243242 30%, #2d3a4c 50%, #1e2a36 80%, #1a2530 100%)
         `,
 
         "foggy-day": `linear-gradient(
@@ -97,17 +100,20 @@ const config: Config = {
           #87ceeb
         )`,
 
-        "foggy-night": `linear-gradient(
-          to top left,  #3a4451, #333e48
-        )`,
+        "foggy-night": `
+          linear-gradient(135deg, rgba(40, 48, 55, 0.9), rgba(50, 58, 68, 0.8)),
+          linear-gradient(to bottom, rgba(45, 55, 65, 0.6), rgba(30, 40, 50, 0.5)),
+          linear-gradient(to top, rgba(20, 30, 40, 0.4), rgba(15, 25, 35, 0.3))
+        `,
 
         "rainy-day": `linear-gradient(to top left, #4c6f96, #2d506f)`,
 
-        "rainy-night": `linear-gradient(to top left, #22364f, #16263b)`,
+        "rainy-night": `
+          linear-gradient(to top left, #22364f, #16263b)`,
 
         "snowy-day": `linear-gradient(to top left, #72b2cc, #668a9b)`,
 
-        "snowy-night": ` linear-gradient(
+        "snowy-night": `linear-gradient(
           135deg,
           #4b6584 0%,
           #5f7d9c 50%,
@@ -134,32 +140,20 @@ const config: Config = {
           rgba(255, 255, 255, 0.05) 70%
         )`,
 
-        "night-overlay": `radial-gradient(
-          ellipse at top,
-          rgba(255, 255, 255, 0.02) 0%,
-          rgba(0, 0, 0, 0.35) 70%
-        )`,
-
-        "starry-night-mobile": `
-          radial-gradient(1px 1px at 20px 30px, #ffffff, rgba(0,0,0,0.05)),
-          radial-gradient(1px 1px at 40px 70px, #ffffff, rgba(0,0,0,0.05)),
-          linear-gradient(135deg, #121A2E 0%, #1A2540 20%, #223050 40%, #2A3B60 60%, #324570 80%, #3A5080 100%)
-        `,
-
-        "starry-night-desktop": `
+        "night-overlay": `
           radial-gradient(1px 1px at 20px 30px, #ffffff, rgba(0,0,0,0.05)),
           radial-gradient(1px 1px at 40px 70px, #ffffff, rgba(0,0,0,0.05)),
           radial-gradient(1px 1px at 50px 160px, #ffffff, rgba(0,0,0,0.05)),
-          linear-gradient(135deg, #121A2E 0%, #1A2540 20%, #223050 40%, #2A3B60 60%, #324570 80%, #3A5080 100%)
-        `,
+          radial-gradient(
+            ellipse at top,
+            rgba(255, 255, 255, 0.02) 0%,
+            rgba(0, 0, 0, 0.35) 70%
+        )`,
       },
       animation: {
         "spin-slow": "spin 12s linear infinite",
         drop: "drop 350ms infinite",
         float: "float 3s ease-in-out  infinite",
-        "starry-night": "twinkle 30s ease-in-out infinite alternate",
-        "starry-night-desktop":
-          "twinkle-desktop 30s ease-in-out infinite alternate",
       },
       keyframes: {
         spin: {
@@ -174,11 +168,6 @@ const config: Config = {
         float: {
           "0%, 100%": { transform: "translateY(0px)" },
           "50%": { transform: "translateY(-5px)" },
-        },
-        twinkle: {
-          to: {
-            "background-position": "-50px -50px, -50px -50px, 0 0",
-          },
         },
       },
     },

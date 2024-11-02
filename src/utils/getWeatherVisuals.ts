@@ -48,13 +48,13 @@ export default function getWeatherVisuals(
     case "cloudy":
       return {
         Icon: Cloud,
-        color: "#A9A9A9",
+        color: "#BCC8D6",
         theme: isDay ? "cloudy-day" : "cloudy-night",
       };
     case "overcast":
       return {
         Icon: Cloud,
-        color: "#778899",
+        color: isDay ? "#A0B4C3" : "#778899",
         theme: isDay ? "foggy-day" : "foggy-night",
       };
 
@@ -63,7 +63,7 @@ export default function getWeatherVisuals(
     case "fog":
       return {
         Icon: CloudFog,
-        color: isDay ? "#C0C0C0" : "#808080",
+        color: isDay ? "#C2C6C9" : "#808080",
         theme: isDay ? "foggy-day" : "foggy-night",
       };
     case "freezing fog":
@@ -101,7 +101,7 @@ export default function getWeatherVisuals(
     case "patchy rain possible":
       return {
         Icon: isDay ? CloudSunRain : CloudRain,
-        color: isDay ? "#6B8EAD " : "#3C4C63",
+        color: isDay ? "#7CA3C0" : "#3C4C63",
         theme: isDay ? "rainy-day" : "rainy-night",
       };
 
@@ -133,14 +133,14 @@ export default function getWeatherVisuals(
       return {
         Icon: CloudSnow,
         color: "#F0F8FF",
-        theme: isDay ? "snow-day" : "snow-night",
+        theme: isDay ? "snowy-day" : "snowy-night",
       };
     case "patchy moderate snow":
     case "moderate snow":
       return {
         Icon: CloudSnow,
         color: "#E6F2FA",
-        theme: isDay ? "snow-day" : "snow-night",
+        theme: isDay ? "snowy-day" : "snowy-night",
       };
     case "patchy heavy snow":
     case "heavy snow":
@@ -148,19 +148,19 @@ export default function getWeatherVisuals(
       return {
         Icon: CloudSnow,
         color: "#DDE7F3",
-        theme: isDay ? "snow-day" : "snow-night",
+        theme: isDay ? "snowy-day" : "snowy-night",
       };
     case "blowing snow":
       return {
         Icon: Wind,
         color: "#E3F4FA",
-        theme: isDay ? "snow-day" : "snow-night",
+        theme: isDay ? "snowy-day" : "snowy-night",
       };
     case "blizzard":
       return {
         Icon: CloudSnow,
         color: "#C9D7E5",
-        theme: isDay ? "snow-day" : "snow-night",
+        theme: isDay ? "snowy-day" : "snowy-night",
       };
 
     // Ice Pellets conditions
@@ -170,7 +170,7 @@ export default function getWeatherVisuals(
       return {
         Icon: CloudHail,
         color: "#CCEFFF",
-        theme: isDay ? "snow-day" : "snow-night",
+        theme: isDay ? "snowy-day" : "snowy-night",
       };
 
     // Thunderstorm conditions

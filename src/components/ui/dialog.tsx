@@ -44,16 +44,15 @@ const DialogContent = React.forwardRef<
       {...props}
     >
       {children}
-      <DialogPrimitive.Close className="absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-accent/25 data-[state=open]:text-muted-foreground">
+      <DialogPrimitive.Close asChild>
         <Button
           variant="outline"
-          className="relative -top-[9px] h-6 bg-transparent p-1 hover:bg-accent/25"
+          className="absolute right-3 top-2 h-6 rounded-sm bg-transparent p-1 opacity-70 ring-offset-background transition hover:bg-accent/25 hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none"
           size="sm"
           title="Escape"
         >
           Esc
         </Button>
-        <span className="sr-only">Escape</span>
       </DialogPrimitive.Close>
     </DialogPrimitive.Content>
   </DialogPortal>
