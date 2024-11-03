@@ -42,7 +42,7 @@ export default function getWeatherVisuals(
     case "partly cloudy":
       return {
         Icon: isDay ? CloudSun : CloudMoon,
-        color: isDay ? "#B0C4DE" : "#A2A9B1",
+        color: isDay ? "#D3E1EC" : "#A2A9B1",
         theme: isDay ? "cloudy-day" : "cloudy-night",
       };
     case "cloudy":
@@ -112,7 +112,7 @@ export default function getWeatherVisuals(
     case "torrential rain shower":
       return {
         Icon: CloudRain,
-        color: "#4A90E2",
+        color: isDay ? "#345C85" : "#1E3A5F",
         theme: isDay ? "rainy-day" : "rainy-night",
       };
 
