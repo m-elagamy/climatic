@@ -14,12 +14,43 @@ import DewPoint from "@/components/weather-widgets/dew-point/DewPoint";
 import LocationDetector from "@/components/LocationDetector";
 import Preloader from "@/components/ui/loading-indicators/Preloader";
 import WeatherTheme from "@/components/WeatherTheme";
+import type { Metadata } from "next";
 
+// Types
 type SearchParams = Promise<{
   city: string;
   lat: string;
   lon: string;
 }>;
+
+// Metadata tags
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: SearchParams;
+}): Promise<Metadata> {
+  const { city } = await searchParams;
+
+  const title = city ? `Climatic | Weather in ${city}` : "Climatic";
+
+  return {
+    title: title,
+    description:
+      "Climatic provides accurate, real-time weather updates for cities worldwide. Check current conditions, detailed forecasts, and more for your location.",
+    keywords:
+      "weather app, real-time weather updates, city weather, weather forecast, air quality, weather by city, climate tracker",
+    authors: [{ name: "Mahmoud Elagamy", url: "https://agamy.netlify.app/" }],
+    creator: "Mahmoud Elagamy",
+    openGraph: {
+      title: title,
+      description:
+        "Get accurate and real-time weather updates for your city. Check the current temperature, forecasts, and more.",
+      url: "https://climatic-app.netlify.app/",
+      siteName: "Climatic",
+      type: "website",
+    },
+  };
+}
 
 export default async function Home({
   searchParams,

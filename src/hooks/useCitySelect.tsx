@@ -11,9 +11,12 @@ const useCitySelect = (setOpen: Dispatch<SetStateAction<boolean>>) => {
       setOpen(false);
 
       try {
-        const cityName = selectedCity.name ?? "";
         router.push(
-          buildLocationUrl(cityName, selectedCity.lat, selectedCity.lon),
+          buildLocationUrl(
+            selectedCity.name,
+            selectedCity.lat,
+            selectedCity.lon,
+          ),
         );
       } catch (error) {
         console.error(
