@@ -2,7 +2,7 @@ import "server-only";
 
 import { WeatherFlags } from "@/types/WeatherFlags";
 
-const apiKey = process.env.NEXT_PUBLIC_WEATHER_API_KEY;
+const apiKey = process.env.WEATHER_API_KEY;
 const baseUrl = "https://api.weatherapi.com/v1";
 
 if (!apiKey || !baseUrl) {

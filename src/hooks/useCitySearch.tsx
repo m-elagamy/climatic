@@ -5,12 +5,8 @@ import type { Location } from "@/types/WeatherFlags";
 import fetcher from "@/utils/fetcher";
 
 const useCitySearch = (query: string) => {
-  const API_KEY = process.env.NEXT_PUBLIC_WEATHER_API_KEY;
-
   const { data, error, isLoading } = useSWR(
-    query
-      ? `https://api.weatherapi.com/v1/search.json?key=${API_KEY}&q=${query}`
-      : null,
+    query ? `/api/search-city?query=${query}` : null,
     fetcher,
     {
       revalidateOnFocus: false,
