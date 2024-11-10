@@ -99,6 +99,7 @@ export default function getWeatherVisuals(
     // Moderate Rain conditions
     case "moderate rain":
     case "patchy rain possible":
+    case "moderate rain at times":
       return {
         Icon: isDay ? CloudSunRain : CloudRain,
         color: isDay ? "#7CA3C0" : "#3C4C63",
