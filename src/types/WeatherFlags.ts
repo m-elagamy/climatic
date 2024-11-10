@@ -16,7 +16,6 @@ export type DayData = {
   maxtemp_f: number;
   mintemp_f: number;
   uv?: number;
-  avghumidity?: number;
   condition: {
     text: string;
   };
