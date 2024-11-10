@@ -2,7 +2,7 @@
 
 import { memo, useCallback, useEffect, useMemo, useState } from "react";
 import { motion } from "framer-motion";
-import { Droplet, Umbrella } from "lucide-react";
+import { Droplet, Droplets, Umbrella } from "lucide-react";
 
 import useUnitsContext from "@/hooks/useUnitsContext";
 import { HourData } from "@/types/WeatherFlags";
@@ -77,9 +77,22 @@ const HourCard = memo(({ hour }: { hour: HourData }) => {
               }
               tooltipContent={hour.condition.text}
             />
-            <h5 className="flex items-center justify-center gap-1 font-semibold md:text-lg">
+            <h5 className="flex items-center justify-center font-semibold md:text-lg">
               {roundToNearestInteger(temp)}&deg;
             </h5>
+            <ToolTip
+              tooltipTrigger={
+                <div className="flex cursor-help items-center justify-center gap-1">
+                  <div className="relative">
+                    <Droplets size={16} />
+                  </div>
+                  <span className="text-sm text-muted-foreground">
+                    {hour.humidity}%
+                  </span>
+                </div>
+              }
+              tooltipContent={`${hour.humidity}% Humidity`}
+            />
             <ToolTip
               tooltipTrigger={
                 <div className="flex cursor-help items-center justify-center gap-1">

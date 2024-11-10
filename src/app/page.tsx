@@ -7,10 +7,8 @@ import SunRiseSet from "@/components/weather-widgets/sunrise-sunset/SunRiseSet";
 import Ultraviolet from "@/components/weather-widgets/uv-index/Ultraviolet";
 import Wind from "@/components/weather-widgets/wind/Wind";
 import HourlyForecast from "@/components/weather-widgets/hourly-forecast/HourlyForecast";
-import Pressure from "@/components/weather-widgets/pressure/Pressure";
 import Visibility from "@/components/weather-widgets/visibility/Visibility";
 import DaysForecast from "@/components/weather-widgets/days-forecast/DaysForecast";
-import DewPoint from "@/components/weather-widgets/dew-point/DewPoint";
 import LocationDetector from "@/components/LocationDetector";
 import Preloader from "@/components/ui/loading-indicators/Preloader";
 import WeatherTheme from "@/components/WeatherTheme";
@@ -76,15 +74,13 @@ export default async function Home({
             <CurrentTemperature city={city} lat={lat} lon={lon} />
             <DaysForecast city={city} lat={lat} lon={lon} />
           </section>
-          <section className="grid h-full grid-cols-2 gap-2 md:gap-4 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5">
+          <section className="grid h-full grid-cols-2 gap-2 md:gap-4 lg:grid-cols-3 xl:grid-cols-4">
             <FeelsLikeTemp city={city} lat={lat} lon={lon} />
             <Humidity city={city} lat={lat} lon={lon} />
             <Wind city={city} lat={lat} lon={lon} />
             <Visibility city={city} lat={lat} lon={lon} />
             <Ultraviolet city={city} lat={lat} lon={lon} />
             <AirPollution city={city} lat={lat} lon={lon} />
-            <Pressure city={city} lat={lat} lon={lon} />
-            <DewPoint city={city} lat={lat} lon={lon} />
             <SunRiseSet city={city} lat={lat} lon={lon} />
             <HourlyForecast city={city} lat={lat} lon={lon} />
           </section>
