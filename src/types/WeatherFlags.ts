@@ -43,12 +43,7 @@ export type Current = {
     text: string;
   };
   air_quality: {
-    co: number;
-    no2: number;
-    o3: number;
-    so2: number;
     pm2_5: number;
-    pm10: number;
   };
   wind_kph: number;
   wind_mph: number;
@@ -58,15 +53,9 @@ export type Current = {
   feelslike_c: number;
   feelslike_f: number;
   is_day: boolean;
-  precip_mm: number;
-  precip_in: number;
   humidity: number;
-  pressure_mb: number;
-  pressure_in: number;
   vis_km: number;
   vis_miles: number;
-  dewpoint_c: number;
-  dewpoint_f: number;
 };
 
 type ForecastDay = {
