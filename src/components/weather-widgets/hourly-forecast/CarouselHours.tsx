@@ -43,7 +43,7 @@ const CarouselHours = ({ hoursToDisplay }: { hoursToDisplay: HourData[] }) => {
   return (
     <>
       <Carousel
-        className="min-h-[112px] cursor-grab active:cursor-grabbing"
+        className="cursor-grab active:cursor-grabbing"
         setApi={setApi}
         opts={{ align: "start" }}
       >

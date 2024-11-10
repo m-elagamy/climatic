@@ -50,7 +50,7 @@ const HourCard = memo(({ hour }: { hour: HourData }) => {
   }, [hour.time, setCurrentHourCallback, setUpComingHoursCallback]);
 
   return (
-    <div className={`flex flex-col items-center gap-4`}>
+    <>
       {isLoading && <HourCardSkeleton />}
 
       {!isLoading && (
@@ -58,33 +58,30 @@ const HourCard = memo(({ hour }: { hour: HourData }) => {
           variants={hourCardVariants}
           initial="hidden"
           animate="visible"
-          className="flex flex-col items-center gap-2"
         >
-          <h3 className="text-xs font-medium uppercase text-muted-foreground">
+          <h3 className="pb-2 text-center text-xs text-muted-foreground">
             <ClockIcon currentHour={currentHour} />
             {upComingHours}
           </h3>
-          <div className="space-y-2">
+          <div className="space-y-3">
             <ToolTip
               tooltipTrigger={
-                <h4 className="flex justify-center">
+                <h4 className="flex items-center justify-center gap-1 font-semibold md:text-lg">
                   <WeatherIcon
                     condition={hour.condition.text}
                     isDay={hour.is_day}
-                    size={24}
+                    size={18}
                   />
+                  {roundToNearestInteger(temp)}&deg;
                 </h4>
               }
               tooltipContent={hour.condition.text}
             />
-            <h5 className="flex items-center justify-center font-semibold md:text-lg">
-              {roundToNearestInteger(temp)}&deg;
-            </h5>
             <ToolTip
               tooltipTrigger={
                 <div className="flex cursor-help items-center justify-center gap-1">
                   <div className="relative">
-                    <Droplets size={16} />
+                    <Droplets size={14} />
                   </div>
                   <span className="text-sm text-muted-foreground">
                     {hour.humidity}%
@@ -97,7 +94,7 @@ const HourCard = memo(({ hour }: { hour: HourData }) => {
               tooltipTrigger={
                 <div className="flex cursor-help items-center justify-center gap-1">
                   <div className="relative">
-                    <Umbrella size={16} fill="currentColor" />
+                    <Umbrella size={14} fill="currentColor" />
                     <Droplet
                       size={12}
                       className="absolute -left-2 -top-2 text-sky-500"
@@ -114,7 +111,7 @@ const HourCard = memo(({ hour }: { hour: HourData }) => {
           </div>
         </motion.div>
       )}
-    </div>
+    </>
   );
 });
 HourCard.displayName = "HourCard";
