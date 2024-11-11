@@ -49,7 +49,10 @@ const CarouselHours = ({ hoursToDisplay }: { hoursToDisplay: HourData[] }) => {
       >
         <CarouselContent>
           {memoizedHoursToDisplay?.map((hour) => (
-            <CarouselItem key={hour.time} className="basis-1/3 lg:basis-1/4">
+            <CarouselItem
+              key={hour.time}
+              className="basis-1/3 lg:basis-1/4 2xl:basis-1/5"
+            >
               <HourCard hour={hour} />
             </CarouselItem>
           ))}
