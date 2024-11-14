@@ -42,11 +42,11 @@ const CarouselHours = ({ hoursToDisplay }: { hoursToDisplay: HourData[] }) => {
   return (
     <>
       {isLoading && (
-        <div className="flex 2xl:w-[560.04px]">
+        <div className="flex xl:w-[432px] 2xl:w-[560.04px]">
           {Array.from({ length: 5 }).map((_, index) => (
             <div
               key={index}
-              className={`basis-1/3 lg:basis-1/4 2xl:basis-1/5 ${index === 4 ? "hidden 2xl:block" : ""}`}
+              className={`basis-1/3 lg:basis-1/4 2xl:basis-1/5 ${index === 3 ? "hidden xl:block" : ""} ${index === 4 ? "hidden 2xl:block" : ""}`}
             >
               <HourCardSkeleton />
             </div>
@@ -56,7 +56,7 @@ const CarouselHours = ({ hoursToDisplay }: { hoursToDisplay: HourData[] }) => {
       {!isLoading && (
         <>
           <Carousel
-            className="min-h-[112px] cursor-grab active:cursor-grabbing md:min-h-[116px] 2xl:w-[560.04px]"
+            className="min-h-[112px] cursor-grab active:cursor-grabbing md:min-h-[116px] xl:w-[432px] 2xl:w-[560.04px]"
             setApi={setApi}
             opts={{ align: "start" }}
           >
