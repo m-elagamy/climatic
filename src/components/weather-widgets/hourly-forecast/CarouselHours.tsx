@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 import {
   Carousel,
@@ -10,60 +10,70 @@ import {
 } from "@/components/ui/carousel";
 import HourCard from "./HourCard";
 import type { HourData } from "@/types/WeatherFlags";
+import ScrollBarProgress from "./ScrollBarProgress";
+import HourCardSkeleton from "@/components/ui/loading-indicators/HourCardSkeleton";
+import useUnitsContext from "@/hooks/useUnitsContext";
 
 const CarouselHours = ({ hoursToDisplay }: { hoursToDisplay: HourData[] }) => {
   const [api, setApi] = useState<CarouselApi | null>(null);
+  const [visibleHours, setVisibleHours] = useState<number[]>([]);
   const [scrollProgress, setScrollProgress] = useState(0);
-  const animationFrame = useRef<number | null>(null);
 
-  const handleScroll = useCallback(() => {
+  const { isLoading } = useUnitsContext();
+
+  const updateSlidesInView = useCallback((api: CarouselApi) => {
     if (!api) return;
 
-    if (animationFrame.current) cancelAnimationFrame(animationFrame.current);
-    animationFrame.current = requestAnimationFrame(() => {
-      setScrollProgress(api.scrollProgress());
-    });
-  }, [api]);
+    setVisibleHours(api.slidesInView());
+    setScrollProgress(api.scrollProgress());
+  }, []);
 
   useEffect(() => {
     if (!api) return;
 
-    api.on("scroll", handleScroll);
+    updateSlidesInView(api);
+    api.on("slidesInView", updateSlidesInView);
 
     return () => {
-      api.off("scroll", handleScroll);
-      if (animationFrame.current) cancelAnimationFrame(animationFrame.current);
+      api.off("slidesInView", updateSlidesInView);
     };
-  }, [api, handleScroll]);
-
-  const memoizedHoursToDisplay = useMemo(() => {
-    return hoursToDisplay;
-  }, [hoursToDisplay]);
+  }, [api, updateSlidesInView]);
 
   return (
     <>
-      <Carousel
-        className="cursor-grab active:cursor-grabbing"
-        setApi={setApi}
-        opts={{ align: "start" }}
-      >
-        <CarouselContent>
-          {memoizedHoursToDisplay?.map((hour) => (
-            <CarouselItem
-              key={hour.time}
-              className="basis-1/3 lg:basis-1/4 2xl:basis-1/5"
+      {isLoading && (
+        <div className="flex 2xl:w-[560.04px]">
+          {Array.from({ length: 5 }).map((_, index) => (
+            <div
+              key={index}
+              className={`basis-1/3 lg:basis-1/4 2xl:basis-1/5 ${index === 4 ? "hidden 2xl:block" : ""}`}
             >
-              <HourCard hour={hour} />
-            </CarouselItem>
+              <HourCardSkeleton />
+            </div>
           ))}
-        </CarouselContent>
-      </Carousel>
-      <div
-        className="absolute -left-full bottom-0 h-[3px] w-full rounded-sm bg-gradient-to-r from-slate-200/30 to-slate-400/50 transition-transform duration-500 ease-out"
-        style={{
-          transform: `translate3d(${scrollProgress * 100}%,0,0)`,
-        }}
-      />
+        </div>
+      )}
+      {!isLoading && (
+        <>
+          <Carousel
+            className="min-h-[112px] cursor-grab active:cursor-grabbing md:min-h-[116px] 2xl:w-[560.04px]"
+            setApi={setApi}
+            opts={{ align: "start" }}
+          >
+            <CarouselContent>
+              {hoursToDisplay?.map((hour, index) => (
+                <CarouselItem
+                  key={hour.time}
+                  className="basis-1/3 lg:basis-1/4 2xl:basis-1/5"
+                >
+                  {visibleHours.includes(index) && <HourCard hour={hour} />}
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+          <ScrollBarProgress scrollProgress={scrollProgress} />
+        </>
+      )}
     </>
   );
 };
