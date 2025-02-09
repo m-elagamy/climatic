@@ -143,3 +143,11 @@ div[data-radix-popper-content-wrapper] {
 .night-overlay {
   @apply bg-night-overlay bg-[length:100%,200px_200px,100%_100%];
 }
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  scrollbar-width: none;
+}
